@@ -1,0 +1,506 @@
+# usermodes.yaml
+#
+# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+#  <pickle@alien.net.au>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "usermodes"
+    revision: "1.10"
+
+# The following format is used through-out this file. The first two fields
+# ('irc2char' and 'name') are manditory, the others may or may not exist.
+
+format:
+    char: mode char for irc2 based protocol(s)
+    name: mode name
+    origin: where the mode was found
+    when: release version or announced date
+    contact: point of contact associated with the mode
+    information: url where to find more information
+    parameter: parameter name
+    comment: "comments, history etc"
+    server_on: true
+    server_off: true
+    conflict: true
+    obsolete: true
+
+values:
+    -
+        char: a
+        name: AWAY
+        origin: RFC2812
+        comment: User is away (see AWAY command?)
+        server_on: true
+        server_off: true
+        conflict: true
+
+    -
+        char: a
+        name: SERVICES_ADMIN
+        origin: "Bahamut, Unreal"
+        comment: User is a services administrator
+        conflict: true
+
+    -
+        char: a
+        name: ADMIN
+        origin: Hybrid
+        comment: >
+            Admin status. Shown as an admin in WHOIS, able to load and
+            unload modules, and see IP's in STATS c
+
+        conflict: true
+
+    -
+        char: a
+        name: ERRORS
+        origin: AustHex
+        comment: User receives all errors and alerts
+        conflict: true
+
+    -
+        char: A
+        name: SERVER_ADMIN
+        origin: "Bahamut, Unreal"
+        comment: User is a server administrator
+
+    -
+        char: b
+        name: BOTS
+        origin: Hybrid
+        comment: User receives information about potential bots/drones
+        conflict: true
+
+    -
+        char: b
+        name: CHATOPS
+        origin: "Bahamut, Unreal"
+        comment: User receives CHATOPS messages
+        conflict: true
+
+    -
+        char: B
+        name: BOT
+        origin: Unreal
+        comment: User is a bot/drone
+
+    -
+        char: c
+        name: CLIENT_CONNS
+        origin: Hybrid
+        comment: >
+            User receives information about clients connecting/disconnecting
+
+    -
+        char: C
+        name: CO_ADMIN
+        origin: Unreal
+        comment: User is a co-administrator
+
+    -
+        char: d
+        name: DEAF
+        origin: ircu
+        comment: User does not receive channel messages
+        conflict: true
+
+    -
+        char: d
+        name: DEAF
+        comment: >
+            User does not receive channel messages unless they are prefixed
+            with a specific character (usually '!' ?). This is an extension
+            of the ircu '+d'
+
+        conflict: true
+
+    -
+        char: d
+        name: DEAF
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        parameter: Prefix character
+        comment: >
+            User does not receive channel messages unless they are prefixed
+            with the given prefix character. If no parameter is given, all
+            channel messages are ignored, with no prefix checking.
+
+        conflict: true
+
+    -
+        char: d
+        name: DEBUG
+        origin: "Hybrid, Bahamut"
+        comment: User receives debugging messages
+        conflict: true
+
+    -
+        char: f
+        name: FULL
+        origin: Hybrid
+        comment: >
+            User receives notices about I-lines being full, or too many
+            clients in general
+
+        conflict: true
+
+    -
+        char: f
+        name: FLOODS
+        origin: Bahamut
+        comment: User receives flood notices
+        conflict: true
+
+    -
+        char: g
+        name: DEBUG
+        origin: ircu
+        comment: User receives debugging messages
+        conflict: true
+
+    -
+        char: g
+        name: CALLERID
+        origin: "Hybrid, KineIRCd"
+        comment: >
+            User is ignoring everyone, unless they are ACCEPTed with the
+            ACCEPT command
+
+        conflict: true
+
+    -
+        char: g
+        name: GLOBOPS
+        origin: Bahamut
+        comment: User receives GLOBOPS messages
+        conflict: true
+
+    -
+        char: G
+        name: STRIP_BAD_WORDS
+        origin: Unreal
+        comment: Messages user receives are stripped of profanity
+
+    -
+        char: h
+        name: HELPER
+        origin: "Bahamut, AustHex"
+        comment: "User is a HELPER, associated with network services"
+        server_on: true
+
+    -
+        char: h
+        name: HELPER
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        parameter: level
+        comment: >
+            User is a HELPER, the level is an unsigned 16-bit integer
+            denotes 'rank', as determined by network services
+
+        server_on: true
+
+    -
+        char: H
+        name: HIDE_OPER
+        origin: Unreal
+        comment: Hides oper status from users (i.e. whois)
+
+    -
+        char: i
+        name: INVISIBLE
+        origin: RFC1459
+        comment: User is invisible
+
+    -
+        char: I
+        name: INVISIBLE_JOINPART
+        origin: Unreal
+        comment: >
+            User is invisible when joining/parting channels. This is
+            supposedly obsolete as of UnrealIRCd 3.2 beta 16
+
+        obsolete: true
+
+    -
+        char: k
+        name: SERVICE
+        origin: ircu
+        comment: >
+            User is a service (cannot be KILLed or KICKed from channels, and
+            WHOIS output is usually limited)
+
+        conflict: true
+
+    -
+        char: k
+        name: KILLS
+        origin: "Hybrid, Bahamut"
+        comment: User receives KILL notices
+        conflict: true
+
+    -
+        char: l
+        name: LOCOPS
+        origin: Hybrid
+        comment: User receives LOCOPS messages
+        conflict: true
+
+    -
+        char: l
+        name: LISTALL
+        origin: AustHex
+        comment: User can list all channels (including hidden ones)
+        conflict: true
+
+    -
+        char: n
+        name: NCHANGE
+        origin: Hybrid
+        comment: User sees client nick changes
+        conflict: true
+
+    -
+        char: n
+        name: ROUTING
+        origin: Bahamut
+        comment: User receives routing messages
+        conflict: true
+
+    -
+        char: N
+        name: NETWORK_ADMIN
+        origin: Unreal
+        comment: User is a network administrator
+
+    -
+        char: m
+        name: SPAMBOTS
+        origin: Bahamut
+        comment: User receives notices about (potential) spambots
+
+    -
+        char: o
+        name: GLOBAL_OPERATOR
+        origin: RFC1459
+        comment: User is a network-wide or 'global' operator
+
+    -
+        char: O
+        name: LOCAL_OPERATOR
+        origin: RFC2812
+        comment: User is a server-wise or 'local' operator
+
+    -
+        char: p
+        name: HIDE_CHANNELS
+        origin: Unreal
+        comment: >
+            Hide channels from user's WHOIS reply (will suppress
+            RPL_WHOISCHANNELS)
+
+    -
+        char: q
+        name: KIX
+        origin: Unreal
+        comment: Only U:liners/arbiters can kick this user
+
+    -
+        char: r
+        name: RESTRICTED
+        origin: RFC2812
+        comment: Restricted user connection
+        server_on: true
+        server_off: true
+        conflict: true
+
+    -
+        char: r
+        name: REJ
+        origin: Hybrid
+        comment: User receives notices about rejected clients
+        conflict: true
+
+    -
+        char: r
+        name: REGISTERED
+        origin: "Bahamut, ircu"
+        comment: Nickname is registered with a network nickname service
+        server_on: true
+        server_off: true
+        conflict: true
+
+    -
+        char: R
+        name: NO_NON_REGISTERED
+        origin: "Bahamut, KineIRCd, Unreal"
+        server_on: true
+        server_off: true
+        comment: User wants to block messages from non-registered nicknames
+
+    -
+        char: s
+        name: SERVER_NOTICES
+        origin: RFC1459
+        comment: >
+            User receives server notices. RFC2812 considers this mode
+            obsolete, however it is still in very wide-spread use.
+
+    -
+        char: s
+        name: SERVER_NOTICES
+        origin: ircu
+        parameter: Mask integer
+        comment: >
+            User receives server notices, and can opt in/out of particular
+            notice types by supplying the optional mask as an integer
+
+    -
+        char: s
+        name: SERVER_NOTICES
+        origin: "KineIRCd, Unreal"
+        parameter: Notice mask list
+        comment: >
+            User receives server notices. The notice masks are normally a
+            list of letters corresponding with specific notices the user
+            wishes to receive, such as 'D' for debugging, etc.
+
+    -
+        char: S
+        name: SERVICE
+        origin: Unreal
+        comment: "User is a service, and is protected."
+
+    -
+        char: t
+        name: Z_LINED
+        origin: AustHex
+        comment: User is using an AustHex Z: line
+        server_on: true
+        server_off: true
+        conflict: true
+
+    -
+        char: t
+        name: MODIFIED_HOST
+        origin: Unreal
+        comment: User is using a /vhost (modified host)
+        server_on: true
+        server_off: true
+        conflict: true
+
+    -
+        char: T
+        name: W_LINED
+        origin: AustHex
+        comment: User is using an AustHex w: line
+        server_on: true
+        server_off: true
+        conflict: true
+
+    -
+        char: T
+        name: BLOCK_CTCP
+        origin: Unreal
+        comment: Blocks all CTCP requests from other users
+        conflict: true
+
+    -
+        char: u
+        name: UNAUTH
+        origin: Hybrid
+        comment: User receives unauthorised client notices
+
+    -
+        char: v
+        name: HOST_HIDING
+        origin: AustHex
+        comment: >
+            Hide the host of the user, often with a hashed value. Some
+            networks use 'mirroring', or masking with metacharacters. The
+            letter 'v' comes from Austnet's 'Virtual World'. Be aware that
+            use of +x for the same purpose is more wide-spread.
+
+        conflict: true
+
+    -
+        char: v
+        name: VICTIM
+        origin: Unreal
+        comment: User receives messages regarding infected DCC rejections
+        conflict: true
+
+    -
+        char: V
+        name: WEBTV
+        origin: Unreal
+        comment: User is using a WebTV client
+
+    -
+        char: w
+        name: WALLOPS
+        origin: RFC1459
+        comment: User receives WALLOPS messages
+
+    -
+        char: W
+        name: WHOIS_PARANOIA
+        origin: Unreal
+        comment: User is receives a notice when WHOIS'd
+
+    -
+        char: x
+        name: EXTERNAL
+        origin: Hybrid
+        comment: >
+            User receives notices about servers connecting/disconnecting
+
+        conflict: true
+
+    -
+        char: x
+        name: HOST_HIDING
+        origin: "ircu, Unreal"
+        comment: >
+            Hide the host of the user, often with a hashed value. Some
+            networks use 'mirroring', or masking with metacharacters. Using
+            the 'x' letter for this mode appears to be the most standard
+            method for toggling masking user hosts.
+
+        conflict: true
+
+    -
+        char: y
+        name: STATS_LINKS
+        origin: Bahamut
+        comment: User receives notices about stats/links
+        conflict: true
+
+    -
+        char: y
+        name: SPY
+        origin: Hybrid
+        comment: >
+            User receives LINKS, STATS (if configured) and TRACE notices
+
+        conflict: true
+
+    -
+        char: z
+        name: OPERWALL
+        origin: Hybrid
+        comment: User receives operator generated WALLOPS messages
+        conflict: true
+
+    -
+        char: z
+        name: SECURE_CONN
+        origin: Unreal
+        comment: User is securely connected
+        conflict: true

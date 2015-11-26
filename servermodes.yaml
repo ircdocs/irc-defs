@@ -1,0 +1,175 @@
+# servermodes.yaml
+#
+# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+#  <pickle@alien.net.au>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "servermodes"
+    revision: "1.9"
+
+# The following format is used through-out this file. The first two fields
+# ('irc2char' and 'name') are manditory, the others may or may not exist.
+# 
+# The server_only field denotes whether or not the mode can be modified by
+# a server only. If it is not set, or set to 'no', then operators can
+# possibly modify them.
+# 
+# The broadcast field specifies whether the mode is broadcast to other
+# servers on the network or not.
+
+format:
+    char: mode char for irc2 based protocol(s)
+    name: mode name
+    origin: where the mode was found
+    when: release version or announced date
+    contact: point of contact associated with the mode
+    information: url where to find more information
+    parameter: parameter name
+    comment: "comments, history etc"
+    server_only: true
+    broadcast: true
+    conflict: true
+    obsolete: true
+
+values:
+    -
+        char: a
+        name: AUTOCONNECT
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            Follow the autoconnect rules - When set on, the server should
+            follow autoconnect parameters given in the configuration file to
+            maintain its connection to the network.
+
+        broadcast: true
+
+    -
+        char: A
+        name: AUTO_TBS
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            Automatically switch bone/tendril links. This is used in
+            association with server to server protocols which have redundant
+            links to specify whether or not the server should be actively
+            monitoring links to see if a better 'bone' can be selected. When
+            on, this gives the server the right to switch bone connections
+            around to benifit the network.
+
+        broadcast: true
+
+    -
+        char: D
+        name: DEBUGGING
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            Turns debugging on (if available), or shows a server which is in
+            debugging mode.
+
+        broadcast: true
+
+    -
+        char: F
+        name: FULL
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            A server turns toggles this depending on its 'fullness'. If the
+            server is full, either no more file descriptors are left, or all
+            connection classes are full, then this is a warning to other
+            servers not to redirect clients to it.
+
+        server_only: true
+        broadcast: true
+
+    -
+        char: h
+        name: HUB
+        origin: ircu
+        when: ircu2.10.11.04
+        comment: >
+            Indicates the server is a hub. In ircu, this also hides the
+            server from users.
+
+        server_only: true
+        broadcast: true
+
+    -
+        char: H
+        name: HIDDEN
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            When set, the server should be completely hidden to users. This
+            is different to masking the server's name. This allows for
+            invisible hubs, or invisible servers which host network
+            services, etc.
+
+        broadcast: true
+
+    -
+        char: l
+        name: LAZY_LEAF
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            Server should consider itself a lazy leaf link to the network.
+            This means only one connection can be made to the server, and it
+            runs on lazy principles. The idea for lazy leafs comes from
+            Hybrid.
+
+        broadcast: true
+
+    -
+        char: L
+        name: DEFAULT_LANGUAGE
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        parameter: <language code>
+        comment: >
+            Marks the given language code as the 'default' language for that
+            server. Language codes are that prescribed by BCP-0047, and only
+            one can be set at a time.
+
+        broadcast: true
+
+    -
+        char: M
+        name: MODES_LOCKED
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            The server modes are locked, and can only be changed by other
+            servers. This is useful when servers shouldn't not be touched by
+            operators. Arbiters/U:lines servers can still change modes (i.e.
+            to remove this mode!)
+
+        broadcast: true
+
+    -
+        char: n
+        name: NO_OPER
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: "When set, the OPER command is rendered useless"
+        broadcast: true
+
+    -
+        char: s
+        name: SERVICE
+        origin: ircu
+        when: ircu2.10.11.04
+        comment: >
+            When set, the server is a 'service' (as in, it only provides
+            services). In ircu, this also hides the server from users.
+
+        server_only: true
+        broadcast: true

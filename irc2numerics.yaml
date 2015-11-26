@@ -1,0 +1,3606 @@
+# irc2numerics.yaml
+#
+# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+#  <pickle@alien.net.au>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "irc2numerics"
+    revision: "1.50"
+
+# The following format is used through-out this file. The first two fields
+# ('name' and 'numeric') are manditory, the others may or may not exist.
+# 
+# The registration field is only used to determine if the numeric is
+# POSSIBLY* used during registration of a connection (before the main part
+# of the protocol kicks in).
+
+format:
+    name: numeric name
+    numeric: number
+    origin: where the numeric was found
+    when: release version or announced date
+    contact: point of contact associated with the numeric
+    information: url where to find more information
+    format: format of the numeric data
+    comment: "comments, history etc"
+    seealso: number
+    registration: true
+    conflict: true
+    obsolete: true
+    repeated: true
+
+values:
+    -
+        name: RPL_WELCOME
+        numeric: 1
+        origin: RFC2812
+        format: ":Welcome to the Internet Relay Network <nick>!<user>@<host>"
+        comment: >
+            The first message sent after client registration. The text used
+            varies widely
+
+    -
+        name: RPL_YOURHOST
+        numeric: 2
+        origin: RFC2812
+        format: ":Your host is <servername>, running version <version>"
+        comment: Part of the post-registration greeting. Text varies widely
+
+    -
+        name: RPL_CREATED
+        numeric: 3
+        origin: RFC2812
+        format: ":This server was created <date>"
+        comment: Part of the post-registration greeting. Text varies widely
+
+    -
+        name: RPL_MYINFO
+        numeric: 4
+        origin: RFC2812
+        format: "<server_name> <version> <user_modes> <chan_modes>"
+        comment: Part of the post-registration greeting
+
+    -
+        name: RPL_MYINFO
+        numeric: 4
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<server_name> <version> <user_modes> <chan_modes> <channel_modes_with_params> <user_modes_with_params> <server_modes> <server_modes_with_params>"
+        comment: >
+            Same as RFC2812 however with additional fields to avoid
+            additional 005 burden.
+
+        repeated: true
+
+    -
+        name: RPL_BOUNCE
+        numeric: 5
+        origin: RFC2812
+        format: ":Try server <server_name>, port <port_number>"
+        comment: >
+            Sent by the server to a user to suggest an alternative server,
+            sometimes used when the connection is refused because the server
+            is already full. Also known as RPL_SLINE (AustHex), and
+            RPL_REDIR
+
+        seealso: 010
+        obsolete: true
+
+    -
+        name: RPL_ISUPPORT
+        numeric: 5
+        information: http://www.irc.org/tech_docs/005.html
+        comment: "Also known as RPL_PROTOCTL (Bahamut, Unreal, Ultimate)"
+
+    -
+        name: RPL_MAP
+        numeric: 6
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_MAPEND
+        numeric: 7
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_SNOMASK
+        numeric: 8
+        origin: ircu
+        comment: Server notice mask (hex)
+
+    -
+        name: RPL_STATMEMTOT
+        numeric: 9
+        origin: ircu
+
+    -
+        name: RPL_BOUNCE
+        numeric: 10
+        format: "<hostname> <port> :<info>"
+        comment: >
+            Sent to the client to redirect it to another server. Also known
+            as RPL_REDIR
+
+    -
+        name: RPL_STATMEM
+        numeric: 10
+        origin: ircu
+        obsolete: true
+
+    -
+        name: RPL_YOURCOOKIE
+        numeric: 14
+        origin: Hybrid?
+
+    -
+        name: RPL_MAP
+        numeric: 15
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_MAPMORE
+        numeric: 16
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_MAPEND
+        numeric: 17
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_YOURID
+        numeric: 42
+        origin: IRCnet
+
+    -
+        name: RPL_SAVENICK
+        numeric: 43
+        origin: IRCnet
+        format: ":<info>"
+        comment: >
+            Sent to the client when their nickname was forced to change due
+            to a collision
+
+    -
+        name: RPL_ATTEMPTINGJUNC
+        numeric: 50
+        origin: aircd
+
+    -
+        name: RPL_ATTEMPTINGREROUTE
+        numeric: 51
+        origin: aircd
+
+    -
+        name: RPL_TRACELINK
+        numeric: 200
+        origin: RFC1459
+        format: "Link <version>[.<debug_level>] <destination> <next_server> [V<protocol_version> <link_uptime_in_seconds> <backstream_sendq> <upstream_sendq>]"
+        comment: See RFC
+
+    -
+        name: RPL_TRACECONNECTING
+        numeric: 201
+        origin: RFC1459
+        format: "Try. <class> <server>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACEHANDSHAKE
+        numeric: 202
+        origin: RFC1459
+        format: "H.S. <class> <server>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACEUNKNOWN
+        numeric: 203
+        origin: RFC1459
+        format: "???? <class> [<connection_address>]"
+        comment: See RFC
+
+    -
+        name: RPL_TRACEOPERATOR
+        numeric: 204
+        origin: RFC1459
+        format: "Oper <class> <nick>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACEUSER
+        numeric: 205
+        origin: RFC1459
+        format: "User <class> <nick>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACESERVER
+        numeric: 206
+        origin: RFC1459
+        format: "Serv <class> <int>S <int>C <server> <nick!user|*!*>@<host|server> [V<protocol_version>]"
+        comment: See RFC
+
+    -
+        name: RPL_TRACESERVICE
+        numeric: 207
+        origin: RFC2812
+        format: "Service <class> <name> <type> <active_type>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACENEWTYPE
+        numeric: 208
+        origin: RFC1459
+        format: "<newtype> 0 <client_name>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACECLASS
+        numeric: 209
+        origin: RFC2812
+        format: "Class <class> <count>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACERECONNECT
+        numeric: 210
+        origin: RFC2812
+        obsolete: true
+
+    -
+        name: RPL_STATS
+        numeric: 210
+        origin: aircd
+        comment: Used instead of having multiple stats numerics
+
+    -
+        name: RPL_STATSLINKINFO
+        numeric: 211
+        origin: RFC1459
+        format: "<linkname> <sendq> <sent_msgs> <sent_bytes> <recvd_msgs> <rcvd_bytes> <time_open>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSCOMMANDS
+        numeric: 212
+        origin: RFC1459
+        format: "<command> <count> [<byte_count> <remote_count>]"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSCLINE
+        numeric: 213
+        origin: RFC1459
+        format: "C <host> * <name> <port> <class>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSNLINE
+        numeric: 214
+        origin: RFC1459
+        format: "N <host> * <name> <port> <class>"
+        comment: >
+            Reply to STATS (See RFC), Also known as RPL_STATSOLDNLINE (ircu,
+            Unreal)
+
+        conflict: true
+
+    -
+        name: RPL_STATSILINE
+        numeric: 215
+        origin: RFC1459
+        format: "I <host> * <host> <port> <class>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSKLINE
+        numeric: 216
+        origin: RFC1459
+        format: "K <host> * <username> <port> <class>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSQLINE
+        numeric: 217
+        origin: RFC1459
+        conflict: true
+
+    -
+        name: RPL_STATSPLINE
+        numeric: 217
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_STATSYLINE
+        numeric: 218
+        origin: RFC1459
+        format: "Y <class> <ping_freq> <connect_freq> <max_sendq>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_ENDOFSTATS
+        numeric: 219
+        origin: RFC1459
+        format: "<query> :<info>"
+        comment: End of RPL_STATS* list.
+
+    -
+        name: RPL_STATSPLINE
+        numeric: 220
+        origin: Hybrid
+        conflict: true
+
+    -
+        name: RPL_STATSBLINE
+        numeric: 220
+        origin: "Bahamut, Unreal"
+        conflict: true
+
+    -
+        name: RPL_UMODEIS
+        numeric: 221
+        origin: RFC1459
+        format: "<user_modes> [<user_mode_params>]"
+        comment: >
+            Information about a user's own modes. Some daemons have extended
+            the mode command and certain modes take parameters (like channel
+            modes).
+
+    -
+        name: RPL_MODLIST
+        numeric: 222
+        conflict: true
+
+    -
+        name: RPL_SQLINE_NICK
+        numeric: 222
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSBLINE
+        numeric: 222
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_STATSELINE
+        numeric: 223
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_STATSGLINE
+        numeric: 223
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSFLINE
+        numeric: 224
+        origin: "Hybrid, Bahamut"
+        conflict: true
+
+    -
+        name: RPL_STATSTLINE
+        numeric: 224
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSDLINE
+        numeric: 225
+        origin: Hybrid
+        conflict: true
+
+    -
+        name: RPL_STATSZLINE
+        numeric: 225
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_STATSELINE
+        numeric: 225
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSCOUNT
+        numeric: 226
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_STATSNLINE
+        numeric: 226
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSGLINE
+        numeric: 227
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_STATSVLINE
+        numeric: 227
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSQLINE
+        numeric: 228
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_SERVICEINFO
+        numeric: 231
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_ENDOFSERVICES
+        numeric: 232
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_RULES
+        origin: Unreal
+        numeric: 232
+        conflict: true
+
+    -
+        name: RPL_SERVICE
+        numeric: 233
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_SERVLIST
+        numeric: 234
+        origin: RFC2812
+        format: "<name> <server> <mask> <type> <hopcount> <info>"
+        comment: A service entry in the service list
+
+    -
+        name: RPL_SERVLISTEND
+        numeric: 235
+        origin: RFC2812
+        format: "<mask> <type> :<info>"
+        comment: Termination of an RPL_SERVLIST list
+
+    -
+        name: RPL_STATSVERBOSE
+        numeric: 236
+        origin: ircu
+        comment: Verbose server list?
+
+    -
+        name: RPL_STATSENGINE
+        numeric: 237
+        origin: ircu
+        comment: Engine name?
+
+    -
+        name: RPL_STATSFLINE
+        numeric: 238
+        origin: ircu
+        comment: Feature lines?
+        conflict: true
+
+    -
+        name: RPL_STATSIAUTH
+        numeric: 239
+        origin: IRCnet
+
+    -
+        name: RPL_STATSVLINE
+        numeric: 240
+        origin: RFC2812
+        conflict: true
+
+    -
+        name: RPL_STATSXLINE
+        numeric: 240
+        origin: AustHex
+        contact: dev@austnet.org
+        conflict: true
+
+    -
+        name: RPL_STATSLLINE
+        numeric: 241
+        origin: RFC1459
+        format: "L <hostmask> * <servername> <maxdepth>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSUPTIME
+        numeric: 242
+        origin: RFC1459
+        format: ":Server Up <days> days <hours>:<minutes>:<seconds>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSOLINE
+        numeric: 243
+        origin: RFC1459
+        format: "O <hostmask> * <nick> [:<info>]"
+        comment: >
+            Reply to STATS (See RFC); The info field is an extension found
+            in some IRC daemons, which returns info such as an e-mail
+            address or the name/job of an operator
+
+    -
+        name: RPL_STATSHLINE
+        numeric: 244
+        origin: RFC1459
+        format: "H <hostmask> * <servername>"
+        comment: Reply to STATS (See RFC)
+
+    -
+        name: RPL_STATSSLINE
+        numeric: 245
+        origin: "Bahamut, IRCnet, Hybrid"
+
+    -
+        name: RPL_STATSPING
+        numeric: 246
+        origin: RFC2812
+        obsolete: true
+
+    -
+        name: RPL_STATSTLINE
+        numeric: 246
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_STATSULINE
+        numeric: 246
+        origin: Hybrid
+        conflict: true
+
+    -
+        name: RPL_STATSBLINE
+        numeric: 247
+        origin: RFC2812
+        conflict: true
+
+    -
+        name: RPL_STATSXLINE
+        numeric: 247
+        origin: "Hybrid, PTlink, Unreal"
+        conflict: true
+
+    -
+        name: RPL_STATSGLINE
+        numeric: 247
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_STATSULINE
+        numeric: 248
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_STATSDEFINE
+        numeric: 248
+        origin: IRCnet
+        conflict: true
+
+    -
+        name: RPL_STATSULINE
+        numeric: 249
+        comment: Extension to RFC1459?
+        conflict: true
+
+    -
+        name: RPL_STATSDEBUG
+        numeric: 249
+        origin: Hybrid
+        conflict: true
+
+    -
+        name: RPL_STATSDLINE
+        numeric: 250
+        origin: RFC2812
+        conflict: true
+
+    -
+        name: RPL_STATSCONN
+        numeric: 250
+        origin: "ircu, Unreal"
+
+    -
+        name: RPL_LUSERCLIENT
+        numeric: 251
+        origin: RFC1459
+        format: ":There are <int> users and <int> invisible on <int> servers"
+        comment: >
+            Reply to LUSERS command, other versions exist (eg. RFC2812);
+            Text may vary.
+
+    -
+        name: RPL_LUSEROP
+        numeric: 252
+        origin: RFC1459
+        format: "<int> :<info>"
+        comment: Reply to LUSERS command - Number of IRC operators online
+
+    -
+        name: RPL_LUSERUNKNOWN
+        numeric: 253
+        origin: RFC1459
+        format: "<int> :<info>"
+        comment: >
+            Reply to LUSERS command - Number of unknown/unregistered
+            connections
+
+    -
+        name: RPL_LUSERCHANNELS
+        numeric: 254
+        origin: RFC1459
+        format: "<int> :<info>"
+        comment: Reply to LUSERS command - Number of channels formed
+
+    -
+        name: RPL_LUSERME
+        numeric: 255
+        origin: RFC1459
+        format: ":I have <int> clients and <int> servers"
+        comment: >
+            Reply to LUSERS command - Information about local connections;
+            Text may vary.
+
+    -
+        name: RPL_ADMINME
+        numeric: 256
+        origin: RFC1459
+        format: "<server> :<info>"
+        comment: >
+            Start of an RPL_ADMIN* reply. In practise, the server parameter
+            is often never given, and instead the info field contains the
+            text 'Administrative info about <server>'. Newer daemons seem to
+            follow the RFC and output the server's hostname in the 'server'
+            parameter, but also output the server name in the text as per
+            traditional daemons.
+
+    -
+        name: RPL_ADMINLOC1
+        numeric: 257
+        origin: RFC1459
+        format: ":<admin_location>"
+        comment: "Reply to ADMIN command (Location, first line)"
+
+    -
+        name: RPL_ADMINLOC2
+        numeric: 258
+        origin: RFC1459
+        format: ":<admin_location>"
+        comment: "Reply to ADMIN command (Location, second line)"
+
+    -
+        name: RPL_ADMINEMAIL
+        numeric: 259
+        origin: RFC1459
+        format: ":<email_address>"
+        comment: Reply to ADMIN command (E-mail address of administrator)
+
+    -
+        name: RPL_TRACELOG
+        numeric: 261
+        origin: RFC1459
+        format: "File <logfile> <debug_level>"
+        comment: See RFC
+
+    -
+        name: RPL_TRACEPING
+        numeric: 262
+        comment: Extension to RFC1459?
+        conflict: true
+
+    -
+        name: RPL_TRACEEND
+        numeric: 262
+        origin: RFC2812
+        format: "<server_name> <version>[.<debug_level>] :<info>"
+        comment: Used to terminate a list of RPL_TRACE* replies
+        conflict: true
+
+    -
+        name: RPL_TRYAGAIN
+        numeric: 263
+        origin: RFC2812
+        format: "<command> :<info>"
+        comment: >
+            When a server drops a command without processing it, it MUST use
+            this reply. Also known as RPL_LOAD_THROTTLED and RPL_LOAD2HI,
+            I'm presuming they do the same thing.
+
+    -
+        name: RPL_LOCALUSERS
+        numeric: 265
+        origin: "aircd, Hybrid, Hybrid, Bahamut"
+        comment: Also known as RPL_CURRENT_LOCAL
+
+    -
+        name: RPL_GLOBALUSERS
+        numeric: 266
+        origin: "aircd, Hybrid, Hybrid, Bahamut"
+        comment: Also known as RPL_CURRENT_GLOBAL
+
+    -
+        name: RPL_START_NETSTAT
+        numeric: 267
+        origin: aircd
+
+    -
+        name: RPL_NETSTAT
+        numeric: 268
+        origin: aircd
+
+    -
+        name: RPL_END_NETSTAT
+        numeric: 269
+        origin: aircd
+
+    -
+        name: RPL_PRIVS
+        numeric: 270
+        origin: ircu
+
+    -
+        name: RPL_SILELIST
+        numeric: 271
+        origin: ircu
+
+    -
+        name: RPL_ENDOFSILELIST
+        numeric: 272
+        origin: ircu
+
+    -
+        name: RPL_NOTIFY
+        numeric: 273
+        origin: aircd
+
+    -
+        name: RPL_ENDNOTIFY
+        numeric: 274
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_STATSDELTA
+        numeric: 274
+        origin: IRCnet
+        conflict: true
+
+    -
+        name: RPL_STATSDLINE
+        numeric: 275
+        origin: "ircu, Ultimate"
+        conflict: true
+
+    -
+        name: RPL_VCHANEXIST
+        numeric: 276
+
+    -
+        name: RPL_VCHANLIST
+        numeric: 277
+
+    -
+        name: RPL_VCHANHELP
+        numeric: 278
+
+    -
+        name: RPL_GLIST
+        numeric: 280
+        origin: ircu
+
+    -
+        name: RPL_ENDOFGLIST
+        numeric: 281
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_ACCEPTLIST
+        numeric: 281
+        conflict: true
+
+    -
+        name: RPL_ENDOFACCEPT
+        numeric: 282
+        conflict: true
+
+    -
+        name: RPL_JUPELIST
+        numeric: 282
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_ALIST
+        numeric: 283
+        conflict: true
+
+    -
+        name: RPL_ENDOFJUPELIST
+        numeric: 283
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_ENDOFALIST
+        numeric: 284
+        conflict: true
+
+    -
+        name: RPL_FEATURE
+        numeric: 284
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_GLIST_HASH
+        numeric: 285
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_HANDLE
+        numeric: 285
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_NEWHOSTIS
+        numeric: 285
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_USERS
+        numeric: 286
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_CHKHEAD
+        numeric: 286
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_CHOPS
+        numeric: 287
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_CHANUSER
+        numeric: 287
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_VOICES
+        numeric: 288
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_PATCHHEAD
+        numeric: 288
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_AWAY
+        numeric: 289
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_PATCHCON
+        numeric: 289
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_OPERS
+        numeric: 290
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_HELPHDR
+        numeric: 290
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_DATASTR
+        numeric: 290
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_BANNED
+        numeric: 291
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_HELPOP
+        numeric: 291
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_ENDOFCHECK
+        numeric: 291
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_BANS
+        numeric: 292
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_HELPTLR
+        numeric: 292
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_INVITE
+        numeric: 293
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_HELPHLP
+        numeric: 293
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_INVITES
+        numeric: 294
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_HELPFWD
+        numeric: 294
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_KICK
+        numeric: 295
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_HELPIGN
+        numeric: 295
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_CHANINFO_KICKS
+        numeric: 296
+        origin: aircd
+
+    -
+        name: RPL_END_CHANINFO
+        numeric: 299
+        origin: aircd
+
+    -
+        name: RPL_NONE
+        numeric: 300
+        origin: RFC1459
+        comment: >
+            Dummy reply, supposedly only used for debugging/testing new
+            features, however has appeared in production daemons.
+
+    -
+        name: RPL_AWAY
+        numeric: 301
+        origin: RFC1459
+        format: "<nick> :<message>"
+        comment: >
+            Used in reply to a command directed at a user who is marked as
+            away
+
+    -
+        name: RPL_AWAY
+        numeric: 301
+        origin: KineIRCd
+        format: "<nick> <seconds away> :<message>"
+        comment: >
+            Identical to RPL_AWAY, however this includes the number of
+            seconds the user has been away for. This is designed to
+            discourage the need for people to use those horrible scripts
+            which set the AWAY message every 30 seconds in order to include
+            an 'away since' timer.
+
+    -
+        name: RPL_USERHOST
+        numeric: 302
+        origin: RFC1459
+        format: ":*1<reply> *( ' ' <reply> )"
+        comment: Reply used by USERHOST (see RFC)
+
+    -
+        name: RPL_ISON
+        numeric: 303
+        origin: RFC1459
+        format: ":*1<nick> *( ' ' <nick> )"
+        comment: Reply to the ISON command (see RFC)
+
+    -
+        name: RPL_TEXT
+        numeric: 304
+        obsolete: true
+
+    -
+        name: RPL_UNAWAY
+        numeric: 305
+        origin: RFC1459
+        format: ":<info>"
+        comment: Reply from AWAY when no longer marked as away
+
+    -
+        name: RPL_NOWAWAY
+        numeric: 306
+        origin: RFC1459
+        format: ":<info>"
+        comment: Reply from AWAY when marked away
+
+    -
+        name: RPL_USERIP
+        numeric: 307
+        conflict: true
+
+    -
+        name: RPL_WHOISREGNICK
+        numeric: 307
+        origin: "Bahamut, Unreal"
+        conflict: true
+
+    -
+        name: RPL_SUSERHOST
+        numeric: 307
+        origin: AustHex
+        contact: dev@austnet.org
+        conflict: true
+
+    -
+        name: RPL_NOTIFYACTION
+        numeric: 308
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_WHOISADMIN
+        numeric: 308
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_RULESSTART
+        numeric: 308
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_NICKTRACE
+        numeric: 309
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_WHOISSADMIN
+        numeric: 309
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_ENDOFRULES
+        numeric: 309
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_WHOISHELPER
+        numeric: 309
+        origin: AustHex
+        contact: dev@austnet.org
+        conflict: true
+
+    -
+        name: RPL_WHOISSVCMSG
+        numeric: 310
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_WHOISHELPOP
+        numeric: 310
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_WHOISSERVICE
+        numeric: 310
+        origin: AustHex
+        contact: dev@austnet.org
+        conflict: true
+
+    -
+        name: RPL_WHOISUSER
+        numeric: 311
+        origin: RFC1459
+        format: "<nick> <user> <host> * :<real_name>"
+        comment: Reply to WHOIS - Information about the user
+
+    -
+        name: RPL_WHOISSERVER
+        numeric: 312
+        origin: RFC1459
+        format: "<nick> <server> :<server_info>"
+        comment: Reply to WHOIS - What server they're on
+
+    -
+        name: RPL_WHOISOPERATOR
+        numeric: 313
+        origin: RFC1459
+        format: "<nick> :<privileges>"
+        comment: Reply to WHOIS - User has IRC Operator privileges
+
+    -
+        name: RPL_WHOWASUSER
+        numeric: 314
+        origin: RFC1459
+        format: "<nick> <user> <host> * :<real_name>"
+        comment: Reply to WHOWAS - Information about the user
+
+    -
+        name: RPL_ENDOFWHO
+        numeric: 315
+        origin: RFC1459
+        format: "<name> :<info>"
+        comment: Used to terminate a list of RPL_WHOREPLY replies
+
+    -
+        name: RPL_WHOISCHANOP
+        numeric: 316
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_WHOISIDLE
+        numeric: 317
+        origin: RFC1459
+        format: "<nick> <seconds> :seconds idle"
+        comment: Reply to WHOIS - Idle information
+
+    -
+        name: RPL_ENDOFWHOIS
+        numeric: 318
+        origin: RFC1459
+        format: "<nick> :<info>"
+        comment: Reply to WHOIS - End of list
+
+    -
+        name: RPL_WHOISCHANNELS
+        numeric: 319
+        origin: RFC1459
+        format: "<nick> :*( ( '@' / '+' ) <channel> ' ' )"
+        comment: Reply to WHOIS - Channel list for user (See RFC)
+
+    -
+        name: RPL_WHOISVIRT
+        numeric: 320
+        origin: AustHex
+        contact: dev@austnet.org
+        conflicts: true
+
+    -
+        name: RPL_WHOIS_HIDDEN
+        numeric: 320
+        origin: Anothernet
+        conflicts: true
+
+    -
+        name: RPL_WHOISSPECIAL
+        numeric: 320
+        origin: Unreal
+        conflicts: true
+
+    -
+        name: RPL_LISTSTART
+        numeric: 321
+        origin: RFC1459
+        format: "Channels :Users  Name"
+        comment: Channel list - Header
+        obsolete: true
+
+    -
+        name: RPL_LIST
+        numeric: 322
+        origin: RFC1459
+        format: "<channel> <#_visible> :<topic>"
+        comment: Channel list - A channel
+
+    -
+        name: RPL_LISTEND
+        numeric: 323
+        origin: RFC1459
+        format: ":<info>"
+        comment: Channel list - End of list
+
+    -
+        name: RPL_CHANNELMODEIS
+        numeric: 324
+        origin: RFC1459
+        format: "<channel> <mode> <mode_params>"
+
+    -
+        name: RPL_UNIQOPIS
+        numeric: 325
+        origin: RFC2812
+        format: "<channel> <nickname>"
+        conflict: true
+
+    -
+        name: RPL_CHANNELPASSIS
+        numeric: 325
+        conflict: true
+
+    -
+        name: RPL_NOCHANPASS
+        numeric: 326
+
+    -
+        name: RPL_CHPASSUNKNOWN
+        numeric: 327
+
+    -
+        name: RPL_CHANNEL_URL
+        numeric: 328
+        origin: "Bahamut, AustHex"
+
+    -
+        name: RPL_CREATIONTIME
+        numeric: 329
+        origin: Bahamut
+
+    -
+        name: RPL_WHOWAS_TIME
+        numeric: 330
+        conflict: true
+
+    -
+        name: RPL_WHOISACCOUNT
+        numeric: 330
+        origin: ircu
+        format: "<nick> <authname> :<info>"
+        conflict: true
+
+    -
+        name: RPL_NOTOPIC
+        numeric: 331
+        origin: RFC1459
+        format: "<channel> :<info>"
+        comment: Response to TOPIC when no topic is set
+
+    -
+        name: RPL_TOPIC
+        numeric: 332
+        origin: RFC1459
+        format: "<channel> :<topic>"
+        comment: Response to TOPIC with the set topic
+
+    -
+        name: RPL_TOPICWHOTIME
+        numeric: 333
+        origin: ircu
+
+    -
+        name: RPL_LISTUSAGE
+        numeric: 334
+        origin: ircu
+        conflict: true
+
+    -
+        name: RPL_COMMANDSYNTAX
+        numeric: 334
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_LISTSYNTAX
+        numeric: 334
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_WHOISBOT
+        numeric: 335
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_CHANPASSOK
+        numeric: 338
+        conflict: true
+
+    -
+        name: RPL_WHOISACTUALLY
+        numeric: 338
+        origin: "ircu, Bahamut"
+        conflict: true
+
+    -
+        name: RPL_BADCHANPASS
+        numeric: 339
+
+    -
+        name: RPL_USERIP
+        numeric: 340
+        origin: ircu
+
+    -
+        name: RPL_INVITING
+        numeric: 341
+        origin: RFC1459
+        format: "<nick> <channel>"
+        comment: >
+            Returned by the server to indicate that the attempted INVITE
+            message was successful and is being passed onto the end client.
+            Note that RFC1459 documents the parameters in the reverse order.
+            The format given here is the format used on production servers,
+            and should be considered the standard reply above that given by
+            RFC1459.
+
+    -
+        name: RPL_SUMMONING
+        numeric: 342
+        origin: RFC1459
+        format: "<user> :<info>"
+        comment: >
+            Returned by a server answering a SUMMON message to indicate that
+            it is summoning that user
+
+        obsolete: true
+
+    -
+        name: RPL_INVITED
+        numeric: 345
+        origin: GameSurge
+        contact: gsdev@gamesurge.net
+        format: "<channel> <user being invited> <user issuing invite> :<user being invited> has been invited by <user issuing invite>"
+        comment: >
+            Sent to users on a channel when an INVITE command has been
+            issued
+
+    -
+        name: RPL_INVITELIST
+        numeric: 346
+        origin: RFC2812
+        format: "<channel> <invitemask>"
+        comment: An invite mask for the invite mask list
+
+    -
+        name: RPL_ENDOFINVITELIST
+        numeric: 347
+        origin: RFC2812
+        format: "<channel> :<info>"
+        comment: Termination of an RPL_INVITELIST list
+
+    -
+        name: RPL_EXCEPTLIST
+        numeric: 348
+        origin: RFC2812
+        format: "<channel> <exceptionmask>"
+        comment: >
+            An exception mask for the exception mask list. Also known as
+            RPL_EXLIST (Unreal, Ultimate)
+
+    -
+        name: RPL_ENDOFEXCEPTLIST
+        numeric: 349
+        origin: RFC2812
+        format: "<channel> :<info>"
+        comment: >
+            Termination of an RPL_EXCEPTLIST list. Also known as
+            RPL_ENDOFEXLIST (Unreal, Ultimate)
+
+    -
+        name: RPL_VERSION
+        numeric: 351
+        origin: RFC1459
+        format: "<version>[.<debuglevel>] <server> :<comments>"
+        comment: >
+            Reply by the server showing its version details, however this
+            format is not often adhered to
+
+    -
+        name: RPL_WHOREPLY
+        numeric: 352
+        origin: RFC1459
+        format: "<channel> <user> <host> <server> <nick> <H|G>[*][@|+] :<hopcount> <real_name>"
+        comment: >
+            Reply to vanilla WHO (See RFC). This format can be very
+            different if the 'WHOX' version of the command is used (see
+            ircu).
+
+    -
+        name: RPL_NAMREPLY
+        numeric: 353
+        origin: RFC1459
+        format: "( '=' / '*' / '@' ) <channel> ' ' : [ '@' / '+' ] <nick> *( ' ' [ '@' / '+' ] <nick> )"
+        comment: Reply to NAMES (See RFC)
+
+    -
+        name: RPL_WHOSPCRPL
+        numeric: 354
+        origin: ircu
+        comment: >
+            Reply to WHO, however it is a 'special' reply because it is
+            returned using a non-standard (non-RFC1459) format. The format
+            is dictated by the command given by the user, and can vary
+            widely. When this is used, the WHO command was invoked in its
+            'extended' form, as announced by the 'WHOX' ISUPPORT tag.
+
+    -
+        name: RPL_NAMREPLY_
+        numeric: 355
+        origin: QuakeNet
+        format: "( '=' / '*' / '@' ) <channel> ' ' : [ '@' / '+' ] <nick> *( ' ' [ '@' / '+' ] <nick> )"
+        comment: >
+            Reply to the \users (when the channel is set +D, QuakeNet
+            relative). The proper define name for this numeric is unknown at
+            this time
+
+        seealso: 353
+
+    -
+        name: RPL_MAP
+        numeric: 357
+        origin: AustHex
+        conflict: true
+
+    -
+        name: RPL_MAPMORE
+        numeric: 358
+        origin: AustHex
+        conflict: true
+
+    -
+        name: RPL_MAPEND
+        numeric: 359
+        origin: AustHex
+        conflict: true
+
+    -
+        name: RPL_KILLDONE
+        numeric: 361
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_CLOSING
+        numeric: 362
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_CLOSEEND
+        numeric: 363
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_LINKS
+        numeric: 364
+        origin: RFC1459
+        format: "<mask> <server> :<hopcount> <server_info>"
+        comment: Reply to the LINKS command
+
+    -
+        name: RPL_ENDOFLINKS
+        numeric: 365
+        origin: RFC1459
+        format: "<mask> :<info>"
+        comment: Termination of an RPL_LINKS list
+
+    -
+        name: RPL_ENDOFNAMES
+        numeric: 366
+        origin: RFC1459
+        format: "<channel> :<info>"
+        comment: Termination of an RPL_NAMREPLY list
+
+    -
+        name: RPL_BANLIST
+        numeric: 367
+        origin: RFC1459
+        format: "<channel> <banid> [<time_left> :<reason>]"
+        comment: >
+            A ban-list item (See RFC); <time left> and <reason> are
+            additions used by KineIRCd
+
+    -
+        name: RPL_ENDOFBANLIST
+        numeric: 368
+        origin: RFC1459
+        format: "<channel> :<info>"
+        comment: Termination of an RPL_BANLIST list
+
+    -
+        name: RPL_ENDOFWHOWAS
+        numeric: 369
+        origin: RFC1459
+        format: "<nick> :<info>"
+        comment: Reply to WHOWAS - End of list
+
+    -
+        name: RPL_INFO
+        numeric: 371
+        origin: RFC1459
+        format: ":<string>"
+        comment: Reply to INFO
+
+    -
+        name: RPL_MOTD
+        numeric: 372
+        origin: RFC1459
+        format: ":- <string>"
+        comment: Reply to MOTD
+
+    -
+        name: RPL_INFOSTART
+        numeric: 373
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_ENDOFINFO
+        numeric: 374
+        origin: RFC1459
+        format: ":<info>"
+        comment: Termination of an RPL_INFO list
+
+    -
+        name: RPL_MOTDSTART
+        numeric: 375
+        origin: RFC1459
+        format: ":- <server> Message of the day -"
+        comment: Start of an RPL_MOTD list
+
+    -
+        name: RPL_ENDOFMOTD
+        numeric: 376
+        origin: RFC1459
+        format: ":<info>"
+        comment: Termination of an RPL_MOTD list
+
+    -
+        name: RPL_KICKEXPIRED
+        numeric: 377
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_SPAM
+        numeric: 377
+        origin: AustHex
+        contact: dev@austnet.org
+        format: ":<text>"
+        comment: >
+            Used during the connection (after MOTD) to announce the network
+            policy on spam and privacy. Supposedly now obsoleted in favour
+            of using NOTICE.
+
+        obsolete: true
+
+    -
+        name: RPL_BANEXPIRED
+        numeric: 378
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_WHOISHOST
+        numeric: 378
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_MOTD
+        numeric: 378
+        origin: AustHex
+        comment: >
+            Used by AustHex to 'force' the display of the MOTD, however is
+            considered obsolete due to client/script awareness & ability to
+
+        seealso: 372
+        obsolete: true
+        conflict: true
+
+    -
+        name: RPL_KICKLINKED
+        numeric: 379
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_WHOISMODES
+        numeric: 379
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_BANLINKED
+        numeric: 380
+        origin: aircd
+        conflict: true
+
+    -
+        name: RPL_YOURHELPER
+        numeric: 380
+        origin: AustHex
+        conflict: true
+
+    -
+        name: RPL_YOUREOPER
+        numeric: 381
+        origin: RFC1459
+        format: ":<info>"
+        comment: Successful reply from OPER
+
+    -
+        name: RPL_REHASHING
+        numeric: 382
+        origin: RFC1459
+        format: "<config_file> :<info>"
+        comment: Successful reply from REHASH
+
+    -
+        name: RPL_YOURESERVICE
+        numeric: 383
+        origin: RFC2812
+        format: ":You are service <service_name>"
+        comment: Sent upon successful registration of a service
+
+    -
+        name: RPL_MYPORTIS
+        numeric: 384
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: RPL_NOTOPERANYMORE
+        numeric: 385
+        origin: "AustHex, Hybrid, Unreal"
+
+    -
+        name: RPL_QLIST
+        numeric: 386
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_IRCOPS
+        numeric: 386
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_ENDOFQLIST
+        numeric: 387
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_ENDOFIRCOPS
+        numeric: 387
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_ALIST
+        numeric: 388
+        origin: Unreal
+
+    -
+        name: RPL_ENDOFALIST
+        numeric: 389
+        origin: Unreal
+
+    -
+        name: RPL_TIME
+        numeric: 391
+        origin: RFC1459
+        format: "<server> :<time string>"
+        comment: >
+            Response to the TIME command. The string format may vary
+            greatly.
+
+        seealso: 679
+
+    -
+        name: RPL_TIME
+        numeric: 391
+        origin: ircu
+        format: "<server> <timestamp> <offset> :<time string>"
+        comment: >
+            This extention adds the timestamp and timestamp-offet
+            information for clients.
+
+        conflict: true
+        repeated: true
+
+    -
+        name: RPL_TIME
+        numeric: 391
+        origin: bdq-ircd
+        format: "<server> <timezone name> <microseconds> :<time string>"
+        comment: >
+            Timezone name is acronym style (eg. 'EST', 'PST' etc). The
+            microseconds field is the number of microseconds since the UNIX
+            epoch, however it is relative to the local timezone of the
+            server. The timezone field is ambiguous, since it only appears
+            to include American zones.
+
+        conflict: true
+        repeated: true
+
+    -
+        name: RPL_TIME
+        numeric: 391
+        format: "<server> <year> <month> <day> <hour> <minute> <second>"
+        comment: >
+            Yet another variation, including the time broken down into its
+            components. Time is supposedly relative to UTC.
+
+        conflict: true
+        repeated: true
+
+    -
+        name: RPL_USERSSTART
+        numeric: 392
+        origin: RFC1459
+        format: ":UserID   Terminal  Host"
+        comment: Start of an RPL_USERS list
+
+    -
+        name: RPL_USERS
+        numeric: 393
+        origin: RFC1459
+        format: ":<username> <ttyline> <hostname>"
+        comment: Response to the USERS command (See RFC)
+
+    -
+        name: RPL_ENDOFUSERS
+        numeric: 394
+        origin: RFC1459
+        format: ":<info>"
+        comment: Termination of an RPL_USERS list
+
+    -
+        name: RPL_NOUSERS
+        numeric: 395
+        origin: RFC1459
+        format: ":<info>"
+        comment: Reply to USERS when nobody is logged in
+
+    -
+        name: RPL_HOSTHIDDEN
+        numeric: 396
+        origin: Undernet
+        comment: >
+            Reply to a user when user mode +x (host masking) was set
+            successfully
+
+    -
+        name: ERR_UNKNOWNERROR
+        numeric: 400
+        format: "<command> [<?>] :<info>"
+        comment: >
+            Sent when an error occured executing a command, but it is not
+            specifically known why the command could not be executed.
+
+    -
+        name: ERR_NOSUCHNICK
+        numeric: 401
+        origin: RFC1459
+        format: "<nick> :<reason>"
+        comment: >
+            Used to indicate the nickname parameter supplied to a command is
+            currently unused
+
+    -
+        name: ERR_NOSUCHSERVER
+        numeric: 402
+        origin: RFC1459
+        format: "<server> :<reason>"
+        comment: >
+            Used to indicate the server name given currently doesn't exist
+
+    -
+        name: ERR_NOSUCHCHANNEL
+        numeric: 403
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Used to indicate the given channel name is invalid, or does not
+            exist
+
+    -
+        name: ERR_CANNOTSENDTOCHAN
+        numeric: 404
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Sent to a user who does not have the rights to send a message to
+            a channel
+
+    -
+        name: ERR_TOOMANYCHANNELS
+        numeric: 405
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Sent to a user when they have joined the maximum number of
+            allowed channels and they tried to join another channel
+
+    -
+        name: ERR_WASNOSUCHNICK
+        numeric: 406
+        origin: RFC1459
+        format: "<nick> :<reason>"
+        comment: >
+            Returned by WHOWAS to indicate there was no history information
+            for a given nickname
+
+    -
+        name: ERR_TOOMANYTARGETS
+        numeric: 407
+        origin: RFC1459
+        format: "<target> :<reason>"
+        comment: >
+            The given target(s) for a command are ambiguous in that they
+            relate to too many targets
+
+    -
+        name: ERR_NOSUCHSERVICE
+        numeric: 408
+        origin: RFC2812
+        format: "<service_name> :<reason>"
+        comment: >
+            Returned to a client which is attempting to send an SQUERY (or
+            other message) to a service which does not exist
+
+    -
+        name: ERR_NOCOLORSONCHAN
+        numeric: 408
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: ERR_NOORIGIN
+        numeric: 409
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            PING or PONG message missing the originator parameter which is
+            required since these commands must work without valid prefixes
+
+    -
+        name: ERR_NORECIPIENT
+        numeric: 411
+        origin: RFC1459
+        format: ":<reason>"
+        comment: Returned when no recipient is given with a command
+
+    -
+        name: ERR_NOTEXTTOSEND
+        numeric: 412
+        origin: RFC1459
+        format: ":<reason>"
+        comment: Returned when NOTICE/PRIVMSG is used with no message given
+
+    -
+        name: ERR_NOTOPLEVEL
+        numeric: 413
+        origin: RFC1459
+        format: "<mask> :<reason>"
+        comment: >
+            Used when a message is being sent to a mask without being
+            limited to a top-level domain (i.e. * instead of *.au)
+
+    -
+        name: ERR_WILDTOPLEVEL
+        numeric: 414
+        origin: RFC1459
+        format: "<mask> :<reason>"
+        comment: >
+            Used when a message is being sent to a mask with a wild-card for
+            a top level domain (i.e. *.*)
+
+    -
+        name: ERR_BADMASK
+        numeric: 415
+        origin: RFC2812
+        format: "<mask> :<reason>"
+        comment: >
+            Used when a message is being sent to a mask with an invalid
+            syntax
+
+    -
+        name: ERR_TOOMANYMATCHES
+        numeric: 416
+        origin: IRCnet
+        format: "<command> [<mask>] :<info>"
+        comment: >
+            Returned when too many matches have been found for a command and
+            the output has been truncated. An example would be the WHO
+            command, where by the mask '*' would match everyone on the
+            network! Ouch!
+
+    -
+        name: ERR_QUERYTOOLONG
+        numeric: 416
+        origin: ircu
+        comment: Same as ERR_TOOMANYMATCHES
+        repeated: true
+
+    -
+        name: ERR_LENGTHTRUNCATED
+        numeric: 419
+        origin: aircd
+
+    -
+        name: ERR_UNKNOWNCOMMAND
+        numeric: 421
+        origin: RFC1459
+        format: "<command> :<reason>"
+        comment: >
+            Returned when the given command is unknown to the server (or
+            hidden because of lack of access rights)
+
+    -
+        name: ERR_NOMOTD
+        numeric: 422
+        origin: RFC1459
+        format: ":<reason>"
+        comment: Sent when there is no MOTD to send the client
+
+    -
+        name: ERR_NOADMININFO
+        numeric: 423
+        origin: RFC1459
+        format: "<server> :<reason>"
+        comment: >
+            Returned by a server in response to an ADMIN request when no
+            information is available. RFC1459 mentions this in the list of
+            numerics. While it's not listed as a valid reply in section
+            4.3.7 ('Admin command'), it's confirmed to exist in the real
+            world.
+
+    -
+        name: ERR_FILEERROR
+        numeric: 424
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Generic error message used to report a failed file operation
+            during the processing of a command
+
+    -
+        name: ERR_NOOPERMOTD
+        numeric: 425
+        origin: Unreal
+
+    -
+        name: ERR_TOOMANYAWAY
+        numeric: 429
+        origin: Bahamut
+
+    -
+        name: ERR_EVENTNICKCHANGE
+        numeric: 430
+        origin: AustHex
+        contact: dev@austnet.org
+        comment: >
+            Returned by NICK when the user is not allowed to change their
+            nickname due to a channel event (channel mode +E)
+
+    -
+        name: ERR_NONICKNAMEGIVEN
+        numeric: 431
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned when a nickname parameter expected for a command isn't
+            found
+
+        registration: true
+
+    -
+        name: ERR_ERRONEUSNICKNAME
+        numeric: 432
+        origin: RFC1459
+        format: "<nick> :<reason>"
+        comment: >
+            Returned after receiving a NICK message which contains a
+            nickname which is considered invalid, such as it's reserved
+            ('anonymous') or contains characters considered invalid for
+            nicknames. This numeric is misspelt, but remains with this name
+            for historical reasons :)
+
+        registration: true
+
+    -
+        name: ERR_NICKNAMEINUSE
+        numeric: 433
+        origin: RFC1459
+        format: "<nick> :<reason>"
+        comment: >
+            Returned by the NICK command when the given nickname is already
+            in use
+
+        registration: true
+
+    -
+        name: ERR_SERVICENAMEINUSE
+        numeric: 434
+        origin: AustHex?
+        conflict: true
+
+    -
+        name: ERR_NORULES
+        numeric: 434
+        origin: "Unreal, Ultimate"
+        conflict: true
+
+    -
+        name: ERR_SERVICECONFUSED
+        numeric: 435
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_BANONCHAN
+        numeric: 435
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: ERR_NICKCOLLISION
+        numeric: 436
+        origin: RFC1459
+        format: "<nick> :<reason>"
+        comment: >
+            Returned by a server to a client when it detects a nickname
+            collision
+
+    -
+        name: ERR_UNAVAILRESOURCE
+        numeric: 437
+        origin: RFC2812
+        format: "<nick/channel/service> :<reason>"
+        comment: >
+            Return when the target is unable to be reached temporarily, eg.
+            a delay mechanism in play, or a service being offline
+
+        conflict: true
+
+    -
+        name: ERR_BANNICKCHANGE
+        numeric: 437
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_NICKTOOFAST
+        numeric: 438
+        origin: ircu
+        comment: "Also known as ERR_NCHANGETOOFAST (Unreal, Ultimate)"
+        conflict: true
+
+    -
+        name: ERR_DEAD
+        numeric: 438
+        origin: IRCnet
+        conflict: true
+
+    -
+        name: ERR_TARGETTOOFAST
+        numeric: 439
+        origin: ircu
+        comment: >
+            Also known as many other things, RPL_INVTOOFAST, RPL_MSGTOOFAST
+            etc
+
+    -
+        name: ERR_SERVICESDOWN
+        numeric: 440
+        origin: "Bahamut, Unreal"
+
+    -
+        name: ERR_USERNOTINCHANNEL
+        numeric: 441
+        origin: RFC1459
+        format: "<nick> <channel> :<reason>"
+        comment: >
+            Returned by the server to indicate that the target user of the
+            command is not on the given channel
+
+    -
+        name: ERR_NOTONCHANNEL
+        numeric: 442
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned by the server whenever a client tries to perform a
+            channel effecting command for which the client is not a member
+
+    -
+        name: ERR_USERONCHANNEL
+        numeric: 443
+        origin: RFC1459
+        format: "<nick> <channel> [:<reason>]"
+        comment: >
+            Returned when a client tries to invite a user to a channel
+            they're already on
+
+    -
+        name: ERR_NOLOGIN
+        numeric: 444
+        origin: RFC1459
+        format: "<user> :<reason>"
+        comment: >
+            Returned by the SUMMON command if a given user was not logged in
+            and could not be summoned
+
+    -
+        name: ERR_SUMMONDISABLED
+        numeric: 445
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by SUMMON when it has been disabled or not implemented
+
+    -
+        name: ERR_USERSDISABLED
+        numeric: 446
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by USERS when it has been disabled or not implemented
+
+    -
+        name: ERR_NONICKCHANGE
+        numeric: 447
+        origin: Unreal
+
+    -
+        name: ERR_NOTIMPLEMENTED
+        numeric: 449
+        origin: Undernet
+        format: "Unspecified"
+        comment: >
+            Returned when a requested feature is not implemented (and cannot
+            be completed)
+
+        registration: true
+
+    -
+        name: ERR_NOTREGISTERED
+        numeric: 451
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by the server to indicate that the client must be
+            registered before the server will allow it to be parsed in
+            detail
+
+        registration: true
+
+    -
+        name: ERR_IDCOLLISION
+        numeric: 452
+
+    -
+        name: ERR_NICKLOST
+        numeric: 453
+
+    -
+        name: ERR_HOSTILENAME
+        numeric: 455
+        origin: Unreal
+
+    -
+        name: ERR_ACCEPTFULL
+        numeric: 456
+
+    -
+        name: ERR_ACCEPTEXIST
+        numeric: 457
+
+    -
+        name: ERR_ACCEPTNOT
+        numeric: 458
+
+    -
+        name: ERR_NOHIDING
+        numeric: 459
+        origin: Unreal
+        comment: Not allowed to become an invisible operator?
+
+    -
+        name: ERR_NOTFORHALFOPS
+        numeric: 460
+        origin: Unreal
+
+    -
+        name: ERR_NEEDMOREPARAMS
+        numeric: 461
+        origin: RFC1459
+        format: "<command> :<reason>"
+        comment: >
+            Returned by the server by any command which requires more
+            parameters than the number of parameters given
+
+        registration: true
+
+    -
+        name: ERR_ALREADYREGISTERED
+        numeric: 462
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by the server to any link which attempts to register
+            again
+
+        registration: true
+
+    -
+        name: ERR_NOPERMFORHOST
+        numeric: 463
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned to a client which attempts to register with a server
+            which has been configured to refuse connections from the
+            client's host
+
+    -
+        name: ERR_PASSWDMISMATCH
+        numeric: 464
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by the PASS command to indicate the given password was
+            required and was either not given or was incorrect
+
+        registration: true
+
+    -
+        name: ERR_YOUREBANNEDCREEP
+        numeric: 465
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned to a client after an attempt to register on a server
+            configured to ban connections from that client
+
+    -
+        name: ERR_YOUWILLBEBANNED
+        numeric: 466
+        origin: RFC1459
+        comment: >
+            Sent by a server to a user to inform that access to the server
+            will soon be denied
+
+        obsolete: true
+
+    -
+        name: ERR_KEYSET
+        numeric: 467
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned when the channel key for a channel has already been set
+
+    -
+        name: ERR_INVALIDUSERNAME
+        numeric: 468
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_ONLYSERVERSCANCHANGE
+        numeric: 468
+        origin: "Bahamut, Unreal"
+        conflict: true
+
+    -
+        name: ERR_LINKSET
+        numeric: 469
+        origin: Unreal
+
+    -
+        name: ERR_LINKCHANNEL
+        numeric: 470
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_KICKEDFROMCHAN
+        numeric: 470
+        origin: aircd
+        conflict: true
+
+    -
+        name: ERR_CHANNELISFULL
+        numeric: 471
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned when attempting to join a channel which is set +l and
+            is already full
+
+    -
+        name: ERR_UNKNOWNMODE
+        numeric: 472
+        origin: RFC1459
+        format: "<char> :<reason>"
+        comment: Returned when a given mode is unknown
+
+    -
+        name: ERR_INVITEONLYCHAN
+        numeric: 473
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned when attempting to join a channel which is invite only
+            without an invitation
+
+    -
+        name: ERR_BANNEDFROMCHAN
+        numeric: 474
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned when attempting to join a channel a user is banned from
+
+    -
+        name: ERR_BADCHANNELKEY
+        numeric: 475
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned when attempting to join a key-locked channel either
+            without a key or with the wrong key
+
+    -
+        name: ERR_BADCHANMASK
+        numeric: 476
+        origin: RFC2812
+        format: "<channel> :<reason>"
+        comment: The given channel mask was invalid
+
+    -
+        name: ERR_NOCHANMODES
+        numeric: 477
+        origin: RFC2812
+        format: "<channel> :<reason>"
+        comment: >
+            Returned when attempting to set a mode on a channel which does
+            not support channel modes, or channel mode changes. Also known
+            as ERR_MODELESS
+
+        conflict: true
+
+    -
+        name: ERR_NEEDREGGEDNICK
+        numeric: 477
+        origin: "Bahamut, ircu, Unreal"
+        conflict: true
+
+    -
+        name: ERR_BANLISTFULL
+        numeric: 478
+        origin: RFC2812
+        format: "<channel> <char> :<reason>"
+        comment: >
+            Returned when a channel access list (i.e. ban list etc) is full
+            and cannot be added to
+
+    -
+        name: ERR_BADCHANNAME
+        numeric: 479
+        origin: Hybrid
+
+    -
+        name: ERR_LINKFAIL
+        numeric: 479
+        origin: Unreal
+
+    -
+        name: ERR_NOULINE
+        numeric: 480
+        origin: AustHex
+        contact: dev@austnet.org
+        conflict: true
+
+    -
+        name: ERR_CANNOTKNOCK
+        numeric: 480
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_NOPRIVILEGES
+        numeric: 481
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by any command requiring special privileges (eg. IRC
+            operator) to indicate the operation was unsuccessful
+
+    -
+        name: ERR_CHANOPRIVSNEEDED
+        numeric: 482
+        origin: RFC1459
+        format: "<channel> :<reason>"
+        comment: >
+            Returned by any command requiring special channel privileges
+            (eg. channel operator) to indicate the operation was
+            unsuccessful
+
+    -
+        name: ERR_CANTKILLSERVER
+        numeric: 483
+        origin: RFC1459
+        format: ":<reason>"
+        comment: Returned by KILL to anyone who tries to kill a server
+
+    -
+        name: ERR_RESTRICTED
+        numeric: 484
+        origin: RFC2812
+        format: ":<reason>"
+        comment: >
+            Sent by the server to a user upon connection to indicate the
+            restricted nature of the connection (i.e. usermode +r)
+
+        conflict: true
+
+    -
+        name: ERR_ISCHANSERVICE
+        numeric: 484
+        origin: Undernet
+        conflict: true
+
+    -
+        name: ERR_DESYNC
+        numeric: 484
+        origin: "Bahamut, Hybrid, PTlink"
+        conflict: true
+
+    -
+        name: ERR_ATTACKDENY
+        numeric: 484
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_UNIQOPRIVSNEEDED
+        numeric: 485
+        origin: RFC2812
+        format: ":<reason>"
+        comment: >
+            Any mode requiring 'channel creator' privileges returns this
+            error if the client is attempting to use it while not a channel
+            creator on the given channel
+
+    -
+        name: ERR_KILLDENY
+        numeric: 485
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_CANTKICKADMIN
+        numeric: 485
+        origin: PTlink
+        conflict: true
+
+    -
+        name: ERR_ISREALSERVICE
+        numeric: 485
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: ERR_NONONREG
+        numeric: 486
+        conflict: true
+
+    -
+        name: ERR_HTMDISABLED
+        numeric: 486
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_ACCOUNTONLY
+        numeric: 486
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: ERR_CHANTOORECENT
+        numeric: 487
+        origin: IRCnet
+        conflict: true
+
+    -
+        name: ERR_MSGSERVICES
+        numeric: 487
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: ERR_TSLESSCHAN
+        numeric: 488
+        origin: IRCnet
+
+    -
+        name: ERR_VOICENEEDED
+        numeric: 489
+        origin: Undernet
+        conflict: true
+
+    -
+        name: ERR_SECUREONLYCHAN
+        numeric: 489
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_NOOPERHOST
+        numeric: 491
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by OPER to a client who cannot become an IRC operator
+            because the server has been configured to disallow the client's
+            host
+
+    -
+        name: ERR_NOSERVICEHOST
+        numeric: 492
+        origin: RFC1459
+        obsolete: true
+
+    -
+        name: ERR_NOFEATURE
+        numeric: 493
+        origin: ircu
+
+    -
+        name: ERR_BADFEATURE
+        numeric: 494
+        origin: ircu
+
+    -
+        name: ERR_BADLOGTYPE
+        numeric: 495
+        origin: ircu
+
+    -
+        name: ERR_BADLOGSYS
+        numeric: 496
+        origin: ircu
+
+    -
+        name: ERR_BADLOGVALUE
+        numeric: 497
+        origin: ircu
+
+    -
+        name: ERR_ISOPERLCHAN
+        numeric: 498
+        origin: ircu
+
+    -
+        name: ERR_CHANOWNPRIVNEEDED
+        numeric: 499
+        origin: Unreal
+        comment: >
+            Works just like ERR_CHANOPRIVSNEEDED except it indicates that
+            owner status (+q) is needed.
+
+        seealso: 482
+
+    -
+        name: ERR_UMODEUNKNOWNFLAG
+        numeric: 501
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Returned by the server to indicate that a MODE message was sent
+            with a nickname parameter and that the mode flag sent was not
+            recognised
+
+    -
+        name: ERR_USERSDONTMATCH
+        numeric: 502
+        origin: RFC1459
+        format: ":<reason>"
+        comment: >
+            Error sent to any user trying to view or change the user mode
+            for a user other than themselves
+
+    -
+        name: ERR_GHOSTEDCLIENT
+        numeric: 503
+        origin: Hybrid
+
+    -
+        name: ERR_VWORLDWARN
+        numeric: 503
+        origin: AustHex
+        contact: dev@austnet.org
+        format: ":<warning_text>"
+        comment: >
+            Warning about Virtual-World being turned off. Obsoleted in
+            favour for RPL_MODECHANGEWARN
+
+        seealso: 662
+        obsolete: true
+
+    -
+        name: ERR_USERNOTONSERV
+        numeric: 504
+
+    -
+        name: ERR_SILELISTFULL
+        numeric: 511
+        origin: ircu
+
+    -
+        name: ERR_TOOMANYWATCH
+        numeric: 512
+        origin: Bahamut
+        comment: >
+            Also known as ERR_NOTIFYFULL (aircd), I presume they are the
+            same
+
+    -
+        name: ERR_BADPING
+        numeric: 513
+        origin: ircu
+        comment: >
+            Also known as ERR_NEEDPONG (Unreal/Ultimate) for use during
+            registration, however it's not used in Unreal (and might not be
+            used in Ultimate either).
+
+        registration: true
+
+    -
+        name: ERR_INVALID_ERROR
+        numeric: 514
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_TOOMANYDCC
+        numeric: 514
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: ERR_BADEXPIRE
+        numeric: 515
+        origin: ircu
+
+    -
+        name: ERR_DONTCHEAT
+        numeric: 516
+        origin: ircu
+
+    -
+        name: ERR_DISABLED
+        numeric: 517
+        origin: ircu
+        format: "<command> :<info/reason>"
+
+    -
+        name: ERR_NOINVITE
+        numeric: 518
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_LONGMASK
+        numeric: 518
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_ADMONLY
+        numeric: 519
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_TOOMANYUSERS
+        numeric: 519
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_OPERONLY
+        numeric: 520
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_MASKTOOWIDE
+        numeric: 520
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_WHOTRUNC
+        numeric: 520
+        origin: AustHex
+        contact: dev@austnet.org
+        comment: >
+            This is considered obsolete in favour of ERR_TOOMANYMATCHES, and
+            should no longer be used.
+
+        seealso: 416
+        obsolete: true
+
+    -
+        name: ERR_LISTSYNTAX
+        numeric: 521
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: ERR_WHOSYNTAX
+        numeric: 522
+        origin: Bahamut
+
+    -
+        name: ERR_WHOLIMEXCEED
+        numeric: 523
+        origin: Bahamut
+
+    -
+        name: ERR_QUARANTINED
+        numeric: 524
+        origin: ircu
+        conflict: true
+
+    -
+        name: ERR_OPERSPVERIFY
+        numeric: 524
+        origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_REMOTEPFX
+        numeric: 525
+        origin: CAPAB USERCMDPFX
+        contact: ejb@hades.skumler.net
+        information: >
+            http://www.hades.skumler.net/~ejb/draft-brocklesby-irc-usercmdpfx-00.txt
+
+        format: "<nickname> :<reason>"
+        comment: Proposed.
+
+    -
+        name: ERR_PFXUNROUTABLE
+        numeric: 526
+        origin: CAPAB USERCMDPFX
+        contact: ejb@hades.skumler.net
+        information: >
+            http://www.hades.skumler.net/~ejb/draft-brocklesby-irc-usercmdpfx-00.txt
+
+        format: "<nickname> :<reason>"
+        comment: Proposed.
+
+    -
+        name: ERR_BADHOSTMASK
+        numeric: 550
+        origin: QuakeNet
+
+    -
+        name: ERR_HOSTUNAVAIL
+        numeric: 551
+        origin: QuakeNet
+
+    -
+        name: ERR_USINGSLINE
+        numeric: 552
+        origin: QuakeNet
+
+    -
+        name: ERR_STATSSLINE
+        numeric: 553
+        origin: QuakeNet
+        conflict: true
+
+    -
+        name: RPL_LOGON
+        numeric: 600
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_LOGOFF
+        numeric: 601
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_WATCHOFF
+        numeric: 602
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_WATCHSTAT
+        numeric: 603
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_NOWON
+        numeric: 604
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_NOWOFF
+        numeric: 605
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_WATCHLIST
+        numeric: 606
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_ENDOFWATCHLIST
+        numeric: 607
+        origin: "Bahamut, Unreal"
+
+    -
+        name: RPL_WATCHCLEAR
+        numeric: 608
+        origin: Ultimate
+
+    -
+        name: RPL_MAPMORE
+        numeric: 610
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_ISOPER
+        numeric: 610
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_ISLOCOP
+        numeric: 611
+        origin: Ultimate
+
+    -
+        name: RPL_ISNOTOPER
+        numeric: 612
+        origin: Ultimate
+
+    -
+        name: RPL_ENDOFISOPER
+        numeric: 613
+        origin: Ultimate
+
+    -
+        name: RPL_MAPMORE
+        numeric: 615
+        origin: PTlink
+        conflict: true
+
+    -
+        name: RPL_WHOISMODES
+        numeric: 615
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_WHOISHOST
+        numeric: 616
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_DCCSTATUS
+        numeric: 617
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_WHOISBOT
+        numeric: 617
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_DCCLIST
+        numeric: 618
+        origin: Bahamut
+
+    -
+        name: RPL_ENDOFDCCLIST
+        numeric: 619
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_WHOWASHOST
+        numeric: 619
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_DCCINFO
+        numeric: 620
+        origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_RULESSTART
+        numeric: 620
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_RULES
+        numeric: 621
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_ENDOFRULES
+        numeric: 622
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_MAPMORE
+        numeric: 623
+        origin: Ultimate
+        conflict: true
+
+    -
+        name: RPL_OMOTDSTART
+        numeric: 624
+        origin: Ultimate
+
+    -
+        name: RPL_OMOTD
+        numeric: 625
+        origin: Ultimate
+
+    -
+        name: RPL_ENDOFO<MOTD
+        numeric: 626
+        origin: Ultimate
+
+    -
+        name: RPL_SETTINGS
+        numeric: 630
+        origin: Ultimate
+
+    -
+        name: RPL_ENDOFSETTINGS
+        numeric: 631
+        origin: Ultimate
+
+    -
+        name: RPL_DUMPING
+        numeric: 640
+        origin: Unreal
+        comment: >
+            Never actually used by Unreal - was defined however the feature
+            that would have used this numeric was never created.
+
+        obsolete: true
+
+    -
+        name: RPL_DUMPRPL
+        numeric: 641
+        origin: Unreal
+        comment: >
+            Never actually used by Unreal - was defined however the feature
+            that would have used this numeric was never created.
+
+        obsolete: true
+
+    -
+        name: RPL_EODUMP
+        numeric: 642
+        origin: Unreal
+        comment: >
+            Never actually used by Unreal - was defined however the feature
+            that would have used this numeric was never created.
+
+        obsolete: true
+
+    -
+        name: RPL_TRACEROUTE_HOP
+        numeric: 660
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<target> <hop#> [<address> [<hostname> | '*'] <usec_ping>]"
+        comment: >
+            Returned from the TRACEROUTE IRC-Op command when tracerouting a
+            host
+
+    -
+        name: RPL_TRACEROUTE_START
+        numeric: 661
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<target> <target_FQDN> <target_address> <max_hops>"
+        comment: Start of an RPL_TRACEROUTE_HOP list
+
+    -
+        name: RPL_MODECHANGEWARN
+        numeric: 662
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "['+' | '-']<mode_char> :<warning>"
+        comment: >
+            Plain text warning to the user about turning on or off a user
+            mode. If no '+' or '-' prefix is used for the mode char, '+' is
+            presumed.
+
+    -
+        name: RPL_CHANREDIR
+        numeric: 663
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<old_chan> <new_chan> :<info>"
+        comment: >
+            Used to notify the client upon JOIN that they are joining a
+            different channel than expected because the IRC Daemon has been
+            set up to map the channel they attempted to join to the channel
+            they eventually will join.
+
+    -
+        name: RPL_SERVMODEIS
+        numeric: 664
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<server> <modes> <parameters>.."
+        comment: >
+            Reply to MODE <servername>. KineIRCd supports server modes to
+            simplify configuration of servers; Similar to RPL_CHANNELMODEIS
+
+    -
+        name: RPL_OTHERUMODEIS
+        numeric: 665
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<nickname> <modes>"
+        comment: >
+            Reply to MODE <nickname> to return the user-modes of another
+            user to help troubleshoot connections, etc. Similar to
+            RPL_UMODEIS, however including the target
+
+    -
+        name: RPL_ENDOF_GENERIC
+        numeric: 666
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<command> [<parameter> ...] :<info>"
+        comment: Generic response for new lists to save numerics.
+
+    -
+        name: RPL_WHOWASDETAILS
+        numeric: 670
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<nick> <type> :<information>"
+        comment: >
+            Returned by WHOWAS to return extended information (if
+            available). The type field is a number indication what kind of
+            information.
+
+    -
+        name: RPL_WHOISSECURE
+        numeric: 671
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<nick> <type> [:<info>]"
+        comment: >
+            Reply to WHOIS command - Returned if the target is connected
+            securely, eg. type may be TLSv1, or SSLv2 etc. If the type is
+            unknown, a '*' may be used.
+
+    -
+        name: RPL_UNKNOWNMODES
+        numeric: 672
+        origin: Ithildin
+        contact: wd@telekinesis.org
+        format: "<modes> :<info>"
+        comment: >
+            Returns a full list of modes that are unknown when a client
+            issues a MODE command (rather than one numeric per mode)
+
+    -
+        name: RPL_CANNOTSETMODES
+        numeric: 673
+        origin: Ithildin
+        contact: wd@telekinesis.org
+        format: "<modes> :<info>"
+        comment: >
+            Returns a full list of modes that cannot be set when a client
+            issues a MODE command
+
+    -
+        name: RPL_LUSERSTAFF
+        numeric: 678
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<staff_online_count> :<info>"
+        comment: >
+            Reply to LUSERS command - Number of network staff (or 'helpers')
+            online (differs from Local/Global operators). Similar format to
+            RPL_LUSEROP
+
+    -
+        name: RPL_TIMEONSERVERIS
+        numeric: 679
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<seconds> [<nanoseconds> | '0'] <timezone> <flags> :<info>"
+        comment: >
+            Optionally sent upon connection, and/or sent as a reply to the
+            TIME command. This returns the time on the server in a uniform
+            manner. The seconds (and optionally nanoseconds) is the time
+            since the UNIX Epoch, and is used since many existing timestamps
+            in the IRC-2 protocol are done this way (i.e. ban lists). The
+            timezone is hours and minutes each of Greenwich ('[+/-]HHMM').
+            Since all timestamps sent from the server are in a similar
+            format, this numeric is designed to give clients the ability to
+            provide accurate timestamps to their users.
+
+    -
+        name: RPL_NETWORKS
+        numeric: 682
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        information: >
+            http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/IIRC?rev=HEAD
+
+        format: "<name> <through_name> <hops> :<info>"
+        comment: >
+            A reply to the NETWORKS command when requesting a list of known
+            networks (within the IIRC domain).
+
+    -
+        name: RPL_YOURLANGUAGEIS
+        numeric: 687
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        information: >
+            http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
+
+        format: "<code(s)> :<info>"
+        comment: >
+            Reply to the LANGUAGE command, informing the client of the
+            language(s) it has set
+
+    -
+        name: RPL_LANGUAGE
+        numeric: 688
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        information: >
+            http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
+
+        format: "<code> <revision> <maintainer> <flags> * :<info>"
+        comment: >
+            A language reply to LANGUAGE when requesting a list of known
+            languages
+
+    -
+        name: RPL_WHOISSTAFF
+        numeric: 689
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: ":<info>"
+        comment: >
+            The user is a staff member. The information may explain the
+            user's job role, or simply state that they are a part of the
+            network staff. Staff members are not IRC operators, but rather
+            people who have special access in association with network
+            services. KineIRCd uses this numeric instead of the existing
+            numerics due to the overwhelming number of conflicts.
+
+    -
+        name: RPL_WHOISLANGUAGE
+        numeric: 690
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        information: >
+            http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
+
+        format: "<nick> <language codes>"
+        comment: >
+            Reply to WHOIS command - A list of languages someone can speak.
+            The language codes are comma delimitered.
+
+    -
+        name: RPL_MODLIST
+        numeric: 702
+        origin: RatBox
+        format: "<?> 0x<?> <?> <?>"
+        comment: Output from the MODLIST command
+
+    -
+        name: RPL_ENDOFMODLIST
+        numeric: 703
+        origin: RatBox
+        format: ":<text>"
+        comment: Terminates MODLIST output
+
+    -
+        name: RPL_HELPSTART
+        numeric: 704
+        origin: RatBox
+        format: "<command> :<text>"
+        comment: Start of HELP command output
+
+    -
+        name: RPL_HELPTXT
+        numeric: 705
+        origin: RatBox
+        format: "<command> :<text>"
+        comment: Output from HELP command
+
+    -
+        name: RPL_ENDOFHELP
+        numeric: 706
+        origin: RatBox
+        format: "<command> :<text>"
+        comment: End of HELP command output
+
+    -
+        name: RPL_ETRACEFULL
+        numeric: 708
+        origin: RatBox
+        format: "<?> <?> <?> <?> <?> <?> <?> :<?>"
+        comment: Output from 'extended' trace
+
+    -
+        name: RPL_ETRACE
+        numeric: 709
+        origin: RatBox
+        format: "<?> <?> <?> <?> <?> <?> :<?>"
+        comment: Output from 'extended' trace
+
+    -
+        name: RPL_KNOCK
+        numeric: 710
+        origin: RatBox
+        format: "<channel> <nick>!<user>@<host> :<text>"
+        comment: Message delivered using KNOCK command
+
+    -
+        name: RPL_KNOCKDLVR
+        numeric: 711
+        origin: RatBox
+        format: "<channel> :<text>"
+        comment: Message returned from using KNOCK command
+
+    -
+        name: ERR_TOOMANYKNOCK
+        numeric: 712
+        origin: RatBox
+        format: "<channel> :<text>"
+        comment: >
+            Message returned when too many KNOCKs for a channel have been
+            sent by a user
+
+    -
+        name: ERR_CHANOPEN
+        numeric: 713
+        origin: RatBox
+        format: "<channel> :<text>"
+        comment: >
+            Message returned from KNOCK when the channel can be freely
+            joined by the user
+
+    -
+        name: ERR_KNOCKONCHAN
+        numeric: 714
+        origin: RatBox
+        format: "<channel> :<text>"
+        comment: >
+            Message returned from KNOCK when the user has used KNOCK on a
+            channel they have already joined
+
+    -
+        name: ERR_KNOCKDISABLED
+        numeric: 715
+        origin: RatBox
+        format: ":<text>"
+        comment: Returned from KNOCK when the command has been disabled
+
+    -
+        name: RPL_TARGUMODEG
+        numeric: 716
+        origin: RatBox
+        format: "<nick> :<info>"
+        comment: >
+            Sent to indicate the given target is set +g (server-side ignore)
+
+    -
+        name: RPL_TARGNOTIFY
+        numeric: 717
+        origin: RatBox
+        format: "<nick> :<info>"
+        comment: >
+            Sent following a PRIVMSG/NOTICE to indicate the target has been
+            notified of an attempt to talk to them while they are set +g
+
+    -
+        name: RPL_UMODEGMSG
+        numeric: 718
+        origin: RatBox
+        format: "<nick> <user>@<host> :<info>"
+        comment: >
+            Sent to a user who is +g to inform them that someone has
+            attempted to talk to them (via PRIVMSG/NOTICE), and that they
+            will need to be accepted (via the ACCEPT command) before being
+            able to talk to them
+
+    -
+        name: RPL_OMOTDSTART
+        numeric: 720
+        origin: RatBox
+        format: ":<text>"
+        comment: "IRC Operator MOTD header, sent upon OPER command"
+
+    -
+        name: RPL_OMOTD
+        numeric: 721
+        origin: RatBox
+        format: ":<text>"
+        comment: "IRC Operator MOTD text (repeated, usually)"
+
+    -
+        name: RPL_ENDOFOMOTD
+        numeric: 722
+        origin: RatBox
+        format: ":<text>"
+        comment: IRC operator MOTD footer
+
+    -
+        name: ERR_NOPRIVS
+        numeric: 723
+        origin: RatBox
+        format: "<command> :<text>"
+        comment: >
+            Returned from an oper command when the IRC operator does not
+            have the relevant operator privileges.
+
+    -
+        name: RPL_TESTMARK
+        numeric: 724
+        origin: RatBox
+        format: "<nick>!<user>@<host> <?> <?> :<text>"
+        comment: >
+            Reply from an oper command reporting how many users match a
+            given user@host mask
+
+    -
+        name: RPL_TESTLINE
+        numeric: 725
+        origin: RatBox
+        format: "<?> <?> <?> :<?>"
+        comment: >
+            Reply from an oper command reporting relevant I/K lines that
+            will match a given user@host
+
+    -
+        name: RPL_NOTESTLINE
+        numeric: 726
+        origin: RatBox
+        format: "<?> :<text>"
+        comment: >
+            Reply from oper command reporting no I/K lines match the given
+            user@host
+
+    -
+        name: RPL_XINFO
+        numeric: 771
+        origin: Ithildin
+        contact: wd@telekinesis.org
+        comment: >
+            Used to send 'eXtended info' to the client, a replacement for
+            the STATS command to send a large variety of data and minimise
+            numeric pollution.
+
+    -
+        name: RPL_XINFOSTART
+        numeric: 773
+        origin: Ithildin
+        contact: wd@telekinesis.org
+        comment: Start of an RPL_XINFO list
+
+    -
+        name: RPL_XINFOEND
+        numeric: 774
+        origin: Ithildin
+        contact: wd@telekinesis.org
+        comment: Termination of an RPL_XINFO list
+
+    -
+        name: ERR_CANNOTDOCOMMAND
+        numeric: 972
+        origin: Unreal
+        comment: >
+            Works similarly to all of KineIRCd's CANNOT* numerics. This one
+            indicates that a command could not be performed for an arbitrary
+            reason. For example, a halfop trying to kick an op.
+
+    -
+        name: ERR_CANNOTCHANGEUMODE
+        numeric: 973
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<mode_char> :<reason>"
+        comment: Reply to MODE when a user cannot change a user mode
+
+    -
+        name: ERR_CANNOTCHANGECHANMODE
+        numeric: 974
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<mode_char> :<reason>"
+        comment: Reply to MODE when a user cannot change a channel mode
+
+    -
+        name: ERR_CANNOTCHANGESERVERMODE
+        numeric: 975
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<mode_char> :<reason>"
+        comment: Reply to MODE when a user cannot change a server mode
+
+    -
+        name: ERR_CANNOTSENDTONICK
+        numeric: 976
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<nick> :<reason>"
+        comment: >
+            Returned from NOTICE, PRIVMSG or other commands to notify the
+            user that they cannot send a message to a particular client.
+            Similar to ERR_CANNOTSENDTOCHAN. KineIRCd uses this in
+            conjunction with user-mode +R to allow users to block people who
+            are not identified to services (spam avoidance)
+
+    -
+        name: ERR_UNKNOWNSERVERMODE
+        numeric: 977
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<modechar> :<info>"
+        comment: >
+            Returned by MODE to inform the client they used an unknown
+            server mode character.
+
+    -
+        name: ERR_SERVERMODELOCK
+        numeric: 979
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<target> :<info>"
+        comment: >
+            Returned by MODE to inform the client the server has been set
+            mode +L by an administrator to stop server modes being changed
+
+    -
+        name: ERR_BADCHARENCODING
+        numeric: 980
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<command> <charset> :<info>"
+        comment: >
+            Returned by any command which may have had the given data
+            modified because one or more glyphs were incorrectly encoded in
+            the current charset (given). Such a use would be where an
+            invalid UTF-8 sequence was given which may be considered
+            insecure, or defines a character which is invalid within that
+            context. For safety reasons, the invalid character is not
+            returned to the client.
+
+    -
+        name: ERR_TOOMANYLANGUAGES
+        numeric: 981
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        information: >
+            http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
+
+        format: "<max_langs> :<info>"
+        comment: >
+            Returned by the LANGUAGE command to tell the client they cannot
+            set as many languages as they have requested. To assist the
+            client, the maximum languages which can be set at one time is
+            given, and the language settings are not changed.
+
+    -
+        name: ERR_NOLANGUAGE
+        numeric: 982
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        information: >
+            http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
+
+        format: "<language_code> :<info>"
+        comment: >
+            Returned by the LANGUAGE command to tell the client it has
+            specified an unknown language code.
+
+    -
+        name: ERR_TEXTTOOSHORT
+        numeric: 983
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        format: "<command> :<info>"
+        comment: >
+            Returned by any command requiring text (such as a message or a
+            reason), which was not long enough to be considered valid. This
+            was created initially to combat '/wallops foo' abuse, but is
+            also used by DIE and RESTART commands to attempt to encourage
+            meaningful reasons.
