@@ -1,0 +1,113 @@
+/* $Id: chantypes.def,v 1.5 2004/10/16 19:55:51 pickle Exp $
+ *
+ * This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+ *  <pickle@alien.net.au>
+ *
+ * This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+ * modify this file, please state your name and modifications here in order
+ * for people to be able to distinguish between your version and this version.
+ *
+ * For more information or corrections, please contact the author.
+ */
+autogen definitions chantypes;
+
+/* The following format is used through-out this file. The fields 'name' and
+ * 'prefixchar' are manditory, the others may or may not exist.
+ *
+ * The 'clientcreate' field determins whether or not a normal client may 
+ * create a channel of that type. If it's set to no, then the channel must
+ * be created some other way (such as a service, server, or even an operator).
+ *
+ * chantypes = {
+ *    name         = "<channel type name>";
+ *    prefixchar   = "<channel type prefix character>";
+ *  [ origin       = "<where the type was found>"; ]
+ *  [ when	   = "<release version or announced date>"; ]
+ *  [ contact      = "<point of contact associated with the type>"; ]
+ *  [ information  = "<url where to find more information>"; ]
+ *  [ comment      = "<comments, history etc>"; ]
+ *  [ clientcreate = "yes"; ]
+ *  [ conflict     = "yes"; ]
+ *  [ obsolete     = "yes"; ]
+ * }
+ */
+
+
+revision	= "$Revision: 1.5 $";
+lastupdated	= "$Date: 2004/10/16 19:55:51 $";
+
+
+chantypes = {
+   name		= "LOCAL";
+   prefixchar	= "&";
+   origin	= "RFC1459";
+   comment	= "This channel type is known only to the server they are "
+                  "created on, and as such only clients on that server can "
+		  "join it. Each instance of this channel type is contained "
+		  "per server.";
+   clientcreate	= "yes";
+};
+
+chantypes = {
+   name		= "NETWORK";
+   prefixchar	= "#";
+   origin	= "RFC1459";
+   comment	= "This channel type is known to all servers that are "
+                  "connected to the network.";
+   clientcreate	= "yes";
+};
+
+chantypes = {
+   name		= "NETWORK_SAFE";
+   prefixchar	= "!";
+   origin	= "RFC2811";
+   comment	= "These channels work similar to the '#' channels, except "
+                  "the name is prefixed not only with the '!' but also a "
+		  "set of alpha-numeric digits. This is an alternative to "
+		  "the time-stamp method of avoiding channel-takeovers "
+		  "during network splits.";
+   clientcreate	= "yes";
+};
+
+chantypes = {
+   name		= "NETWORK_UNMODERATED";
+   prefixchar	= "+";
+   origin	= "RFC2811";
+   comment	= "These unmoderated channels work almost exactly the same "
+                  "as '#' channels, except nobody can obtain channel "
+		  "operator status on them. Some implementations seem to "
+		  "set the channel mode to '+nt' upon creation, however most "
+		  "implementations act as if modes +nt are set but don't "
+		  "announce them as being set.";
+   clientcreate	= "yes";
+};
+
+chantypes = {
+   name		= "SOFTCHAN";
+   prefixchar	= ".";
+   origin	= "KineIRCd";
+   contact	= "kineircd@alien.net.au";
+   comment	= "This is a programmable channel type. Normal users cannot "
+                  "create channels of this type. Channels must be created "
+		  "by the software that controls them. The parameters of "
+		  "these channels are not set in stone, and are controlled "
+		  "entirely by software. This means '.' channels of "
+		  "different names may have different properties. The "
+		  "function of this channel type is to provide set channels "
+		  "which require rare features without channel mode bloat, "
+		  "or software bloat. By creating a new channel type it "
+		  "also avoids confusion with other channel types with "
+		  "fixed definitions.";
+};
+
+chantypes = {
+   prefixchar	= "~";
+   name		= "GLOBAL";
+   origin	= "KineIRCd";
+   contact	= "kineircd@alien.net.au";
+   comment	= "This is a proposed channel type for IIRC. This is "
+                  "available to all IRC networks visible on an IIRC "
+		  "network, and as such users from other networks can "
+		  "participate.";
+   clientcreate	= "yes";
+};

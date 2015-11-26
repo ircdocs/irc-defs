@@ -1,0 +1,102 @@
+/* $Id: chanmembers.def,v 1.5 2004/10/16 19:55:51 pickle Exp $
+ *
+ * This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+ *  <pickle@alien.net.au>
+ *
+ * This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+ * modify this file, please state your name and modifications here in order
+ * for people to be able to distinguish between your version and this version.
+ *
+ * For more information or corrections, please contact the author.
+ */
+autogen definitions chanmembers;
+
+/* The following format is used through-out this file. The fields 'name',
+ * 'prefixchar', and irc2_mode are manditory, the others may or may not exist.
+ *
+ * chanmembers = {
+ *    name         = "<membership type name>";
+ *    prefixchar   = "<the prefix character for nicknames to denote status>";
+ *    irc2mode	   = "<irc2 mode character associated with this membership>";
+ *  [ origin       = "<where the mode was found>"; ]
+ *  [ when	   = "<release version or announced date>"; ]
+ *  [ contact      = "<point of contact associated with the membership>"; ]
+ *  [ information  = "<url where to find more information>"; ]
+ *  [ comment      = "<comments, history etc>"; ]
+ *  [ conflict     = "yes"; ]
+ *  [ obsolete     = "yes"; ]
+ * }
+ *
+ * The list below is ordered from least authoritative to most
+ */
+
+
+revision	= "$Revision: 1.5 $";
+lastupdated	= "$Date: 2004/10/16 19:55:51 $";
+
+
+chanmembers = {
+   name		= "VOICED";
+   prefixchar	= "+";
+   irc2mode	= "v";
+   origin	= "RFC1459";
+   comment	= "Channel member is voiced. They can speak while the "
+                  "channel is being moderated. Some implementations also "
+		  "allow them to speak when barred from access to the "
+		  "channel for some reason (such as being banned)";
+};
+
+chanmembers = {
+   name		= "HALF_OPERATOR";
+   prefixchar	= "%";
+   irc2mode	= "h";
+   origin	= "Hybrid";
+   comment	= "User is a channel half-operator, that is they have "
+                  "'half' the access of a full operator. Half-ops can kick "
+		  "unopped users, voiced users, set channel modes including "
+		  "+v, but not kick ops or deop ops. This leads to greater "
+		  "security on channels.";
+};
+
+chanmembers = {
+   name		= "OPERATOR";
+   prefixchar	= "@";
+   irc2mode	= "o";
+   origin	= "RFC1459";
+   comment	= "User is a channel operator. They can kick users, change "
+                  "modes, set other users to operator (or lower) status, etc.";
+};
+
+chanmembers = {
+   name		= "CREATOR";
+   prefixchar	= "@";
+   irc2mode	= "O";
+   origin	= "RFC2811";
+   comment	= "The user created the channel, but only used for '!' "
+                  "channels according to the RFC.";
+};
+
+chanmembers = {
+   name		= "SERVICE";
+   prefixchar	= "!";
+   irc2mode	= "!";
+   origin	= "KineIRCd";
+   contact	= "kineircd@alien.net.au";
+   comment	= "This is given only by servers or services. It should "
+                  "always be the highest ranking membership type in the "
+		  "channel, and denotes that the user with the membership "
+		  "status is a service. The intended use for this was to "
+		  "mark out which channel member is an official channel "
+		  "service, however other applications are also available.";
+};
+
+chanmembers = {
+   name		= "FOUNDER";
+   prefixchar	= ".";
+   irc2mode	= "u";
+   origin	= "tr-ircd";
+   comment	= "This is given to users when they are given 'founder' "
+                  "status on a channel, and should have a rank higher than "
+		  "a normal operator.";
+};
+
