@@ -79,7 +79,7 @@ def parse_def_file(name, text):
         value_str = '-\n'
         for key, value in values.items():
             if len(value) < 60 or key in ['format']:
-                if ',' in value or key in ['format', 'prefixchar']:
+                if ',' in value or ':' in value or key in ['format', 'prefixchar']:
                     value = '"{}"'.format(value.replace('"', '\\"'))
                 if value.casefold().strip() == 'yes':
                     value = 'true'

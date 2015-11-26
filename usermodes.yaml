@@ -309,7 +309,7 @@ values:
         char: q
         name: KIX
         origin: Unreal
-        comment: Only U:liners/arbiters can kick this user
+        comment: "Only U:liners/arbiters can kick this user"
 
     -
         char: r
@@ -381,7 +381,7 @@ values:
         char: t
         name: Z_LINED
         origin: AustHex
-        comment: User is using an AustHex Z: line
+        comment: "User is using an AustHex Z: line"
         server_on: true
         server_off: true
         conflict: true
@@ -399,7 +399,7 @@ values:
         char: T
         name: W_LINED
         origin: AustHex
-        comment: User is using an AustHex w: line
+        comment: "User is using an AustHex w: line"
         server_on: true
         server_off: true
         conflict: true

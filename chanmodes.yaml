@@ -145,7 +145,7 @@ values:
         information: >
             http://www.vulnscan.org/UnrealIrcd/unreal32docs.html#feature_antiflood
 
-        parameter: <lines>:<seconds>
+        parameter: "<lines>:<seconds>"
         comment: Flood limiter
 
     -
