@@ -13,11 +13,66 @@ file_info:
     type: "usermodes"
     revision: "1.10"
 
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: User Modes
+    extra: >
+        <p>
+            Red denotes a conflicting numeric definition, gray for depreciated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Mode
+            content: char
+            classes: code
+            inline-link: name
+            description: Mode character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the prefix came from
+        -
+            name: Server On
+            content: server_on
+            description: ""
+            vertical: true
+        -
+            name: Server Off
+            content: server_off
+            description: ""
+            vertical: true
+        -
+            name: Parameter
+            content: parameter
+            classes: code
+            description: Parameter for the mode
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+
 # The following format is used through-out this file. The first two fields
 # ('irc2char' and 'name') are manditory, the others may or may not exist.
 
 format:
-    char: mode char for irc2 based protocol(s)
+    char: mode char for irc protocol(s)
     name: mode name
     origin: where the mode was found
     when: release version or announced date
@@ -36,8 +91,8 @@ values:
         name: AWAY
         origin: RFC2812
         comment: User is away (see AWAY command?)
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -192,7 +247,7 @@ values:
         name: HELPER
         origin: "Bahamut, AustHex"
         comment: "User is a HELPER, associated with network services"
-        server_on: true
+        server_on: Y
 
     -
         char: h
@@ -204,7 +259,7 @@ values:
             User is a HELPER, the level is an unsigned 16-bit integer
             denotes 'rank', as determined by network services
 
-        server_on: true
+        server_on: Y
 
     -
         char: H
@@ -316,8 +371,8 @@ values:
         name: RESTRICTED
         origin: RFC2812
         comment: Restricted user connection
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -332,16 +387,16 @@ values:
         name: REGISTERED
         origin: "Bahamut, ircu"
         comment: Nickname is registered with a network nickname service
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
         char: R
         name: NO_NON_REGISTERED
         origin: "Bahamut, KineIRCd, Unreal"
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         comment: User wants to block messages from non-registered nicknames
 
     -
@@ -382,8 +437,8 @@ values:
         name: Z_LINED
         origin: AustHex
         comment: "User is using an AustHex Z: line"
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -391,8 +446,8 @@ values:
         name: MODIFIED_HOST
         origin: Unreal
         comment: User is using a /vhost (modified host)
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -400,8 +455,8 @@ values:
         name: W_LINED
         origin: AustHex
         comment: "User is using an AustHex w: line"
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -

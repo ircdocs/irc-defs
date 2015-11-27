@@ -10,6 +10,7 @@ These are being converted one at a time, and will be listed below as they are fi
 Available Pages
 ---------------
 * `IRC Numerics <http://danieloaks.net/irc-defs/ircnumerics.html>`_
+* `User Modes <http://danieloaks.net/irc-defs/usermodes.html>`_
 * `Channel Member Prefixes <http://danieloaks.net/irc-defs/chanmembers.html>`_
 
 
