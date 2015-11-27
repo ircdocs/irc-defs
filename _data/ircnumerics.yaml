@@ -36,7 +36,7 @@ table:
         -
             name: "#"
             content: numeric
-            classes: code
+            classes: code center
             inline-link: numeric
             description: Numeric
         -

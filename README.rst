@@ -13,6 +13,7 @@ Available Pages
 * `User Modes <http://danieloaks.net/irc-defs/usermodes.html>`_
 * `Channel Modes <http://danieloaks.net/irc-defs/chanmodes.html>`_
 * `Channel Member Prefixes <http://danieloaks.net/irc-defs/chanmembers.html>`_
+* `Channel Type Prefixes <http://danieloaks.net/irc-defs/chantypes.html>`_
 
 
 License

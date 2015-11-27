@@ -34,7 +34,7 @@ table:
         -
             name: Prefix
             content: prefixchar
-            classes: code
+            classes: code center
             inline-link: name
             description: Prefix character
         -
@@ -45,7 +45,7 @@ table:
         -
             name: Mode
             content: mode
-            classes: code
+            classes: code center
             description: Mode character that enables this prefix
         -
             name: Origin

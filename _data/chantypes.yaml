@@ -13,6 +13,52 @@ file_info:
     type: "chantypes"
     revision: "1.5"
 
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Channel Type Prefixes
+    extra: >
+        <p>
+            Red denotes a conflicting numeric definition, gray for depreciated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Prefix
+            content: prefixchar
+            classes: code center
+            inline-link: name
+            description: Prefix character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the prefix came from
+        -
+            name: Creatable
+            content: clientcreate
+            classes: center
+            description: Can regular clients create this type of channel?
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+
+
 # The following format is used through-out this file. The fields 'name' and
 # 'prefixchar' are manditory, the others may or may not exist.
 # 
@@ -28,7 +74,7 @@ format:
     contact: point of contact associated with the type
     information: url where to find more information
     comment: "comments, history etc"
-    clientcreate: true
+    clientcreate: Y
     conflict: true
     obsolete: true
 
@@ -42,7 +88,7 @@ values:
             on, and as such only clients on that server can join it. Each
             instance of this channel type is contained per server.
 
-        clientcreate: true
+        clientcreate: Y
 
     -
         name: NETWORK
@@ -52,7 +98,7 @@ values:
             This channel type is known to all servers that are connected to
             the network.
 
-        clientcreate: true
+        clientcreate: Y
 
     -
         name: NETWORK_SAFE
@@ -64,7 +110,7 @@ values:
             numeric digits. This is an alternative to the time-stamp method
             of avoiding channel-takeovers during network splits.
 
-        clientcreate: true
+        clientcreate: Y
 
     -
         name: NETWORK_UNMODERATED
@@ -77,7 +123,7 @@ values:
             upon creation, however most implementations act as if modes +nt
             are set but don't announce them as being set.
 
-        clientcreate: true
+        clientcreate: Y
 
     -
         name: SOFTCHAN
@@ -105,4 +151,4 @@ values:
             all IRC networks visible on an IIRC network, and as such users
             from other networks can participate.
 
-        clientcreate: true
+        clientcreate: Y

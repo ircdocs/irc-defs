@@ -34,7 +34,7 @@ table:
         -
             name: Mode
             content: char
-            classes: code
+            classes: code center
             inline-link: name
             description: Mode character
         -
@@ -51,12 +51,12 @@ table:
             name: Server On
             content: server_on
             description: ""
-            vertical: true
+            classes: center
         -
             name: Server Off
             content: server_off
             description: ""
-            vertical: true
+            classes: center
         -
             name: Parameter
             content: parameter
