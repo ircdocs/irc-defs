@@ -13,6 +13,66 @@ file_info:
     type: "servermodes"
     revision: "1.9"
 
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Server Modes
+    extra: >
+        <p>
+            Red denotes a conflicting numeric definition, gray for depreciated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Mode
+            content: char
+            classes: code center
+            inline-link: name
+            description: Mode character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the prefix came from
+        -
+            name: Server Only
+            content: server_only
+            description: ""
+            classes: center
+        -
+            name: Broadcast
+            content: broadcast
+            description: ""
+            classes: center
+        -
+            name: Parameter
+            content: parameter
+            classes: code
+            description: Parameter for the mode
+            xml_escape: true
+        -
+            name: When
+            content: when
+            description: Release version or announced date
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+
 # The following format is used through-out this file. The first two fields
 # ('irc2char' and 'name') are manditory, the others may or may not exist.
 # 
@@ -32,8 +92,8 @@ format:
     information: url where to find more information
     parameter: parameter name
     comment: "comments, history etc"
-    server_only: true
-    broadcast: true
+    server_only: Y
+    broadcast: Y
     conflict: true
     obsolete: true
 
@@ -48,7 +108,7 @@ values:
             follow autoconnect parameters given in the configuration file to
             maintain its connection to the network.
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: A
@@ -63,7 +123,7 @@ values:
             on, this gives the server the right to switch bone connections
             around to benifit the network.
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: D
@@ -74,7 +134,7 @@ values:
             Turns debugging on (if available), or shows a server which is in
             debugging mode.
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: F
@@ -87,8 +147,8 @@ values:
             connection classes are full, then this is a warning to other
             servers not to redirect clients to it.
 
-        server_only: true
-        broadcast: true
+        server_only: Y
+        broadcast: Y
 
     -
         char: h
@@ -99,8 +159,8 @@ values:
             Indicates the server is a hub. In ircu, this also hides the
             server from users.
 
-        server_only: true
-        broadcast: true
+        server_only: Y
+        broadcast: Y
 
     -
         char: H
@@ -113,7 +173,7 @@ values:
             invisible hubs, or invisible servers which host network
             services, etc.
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: l
@@ -126,7 +186,7 @@ values:
             runs on lazy principles. The idea for lazy leafs comes from
             Hybrid.
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: L
@@ -139,7 +199,7 @@ values:
             server. Language codes are that prescribed by BCP-0047, and only
             one can be set at a time.
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: M
@@ -152,7 +212,7 @@ values:
             operators. Arbiters/U:lines servers can still change modes (i.e.
             to remove this mode!)
 
-        broadcast: true
+        broadcast: Y
 
     -
         char: n
@@ -160,7 +220,7 @@ values:
         origin: KineIRCd
         contact: kineircd@alien.net.au
         comment: "When set, the OPER command is rendered useless"
-        broadcast: true
+        broadcast: Y
 
     -
         char: s
@@ -171,8 +231,8 @@ values:
             When set, the server is a 'service' (as in, it only provides
             services). In ircu, this also hides the server from users.
 
-        server_only: true
-        broadcast: true
+        server_only: Y
+        broadcast: Y
 
     -
         char: T
@@ -188,4 +248,4 @@ values:
             restricted rights, such as not being able to send global
             messages. This flag aids to enforce those policies.
 
-        broadcast: true
+        broadcast: Y

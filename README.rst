@@ -4,8 +4,6 @@ These are IRC definition lists. Things like lists of IRC numerics, channel modes
 
 Base data is taken from `alien.net.au <https://www.alien.net.au/irc/>`_, converted to YAML via the tools in the ``_legacy_data`` folder, and adapted for use with the `Jekyll <http://jekyllrb.com/>`_ static site generator (used by Github Pages).
 
-These are being converted one at a time, and will be listed below as they are finished.
-
 
 Available Pages
 ---------------
@@ -14,6 +12,7 @@ Available Pages
 * `Channel Modes <http://danieloaks.net/irc-defs/chanmodes.html>`_
 * `Channel Member Prefixes <http://danieloaks.net/irc-defs/chanmembers.html>`_
 * `Channel Type Prefixes <http://danieloaks.net/irc-defs/chantypes.html>`_
+* `Server Modes <http://danieloaks.net/irc-defs/servermodes.html>`_
 
 
 License
