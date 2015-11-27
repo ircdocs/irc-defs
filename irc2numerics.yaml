@@ -3604,3 +3604,9 @@ values:
             was created initially to combat '/wallops foo' abuse, but is
             also used by DIE and RESTART commands to attempt to encourage
             meaningful reasons.
+
+    -
+        name: ERR_NUMERIC_ERR
+        numeric: 999
+        origin: Bahamut
+        comment: Also known as ERR_NUMERICERR (Unreal)

@@ -94,3 +94,15 @@ values:
             which require rare features without channel mode bloat, or
             software bloat. By creating a new channel type it also avoids
             confusion with other channel types with fixed definitions.
+
+    -
+        prefixchar: "~"
+        name: GLOBAL
+        origin: KineIRCd
+        contact: kineircd@alien.net.au
+        comment: >
+            This is a proposed channel type for IIRC. This is available to
+            all IRC networks visible on an IIRC network, and as such users
+            from other networks can participate.
+
+        clientcreate: true

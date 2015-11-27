@@ -61,7 +61,7 @@ def parse_def_file(name, text):
 
     # parse out values string
     values_str = []
-    for info in text.split('\n\n')[:-1]:
+    for info in text.split('\n\n'):
         info = info.strip().split('\n')[1:-1]
         values = OrderedDict()
 
