@@ -13,6 +13,51 @@ file_info:
     type: "chanmembers"
     revision: "1.5"
 
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Channel Membership Prefixes
+    extra: >
+        <p>
+            Red denotes a conflicting numeric definition, gray for depreciated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Prefix
+            content: prefixchar
+            classes: code
+            inline-link: name
+            description: Prefix character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Mode
+            content: mode
+            classes: code
+            description: Mode character that enables this prefix
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the prefix came from
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+
 # The following format is used through-out this file. The fields 'name',
 # 'prefixchar', and irc2_mode are manditory, the others may or may not exist.
 
@@ -72,7 +117,7 @@ values:
     -
         name: SERVICE
         prefixchar: "!"
-        mode: !
+        mode: "!"
         origin: KineIRCd
         contact: kineircd@alien.net.au
         comment: >
