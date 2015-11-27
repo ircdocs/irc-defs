@@ -11,6 +11,7 @@ Available Pages
 ---------------
 * `IRC Numerics <http://danieloaks.net/irc-defs/ircnumerics.html>`_
 * `User Modes <http://danieloaks.net/irc-defs/usermodes.html>`_
+* `Channel Modes <http://danieloaks.net/irc-defs/chanmodes.html>`_
 * `Channel Member Prefixes <http://danieloaks.net/irc-defs/chanmembers.html>`_
 
 

@@ -13,6 +13,61 @@ file_info:
     type: "chanmodes"
     revision: "1.14"
 
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Channel Modes
+    extra: >
+        <p>
+            Red denotes a conflicting numeric definition, gray for depreciated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Mode
+            content: char
+            classes: code
+            inline-link: name
+            description: Mode character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the prefix came from
+        -
+            name: Server On
+            content: server_on
+            description: ""
+            vertical: true
+        -
+            name: Server Off
+            content: server_off
+            description: ""
+            vertical: true
+        -
+            name: Parameter
+            content: parameter
+            classes: code
+            description: Parameter for the mode
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+
 # The following format is used through-out this file. The first two fields
 # ('irc2char' and 'name') are manditory, the others may or may not exist.
 
@@ -105,8 +160,8 @@ values:
             Set by the server when the channel mode +D (on QuakeNet) was
             removed, but there are still 'hidden' users in the channel
 
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -328,8 +383,8 @@ values:
             changes are not broadcast. From the user's point of view, the
             channel only contains one user (them).
 
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -367,8 +422,8 @@ values:
         name: REGISTERED
         origin: Bahamut
         comment: Channel is registered with a network channel service
-        server_on: true
-        server_off: true
+        server_on: Y
+        server_off: Y
         conflict: true
 
     -
@@ -470,7 +525,7 @@ values:
             (eg. SSL)
 
     -
-        char: !
+        char: "!"
         name: SERVICE
         origin: KineIRCd
         contact: kineircd@alien.net.au
