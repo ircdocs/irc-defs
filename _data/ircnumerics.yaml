@@ -10,7 +10,7 @@
 # For more information or corrections, please contact the author.
 
 file_info:
-    type: "irc2numerics"
+    type: "ircnumerics"
     revision: "1.50"
 
 # The following information is used to create pretty HTML page and tables
