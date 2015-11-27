@@ -4,6 +4,8 @@ These are IRC definition lists. Things like lists of IRC numerics, channel modes
 
 Base data is taken from `alien.net.au <https://www.alien.net.au/irc/>`_, converted to YAML via the tools in the ``_legacy_data`` folder, and adapted for use with the `Jekyll <http://jekyllrb.com/>`_ static site generator (used by Github Pages).
 
+`Online Site <http://danieloaks.net/irc-defs/>`_
+
 
 Available Pages
 ---------------
