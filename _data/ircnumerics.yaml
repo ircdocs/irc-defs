@@ -3532,6 +3532,104 @@ values:
         comment: Termination of an RPL_XINFO list
 
     -
+        name: RPL_LOGGEDIN
+        numeric: "900"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: "<nick>!<ident>@<host> <account> :You are now logged in as <user>"
+        comment: >
+            Sent when the user’s account name is set (whether by SASL or
+            otherwise)
+
+    -
+        name: RPL_LOGGEDOUT
+        numeric: "901"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: "<nick>!<ident>@<host> :You are now logged out"
+        comment: >
+            Sent when the user’s account name is unset (whether by SASL or
+            otherwise)
+
+    -
+        name: ERR_NICKLOCKED
+        numeric: "902"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: ":You must use a nick assigned to you."
+        comment: >
+            Sent when the SASL authentication fails because the account is
+            currently locked out, held, or otherwise administratively made
+            unavailable.
+
+    -
+        name: RPL_SASLSUCCESS
+        numeric: "903"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: ":SASL authentication successful"
+        seealso: "900"
+        comment: >
+            Sent when the SASL authentication finishes successfully
+
+    -
+        name: ERR_SASLFAIL
+        numeric: "904"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: ":SASL authentication failed"
+        comment: >
+            Sent when the SASL authentication fails because of invalid
+            credentials or other errors not explicitly mentioned by other
+            numerics
+
+    -
+        name: ERR_SASLTOOLONG
+        numeric: "905"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: ":SASL message too long"
+        comment: >
+            Sent when credentials are valid, but the SASL authentication
+            fails because the client-sent AUTHENTICATE command was too
+            long (i.e. the parameter longer than 400 bytes)
+
+    -
+        name: ERR_SASLABORTED
+        numeric: "906"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: ":SASL authentication aborted"
+        comment: >
+            Sent when the SASL authentication is aborted because the
+            client sent an AUTHENTICATE command with * as the parameter
+
+    -
+        name: ERR_SASLALREADY
+        numeric: "907"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: ":You have already authenticated using SASL"
+        comment: >
+            Sent when the client attempts to initiate SASL authentication
+            after it has already finished successfully for that connection.
+            Obsoleted by IRCv3.2 which allows for SASL authentication at
+            any time.
+
+        obsolete: true
+
+    -
+        name: RPL_SASLMECHS
+        numeric: "908"
+        origin: "Charybdis/Atheme, IRCv3"
+        contact: "http://ircv3.net/"
+        format: "<mechanisms> :are available SASL mechanisms"
+        comment: >
+            Sent when the client requests a list of SASL mechanisms
+            supported by the server (or network, services). The numeric
+            contains a comma-separated list of mechanisms
+
+    -
         name: ERR_CANNOTDOCOMMAND
         numeric: "972"
         origin: Unreal
