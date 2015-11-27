@@ -7,12 +7,12 @@ Base data is taken from `alien.net.au <https://www.alien.net.au/irc/>`_, convert
 
 Available Pages
 ---------------
-* `IRC Numerics <http://danieloaks.net/irc-defs/ircnumerics.html>`_
-* `User Modes <http://danieloaks.net/irc-defs/usermodes.html>`_
-* `Channel Modes <http://danieloaks.net/irc-defs/chanmodes.html>`_
-* `Channel Member Prefixes <http://danieloaks.net/irc-defs/chanmembers.html>`_
-* `Channel Type Prefixes <http://danieloaks.net/irc-defs/chantypes.html>`_
-* `Server Modes <http://danieloaks.net/irc-defs/servermodes.html>`_
+* `IRC Numerics <http://danieloaks.net/irc-defs/defs/ircnumerics.html>`_
+* `User Modes <http://danieloaks.net/irc-defs/defs/usermodes.html>`_
+* `Channel Modes <http://danieloaks.net/irc-defs/defs/chanmodes.html>`_
+* `Channel Member Prefixes <http://danieloaks.net/irc-defs/defs/chanmembers.html>`_
+* `Channel Type Prefixes <http://danieloaks.net/irc-defs/defs/chantypes.html>`_
+* `Server Modes <http://danieloaks.net/irc-defs/defs/servermodes.html>`_
 
 
 License
