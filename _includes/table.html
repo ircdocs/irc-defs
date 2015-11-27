@@ -1,0 +1,100 @@
+<header>
+    <h1>{{ info.page.name }}</h1>
+    <p>Revision {{ info.file_info.revision }}</p>
+</header>
+
+{{ info.page.extra }}
+
+<p>Updates? Please submit an issue or a pull request on the <a href="https://github.com/DanielOaks/irc-defs">Github repo!</a> Thank you!</p>
+
+<style>
+
+    html, body {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+    }
+    footer {
+        margin: 0.5rem 0;
+        font-size: 90%;
+    }
+
+    header h1 {
+        margin-bottom: 0;
+    }
+    header h1 + p {
+        margin-top: 0.25rem;
+        color: #494949;
+    }
+
+    table {
+        width: 100%;
+        background-color: #888;
+    }
+    thead {
+        font-size: 80%;
+    }
+    thead tr {
+        background-color: #eee;
+        font-weight: bold;
+    }
+    tbody tr {
+        background-color: #ddf;
+    }
+    .col-format {
+        min-width: 15rem;
+    }
+    .conflict {
+        background-color: #fdd;
+    }
+    .obsolete {
+        background-color: #ddd;
+    }
+
+    tbody tr {
+        font-size: 97.5%;
+    }
+    .code {
+        font-family: Courier, monospace;
+        font-size: 90%;
+    }
+
+</style>
+
+<table border="0" cellpadding="2" cellspacing="1">
+    <thead>
+        <tr>
+            {% for col in info.table.columns %}
+            <th title="{% if col.description %}{{ col.description }}{% else %}{{ col.name }}{% endif %}">
+                {{ col.name }}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in info.values %}
+        <tr{% if info.table['row-id'] %} id="{{ row[info.table['row-id']] }}"{% endif %} class="{% for class in info.table.row-classes %}{% if row[class] %}{{ class }} {% endif %}{% endfor %}">
+            {% for col in info.table.columns %}
+            <td class="col-{{ col.content | slugize }}{% if col.classes %} {{ col.classes }}{% endif %}">
+                {% if col['inline-link'] %}{% if row[col['inline-link']] %}<a href="#{{ row[col['inline-link']] }}">{% endif %}{% endif %}
+                {% if col.link %}{% if row[col.link] %}<a href="{{ row[col.link] }}">{% endif %}{% endif %}
+                {% if col.xml_escape %}
+                    {{ row[col['content']] | xml_escape }}
+                {% else %}
+                    {{ row[col['content']] }}
+                {% endif %}
+                {% if col.link %}</a>{% endif %}
+                {% if col['inline-link'] %}</a>{% endif %}
+                {% if col.seealso %}{% if row.seealso %}
+                <p>Also see <a href="#{{ row.seealso }}">{{ row.seealso }}</a>.</p>
+                {% endif %}{% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<footer>
+    {{ info.page.name }}
+    &middot;
+    Revision {{ info.file_info.revision }}
+</footer>
