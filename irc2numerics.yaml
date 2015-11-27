@@ -13,6 +13,54 @@ file_info:
     type: "irc2numerics"
     revision: "1.50"
 
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: IRC Numerics
+    extra: >
+        <p>
+            Red denotes a conflicting numeric definition, gray for depreciated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: numeric
+
+    row-classes:
+        - registration
+        - conflict
+        - obsolete
+        - repeated
+
+    columns:
+        -
+            name: "#"
+            content: numeric
+            classes: code
+            inline-link: numeric
+            description: Numeric
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the numeric came from
+        -
+            name: Format
+            content: format
+            classes: code
+            description: Format of the numeric data
+            xml_escape: true
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+
 # The following format is used through-out this file. The first two fields
 # ('name' and 'numeric') are manditory, the others may or may not exist.
 # 
@@ -38,7 +86,7 @@ format:
 values:
     -
         name: RPL_WELCOME
-        numeric: 1
+        numeric: "001"
         origin: RFC2812
         format: ":Welcome to the Internet Relay Network <nick>!<user>@<host>"
         comment: >
@@ -47,30 +95,30 @@ values:
 
     -
         name: RPL_YOURHOST
-        numeric: 2
+        numeric: "002"
         origin: RFC2812
         format: ":Your host is <servername>, running version <version>"
         comment: Part of the post-registration greeting. Text varies widely
 
     -
         name: RPL_CREATED
-        numeric: 3
+        numeric: "003"
         origin: RFC2812
         format: ":This server was created <date>"
         comment: Part of the post-registration greeting. Text varies widely
 
     -
         name: RPL_MYINFO
-        numeric: 4
+        numeric: "004"
         origin: RFC2812
         format: "<server_name> <version> <user_modes> <chan_modes>"
         comment: Part of the post-registration greeting
 
     -
         name: RPL_MYINFO
-        numeric: 4
+        numeric: "004"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<server_name> <version> <user_modes> <chan_modes> <channel_modes_with_params> <user_modes_with_params> <server_modes> <server_modes_with_params>"
         comment: >
             Same as RFC2812 however with additional fields to avoid
@@ -80,7 +128,7 @@ values:
 
     -
         name: RPL_BOUNCE
-        numeric: 5
+        numeric: "005"
         origin: RFC2812
         format: ":Try server <server_name>, port <port_number>"
         comment: >
@@ -89,41 +137,41 @@ values:
             is already full. Also known as RPL_SLINE (AustHex), and
             RPL_REDIR
 
-        seealso: 010
+        seealso: "010"
         obsolete: true
 
     -
         name: RPL_ISUPPORT
-        numeric: 5
+        numeric: "005"
         information: "http://www.irc.org/tech_docs/005.html"
         comment: "Also known as RPL_PROTOCTL (Bahamut, Unreal, Ultimate)"
 
     -
         name: RPL_MAP
-        numeric: 6
+        numeric: "006"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_MAPEND
-        numeric: 7
+        numeric: "007"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_SNOMASK
-        numeric: 8
+        numeric: "008"
         origin: ircu
         comment: Server notice mask (hex)
 
     -
         name: RPL_STATMEMTOT
-        numeric: 9
+        numeric: "009"
         origin: ircu
 
     -
         name: RPL_BOUNCE
-        numeric: 10
+        numeric: "010"
         format: "<hostname> <port> :<info>"
         comment: >
             Sent to the client to redirect it to another server. Also known
@@ -131,41 +179,41 @@ values:
 
     -
         name: RPL_STATMEM
-        numeric: 10
+        numeric: "010"
         origin: ircu
         obsolete: true
 
     -
         name: RPL_YOURCOOKIE
-        numeric: 14
+        numeric: "014"
         origin: Hybrid?
 
     -
         name: RPL_MAP
-        numeric: 15
+        numeric: "015"
         origin: ircu
         conflict: true
 
     -
         name: RPL_MAPMORE
-        numeric: 16
+        numeric: "016"
         origin: ircu
         conflict: true
 
     -
         name: RPL_MAPEND
-        numeric: 17
+        numeric: "017"
         origin: ircu
         conflict: true
 
     -
         name: RPL_YOURID
-        numeric: 42
+        numeric: "042"
         origin: IRCnet
 
     -
         name: RPL_SAVENICK
-        numeric: 43
+        numeric: "043"
         origin: IRCnet
         format: ":<info>"
         comment: >
@@ -174,120 +222,120 @@ values:
 
     -
         name: RPL_ATTEMPTINGJUNC
-        numeric: 50
+        numeric: "050"
         origin: aircd
 
     -
         name: RPL_ATTEMPTINGREROUTE
-        numeric: 51
+        numeric: "051"
         origin: aircd
 
     -
         name: RPL_TRACELINK
-        numeric: 200
+        numeric: "200"
         origin: RFC1459
         format: "Link <version>[.<debug_level>] <destination> <next_server> [V<protocol_version> <link_uptime_in_seconds> <backstream_sendq> <upstream_sendq>]"
         comment: See RFC
 
     -
         name: RPL_TRACECONNECTING
-        numeric: 201
+        numeric: "201"
         origin: RFC1459
         format: "Try. <class> <server>"
         comment: See RFC
 
     -
         name: RPL_TRACEHANDSHAKE
-        numeric: 202
+        numeric: "202"
         origin: RFC1459
         format: "H.S. <class> <server>"
         comment: See RFC
 
     -
         name: RPL_TRACEUNKNOWN
-        numeric: 203
+        numeric: "203"
         origin: RFC1459
         format: "???? <class> [<connection_address>]"
         comment: See RFC
 
     -
         name: RPL_TRACEOPERATOR
-        numeric: 204
+        numeric: "204"
         origin: RFC1459
         format: "Oper <class> <nick>"
         comment: See RFC
 
     -
         name: RPL_TRACEUSER
-        numeric: 205
+        numeric: "205"
         origin: RFC1459
         format: "User <class> <nick>"
         comment: See RFC
 
     -
         name: RPL_TRACESERVER
-        numeric: 206
+        numeric: "206"
         origin: RFC1459
         format: "Serv <class> <int>S <int>C <server> <nick!user|*!*>@<host|server> [V<protocol_version>]"
         comment: See RFC
 
     -
         name: RPL_TRACESERVICE
-        numeric: 207
+        numeric: "207"
         origin: RFC2812
         format: "Service <class> <name> <type> <active_type>"
         comment: See RFC
 
     -
         name: RPL_TRACENEWTYPE
-        numeric: 208
+        numeric: "208"
         origin: RFC1459
         format: "<newtype> 0 <client_name>"
         comment: See RFC
 
     -
         name: RPL_TRACECLASS
-        numeric: 209
+        numeric: "209"
         origin: RFC2812
         format: "Class <class> <count>"
         comment: See RFC
 
     -
         name: RPL_TRACERECONNECT
-        numeric: 210
+        numeric: "210"
         origin: RFC2812
         obsolete: true
 
     -
         name: RPL_STATS
-        numeric: 210
+        numeric: "210"
         origin: aircd
         comment: Used instead of having multiple stats numerics
 
     -
         name: RPL_STATSLINKINFO
-        numeric: 211
+        numeric: "211"
         origin: RFC1459
         format: "<linkname> <sendq> <sent_msgs> <sent_bytes> <recvd_msgs> <rcvd_bytes> <time_open>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSCOMMANDS
-        numeric: 212
+        numeric: "212"
         origin: RFC1459
         format: "<command> <count> [<byte_count> <remote_count>]"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSCLINE
-        numeric: 213
+        numeric: "213"
         origin: RFC1459
         format: "C <host> * <name> <port> <class>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSNLINE
-        numeric: 214
+        numeric: "214"
         origin: RFC1459
         format: "N <host> * <name> <port> <class>"
         comment: >
@@ -298,59 +346,59 @@ values:
 
     -
         name: RPL_STATSILINE
-        numeric: 215
+        numeric: "215"
         origin: RFC1459
         format: "I <host> * <host> <port> <class>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSKLINE
-        numeric: 216
+        numeric: "216"
         origin: RFC1459
         format: "K <host> * <username> <port> <class>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSQLINE
-        numeric: 217
+        numeric: "217"
         origin: RFC1459
         conflict: true
 
     -
         name: RPL_STATSPLINE
-        numeric: 217
+        numeric: "217"
         origin: ircu
         conflict: true
 
     -
         name: RPL_STATSYLINE
-        numeric: 218
+        numeric: "218"
         origin: RFC1459
         format: "Y <class> <ping_freq> <connect_freq> <max_sendq>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_ENDOFSTATS
-        numeric: 219
+        numeric: "219"
         origin: RFC1459
         format: "<query> :<info>"
         comment: End of RPL_STATS* list.
 
     -
         name: RPL_STATSPLINE
-        numeric: 220
+        numeric: "220"
         origin: Hybrid
         conflict: true
 
     -
         name: RPL_STATSBLINE
-        numeric: 220
+        numeric: "220"
         origin: "Bahamut, Unreal"
         conflict: true
 
     -
         name: RPL_UMODEIS
-        numeric: 221
+        numeric: "221"
         origin: RFC1459
         format: "<user_modes> [<user_mode_params>]"
         comment: >
@@ -360,185 +408,185 @@ values:
 
     -
         name: RPL_MODLIST
-        numeric: 222
+        numeric: "222"
         conflict: true
 
     -
         name: RPL_SQLINE_NICK
-        numeric: 222
+        numeric: "222"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_STATSBLINE
-        numeric: 222
+        numeric: "222"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_STATSELINE
-        numeric: 223
+        numeric: "223"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_STATSGLINE
-        numeric: 223
+        numeric: "223"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_STATSFLINE
-        numeric: 224
+        numeric: "224"
         origin: "Hybrid, Bahamut"
         conflict: true
 
     -
         name: RPL_STATSTLINE
-        numeric: 224
+        numeric: "224"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_STATSDLINE
-        numeric: 225
+        numeric: "225"
         origin: Hybrid
         conflict: true
 
     -
         name: RPL_STATSZLINE
-        numeric: 225
+        numeric: "225"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_STATSELINE
-        numeric: 225
+        numeric: "225"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_STATSCOUNT
-        numeric: 226
+        numeric: "226"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_STATSNLINE
-        numeric: 226
+        numeric: "226"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_STATSGLINE
-        numeric: 227
+        numeric: "227"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_STATSVLINE
-        numeric: 227
+        numeric: "227"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_STATSQLINE
-        numeric: 228
+        numeric: "228"
         origin: ircu
         conflict: true
 
     -
         name: RPL_SERVICEINFO
-        numeric: 231
+        numeric: "231"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_ENDOFSERVICES
-        numeric: 232
+        numeric: "232"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_RULES
         origin: Unreal
-        numeric: 232
+        numeric: "232"
         conflict: true
 
     -
         name: RPL_SERVICE
-        numeric: 233
+        numeric: "233"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_SERVLIST
-        numeric: 234
+        numeric: "234"
         origin: RFC2812
         format: "<name> <server> <mask> <type> <hopcount> <info>"
         comment: A service entry in the service list
 
     -
         name: RPL_SERVLISTEND
-        numeric: 235
+        numeric: "235"
         origin: RFC2812
         format: "<mask> <type> :<info>"
         comment: Termination of an RPL_SERVLIST list
 
     -
         name: RPL_STATSVERBOSE
-        numeric: 236
+        numeric: "236"
         origin: ircu
         comment: Verbose server list?
 
     -
         name: RPL_STATSENGINE
-        numeric: 237
+        numeric: "237"
         origin: ircu
         comment: Engine name?
 
     -
         name: RPL_STATSFLINE
-        numeric: 238
+        numeric: "238"
         origin: ircu
         comment: Feature lines?
         conflict: true
 
     -
         name: RPL_STATSIAUTH
-        numeric: 239
+        numeric: "239"
         origin: IRCnet
 
     -
         name: RPL_STATSVLINE
-        numeric: 240
+        numeric: "240"
         origin: RFC2812
         conflict: true
 
     -
         name: RPL_STATSXLINE
-        numeric: 240
+        numeric: "240"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         conflict: true
 
     -
         name: RPL_STATSLLINE
-        numeric: 241
+        numeric: "241"
         origin: RFC1459
         format: "L <hostmask> * <servername> <maxdepth>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSUPTIME
-        numeric: 242
+        numeric: "242"
         origin: RFC1459
         format: ":Server Up <days> days <hours>:<minutes>:<seconds>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSOLINE
-        numeric: 243
+        numeric: "243"
         origin: RFC1459
         format: "O <hostmask> * <nick> [:<info>]"
         comment: >
@@ -548,90 +596,90 @@ values:
 
     -
         name: RPL_STATSHLINE
-        numeric: 244
+        numeric: "244"
         origin: RFC1459
         format: "H <hostmask> * <servername>"
         comment: Reply to STATS (See RFC)
 
     -
         name: RPL_STATSSLINE
-        numeric: 245
+        numeric: "245"
         origin: "Bahamut, IRCnet, Hybrid"
 
     -
         name: RPL_STATSPING
-        numeric: 246
+        numeric: "246"
         origin: RFC2812
         obsolete: true
 
     -
         name: RPL_STATSTLINE
-        numeric: 246
+        numeric: "246"
         origin: ircu
         conflict: true
 
     -
         name: RPL_STATSULINE
-        numeric: 246
+        numeric: "246"
         origin: Hybrid
         conflict: true
 
     -
         name: RPL_STATSBLINE
-        numeric: 247
+        numeric: "247"
         origin: RFC2812
         conflict: true
 
     -
         name: RPL_STATSXLINE
-        numeric: 247
+        numeric: "247"
         origin: "Hybrid, PTlink, Unreal"
         conflict: true
 
     -
         name: RPL_STATSGLINE
-        numeric: 247
+        numeric: "247"
         origin: ircu
         conflict: true
 
     -
         name: RPL_STATSULINE
-        numeric: 248
+        numeric: "248"
         origin: ircu
         conflict: true
 
     -
         name: RPL_STATSDEFINE
-        numeric: 248
+        numeric: "248"
         origin: IRCnet
         conflict: true
 
     -
         name: RPL_STATSULINE
-        numeric: 249
+        numeric: "249"
         comment: Extension to RFC1459?
         conflict: true
 
     -
         name: RPL_STATSDEBUG
-        numeric: 249
+        numeric: "249"
         origin: Hybrid
         conflict: true
 
     -
         name: RPL_STATSDLINE
-        numeric: 250
+        numeric: "250"
         origin: RFC2812
         conflict: true
 
     -
         name: RPL_STATSCONN
-        numeric: 250
+        numeric: "250"
         origin: "ircu, Unreal"
 
     -
         name: RPL_LUSERCLIENT
-        numeric: 251
+        numeric: "251"
         origin: RFC1459
         format: ":There are <int> users and <int> invisible on <int> servers"
         comment: >
@@ -640,14 +688,14 @@ values:
 
     -
         name: RPL_LUSEROP
-        numeric: 252
+        numeric: "252"
         origin: RFC1459
         format: "<int> :<info>"
         comment: Reply to LUSERS command - Number of IRC operators online
 
     -
         name: RPL_LUSERUNKNOWN
-        numeric: 253
+        numeric: "253"
         origin: RFC1459
         format: "<int> :<info>"
         comment: >
@@ -656,14 +704,14 @@ values:
 
     -
         name: RPL_LUSERCHANNELS
-        numeric: 254
+        numeric: "254"
         origin: RFC1459
         format: "<int> :<info>"
         comment: Reply to LUSERS command - Number of channels formed
 
     -
         name: RPL_LUSERME
-        numeric: 255
+        numeric: "255"
         origin: RFC1459
         format: ":I have <int> clients and <int> servers"
         comment: >
@@ -672,7 +720,7 @@ values:
 
     -
         name: RPL_ADMINME
-        numeric: 256
+        numeric: "256"
         origin: RFC1459
         format: "<server> :<info>"
         comment: >
@@ -685,41 +733,41 @@ values:
 
     -
         name: RPL_ADMINLOC1
-        numeric: 257
+        numeric: "257"
         origin: RFC1459
         format: ":<admin_location>"
         comment: "Reply to ADMIN command (Location, first line)"
 
     -
         name: RPL_ADMINLOC2
-        numeric: 258
+        numeric: "258"
         origin: RFC1459
         format: ":<admin_location>"
         comment: "Reply to ADMIN command (Location, second line)"
 
     -
         name: RPL_ADMINEMAIL
-        numeric: 259
+        numeric: "259"
         origin: RFC1459
         format: ":<email_address>"
         comment: Reply to ADMIN command (E-mail address of administrator)
 
     -
         name: RPL_TRACELOG
-        numeric: 261
+        numeric: "261"
         origin: RFC1459
         format: "File <logfile> <debug_level>"
         comment: See RFC
 
     -
         name: RPL_TRACEPING
-        numeric: 262
+        numeric: "262"
         comment: Extension to RFC1459?
         conflict: true
 
     -
         name: RPL_TRACEEND
-        numeric: 262
+        numeric: "262"
         origin: RFC2812
         format: "<server_name> <version>[.<debug_level>] :<info>"
         comment: Used to terminate a list of RPL_TRACE* replies
@@ -727,7 +775,7 @@ values:
 
     -
         name: RPL_TRYAGAIN
-        numeric: 263
+        numeric: "263"
         origin: RFC2812
         format: "<command> :<info>"
         comment: >
@@ -737,292 +785,292 @@ values:
 
     -
         name: RPL_LOCALUSERS
-        numeric: 265
+        numeric: "265"
         origin: "aircd, Hybrid, Hybrid, Bahamut"
         comment: Also known as RPL_CURRENT_LOCAL
 
     -
         name: RPL_GLOBALUSERS
-        numeric: 266
+        numeric: "266"
         origin: "aircd, Hybrid, Hybrid, Bahamut"
         comment: Also known as RPL_CURRENT_GLOBAL
 
     -
         name: RPL_START_NETSTAT
-        numeric: 267
+        numeric: "267"
         origin: aircd
 
     -
         name: RPL_NETSTAT
-        numeric: 268
+        numeric: "268"
         origin: aircd
 
     -
         name: RPL_END_NETSTAT
-        numeric: 269
+        numeric: "269"
         origin: aircd
 
     -
         name: RPL_PRIVS
-        numeric: 270
+        numeric: "270"
         origin: ircu
 
     -
         name: RPL_SILELIST
-        numeric: 271
+        numeric: "271"
         origin: ircu
 
     -
         name: RPL_ENDOFSILELIST
-        numeric: 272
+        numeric: "272"
         origin: ircu
 
     -
         name: RPL_NOTIFY
-        numeric: 273
+        numeric: "273"
         origin: aircd
 
     -
         name: RPL_ENDNOTIFY
-        numeric: 274
+        numeric: "274"
         origin: aircd
         conflict: true
 
     -
         name: RPL_STATSDELTA
-        numeric: 274
+        numeric: "274"
         origin: IRCnet
         conflict: true
 
     -
         name: RPL_STATSDLINE
-        numeric: 275
+        numeric: "275"
         origin: "ircu, Ultimate"
         conflict: true
 
     -
         name: RPL_VCHANEXIST
-        numeric: 276
+        numeric: "276"
 
     -
         name: RPL_VCHANLIST
-        numeric: 277
+        numeric: "277"
 
     -
         name: RPL_VCHANHELP
-        numeric: 278
+        numeric: "278"
 
     -
         name: RPL_GLIST
-        numeric: 280
+        numeric: "280"
         origin: ircu
 
     -
         name: RPL_ENDOFGLIST
-        numeric: 281
+        numeric: "281"
         origin: ircu
         conflict: true
 
     -
         name: RPL_ACCEPTLIST
-        numeric: 281
+        numeric: "281"
         conflict: true
 
     -
         name: RPL_ENDOFACCEPT
-        numeric: 282
+        numeric: "282"
         conflict: true
 
     -
         name: RPL_JUPELIST
-        numeric: 282
+        numeric: "282"
         origin: ircu
         conflict: true
 
     -
         name: RPL_ALIST
-        numeric: 283
+        numeric: "283"
         conflict: true
 
     -
         name: RPL_ENDOFJUPELIST
-        numeric: 283
+        numeric: "283"
         origin: ircu
         conflict: true
 
     -
         name: RPL_ENDOFALIST
-        numeric: 284
+        numeric: "284"
         conflict: true
 
     -
         name: RPL_FEATURE
-        numeric: 284
+        numeric: "284"
         origin: ircu
         conflict: true
 
     -
         name: RPL_GLIST_HASH
-        numeric: 285
+        numeric: "285"
         conflict: true
 
     -
         name: RPL_CHANINFO_HANDLE
-        numeric: 285
+        numeric: "285"
         origin: aircd
         conflict: true
 
     -
         name: RPL_NEWHOSTIS
-        numeric: 285
+        numeric: "285"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_USERS
-        numeric: 286
+        numeric: "286"
         origin: aircd
         conflict: true
 
     -
         name: RPL_CHKHEAD
-        numeric: 286
+        numeric: "286"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_CHOPS
-        numeric: 287
+        numeric: "287"
         origin: aircd
         conflict: true
 
     -
         name: RPL_CHANUSER
-        numeric: 287
+        numeric: "287"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_VOICES
-        numeric: 288
+        numeric: "288"
         origin: aircd
         conflict: true
 
     -
         name: RPL_PATCHHEAD
-        numeric: 288
+        numeric: "288"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_AWAY
-        numeric: 289
+        numeric: "289"
         origin: aircd
         conflict: true
 
     -
         name: RPL_PATCHCON
-        numeric: 289
+        numeric: "289"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_OPERS
-        numeric: 290
+        numeric: "290"
         origin: aircd
         conflict: true
 
     -
         name: RPL_HELPHDR
-        numeric: 290
+        numeric: "290"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_DATASTR
-        numeric: 290
+        numeric: "290"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_BANNED
-        numeric: 291
+        numeric: "291"
         origin: aircd
         conflict: true
 
     -
         name: RPL_HELPOP
-        numeric: 291
+        numeric: "291"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_ENDOFCHECK
-        numeric: 291
+        numeric: "291"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_CHANINFO_BANS
-        numeric: 292
+        numeric: "292"
         origin: aircd
         conflict: true
 
     -
         name: RPL_HELPTLR
-        numeric: 292
+        numeric: "292"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_CHANINFO_INVITE
-        numeric: 293
+        numeric: "293"
         origin: aircd
         conflict: true
 
     -
         name: RPL_HELPHLP
-        numeric: 293
+        numeric: "293"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_CHANINFO_INVITES
-        numeric: 294
+        numeric: "294"
         origin: aircd
         conflict: true
 
     -
         name: RPL_HELPFWD
-        numeric: 294
+        numeric: "294"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_CHANINFO_KICK
-        numeric: 295
+        numeric: "295"
         origin: aircd
         conflict: true
 
     -
         name: RPL_HELPIGN
-        numeric: 295
+        numeric: "295"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_CHANINFO_KICKS
-        numeric: 296
+        numeric: "296"
         origin: aircd
 
     -
         name: RPL_END_CHANINFO
-        numeric: 299
+        numeric: "299"
         origin: aircd
 
     -
         name: RPL_NONE
-        numeric: 300
+        numeric: "300"
         origin: RFC1459
         comment: >
             Dummy reply, supposedly only used for debugging/testing new
@@ -1030,7 +1078,7 @@ values:
 
     -
         name: RPL_AWAY
-        numeric: 301
+        numeric: "301"
         origin: RFC1459
         format: "<nick> :<message>"
         comment: >
@@ -1039,7 +1087,7 @@ values:
 
     -
         name: RPL_AWAY
-        numeric: 301
+        numeric: "301"
         origin: KineIRCd
         format: "<nick> <seconds away> :<message>"
         comment: >
@@ -1051,201 +1099,201 @@ values:
 
     -
         name: RPL_USERHOST
-        numeric: 302
+        numeric: "302"
         origin: RFC1459
         format: ":*1<reply> *( ' ' <reply> )"
         comment: Reply used by USERHOST (see RFC)
 
     -
         name: RPL_ISON
-        numeric: 303
+        numeric: "303"
         origin: RFC1459
         format: ":*1<nick> *( ' ' <nick> )"
         comment: Reply to the ISON command (see RFC)
 
     -
         name: RPL_TEXT
-        numeric: 304
+        numeric: "304"
         obsolete: true
 
     -
         name: RPL_UNAWAY
-        numeric: 305
+        numeric: "305"
         origin: RFC1459
         format: ":<info>"
         comment: Reply from AWAY when no longer marked as away
 
     -
         name: RPL_NOWAWAY
-        numeric: 306
+        numeric: "306"
         origin: RFC1459
         format: ":<info>"
         comment: Reply from AWAY when marked away
 
     -
         name: RPL_USERIP
-        numeric: 307
+        numeric: "307"
         conflict: true
 
     -
         name: RPL_WHOISREGNICK
-        numeric: 307
+        numeric: "307"
         origin: "Bahamut, Unreal"
         conflict: true
 
     -
         name: RPL_SUSERHOST
-        numeric: 307
+        numeric: "307"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         conflict: true
 
     -
         name: RPL_NOTIFYACTION
-        numeric: 308
+        numeric: "308"
         origin: aircd
         conflict: true
 
     -
         name: RPL_WHOISADMIN
-        numeric: 308
+        numeric: "308"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_RULESSTART
-        numeric: 308
+        numeric: "308"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_NICKTRACE
-        numeric: 309
+        numeric: "309"
         origin: aircd
         conflict: true
 
     -
         name: RPL_WHOISSADMIN
-        numeric: 309
+        numeric: "309"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_ENDOFRULES
-        numeric: 309
+        numeric: "309"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_WHOISHELPER
-        numeric: 309
+        numeric: "309"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         conflict: true
 
     -
         name: RPL_WHOISSVCMSG
-        numeric: 310
+        numeric: "310"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_WHOISHELPOP
-        numeric: 310
+        numeric: "310"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_WHOISSERVICE
-        numeric: 310
+        numeric: "310"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         conflict: true
 
     -
         name: RPL_WHOISUSER
-        numeric: 311
+        numeric: "311"
         origin: RFC1459
         format: "<nick> <user> <host> * :<real_name>"
         comment: Reply to WHOIS - Information about the user
 
     -
         name: RPL_WHOISSERVER
-        numeric: 312
+        numeric: "312"
         origin: RFC1459
         format: "<nick> <server> :<server_info>"
         comment: Reply to WHOIS - What server they're on
 
     -
         name: RPL_WHOISOPERATOR
-        numeric: 313
+        numeric: "313"
         origin: RFC1459
         format: "<nick> :<privileges>"
         comment: Reply to WHOIS - User has IRC Operator privileges
 
     -
         name: RPL_WHOWASUSER
-        numeric: 314
+        numeric: "314"
         origin: RFC1459
         format: "<nick> <user> <host> * :<real_name>"
         comment: Reply to WHOWAS - Information about the user
 
     -
         name: RPL_ENDOFWHO
-        numeric: 315
+        numeric: "315"
         origin: RFC1459
         format: "<name> :<info>"
         comment: Used to terminate a list of RPL_WHOREPLY replies
 
     -
         name: RPL_WHOISCHANOP
-        numeric: 316
+        numeric: "316"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_WHOISIDLE
-        numeric: 317
+        numeric: "317"
         origin: RFC1459
         format: "<nick> <seconds> :seconds idle"
         comment: Reply to WHOIS - Idle information
 
     -
         name: RPL_ENDOFWHOIS
-        numeric: 318
+        numeric: "318"
         origin: RFC1459
         format: "<nick> :<info>"
         comment: Reply to WHOIS - End of list
 
     -
         name: RPL_WHOISCHANNELS
-        numeric: 319
+        numeric: "319"
         origin: RFC1459
         format: "<nick> :*( ( '@' / '+' ) <channel> ' ' )"
         comment: Reply to WHOIS - Channel list for user (See RFC)
 
     -
         name: RPL_WHOISVIRT
-        numeric: 320
+        numeric: "320"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         conflicts: true
 
     -
         name: RPL_WHOIS_HIDDEN
-        numeric: 320
+        numeric: "320"
         origin: Anothernet
         conflicts: true
 
     -
         name: RPL_WHOISSPECIAL
-        numeric: 320
+        numeric: "320"
         origin: Unreal
         conflicts: true
 
     -
         name: RPL_LISTSTART
-        numeric: 321
+        numeric: "321"
         origin: RFC1459
         format: "Channels :Users  Name"
         comment: Channel list - Header
@@ -1253,132 +1301,132 @@ values:
 
     -
         name: RPL_LIST
-        numeric: 322
+        numeric: "322"
         origin: RFC1459
         format: "<channel> <#_visible> :<topic>"
         comment: Channel list - A channel
 
     -
         name: RPL_LISTEND
-        numeric: 323
+        numeric: "323"
         origin: RFC1459
         format: ":<info>"
         comment: Channel list - End of list
 
     -
         name: RPL_CHANNELMODEIS
-        numeric: 324
+        numeric: "324"
         origin: RFC1459
         format: "<channel> <mode> <mode_params>"
 
     -
         name: RPL_UNIQOPIS
-        numeric: 325
+        numeric: "325"
         origin: RFC2812
         format: "<channel> <nickname>"
         conflict: true
 
     -
         name: RPL_CHANNELPASSIS
-        numeric: 325
+        numeric: "325"
         conflict: true
 
     -
         name: RPL_NOCHANPASS
-        numeric: 326
+        numeric: "326"
 
     -
         name: RPL_CHPASSUNKNOWN
-        numeric: 327
+        numeric: "327"
 
     -
         name: RPL_CHANNEL_URL
-        numeric: 328
+        numeric: "328"
         origin: "Bahamut, AustHex"
 
     -
         name: RPL_CREATIONTIME
-        numeric: 329
+        numeric: "329"
         origin: Bahamut
 
     -
         name: RPL_WHOWAS_TIME
-        numeric: 330
+        numeric: "330"
         conflict: true
 
     -
         name: RPL_WHOISACCOUNT
-        numeric: 330
+        numeric: "330"
         origin: ircu
         format: "<nick> <authname> :<info>"
         conflict: true
 
     -
         name: RPL_NOTOPIC
-        numeric: 331
+        numeric: "331"
         origin: RFC1459
         format: "<channel> :<info>"
         comment: Response to TOPIC when no topic is set
 
     -
         name: RPL_TOPIC
-        numeric: 332
+        numeric: "332"
         origin: RFC1459
         format: "<channel> :<topic>"
         comment: Response to TOPIC with the set topic
 
     -
         name: RPL_TOPICWHOTIME
-        numeric: 333
+        numeric: "333"
         origin: ircu
 
     -
         name: RPL_LISTUSAGE
-        numeric: 334
+        numeric: "334"
         origin: ircu
         conflict: true
 
     -
         name: RPL_COMMANDSYNTAX
-        numeric: 334
+        numeric: "334"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_LISTSYNTAX
-        numeric: 334
+        numeric: "334"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_WHOISBOT
-        numeric: 335
+        numeric: "335"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_CHANPASSOK
-        numeric: 338
+        numeric: "338"
         conflict: true
 
     -
         name: RPL_WHOISACTUALLY
-        numeric: 338
+        numeric: "338"
         origin: "ircu, Bahamut"
         conflict: true
 
     -
         name: RPL_BADCHANPASS
-        numeric: 339
+        numeric: "339"
 
     -
         name: RPL_USERIP
-        numeric: 340
+        numeric: "340"
         origin: ircu
 
     -
         name: RPL_INVITING
-        numeric: 341
+        numeric: "341"
         origin: RFC1459
         format: "<nick> <channel>"
         comment: >
@@ -1391,7 +1439,7 @@ values:
 
     -
         name: RPL_SUMMONING
-        numeric: 342
+        numeric: "342"
         origin: RFC1459
         format: "<user> :<info>"
         comment: >
@@ -1402,9 +1450,9 @@ values:
 
     -
         name: RPL_INVITED
-        numeric: 345
+        numeric: "345"
         origin: GameSurge
-        contact: gsdev@gamesurge.net
+        contact: "mailto:gsdev@gamesurge.net"
         format: "<channel> <user being invited> <user issuing invite> :<user being invited> has been invited by <user issuing invite>"
         comment: >
             Sent to users on a channel when an INVITE command has been
@@ -1412,21 +1460,21 @@ values:
 
     -
         name: RPL_INVITELIST
-        numeric: 346
+        numeric: "346"
         origin: RFC2812
         format: "<channel> <invitemask>"
         comment: An invite mask for the invite mask list
 
     -
         name: RPL_ENDOFINVITELIST
-        numeric: 347
+        numeric: "347"
         origin: RFC2812
         format: "<channel> :<info>"
         comment: Termination of an RPL_INVITELIST list
 
     -
         name: RPL_EXCEPTLIST
-        numeric: 348
+        numeric: "348"
         origin: RFC2812
         format: "<channel> <exceptionmask>"
         comment: >
@@ -1435,7 +1483,7 @@ values:
 
     -
         name: RPL_ENDOFEXCEPTLIST
-        numeric: 349
+        numeric: "349"
         origin: RFC2812
         format: "<channel> :<info>"
         comment: >
@@ -1444,7 +1492,7 @@ values:
 
     -
         name: RPL_VERSION
-        numeric: 351
+        numeric: "351"
         origin: RFC1459
         format: "<version>[.<debuglevel>] <server> :<comments>"
         comment: >
@@ -1453,7 +1501,7 @@ values:
 
     -
         name: RPL_WHOREPLY
-        numeric: 352
+        numeric: "352"
         origin: RFC1459
         format: "<channel> <user> <host> <server> <nick> <H|G>[*][@|+] :<hopcount> <real_name>"
         comment: >
@@ -1463,14 +1511,14 @@ values:
 
     -
         name: RPL_NAMREPLY
-        numeric: 353
+        numeric: "353"
         origin: RFC1459
         format: "( '=' / '*' / '@' ) <channel> ' ' : [ '@' / '+' ] <nick> *( ' ' [ '@' / '+' ] <nick> )"
         comment: Reply to NAMES (See RFC)
 
     -
         name: RPL_WHOSPCRPL
-        numeric: 354
+        numeric: "354"
         origin: ircu
         comment: >
             Reply to WHO, however it is a 'special' reply because it is
@@ -1481,7 +1529,7 @@ values:
 
     -
         name: RPL_NAMREPLY_
-        numeric: 355
+        numeric: "355"
         origin: QuakeNet
         format: "( '=' / '*' / '@' ) <channel> ' ' : [ '@' / '+' ] <nick> *( ' ' [ '@' / '+' ] <nick> )"
         comment: >
@@ -1489,68 +1537,68 @@ values:
             relative). The proper define name for this numeric is unknown at
             this time
 
-        seealso: 353
+        seealso: "353"
 
     -
         name: RPL_MAP
-        numeric: 357
+        numeric: "357"
         origin: AustHex
         conflict: true
 
     -
         name: RPL_MAPMORE
-        numeric: 358
+        numeric: "358"
         origin: AustHex
         conflict: true
 
     -
         name: RPL_MAPEND
-        numeric: 359
+        numeric: "359"
         origin: AustHex
         conflict: true
 
     -
         name: RPL_KILLDONE
-        numeric: 361
+        numeric: "361"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_CLOSING
-        numeric: 362
+        numeric: "362"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_CLOSEEND
-        numeric: 363
+        numeric: "363"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_LINKS
-        numeric: 364
+        numeric: "364"
         origin: RFC1459
         format: "<mask> <server> :<hopcount> <server_info>"
         comment: Reply to the LINKS command
 
     -
         name: RPL_ENDOFLINKS
-        numeric: 365
+        numeric: "365"
         origin: RFC1459
         format: "<mask> :<info>"
         comment: Termination of an RPL_LINKS list
 
     -
         name: RPL_ENDOFNAMES
-        numeric: 366
+        numeric: "366"
         origin: RFC1459
         format: "<channel> :<info>"
         comment: Termination of an RPL_NAMREPLY list
 
     -
         name: RPL_BANLIST
-        numeric: 367
+        numeric: "367"
         origin: RFC1459
         format: "<channel> <banid> [<time_left> :<reason>]"
         comment: >
@@ -1559,70 +1607,70 @@ values:
 
     -
         name: RPL_ENDOFBANLIST
-        numeric: 368
+        numeric: "368"
         origin: RFC1459
         format: "<channel> :<info>"
         comment: Termination of an RPL_BANLIST list
 
     -
         name: RPL_ENDOFWHOWAS
-        numeric: 369
+        numeric: "369"
         origin: RFC1459
         format: "<nick> :<info>"
         comment: Reply to WHOWAS - End of list
 
     -
         name: RPL_INFO
-        numeric: 371
+        numeric: "371"
         origin: RFC1459
         format: ":<string>"
         comment: Reply to INFO
 
     -
         name: RPL_MOTD
-        numeric: 372
+        numeric: "372"
         origin: RFC1459
         format: ":- <string>"
         comment: Reply to MOTD
 
     -
         name: RPL_INFOSTART
-        numeric: 373
+        numeric: "373"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_ENDOFINFO
-        numeric: 374
+        numeric: "374"
         origin: RFC1459
         format: ":<info>"
         comment: Termination of an RPL_INFO list
 
     -
         name: RPL_MOTDSTART
-        numeric: 375
+        numeric: "375"
         origin: RFC1459
         format: ":- <server> Message of the day -"
         comment: Start of an RPL_MOTD list
 
     -
         name: RPL_ENDOFMOTD
-        numeric: 376
+        numeric: "376"
         origin: RFC1459
         format: ":<info>"
         comment: Termination of an RPL_MOTD list
 
     -
         name: RPL_KICKEXPIRED
-        numeric: 377
+        numeric: "377"
         origin: aircd
         conflict: true
 
     -
         name: RPL_SPAM
-        numeric: 377
+        numeric: "377"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         format: ":<text>"
         comment: >
             Used during the connection (after MOTD) to announce the network
@@ -1633,132 +1681,132 @@ values:
 
     -
         name: RPL_BANEXPIRED
-        numeric: 378
+        numeric: "378"
         origin: aircd
         conflict: true
 
     -
         name: RPL_WHOISHOST
-        numeric: 378
+        numeric: "378"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_MOTD
-        numeric: 378
+        numeric: "378"
         origin: AustHex
         comment: >
             Used by AustHex to 'force' the display of the MOTD, however is
             considered obsolete due to client/script awareness & ability to
 
-        seealso: 372
+        seealso: "372"
         obsolete: true
         conflict: true
 
     -
         name: RPL_KICKLINKED
-        numeric: 379
+        numeric: "379"
         origin: aircd
         conflict: true
 
     -
         name: RPL_WHOISMODES
-        numeric: 379
+        numeric: "379"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_BANLINKED
-        numeric: 380
+        numeric: "380"
         origin: aircd
         conflict: true
 
     -
         name: RPL_YOURHELPER
-        numeric: 380
+        numeric: "380"
         origin: AustHex
         conflict: true
 
     -
         name: RPL_YOUREOPER
-        numeric: 381
+        numeric: "381"
         origin: RFC1459
         format: ":<info>"
         comment: Successful reply from OPER
 
     -
         name: RPL_REHASHING
-        numeric: 382
+        numeric: "382"
         origin: RFC1459
         format: "<config_file> :<info>"
         comment: Successful reply from REHASH
 
     -
         name: RPL_YOURESERVICE
-        numeric: 383
+        numeric: "383"
         origin: RFC2812
         format: ":You are service <service_name>"
         comment: Sent upon successful registration of a service
 
     -
         name: RPL_MYPORTIS
-        numeric: 384
+        numeric: "384"
         origin: RFC1459
         obsolete: true
 
     -
         name: RPL_NOTOPERANYMORE
-        numeric: 385
+        numeric: "385"
         origin: "AustHex, Hybrid, Unreal"
 
     -
         name: RPL_QLIST
-        numeric: 386
+        numeric: "386"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_IRCOPS
-        numeric: 386
+        numeric: "386"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_ENDOFQLIST
-        numeric: 387
+        numeric: "387"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_ENDOFIRCOPS
-        numeric: 387
+        numeric: "387"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_ALIST
-        numeric: 388
+        numeric: "388"
         origin: Unreal
 
     -
         name: RPL_ENDOFALIST
-        numeric: 389
+        numeric: "389"
         origin: Unreal
 
     -
         name: RPL_TIME
-        numeric: 391
+        numeric: "391"
         origin: RFC1459
         format: "<server> :<time string>"
         comment: >
             Response to the TIME command. The string format may vary
             greatly.
 
-        seealso: 679
+        seealso: "679"
 
     -
         name: RPL_TIME
-        numeric: 391
+        numeric: "391"
         origin: ircu
         format: "<server> <timestamp> <offset> :<time string>"
         comment: >
@@ -1770,7 +1818,7 @@ values:
 
     -
         name: RPL_TIME
-        numeric: 391
+        numeric: "391"
         origin: bdq-ircd
         format: "<server> <timezone name> <microseconds> :<time string>"
         comment: >
@@ -1785,7 +1833,7 @@ values:
 
     -
         name: RPL_TIME
-        numeric: 391
+        numeric: "391"
         format: "<server> <year> <month> <day> <hour> <minute> <second>"
         comment: >
             Yet another variation, including the time broken down into its
@@ -1796,35 +1844,35 @@ values:
 
     -
         name: RPL_USERSSTART
-        numeric: 392
+        numeric: "392"
         origin: RFC1459
         format: ":UserID   Terminal  Host"
         comment: Start of an RPL_USERS list
 
     -
         name: RPL_USERS
-        numeric: 393
+        numeric: "393"
         origin: RFC1459
         format: ":<username> <ttyline> <hostname>"
         comment: Response to the USERS command (See RFC)
 
     -
         name: RPL_ENDOFUSERS
-        numeric: 394
+        numeric: "394"
         origin: RFC1459
         format: ":<info>"
         comment: Termination of an RPL_USERS list
 
     -
         name: RPL_NOUSERS
-        numeric: 395
+        numeric: "395"
         origin: RFC1459
         format: ":<info>"
         comment: Reply to USERS when nobody is logged in
 
     -
         name: RPL_HOSTHIDDEN
-        numeric: 396
+        numeric: "396"
         origin: Undernet
         comment: >
             Reply to a user when user mode +x (host masking) was set
@@ -1832,7 +1880,7 @@ values:
 
     -
         name: ERR_UNKNOWNERROR
-        numeric: 400
+        numeric: "400"
         format: "<command> [<?>] :<info>"
         comment: >
             Sent when an error occured executing a command, but it is not
@@ -1840,7 +1888,7 @@ values:
 
     -
         name: ERR_NOSUCHNICK
-        numeric: 401
+        numeric: "401"
         origin: RFC1459
         format: "<nick> :<reason>"
         comment: >
@@ -1849,7 +1897,7 @@ values:
 
     -
         name: ERR_NOSUCHSERVER
-        numeric: 402
+        numeric: "402"
         origin: RFC1459
         format: "<server> :<reason>"
         comment: >
@@ -1857,7 +1905,7 @@ values:
 
     -
         name: ERR_NOSUCHCHANNEL
-        numeric: 403
+        numeric: "403"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -1866,7 +1914,7 @@ values:
 
     -
         name: ERR_CANNOTSENDTOCHAN
-        numeric: 404
+        numeric: "404"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -1875,7 +1923,7 @@ values:
 
     -
         name: ERR_TOOMANYCHANNELS
-        numeric: 405
+        numeric: "405"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -1884,7 +1932,7 @@ values:
 
     -
         name: ERR_WASNOSUCHNICK
-        numeric: 406
+        numeric: "406"
         origin: RFC1459
         format: "<nick> :<reason>"
         comment: >
@@ -1893,7 +1941,7 @@ values:
 
     -
         name: ERR_TOOMANYTARGETS
-        numeric: 407
+        numeric: "407"
         origin: RFC1459
         format: "<target> :<reason>"
         comment: >
@@ -1902,7 +1950,7 @@ values:
 
     -
         name: ERR_NOSUCHSERVICE
-        numeric: 408
+        numeric: "408"
         origin: RFC2812
         format: "<service_name> :<reason>"
         comment: >
@@ -1911,13 +1959,13 @@ values:
 
     -
         name: ERR_NOCOLORSONCHAN
-        numeric: 408
+        numeric: "408"
         origin: Bahamut
         conflict: true
 
     -
         name: ERR_NOORIGIN
-        numeric: 409
+        numeric: "409"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -1926,21 +1974,21 @@ values:
 
     -
         name: ERR_NORECIPIENT
-        numeric: 411
+        numeric: "411"
         origin: RFC1459
         format: ":<reason>"
         comment: Returned when no recipient is given with a command
 
     -
         name: ERR_NOTEXTTOSEND
-        numeric: 412
+        numeric: "412"
         origin: RFC1459
         format: ":<reason>"
         comment: Returned when NOTICE/PRIVMSG is used with no message given
 
     -
         name: ERR_NOTOPLEVEL
-        numeric: 413
+        numeric: "413"
         origin: RFC1459
         format: "<mask> :<reason>"
         comment: >
@@ -1949,7 +1997,7 @@ values:
 
     -
         name: ERR_WILDTOPLEVEL
-        numeric: 414
+        numeric: "414"
         origin: RFC1459
         format: "<mask> :<reason>"
         comment: >
@@ -1958,7 +2006,7 @@ values:
 
     -
         name: ERR_BADMASK
-        numeric: 415
+        numeric: "415"
         origin: RFC2812
         format: "<mask> :<reason>"
         comment: >
@@ -1967,7 +2015,7 @@ values:
 
     -
         name: ERR_TOOMANYMATCHES
-        numeric: 416
+        numeric: "416"
         origin: IRCnet
         format: "<command> [<mask>] :<info>"
         comment: >
@@ -1978,19 +2026,19 @@ values:
 
     -
         name: ERR_QUERYTOOLONG
-        numeric: 416
+        numeric: "416"
         origin: ircu
         comment: Same as ERR_TOOMANYMATCHES
         repeated: true
 
     -
         name: ERR_LENGTHTRUNCATED
-        numeric: 419
+        numeric: "419"
         origin: aircd
 
     -
         name: ERR_UNKNOWNCOMMAND
-        numeric: 421
+        numeric: "421"
         origin: RFC1459
         format: "<command> :<reason>"
         comment: >
@@ -1999,14 +2047,14 @@ values:
 
     -
         name: ERR_NOMOTD
-        numeric: 422
+        numeric: "422"
         origin: RFC1459
         format: ":<reason>"
         comment: Sent when there is no MOTD to send the client
 
     -
         name: ERR_NOADMININFO
-        numeric: 423
+        numeric: "423"
         origin: RFC1459
         format: "<server> :<reason>"
         comment: >
@@ -2018,7 +2066,7 @@ values:
 
     -
         name: ERR_FILEERROR
-        numeric: 424
+        numeric: "424"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2027,26 +2075,26 @@ values:
 
     -
         name: ERR_NOOPERMOTD
-        numeric: 425
+        numeric: "425"
         origin: Unreal
 
     -
         name: ERR_TOOMANYAWAY
-        numeric: 429
+        numeric: "429"
         origin: Bahamut
 
     -
         name: ERR_EVENTNICKCHANGE
-        numeric: 430
+        numeric: "430"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         comment: >
             Returned by NICK when the user is not allowed to change their
             nickname due to a channel event (channel mode +E)
 
     -
         name: ERR_NONICKNAMEGIVEN
-        numeric: 431
+        numeric: "431"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2057,7 +2105,7 @@ values:
 
     -
         name: ERR_ERRONEUSNICKNAME
-        numeric: 432
+        numeric: "432"
         origin: RFC1459
         format: "<nick> :<reason>"
         comment: >
@@ -2071,7 +2119,7 @@ values:
 
     -
         name: ERR_NICKNAMEINUSE
-        numeric: 433
+        numeric: "433"
         origin: RFC1459
         format: "<nick> :<reason>"
         comment: >
@@ -2082,31 +2130,31 @@ values:
 
     -
         name: ERR_SERVICENAMEINUSE
-        numeric: 434
+        numeric: "434"
         origin: AustHex?
         conflict: true
 
     -
         name: ERR_NORULES
-        numeric: 434
+        numeric: "434"
         origin: "Unreal, Ultimate"
         conflict: true
 
     -
         name: ERR_SERVICECONFUSED
-        numeric: 435
+        numeric: "435"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_BANONCHAN
-        numeric: 435
+        numeric: "435"
         origin: Bahamut
         conflict: true
 
     -
         name: ERR_NICKCOLLISION
-        numeric: 436
+        numeric: "436"
         origin: RFC1459
         format: "<nick> :<reason>"
         comment: >
@@ -2115,7 +2163,7 @@ values:
 
     -
         name: ERR_UNAVAILRESOURCE
-        numeric: 437
+        numeric: "437"
         origin: RFC2812
         format: "<nick/channel/service> :<reason>"
         comment: >
@@ -2126,26 +2174,26 @@ values:
 
     -
         name: ERR_BANNICKCHANGE
-        numeric: 437
+        numeric: "437"
         origin: ircu
         conflict: true
 
     -
         name: ERR_NICKTOOFAST
-        numeric: 438
+        numeric: "438"
         origin: ircu
         comment: "Also known as ERR_NCHANGETOOFAST (Unreal, Ultimate)"
         conflict: true
 
     -
         name: ERR_DEAD
-        numeric: 438
+        numeric: "438"
         origin: IRCnet
         conflict: true
 
     -
         name: ERR_TARGETTOOFAST
-        numeric: 439
+        numeric: "439"
         origin: ircu
         comment: >
             Also known as many other things, RPL_INVTOOFAST, RPL_MSGTOOFAST
@@ -2153,12 +2201,12 @@ values:
 
     -
         name: ERR_SERVICESDOWN
-        numeric: 440
+        numeric: "440"
         origin: "Bahamut, Unreal"
 
     -
         name: ERR_USERNOTINCHANNEL
-        numeric: 441
+        numeric: "441"
         origin: RFC1459
         format: "<nick> <channel> :<reason>"
         comment: >
@@ -2167,7 +2215,7 @@ values:
 
     -
         name: ERR_NOTONCHANNEL
-        numeric: 442
+        numeric: "442"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2176,7 +2224,7 @@ values:
 
     -
         name: ERR_USERONCHANNEL
-        numeric: 443
+        numeric: "443"
         origin: RFC1459
         format: "<nick> <channel> [:<reason>]"
         comment: >
@@ -2185,7 +2233,7 @@ values:
 
     -
         name: ERR_NOLOGIN
-        numeric: 444
+        numeric: "444"
         origin: RFC1459
         format: "<user> :<reason>"
         comment: >
@@ -2194,7 +2242,7 @@ values:
 
     -
         name: ERR_SUMMONDISABLED
-        numeric: 445
+        numeric: "445"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2202,7 +2250,7 @@ values:
 
     -
         name: ERR_USERSDISABLED
-        numeric: 446
+        numeric: "446"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2210,12 +2258,12 @@ values:
 
     -
         name: ERR_NONICKCHANGE
-        numeric: 447
+        numeric: "447"
         origin: Unreal
 
     -
         name: ERR_NOTIMPLEMENTED
-        numeric: 449
+        numeric: "449"
         origin: Undernet
         format: "Unspecified"
         comment: >
@@ -2226,7 +2274,7 @@ values:
 
     -
         name: ERR_NOTREGISTERED
-        numeric: 451
+        numeric: "451"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2238,43 +2286,43 @@ values:
 
     -
         name: ERR_IDCOLLISION
-        numeric: 452
+        numeric: "452"
 
     -
         name: ERR_NICKLOST
-        numeric: 453
+        numeric: "453"
 
     -
         name: ERR_HOSTILENAME
-        numeric: 455
+        numeric: "455"
         origin: Unreal
 
     -
         name: ERR_ACCEPTFULL
-        numeric: 456
+        numeric: "456"
 
     -
         name: ERR_ACCEPTEXIST
-        numeric: 457
+        numeric: "457"
 
     -
         name: ERR_ACCEPTNOT
-        numeric: 458
+        numeric: "458"
 
     -
         name: ERR_NOHIDING
-        numeric: 459
+        numeric: "459"
         origin: Unreal
         comment: Not allowed to become an invisible operator?
 
     -
         name: ERR_NOTFORHALFOPS
-        numeric: 460
+        numeric: "460"
         origin: Unreal
 
     -
         name: ERR_NEEDMOREPARAMS
-        numeric: 461
+        numeric: "461"
         origin: RFC1459
         format: "<command> :<reason>"
         comment: >
@@ -2285,7 +2333,7 @@ values:
 
     -
         name: ERR_ALREADYREGISTERED
-        numeric: 462
+        numeric: "462"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2296,7 +2344,7 @@ values:
 
     -
         name: ERR_NOPERMFORHOST
-        numeric: 463
+        numeric: "463"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2306,7 +2354,7 @@ values:
 
     -
         name: ERR_PASSWDMISMATCH
-        numeric: 464
+        numeric: "464"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2317,7 +2365,7 @@ values:
 
     -
         name: ERR_YOUREBANNEDCREEP
-        numeric: 465
+        numeric: "465"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2326,7 +2374,7 @@ values:
 
     -
         name: ERR_YOUWILLBEBANNED
-        numeric: 466
+        numeric: "466"
         origin: RFC1459
         comment: >
             Sent by a server to a user to inform that access to the server
@@ -2336,7 +2384,7 @@ values:
 
     -
         name: ERR_KEYSET
-        numeric: 467
+        numeric: "467"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2344,36 +2392,36 @@ values:
 
     -
         name: ERR_INVALIDUSERNAME
-        numeric: 468
+        numeric: "468"
         origin: ircu
         conflict: true
 
     -
         name: ERR_ONLYSERVERSCANCHANGE
-        numeric: 468
+        numeric: "468"
         origin: "Bahamut, Unreal"
         conflict: true
 
     -
         name: ERR_LINKSET
-        numeric: 469
+        numeric: "469"
         origin: Unreal
 
     -
         name: ERR_LINKCHANNEL
-        numeric: 470
+        numeric: "470"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_KICKEDFROMCHAN
-        numeric: 470
+        numeric: "470"
         origin: aircd
         conflict: true
 
     -
         name: ERR_CHANNELISFULL
-        numeric: 471
+        numeric: "471"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2382,14 +2430,14 @@ values:
 
     -
         name: ERR_UNKNOWNMODE
-        numeric: 472
+        numeric: "472"
         origin: RFC1459
         format: "<char> :<reason>"
         comment: Returned when a given mode is unknown
 
     -
         name: ERR_INVITEONLYCHAN
-        numeric: 473
+        numeric: "473"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2398,7 +2446,7 @@ values:
 
     -
         name: ERR_BANNEDFROMCHAN
-        numeric: 474
+        numeric: "474"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2406,7 +2454,7 @@ values:
 
     -
         name: ERR_BADCHANNELKEY
-        numeric: 475
+        numeric: "475"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2415,14 +2463,14 @@ values:
 
     -
         name: ERR_BADCHANMASK
-        numeric: 476
+        numeric: "476"
         origin: RFC2812
         format: "<channel> :<reason>"
         comment: The given channel mask was invalid
 
     -
         name: ERR_NOCHANMODES
-        numeric: 477
+        numeric: "477"
         origin: RFC2812
         format: "<channel> :<reason>"
         comment: >
@@ -2434,13 +2482,13 @@ values:
 
     -
         name: ERR_NEEDREGGEDNICK
-        numeric: 477
+        numeric: "477"
         origin: "Bahamut, ircu, Unreal"
         conflict: true
 
     -
         name: ERR_BANLISTFULL
-        numeric: 478
+        numeric: "478"
         origin: RFC2812
         format: "<channel> <char> :<reason>"
         comment: >
@@ -2449,30 +2497,30 @@ values:
 
     -
         name: ERR_BADCHANNAME
-        numeric: 479
+        numeric: "479"
         origin: Hybrid
 
     -
         name: ERR_LINKFAIL
-        numeric: 479
+        numeric: "479"
         origin: Unreal
 
     -
         name: ERR_NOULINE
-        numeric: 480
+        numeric: "480"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         conflict: true
 
     -
         name: ERR_CANNOTKNOCK
-        numeric: 480
+        numeric: "480"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_NOPRIVILEGES
-        numeric: 481
+        numeric: "481"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2481,7 +2529,7 @@ values:
 
     -
         name: ERR_CHANOPRIVSNEEDED
-        numeric: 482
+        numeric: "482"
         origin: RFC1459
         format: "<channel> :<reason>"
         comment: >
@@ -2491,14 +2539,14 @@ values:
 
     -
         name: ERR_CANTKILLSERVER
-        numeric: 483
+        numeric: "483"
         origin: RFC1459
         format: ":<reason>"
         comment: Returned by KILL to anyone who tries to kill a server
 
     -
         name: ERR_RESTRICTED
-        numeric: 484
+        numeric: "484"
         origin: RFC2812
         format: ":<reason>"
         comment: >
@@ -2509,25 +2557,25 @@ values:
 
     -
         name: ERR_ISCHANSERVICE
-        numeric: 484
+        numeric: "484"
         origin: Undernet
         conflict: true
 
     -
         name: ERR_DESYNC
-        numeric: 484
+        numeric: "484"
         origin: "Bahamut, Hybrid, PTlink"
         conflict: true
 
     -
         name: ERR_ATTACKDENY
-        numeric: 484
+        numeric: "484"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_UNIQOPRIVSNEEDED
-        numeric: 485
+        numeric: "485"
         origin: RFC2812
         format: ":<reason>"
         comment: >
@@ -2537,71 +2585,71 @@ values:
 
     -
         name: ERR_KILLDENY
-        numeric: 485
+        numeric: "485"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_CANTKICKADMIN
-        numeric: 485
+        numeric: "485"
         origin: PTlink
         conflict: true
 
     -
         name: ERR_ISREALSERVICE
-        numeric: 485
+        numeric: "485"
         origin: QuakeNet
         conflict: true
 
     -
         name: ERR_NONONREG
-        numeric: 486
+        numeric: "486"
         conflict: true
 
     -
         name: ERR_HTMDISABLED
-        numeric: 486
+        numeric: "486"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_ACCOUNTONLY
-        numeric: 486
+        numeric: "486"
         origin: QuakeNet
         conflict: true
 
     -
         name: ERR_CHANTOORECENT
-        numeric: 487
+        numeric: "487"
         origin: IRCnet
         conflict: true
 
     -
         name: ERR_MSGSERVICES
-        numeric: 487
+        numeric: "487"
         origin: Bahamut
         conflict: true
 
     -
         name: ERR_TSLESSCHAN
-        numeric: 488
+        numeric: "488"
         origin: IRCnet
 
     -
         name: ERR_VOICENEEDED
-        numeric: 489
+        numeric: "489"
         origin: Undernet
         conflict: true
 
     -
         name: ERR_SECUREONLYCHAN
-        numeric: 489
+        numeric: "489"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_NOOPERHOST
-        numeric: 491
+        numeric: "491"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2611,53 +2659,53 @@ values:
 
     -
         name: ERR_NOSERVICEHOST
-        numeric: 492
+        numeric: "492"
         origin: RFC1459
         obsolete: true
 
     -
         name: ERR_NOFEATURE
-        numeric: 493
+        numeric: "493"
         origin: ircu
 
     -
         name: ERR_BADFEATURE
-        numeric: 494
+        numeric: "494"
         origin: ircu
 
     -
         name: ERR_BADLOGTYPE
-        numeric: 495
+        numeric: "495"
         origin: ircu
 
     -
         name: ERR_BADLOGSYS
-        numeric: 496
+        numeric: "496"
         origin: ircu
 
     -
         name: ERR_BADLOGVALUE
-        numeric: 497
+        numeric: "497"
         origin: ircu
 
     -
         name: ERR_ISOPERLCHAN
-        numeric: 498
+        numeric: "498"
         origin: ircu
 
     -
         name: ERR_CHANOWNPRIVNEEDED
-        numeric: 499
+        numeric: "499"
         origin: Unreal
         comment: >
             Works just like ERR_CHANOPRIVSNEEDED except it indicates that
             owner status (+q) is needed.
 
-        seealso: 482
+        seealso: "482"
 
     -
         name: ERR_UMODEUNKNOWNFLAG
-        numeric: 501
+        numeric: "501"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2667,7 +2715,7 @@ values:
 
     -
         name: ERR_USERSDONTMATCH
-        numeric: 502
+        numeric: "502"
         origin: RFC1459
         format: ":<reason>"
         comment: >
@@ -2676,34 +2724,34 @@ values:
 
     -
         name: ERR_GHOSTEDCLIENT
-        numeric: 503
+        numeric: "503"
         origin: Hybrid
 
     -
         name: ERR_VWORLDWARN
-        numeric: 503
+        numeric: "503"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         format: ":<warning_text>"
         comment: >
             Warning about Virtual-World being turned off. Obsoleted in
             favour for RPL_MODECHANGEWARN
 
-        seealso: 662
+        seealso: "662"
         obsolete: true
 
     -
         name: ERR_USERNOTONSERV
-        numeric: 504
+        numeric: "504"
 
     -
         name: ERR_SILELISTFULL
-        numeric: 511
+        numeric: "511"
         origin: ircu
 
     -
         name: ERR_TOOMANYWATCH
-        numeric: 512
+        numeric: "512"
         origin: Bahamut
         comment: >
             Also known as ERR_NOTIFYFULL (aircd), I presume they are the
@@ -2711,7 +2759,7 @@ values:
 
     -
         name: ERR_BADPING
-        numeric: 513
+        numeric: "513"
         origin: ircu
         comment: >
             Also known as ERR_NEEDPONG (Unreal/Ultimate) for use during
@@ -2722,113 +2770,113 @@ values:
 
     -
         name: ERR_INVALID_ERROR
-        numeric: 514
+        numeric: "514"
         origin: ircu
         conflict: true
 
     -
         name: ERR_TOOMANYDCC
-        numeric: 514
+        numeric: "514"
         origin: Bahamut
         conflict: true
 
     -
         name: ERR_BADEXPIRE
-        numeric: 515
+        numeric: "515"
         origin: ircu
 
     -
         name: ERR_DONTCHEAT
-        numeric: 516
+        numeric: "516"
         origin: ircu
 
     -
         name: ERR_DISABLED
-        numeric: 517
+        numeric: "517"
         origin: ircu
         format: "<command> :<info/reason>"
 
     -
         name: ERR_NOINVITE
-        numeric: 518
+        numeric: "518"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_LONGMASK
-        numeric: 518
+        numeric: "518"
         origin: ircu
         conflict: true
 
     -
         name: ERR_ADMONLY
-        numeric: 519
+        numeric: "519"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_TOOMANYUSERS
-        numeric: 519
+        numeric: "519"
         origin: ircu
         conflict: true
 
     -
         name: ERR_OPERONLY
-        numeric: 520
+        numeric: "520"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_MASKTOOWIDE
-        numeric: 520
+        numeric: "520"
         origin: ircu
         conflict: true
 
     -
         name: ERR_WHOTRUNC
-        numeric: 520
+        numeric: "520"
         origin: AustHex
-        contact: dev@austnet.org
+        contact: "mailto:dev@austnet.org"
         comment: >
             This is considered obsolete in favour of ERR_TOOMANYMATCHES, and
             should no longer be used.
 
-        seealso: 416
+        seealso: "416"
         obsolete: true
 
     -
         name: ERR_LISTSYNTAX
-        numeric: 521
+        numeric: "521"
         origin: Bahamut
         conflict: true
 
     -
         name: ERR_WHOSYNTAX
-        numeric: 522
+        numeric: "522"
         origin: Bahamut
 
     -
         name: ERR_WHOLIMEXCEED
-        numeric: 523
+        numeric: "523"
         origin: Bahamut
 
     -
         name: ERR_QUARANTINED
-        numeric: 524
+        numeric: "524"
         origin: ircu
         conflict: true
 
     -
         name: ERR_OPERSPVERIFY
-        numeric: 524
+        numeric: "524"
         origin: Unreal
         conflict: true
 
     -
         name: ERR_REMOTEPFX
-        numeric: 525
+        numeric: "525"
         origin: CAPAB USERCMDPFX
-        contact: ejb@hades.skumler.net
+        contact: "mailto:ejb@hades.skumler.net"
         information: >
             http://www.hades.skumler.net/~ejb/draft-brocklesby-irc-usercmdpfx-00.txt
 
@@ -2837,9 +2885,9 @@ values:
 
     -
         name: ERR_PFXUNROUTABLE
-        numeric: 526
+        numeric: "526"
         origin: CAPAB USERCMDPFX
-        contact: ejb@hades.skumler.net
+        contact: "mailto:ejb@hades.skumler.net"
         information: >
             http://www.hades.skumler.net/~ejb/draft-brocklesby-irc-usercmdpfx-00.txt
 
@@ -2848,202 +2896,202 @@ values:
 
     -
         name: ERR_BADHOSTMASK
-        numeric: 550
+        numeric: "550"
         origin: QuakeNet
 
     -
         name: ERR_HOSTUNAVAIL
-        numeric: 551
+        numeric: "551"
         origin: QuakeNet
 
     -
         name: ERR_USINGSLINE
-        numeric: 552
+        numeric: "552"
         origin: QuakeNet
 
     -
         name: ERR_STATSSLINE
-        numeric: 553
+        numeric: "553"
         origin: QuakeNet
         conflict: true
 
     -
         name: RPL_LOGON
-        numeric: 600
+        numeric: "600"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_LOGOFF
-        numeric: 601
+        numeric: "601"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_WATCHOFF
-        numeric: 602
+        numeric: "602"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_WATCHSTAT
-        numeric: 603
+        numeric: "603"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_NOWON
-        numeric: 604
+        numeric: "604"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_NOWOFF
-        numeric: 605
+        numeric: "605"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_WATCHLIST
-        numeric: 606
+        numeric: "606"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_ENDOFWATCHLIST
-        numeric: 607
+        numeric: "607"
         origin: "Bahamut, Unreal"
 
     -
         name: RPL_WATCHCLEAR
-        numeric: 608
+        numeric: "608"
         origin: Ultimate
 
     -
         name: RPL_MAPMORE
-        numeric: 610
+        numeric: "610"
         origin: Unreal
         conflict: true
 
     -
         name: RPL_ISOPER
-        numeric: 610
+        numeric: "610"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_ISLOCOP
-        numeric: 611
+        numeric: "611"
         origin: Ultimate
 
     -
         name: RPL_ISNOTOPER
-        numeric: 612
+        numeric: "612"
         origin: Ultimate
 
     -
         name: RPL_ENDOFISOPER
-        numeric: 613
+        numeric: "613"
         origin: Ultimate
 
     -
         name: RPL_MAPMORE
-        numeric: 615
+        numeric: "615"
         origin: PTlink
         conflict: true
 
     -
         name: RPL_WHOISMODES
-        numeric: 615
+        numeric: "615"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_WHOISHOST
-        numeric: 616
+        numeric: "616"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_DCCSTATUS
-        numeric: 617
+        numeric: "617"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_WHOISBOT
-        numeric: 617
+        numeric: "617"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_DCCLIST
-        numeric: 618
+        numeric: "618"
         origin: Bahamut
 
     -
         name: RPL_ENDOFDCCLIST
-        numeric: 619
+        numeric: "619"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_WHOWASHOST
-        numeric: 619
+        numeric: "619"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_DCCINFO
-        numeric: 620
+        numeric: "620"
         origin: Bahamut
         conflict: true
 
     -
         name: RPL_RULESSTART
-        numeric: 620
+        numeric: "620"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_RULES
-        numeric: 621
+        numeric: "621"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_ENDOFRULES
-        numeric: 622
+        numeric: "622"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_MAPMORE
-        numeric: 623
+        numeric: "623"
         origin: Ultimate
         conflict: true
 
     -
         name: RPL_OMOTDSTART
-        numeric: 624
+        numeric: "624"
         origin: Ultimate
 
     -
         name: RPL_OMOTD
-        numeric: 625
+        numeric: "625"
         origin: Ultimate
 
     -
         name: RPL_ENDOFO<MOTD
-        numeric: 626
+        numeric: "626"
         origin: Ultimate
 
     -
         name: RPL_SETTINGS
-        numeric: 630
+        numeric: "630"
         origin: Ultimate
 
     -
         name: RPL_ENDOFSETTINGS
-        numeric: 631
+        numeric: "631"
         origin: Ultimate
 
     -
         name: RPL_DUMPING
-        numeric: 640
+        numeric: "640"
         origin: Unreal
         comment: >
             Never actually used by Unreal - was defined however the feature
@@ -3053,7 +3101,7 @@ values:
 
     -
         name: RPL_DUMPRPL
-        numeric: 641
+        numeric: "641"
         origin: Unreal
         comment: >
             Never actually used by Unreal - was defined however the feature
@@ -3063,7 +3111,7 @@ values:
 
     -
         name: RPL_EODUMP
-        numeric: 642
+        numeric: "642"
         origin: Unreal
         comment: >
             Never actually used by Unreal - was defined however the feature
@@ -3073,9 +3121,9 @@ values:
 
     -
         name: RPL_TRACEROUTE_HOP
-        numeric: 660
+        numeric: "660"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<target> <hop#> [<address> [<hostname> | '*'] <usec_ping>]"
         comment: >
             Returned from the TRACEROUTE IRC-Op command when tracerouting a
@@ -3083,17 +3131,17 @@ values:
 
     -
         name: RPL_TRACEROUTE_START
-        numeric: 661
+        numeric: "661"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<target> <target_FQDN> <target_address> <max_hops>"
         comment: Start of an RPL_TRACEROUTE_HOP list
 
     -
         name: RPL_MODECHANGEWARN
-        numeric: 662
+        numeric: "662"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "['+' | '-']<mode_char> :<warning>"
         comment: >
             Plain text warning to the user about turning on or off a user
@@ -3102,9 +3150,9 @@ values:
 
     -
         name: RPL_CHANREDIR
-        numeric: 663
+        numeric: "663"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<old_chan> <new_chan> :<info>"
         comment: >
             Used to notify the client upon JOIN that they are joining a
@@ -3114,9 +3162,9 @@ values:
 
     -
         name: RPL_SERVMODEIS
-        numeric: 664
+        numeric: "664"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<server> <modes> <parameters>.."
         comment: >
             Reply to MODE <servername>. KineIRCd supports server modes to
@@ -3124,9 +3172,9 @@ values:
 
     -
         name: RPL_OTHERUMODEIS
-        numeric: 665
+        numeric: "665"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<nickname> <modes>"
         comment: >
             Reply to MODE <nickname> to return the user-modes of another
@@ -3135,17 +3183,17 @@ values:
 
     -
         name: RPL_ENDOF_GENERIC
-        numeric: 666
+        numeric: "666"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<command> [<parameter> ...] :<info>"
         comment: Generic response for new lists to save numerics.
 
     -
         name: RPL_WHOWASDETAILS
-        numeric: 670
+        numeric: "670"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<nick> <type> :<information>"
         comment: >
             Returned by WHOWAS to return extended information (if
@@ -3154,9 +3202,9 @@ values:
 
     -
         name: RPL_WHOISSECURE
-        numeric: 671
+        numeric: "671"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<nick> <type> [:<info>]"
         comment: >
             Reply to WHOIS command - Returned if the target is connected
@@ -3165,9 +3213,9 @@ values:
 
     -
         name: RPL_UNKNOWNMODES
-        numeric: 672
+        numeric: "672"
         origin: Ithildin
-        contact: wd@telekinesis.org
+        contact: "mailto:wd@telekinesis.org"
         format: "<modes> :<info>"
         comment: >
             Returns a full list of modes that are unknown when a client
@@ -3175,9 +3223,9 @@ values:
 
     -
         name: RPL_CANNOTSETMODES
-        numeric: 673
+        numeric: "673"
         origin: Ithildin
-        contact: wd@telekinesis.org
+        contact: "mailto:wd@telekinesis.org"
         format: "<modes> :<info>"
         comment: >
             Returns a full list of modes that cannot be set when a client
@@ -3185,9 +3233,9 @@ values:
 
     -
         name: RPL_LUSERSTAFF
-        numeric: 678
+        numeric: "678"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<staff_online_count> :<info>"
         comment: >
             Reply to LUSERS command - Number of network staff (or 'helpers')
@@ -3196,9 +3244,9 @@ values:
 
     -
         name: RPL_TIMEONSERVERIS
-        numeric: 679
+        numeric: "679"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<seconds> [<nanoseconds> | '0'] <timezone> <flags> :<info>"
         comment: >
             Optionally sent upon connection, and/or sent as a reply to the
@@ -3213,9 +3261,9 @@ values:
 
     -
         name: RPL_NETWORKS
-        numeric: 682
+        numeric: "682"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         information: >
             http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/IIRC?rev=HEAD
 
@@ -3226,9 +3274,9 @@ values:
 
     -
         name: RPL_YOURLANGUAGEIS
-        numeric: 687
+        numeric: "687"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         information: >
             http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
 
@@ -3239,9 +3287,9 @@ values:
 
     -
         name: RPL_LANGUAGE
-        numeric: 688
+        numeric: "688"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         information: >
             http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
 
@@ -3252,9 +3300,9 @@ values:
 
     -
         name: RPL_WHOISSTAFF
-        numeric: 689
+        numeric: "689"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: ":<info>"
         comment: >
             The user is a staff member. The information may explain the
@@ -3266,9 +3314,9 @@ values:
 
     -
         name: RPL_WHOISLANGUAGE
-        numeric: 690
+        numeric: "690"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         information: >
             http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
 
@@ -3279,70 +3327,70 @@ values:
 
     -
         name: RPL_MODLIST
-        numeric: 702
+        numeric: "702"
         origin: RatBox
         format: "<?> 0x<?> <?> <?>"
         comment: Output from the MODLIST command
 
     -
         name: RPL_ENDOFMODLIST
-        numeric: 703
+        numeric: "703"
         origin: RatBox
         format: ":<text>"
         comment: Terminates MODLIST output
 
     -
         name: RPL_HELPSTART
-        numeric: 704
+        numeric: "704"
         origin: RatBox
         format: "<command> :<text>"
         comment: Start of HELP command output
 
     -
         name: RPL_HELPTXT
-        numeric: 705
+        numeric: "705"
         origin: RatBox
         format: "<command> :<text>"
         comment: Output from HELP command
 
     -
         name: RPL_ENDOFHELP
-        numeric: 706
+        numeric: "706"
         origin: RatBox
         format: "<command> :<text>"
         comment: End of HELP command output
 
     -
         name: RPL_ETRACEFULL
-        numeric: 708
+        numeric: "708"
         origin: RatBox
         format: "<?> <?> <?> <?> <?> <?> <?> :<?>"
         comment: Output from 'extended' trace
 
     -
         name: RPL_ETRACE
-        numeric: 709
+        numeric: "709"
         origin: RatBox
         format: "<?> <?> <?> <?> <?> <?> :<?>"
         comment: Output from 'extended' trace
 
     -
         name: RPL_KNOCK
-        numeric: 710
+        numeric: "710"
         origin: RatBox
         format: "<channel> <nick>!<user>@<host> :<text>"
         comment: Message delivered using KNOCK command
 
     -
         name: RPL_KNOCKDLVR
-        numeric: 711
+        numeric: "711"
         origin: RatBox
         format: "<channel> :<text>"
         comment: Message returned from using KNOCK command
 
     -
         name: ERR_TOOMANYKNOCK
-        numeric: 712
+        numeric: "712"
         origin: RatBox
         format: "<channel> :<text>"
         comment: >
@@ -3351,7 +3399,7 @@ values:
 
     -
         name: ERR_CHANOPEN
-        numeric: 713
+        numeric: "713"
         origin: RatBox
         format: "<channel> :<text>"
         comment: >
@@ -3360,7 +3408,7 @@ values:
 
     -
         name: ERR_KNOCKONCHAN
-        numeric: 714
+        numeric: "714"
         origin: RatBox
         format: "<channel> :<text>"
         comment: >
@@ -3369,14 +3417,14 @@ values:
 
     -
         name: ERR_KNOCKDISABLED
-        numeric: 715
+        numeric: "715"
         origin: RatBox
         format: ":<text>"
         comment: Returned from KNOCK when the command has been disabled
 
     -
         name: RPL_TARGUMODEG
-        numeric: 716
+        numeric: "716"
         origin: RatBox
         format: "<nick> :<info>"
         comment: >
@@ -3384,7 +3432,7 @@ values:
 
     -
         name: RPL_TARGNOTIFY
-        numeric: 717
+        numeric: "717"
         origin: RatBox
         format: "<nick> :<info>"
         comment: >
@@ -3393,7 +3441,7 @@ values:
 
     -
         name: RPL_UMODEGMSG
-        numeric: 718
+        numeric: "718"
         origin: RatBox
         format: "<nick> <user>@<host> :<info>"
         comment: >
@@ -3404,28 +3452,28 @@ values:
 
     -
         name: RPL_OMOTDSTART
-        numeric: 720
+        numeric: "720"
         origin: RatBox
         format: ":<text>"
         comment: "IRC Operator MOTD header, sent upon OPER command"
 
     -
         name: RPL_OMOTD
-        numeric: 721
+        numeric: "721"
         origin: RatBox
         format: ":<text>"
         comment: "IRC Operator MOTD text (repeated, usually)"
 
     -
         name: RPL_ENDOFOMOTD
-        numeric: 722
+        numeric: "722"
         origin: RatBox
         format: ":<text>"
         comment: IRC operator MOTD footer
 
     -
         name: ERR_NOPRIVS
-        numeric: 723
+        numeric: "723"
         origin: RatBox
         format: "<command> :<text>"
         comment: >
@@ -3434,7 +3482,7 @@ values:
 
     -
         name: RPL_TESTMARK
-        numeric: 724
+        numeric: "724"
         origin: RatBox
         format: "<nick>!<user>@<host> <?> <?> :<text>"
         comment: >
@@ -3443,7 +3491,7 @@ values:
 
     -
         name: RPL_TESTLINE
-        numeric: 725
+        numeric: "725"
         origin: RatBox
         format: "<?> <?> <?> :<?>"
         comment: >
@@ -3452,7 +3500,7 @@ values:
 
     -
         name: RPL_NOTESTLINE
-        numeric: 726
+        numeric: "726"
         origin: RatBox
         format: "<?> :<text>"
         comment: >
@@ -3461,9 +3509,9 @@ values:
 
     -
         name: RPL_XINFO
-        numeric: 771
+        numeric: "771"
         origin: Ithildin
-        contact: wd@telekinesis.org
+        contact: "mailto:wd@telekinesis.org"
         comment: >
             Used to send 'eXtended info' to the client, a replacement for
             the STATS command to send a large variety of data and minimise
@@ -3471,21 +3519,21 @@ values:
 
     -
         name: RPL_XINFOSTART
-        numeric: 773
+        numeric: "773"
         origin: Ithildin
-        contact: wd@telekinesis.org
+        contact: "mailto:wd@telekinesis.org"
         comment: Start of an RPL_XINFO list
 
     -
         name: RPL_XINFOEND
-        numeric: 774
+        numeric: "774"
         origin: Ithildin
-        contact: wd@telekinesis.org
+        contact: "mailto:wd@telekinesis.org"
         comment: Termination of an RPL_XINFO list
 
     -
         name: ERR_CANNOTDOCOMMAND
-        numeric: 972
+        numeric: "972"
         origin: Unreal
         comment: >
             Works similarly to all of KineIRCd's CANNOT* numerics. This one
@@ -3494,33 +3542,33 @@ values:
 
     -
         name: ERR_CANNOTCHANGEUMODE
-        numeric: 973
+        numeric: "973"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<mode_char> :<reason>"
         comment: Reply to MODE when a user cannot change a user mode
 
     -
         name: ERR_CANNOTCHANGECHANMODE
-        numeric: 974
+        numeric: "974"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<mode_char> :<reason>"
         comment: Reply to MODE when a user cannot change a channel mode
 
     -
         name: ERR_CANNOTCHANGESERVERMODE
-        numeric: 975
+        numeric: "975"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<mode_char> :<reason>"
         comment: Reply to MODE when a user cannot change a server mode
 
     -
         name: ERR_CANNOTSENDTONICK
-        numeric: 976
+        numeric: "976"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<nick> :<reason>"
         comment: >
             Returned from NOTICE, PRIVMSG or other commands to notify the
@@ -3531,9 +3579,9 @@ values:
 
     -
         name: ERR_UNKNOWNSERVERMODE
-        numeric: 977
+        numeric: "977"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<modechar> :<info>"
         comment: >
             Returned by MODE to inform the client they used an unknown
@@ -3541,9 +3589,9 @@ values:
 
     -
         name: ERR_SERVERMODELOCK
-        numeric: 979
+        numeric: "979"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<target> :<info>"
         comment: >
             Returned by MODE to inform the client the server has been set
@@ -3551,9 +3599,9 @@ values:
 
     -
         name: ERR_BADCHARENCODING
-        numeric: 980
+        numeric: "980"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<command> <charset> :<info>"
         comment: >
             Returned by any command which may have had the given data
@@ -3566,9 +3614,9 @@ values:
 
     -
         name: ERR_TOOMANYLANGUAGES
-        numeric: 981
+        numeric: "981"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         information: >
             http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
 
@@ -3581,9 +3629,9 @@ values:
 
     -
         name: ERR_NOLANGUAGE
-        numeric: 982
+        numeric: "982"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         information: >
             http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/kineircd/kineircd/doc/LANGUAGE?rev=HEAD
 
@@ -3594,9 +3642,9 @@ values:
 
     -
         name: ERR_TEXTTOOSHORT
-        numeric: 983
+        numeric: "983"
         origin: KineIRCd
-        contact: kineircd@alien.net.au
+        contact: "mailto:kineircd@alien.net.au"
         format: "<command> :<info>"
         comment: >
             Returned by any command requiring text (such as a message or a
@@ -3607,6 +3655,6 @@ values:
 
     -
         name: ERR_NUMERIC_ERR
-        numeric: 999
+        numeric: "999"
         origin: Bahamut
         comment: Also known as ERR_NUMERICERR (Unreal)
