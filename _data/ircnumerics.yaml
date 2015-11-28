@@ -786,13 +786,13 @@ values:
     -
         name: RPL_LOCALUSERS
         numeric: "265"
-        origin: "aircd, Hybrid, Hybrid, Bahamut"
+        origin: "aircd, Hybrid, Bahamut"
         comment: Also known as RPL_CURRENT_LOCAL
 
     -
         name: RPL_GLOBALUSERS
         numeric: "266"
-        origin: "aircd, Hybrid, Hybrid, Bahamut"
+        origin: "aircd, Hybrid, Bahamut"
         comment: Also known as RPL_CURRENT_GLOBAL
 
     -
