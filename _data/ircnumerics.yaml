@@ -1407,6 +1407,24 @@ values:
         conflict: true
 
     -
+        name: RPL_WHOISTEXT
+        numeric: "335"
+        origin: Hybrid
+        conflict: true
+
+    -
+        name: RPL_INVITELIST
+        numeric: "336"
+        origin: Hybrid
+        format: ":<channel>"
+
+    -
+        name: RPL_ENDOFINVITELIST
+        numeric: "337"
+        origin: Hybrid
+        format: ":End of /INVITE list."
+
+    -
         name: RPL_CHANPASSOK
         numeric: "338"
         conflict: true
@@ -1774,6 +1792,18 @@ values:
         conflict: true
 
     -
+        name: RPL_RSACHALLENGE
+        numeric: "386"
+        origin: Hybrid
+        format: ":*"
+        comment: >
+            Used by Hybrid's old OpenSSL OPER CHALLENGE response. This
+            has been obsoleted in favour of SSL cert fingerprinting in
+            oper blocks
+        conflict: true
+        obsolete: true
+
+    -
         name: RPL_ENDOFQLIST
         numeric: "387"
         origin: Unreal
@@ -1879,6 +1909,15 @@ values:
         comment: >
             Reply to a user when user mode +x (host masking) was set
             successfully
+
+        conflict: true
+
+    -
+        name: RPL_VISIBLEHOST
+        numeric: "396"
+        origin: Hybrid
+        format: "<hostname> :is now your visible host"
+        conflict: true
 
     -
         name: ERR_UNKNOWNERROR
@@ -2638,15 +2677,15 @@ values:
         origin: IRCnet
 
     -
-        name: ERR_VOICENEEDED
-        numeric: "489"
-        origin: Undernet
-        conflict: true
-
-    -
         name: ERR_SECUREONLYCHAN
         numeric: "489"
         origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_VOICENEEDED
+        numeric: "489"
+        origin: Undernet
         conflict: true
 
     -
@@ -2664,6 +2703,16 @@ values:
         numeric: "492"
         origin: RFC1459
         obsolete: true
+
+    -
+        name: ERR_NOCTCP
+        numeric: "492"
+        origin: Hybrid
+        format: ":You cannot send CTCPs to this channel. Not sent: <message>"
+        comment: >
+            Notifies the user that a message they have sent to a channel has
+            been rejected as it contains CTCPs, and they cannot send messages
+            containing CTCPs to this channel
 
     -
         name: ERR_NOFEATURE
@@ -2728,6 +2777,8 @@ values:
         name: ERR_GHOSTEDCLIENT
         numeric: "503"
         origin: Hybrid
+        format: ":Message could not be delivered to <target>"
+        obsolete: true
 
     -
         name: ERR_VWORLDWARN
@@ -2826,6 +2877,7 @@ values:
         name: ERR_OPERONLY
         numeric: "520"
         origin: Unreal
+        format: ":Cannot join channel (+O)"
         conflict: true
 
     -
@@ -2861,6 +2913,7 @@ values:
         name: ERR_WHOLIMEXCEED
         numeric: "523"
         origin: Bahamut
+        format: "<limit> :<command> search limit exceeded."
 
     -
         name: ERR_QUARANTINED
@@ -2872,6 +2925,13 @@ values:
         name: ERR_OPERSPVERIFY
         numeric: "524"
         origin: Unreal
+        conflict: true
+
+    -
+        name: ERR_HELPNOTFOUND
+        numeric: "524"
+        origin: Hybrid
+        format: "<term> :Help not found"
         conflict: true
 
     -
@@ -3423,6 +3483,20 @@ values:
         origin: RatBox
         format: ":<text>"
         comment: Returned from KNOCK when the command has been disabled
+        conflict: true
+
+    -
+        name: ERR_TOOMANYINVITE
+        numeric: "715"
+        origin: Hybrid
+        format: "<channel> :Too many INVITEs (<channel/user>)."
+        comment: >
+            Sent to indicate an INVITE has been blocked. The last param is
+            the literal string "channel" if this is because the channel has
+            had too many INVITEs in a given time, and "user" if this is
+            because the user has sent too many INVITEs in a given time
+
+        conflict: true
 
     -
         name: RPL_TARGUMODEG
