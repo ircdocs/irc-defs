@@ -106,6 +106,27 @@ values:
             set other users to operator (or lower) status, etc.
 
     -
+        name: PROTECTED
+        prefixchar: "&"
+        mode: a
+        origin:
+        comment: >
+            User is "protected". This means they cannot be kicked or have
+            this mode taken away by operators (or other protected users).
+
+    -
+        name: FOUNDER
+        prefixchar: "~"
+        mode: q
+        origin:
+        comment: >
+            User created the channel. This user usually cannot be kicked
+            or have this mode taken away by other users. In some software,
+            They may perform actions that operators can, but are at a
+            higher privilege level than either operators or protected
+            users.
+
+    -
         name: CREATOR
         prefixchar: "@"
         mode: O
