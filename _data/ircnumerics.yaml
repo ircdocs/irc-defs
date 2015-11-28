@@ -3508,6 +3508,145 @@ values:
             user@host
 
     -
+        name: RPL_MONONLINE
+        numeric: "730"
+        origin: RatBox
+        contact: "http://ircv3.net/specs/core/monitor-3.2.html"
+        format: ":target[!user@host][,target[!user@host]]*"
+        comment: >
+            Used to indicate to a client that either a target has just
+            become online, or that a target they have added to their
+            monitor list is online
+
+    -
+        name: RPL_MONOFFLINE
+        numeric: "731"
+        origin: RatBox
+        contact: "http://ircv3.net/specs/core/monitor-3.2.html"
+        format: ":target[,target2]*"
+        comment: >
+            Used to indicate to a client that either a target has just
+            left the IRC network, or that a target they have added to
+            their monitor list is offline
+
+    -
+        name: RPL_MONLIST
+        numeric: "732"
+        origin: RatBox
+        contact: "http://ircv3.net/specs/core/monitor-3.2.html"
+        format: ":target[,target2]*"
+        comment: >
+            Used to indicate to a client the list of targets they have in
+            their monitor list
+
+    -
+        name: RPL_ENDOFMONLIST
+        numeric: "733"
+        origin: RatBox
+        contact: "http://ircv3.net/specs/core/monitor-3.2.html"
+        format: ":End of MONITOR list"
+        comment: >
+            Used to indicate to a client the end of a monitor list
+
+    -
+        name: ERR_MONLISTFULL
+        numeric: "734"
+        origin: RatBox
+        contact: "http://ircv3.net/specs/core/monitor-3.2.html"
+        format: "<limit> <targets> :Monitor list is full."
+        comment: >
+            Used to indicate to a client that their monitor list is full,
+            so the MONITOR command failed
+
+    -
+        name: RPL_WHOISKEYVALUE
+        numeric: "760"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Target> <Key> <Visibility> :<Value>"
+        comment: >
+            Reply to WHOIS - Metadata key/value associated with the target
+
+    -
+        name: RPL_KEYVALUE
+        numeric: "761"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Target> <Key> <Visibility>[ :<Value>]"
+        comment: >
+            Returned to show a currently set metadata key and its value,
+            or a metadata key that has been cleared if no value is
+            present in the response
+
+    -
+        name: RPL_METADATAEND
+        numeric: "762"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: ":end of metadata"
+        comment: Indicates the end of a list of metadata keys
+
+    -
+        name: ERR_METADATALIMIT
+        numeric: "764"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Target> :metadata limit reached"
+        comment: >
+            Used to indicate to a client that their metadata store is full,
+            and they cannot add the requested key(s)
+
+    -
+        name: ERR_TARGETINVALID
+        numeric: "765"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Target> :invalid metadata target"
+        comment: >
+            Indicates to a client that the target of a sent METADATA command
+            is invalid
+
+    -
+        name: ERR_NOMATCHINGKEY
+        numeric: "766"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Key> :no matching key"
+        comment: >
+            Indicates to a client that the requested metadata key does
+            not exist
+
+    -
+        name: ERR_KEYINVALID
+        numeric: "767"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Key> :invalid metadata key"
+        comment: >
+            Indicates to a client that the requested metadata key is not
+            valid
+
+    -
+        name: ERR_KEYNOTSET
+        numeric: "768"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Target> <Key> :key not set"
+        comment: >
+            Indicates to a client that the metadata key they requested to
+            clear is not already set
+
+    -
+        name: ERR_KEYNOPERMISSION
+        numeric: "769"
+        origin: "IRCv3"
+        contact: "http://ircv3.net/specs/core/metadata-3.2.html"
+        format: "<Target> <Key> :permission denied"
+        comment: >
+            Indicates to a client that they do not have permission to set
+            the requested metadata key
+
+    -
         name: RPL_XINFO
         numeric: "771"
         origin: Ithildin
