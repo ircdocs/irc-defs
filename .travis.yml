@@ -1,0 +1,18 @@
+language: ruby
+sudo: false
+script:
+  - gem install github-pages
+  - jekyll build --drafts
+  - python3 --version && python3 -m pip --version
+  # - python2 -m pip install html5validator --user --upgrade
+  # - ~/.local/bin/html5validator --root _site/
+  - python3 -m pip install git+https://github.com/DanielOaks/yamltypes.git@irc-defs-fixes#egg=yamltypes --user --upgrade
+  - ~/.local/bin/yamlvalidate $(find _data | grep \.yaml | xargs) --path _data/validation
+rvm: 2.1
+notifications:
+    email: false
+matrix:
+    fast_finish: true
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
