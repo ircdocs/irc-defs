@@ -87,8 +87,8 @@
                 {% else %}
                     {{ row[col['content']] }}
                 {% endif %}
-                {% if col.link %}</a>{% endif %}
-                {% if col['inline-link'] %}</a>{% endif %}
+                {% if col.link %}{% if row[col.link] %}</a>{% endif %}{% endif %}
+                {% if col['inline-link'] %}{% if row[col['inline-link']] %}</a>{% endif %}{% endif %}
                 {% if col.seealso %}{% if row.seealso %}
                 <p>Also see <a href="#{{ row.seealso }}">{{ row.seealso }}</a>.</p>
                 {% endif %}{% endif %}
