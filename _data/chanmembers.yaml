@@ -1,5 +1,7 @@
 # chanmembers.yaml
 #
+# This file is Copyright (c) 2015 Daniel Oaks
+#  <daniel@danieloaks.net>
 # This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
 #  <pickle@alien.net.au>
 #
@@ -11,7 +13,7 @@
 
 file_info:
     type: "chanmembers"
-    revision: "1.5"
+    revision: "1.60"
 
 # The following information is used to create pretty HTML page and tables
 
