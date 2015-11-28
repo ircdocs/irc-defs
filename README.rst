@@ -2,7 +2,9 @@ IRC Defs
 ========
 These are IRC definition lists. Things like lists of IRC numerics, channel modes, user modes, and other things that are implemented in various bits of IRC software.
 
-Base data is taken from `alien.net.au <https://www.alien.net.au/irc/>`_, converted to YAML via the tools in the ``_legacy_data`` folder, and adapted for use with the `Jekyll <http://jekyllrb.com/>`_ static site generator (used by Github Pages).
+Base data was taken from `alien.net.au <https://www.alien.net.au/irc/>`_, converted to YAML via the tools in the ``_legacy_data`` folder, and adapted for use with the `Jekyll <http://jekyllrb.com/>`_ static site generator (used by Github Pages).
+
+Pull requests to correct or update these lists are welcomed.
 
 `Online Site <http://danieloaks.net/irc-defs/>`_
 
