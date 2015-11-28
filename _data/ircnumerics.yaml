@@ -816,6 +816,14 @@ values:
         name: RPL_PRIVS
         numeric: "270"
         origin: ircu
+        conflict: true
+
+    -
+        name: RPL_MAPUSERS
+        numeric: "270"
+        origin: InspIRCd
+        format: ":<count> servers and <count> users, average <average count> users per server"
+        conflict: true
 
     -
         name: RPL_SILELIST
@@ -1736,6 +1744,13 @@ values:
         conflict: true
 
     -
+        name: RPL_WHOWASIP
+        numeric: "379"
+        origin: InspIRCd
+        format: "<nick> :was connecting from <host>"
+        conflict: true
+
+    -
         name: RPL_BANLINKED
         numeric: "380"
         origin: aircd
@@ -2301,6 +2316,7 @@ values:
         name: ERR_NONICKCHANGE
         numeric: "447"
         origin: Unreal
+        comment: This numeric is called ERR_CANTCHANGENICK in InspIRCd
 
     -
         name: ERR_NOTIMPLEMENTED
@@ -2576,7 +2592,8 @@ values:
         comment: >
             Returned by any command requiring special channel privileges
             (eg. channel operator) to indicate the operation was
-            unsuccessful
+            unsuccessful. InspIRCd also uses this numeric "for other things
+            like trying to kick a uline"
 
     -
         name: ERR_CANTKILLSERVER
@@ -2689,6 +2706,20 @@ values:
         conflict: true
 
     -
+        name: ERR_ALLMUSTSSL
+        numeric: "490"
+        origin: "Unreal, apparently"
+        format: "<channel> :all members of the channel must be connected via SSL"
+        conflict: true
+
+    -
+        name: ERR_NOSWEAR
+        numeric: "490"
+        origin: "Unreal"
+        format: ":<nick> does not accept private messages containing swearing."
+        conflict: true
+
+    -
         name: ERR_NOOPERHOST
         numeric: "491"
         origin: RFC1459
@@ -2728,6 +2759,18 @@ values:
         name: ERR_BADLOGTYPE
         numeric: "495"
         origin: ircu
+        conflict: true
+
+    -
+        name: ERR_DELAYEDREJOIN
+        numeric: "495"
+        origin: InspIRCd
+        format: "<channel> :You cannot rejoin this channel yet after being kicked (+J)"
+        comment: >
+            This numeric is marked as "we should use 'resource temporarily unavailable'
+            from ircnet/ratbox or whatever"
+
+        conflict: true
 
     -
         name: ERR_BADLOGSYS
@@ -2955,6 +2998,12 @@ values:
 
         format: "<nickname> :<reason>"
         comment: Proposed.
+
+    -
+        name: ERR_CANTSENDTOUSER
+        numeric: "531"
+        origin: InspIRCd
+        format: "<nick> :You are not permitted to send private messages to this user"
 
     -
         name: ERR_BADHOSTMASK
@@ -3393,6 +3442,14 @@ values:
         origin: RatBox
         format: "<?> 0x<?> <?> <?>"
         comment: Output from the MODLIST command
+        conflict: true
+
+    -
+        name: RPL_COMMANDS
+        numeric: "702"
+        origin: InspIRCd
+        format: ":<command> <module name> <minimum parameters>"
+        conflict: true
 
     -
         name: RPL_ENDOFMODLIST
@@ -3400,6 +3457,14 @@ values:
         origin: RatBox
         format: ":<text>"
         comment: Terminates MODLIST output
+        conflict: true
+
+    -
+        name: RPL_COMMANDSEND
+        numeric: "703"
+        origin: InspIRCd
+        format: ":End of COMMANDS list"
+        conflict: true
 
     -
         name: RPL_HELPSTART
@@ -3843,6 +3908,36 @@ values:
             Sent when the client requests a list of SASL mechanisms
             supported by the server (or network, services). The numeric
             contains a comma-separated list of mechanisms
+
+    -
+        name: ERR_WORDFILTERED
+        numeric: "936"
+        origin: "InspIRCd"
+        format: "<channel> <message> :Your message contained a censored word, and was blocked"
+
+    -
+        name: ERR_CANTUNLOADMODULE
+        numeric: "972"
+        origin: "InspIRCd"
+        format: "<modulename> :Failed to unload module: <error>"
+
+    -
+        name: RPL_UNLOADEDMODULE
+        numeric: "973"
+        origin: "InspIRCd"
+        format: "<modulename> :Module successfully unloaded."
+
+    -
+        name: ERR_CANTLOADMODULE
+        numeric: "974"
+        origin: "InspIRCd"
+        format: "<modulename> :Failed to load module: <error>"
+
+    -
+        name: RPL_LOADEDMODULE
+        numeric: "975"
+        origin: "InspIRCd"
+        format: "<modulename> :Module successfully loaded."
 
     -
         name: ERR_CANNOTDOCOMMAND
