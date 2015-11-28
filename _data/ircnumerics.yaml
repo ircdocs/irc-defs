@@ -1287,19 +1287,19 @@ values:
         numeric: "320"
         origin: AustHex
         contact: "mailto:dev@austnet.org"
-        conflicts: true
+        conflict: true
 
     -
         name: RPL_WHOIS_HIDDEN
         numeric: "320"
         origin: Anothernet
-        conflicts: true
+        conflict: true
 
     -
         name: RPL_WHOISSPECIAL
         numeric: "320"
         origin: Unreal
-        conflicts: true
+        conflict: true
 
     -
         name: RPL_LISTSTART

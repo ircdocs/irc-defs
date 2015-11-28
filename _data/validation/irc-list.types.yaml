@@ -1,0 +1,130 @@
+datatable:
+  type: dict
+  kids:
+    file_info:
+      type: dict
+      kids:
+        type:
+          type: string
+        revision:
+          type: string
+    page:
+      type: dict
+      kids:
+        name:
+          type: string
+        extra:
+          type: string
+    table:
+      type: dict
+      kids:
+        row-id:
+          type: string
+          required: false
+        row-classes:
+          type: listofstrings
+        columns:
+          type: listofdicts
+          kids:
+            name:
+              type: string
+            content:
+              type: string
+            classes:
+              type: string
+              required: false
+            inline-link:
+              type: string
+              required: false
+            link:
+              type: string
+              required: false
+            seealso:
+              type: string
+              required: false
+            description:
+              type: string
+            xml_escape:
+              type: boolean
+              required: false
+    format:
+      type: mapofmultis
+      types:
+        -
+          type: string
+        -
+          type: boolean
+    values:
+      type: listofdicts
+      kids:
+        name:
+          type: string
+        numeric:
+          type: string
+          required: false
+        mode:
+          type: string
+          required: false
+        char:
+          type: string
+          required: false
+        prefixchar:
+          type: string
+          required: false
+        origin:
+          type: string
+          required: false
+        when:
+          type: string
+          required: false
+        format:
+          type: string
+          required: false
+        comment:
+          type: string
+          required: false
+        inline-link:
+          type: string
+          required: false
+        link:
+          type: string
+          required: false
+        seealso:
+          type: string
+          required: false
+        contact:
+          type: string
+          required: false
+        information:
+          type: string
+          required: false
+        parameter:
+          type: string
+          required: false
+        server_on:
+          type: string
+          required: false
+        server_off:
+          type: string
+          required: false
+        clientcreate:
+          type: string
+          required: false
+        broadcast:
+          type: string
+          required: false
+        server_only:
+          type: string
+          required: false
+        registration:
+          type: boolean
+          required: false
+        conflict:
+          type: boolean
+          required: false
+        repeated:
+          type: boolean
+          required: false
+        obsolete:
+          type: boolean
+          required: false
