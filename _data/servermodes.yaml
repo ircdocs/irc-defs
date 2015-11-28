@@ -19,7 +19,7 @@ page:
     name: Server Modes
     extra: >
         <p>
-            Red denotes a conflicting numeric definition, gray for depreciated
+            Red denotes a conflicting numeric definition, gray for deprecated
             (however quite possibly still in use), and blue for OK.
         </p>
 
