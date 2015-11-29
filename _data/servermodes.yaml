@@ -99,58 +99,6 @@ format:
 
 values:
     -
-        char: a
-        name: AUTOCONNECT
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            Follow the autoconnect rules - When set on, the server should
-            follow autoconnect parameters given in the configuration file to
-            maintain its connection to the network.
-
-        broadcast: Y
-
-    -
-        char: A
-        name: AUTO_TBS
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            Automatically switch bone/tendril links. This is used in
-            association with server to server protocols which have redundant
-            links to specify whether or not the server should be actively
-            monitoring links to see if a better 'bone' can be selected. When
-            on, this gives the server the right to switch bone connections
-            around to benifit the network.
-
-        broadcast: Y
-
-    -
-        char: D
-        name: DEBUGGING
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            Turns debugging on (if available), or shows a server which is in
-            debugging mode.
-
-        broadcast: Y
-
-    -
-        char: F
-        name: FULL
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            A server turns toggles this depending on its 'fullness'. If the
-            server is full, either no more file descriptors are left, or all
-            connection classes are full, then this is a warning to other
-            servers not to redirect clients to it.
-
-        server_only: Y
-        broadcast: Y
-
-    -
         char: h
         name: HUB
         origin: ircu
@@ -163,66 +111,6 @@ values:
         broadcast: Y
 
     -
-        char: H
-        name: HIDDEN
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            When set, the server should be completely hidden to users. This
-            is different to masking the server's name. This allows for
-            invisible hubs, or invisible servers which host network
-            services, etc.
-
-        broadcast: Y
-
-    -
-        char: l
-        name: LAZY_LEAF
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            Server should consider itself a lazy leaf link to the network.
-            This means only one connection can be made to the server, and it
-            runs on lazy principles. The idea for lazy leafs comes from
-            Hybrid.
-
-        broadcast: Y
-
-    -
-        char: L
-        name: DEFAULT_LANGUAGE
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        parameter: <language code>
-        comment: >
-            Marks the given language code as the 'default' language for that
-            server. Language codes are that prescribed by BCP-0047, and only
-            one can be set at a time.
-
-        broadcast: Y
-
-    -
-        char: M
-        name: MODES_LOCKED
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            The server modes are locked, and can only be changed by other
-            servers. This is useful when servers shouldn't not be touched by
-            operators. Arbiters/U:lines servers can still change modes (i.e.
-            to remove this mode!)
-
-        broadcast: Y
-
-    -
-        char: n
-        name: NO_OPER
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: "When set, the OPER command is rendered useless"
-        broadcast: Y
-
-    -
         char: s
         name: SERVICE
         origin: ircu
@@ -232,20 +120,4 @@ values:
             services). In ircu, this also hides the server from users.
 
         server_only: Y
-        broadcast: Y
-
-    -
-        char: T
-        name: TESTLINK
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            Mark the server as being under a 'testlink' period. Many
-            networks give new servers a testing period to give both the
-            server administrator, and the network, time to evaluate whether
-            or not the server will be able to remain permanent. Depending on
-            network policy, testlink server administrators may have
-            restricted rights, such as not being able to send global
-            messages. This flag aids to enforce those policies.
-
         broadcast: Y
