@@ -147,6 +147,7 @@ values:
         numeric: "005"
         information: "http://www.irc.org/tech_docs/005.html"
         comment: "Also known as RPL_PROTOCTL (Bahamut, Unreal, Ultimate)"
+        seealso: "105"
 
     -
         name: RPL_MAP
@@ -231,6 +232,18 @@ values:
         name: RPL_ATTEMPTINGREROUTE
         numeric: "051"
         origin: aircd
+
+    -
+        name: RPL_REMOTEISUPPORT
+        numeric: "105"
+        information: "http://www.irc.org/tech_docs/005.html"
+        origin: Unreal
+        comment: >
+            Same format as RPL_ISUPPORT, but returned when the client is
+            requesting information from a remote server instead of the
+            server it is currently connected to
+
+        seealso: "005"
 
     -
         name: RPL_TRACELINK
@@ -2027,6 +2040,13 @@ values:
         comment: >
             PING or PONG message missing the originator parameter which is
             required since these commands must work without valid prefixes
+
+    -
+        name: ERR_INVALIDCAPCMD
+        numeric: "410"
+        origin: Undernet?
+        information: "http://ircv3.net/specs/core/capability-negotiation-3.1.html"
+        format: "<badcmd> :Invalid CAP subcommand"
 
     -
         name: ERR_NORECIPIENT
