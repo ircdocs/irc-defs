@@ -2576,11 +2576,13 @@ values:
         name: ERR_BADCHANNAME
         numeric: "479"
         origin: Hybrid
+        conflict: true
 
     -
         name: ERR_LINKFAIL
         numeric: "479"
         origin: Unreal
+        conflict: true
 
     -
         name: ERR_NOULINE
@@ -2682,6 +2684,7 @@ values:
     -
         name: ERR_NONONREG
         numeric: "486"
+        origin: Unreal?
         conflict: true
 
     -
@@ -2689,6 +2692,7 @@ values:
         numeric: "486"
         origin: Unreal
         conflict: true
+        comment: "Unreal 3.2 uses 488 as the ERR_HTMDISABLED numeric instead"
 
     -
         name: ERR_ACCOUNTONLY
@@ -2709,9 +2713,22 @@ values:
         conflict: true
 
     -
+        name: ERR_NOTFORUSERS
+        numeric: "487"
+        origin: Unreal?
+        conflict: true
+
+    -
         name: ERR_TSLESSCHAN
         numeric: "488"
         origin: IRCnet
+        conflict: true
+
+    -
+        name: ERR_HTMDISABLED
+        numeric: "488"
+        origin: Unreal?
+        conflict: true
 
     -
         name: ERR_SECUREONLYCHAN
@@ -2758,7 +2775,7 @@ values:
     -
         name: ERR_NOCTCP
         numeric: "492"
-        origin: Hybrid
+        origin: Hybrid / Unreal?
         format: ":You cannot send CTCPs to this channel. Not sent: <message>"
         comment: >
             Notifies the user that a message they have sent to a channel has
@@ -2816,6 +2833,12 @@ values:
             owner status (+q) is needed.
 
         seealso: "482"
+
+    -
+        name: ERR_TOOMANYJOINS
+        numeric: "500"
+        origin: Unreal?
+        format: "<string> :Too many join requests. Please wait a while and try again."
 
     -
         name: ERR_UMODEUNKNOWNFLAG
