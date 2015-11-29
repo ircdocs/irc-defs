@@ -124,31 +124,3 @@ values:
             are set but don't announce them as being set.
 
         clientcreate: Y
-
-    -
-        name: SOFTCHAN
-        prefixchar: "."
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            This is a programmable channel type. Normal users cannot create
-            channels of this type. Channels must be created by the software
-            that controls them. The parameters of these channels are not set
-            in stone, and are controlled entirely by software. This means
-            '.' channels of different names may have different properties.
-            The function of this channel type is to provide set channels
-            which require rare features without channel mode bloat, or
-            software bloat. By creating a new channel type it also avoids
-            confusion with other channel types with fixed definitions.
-
-    -
-        prefixchar: "~"
-        name: GLOBAL
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            This is a proposed channel type for IIRC. This is available to
-            all IRC networks visible on an IIRC network, and as such users
-            from other networks can participate.
-
-        clientcreate: Y

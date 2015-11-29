@@ -523,14 +523,3 @@ values:
         comment: >
             Only allows clients connected via secure connections to join
             (eg. SSL)
-
-    -
-        char: "!"
-        name: SERVICE
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        parameter: Nickname
-        comment: >
-            Gives the specified nickname a marker (a '!') to show that it is
-            a service (i.e. a channel service). This is to help users
-            identify legitimate services on channels
