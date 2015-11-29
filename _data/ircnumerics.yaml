@@ -2047,6 +2047,9 @@ values:
         origin: Undernet?
         information: "http://ircv3.net/specs/core/capability-negotiation-3.1.html"
         format: "<badcmd> :Invalid CAP subcommand"
+        comment: >
+            Returned when a client sends a CAP subcommand which is invalid
+            or otherwise issues an invalid CAP command
 
     -
         name: ERR_NORECIPIENT
