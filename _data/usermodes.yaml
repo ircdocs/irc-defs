@@ -52,12 +52,12 @@ table:
         -
             name: Server On
             content: server_on
-            description: ""
+            description: "Only a server can set this mode"
             classes: center
         -
             name: Server Off
             content: server_off
-            description: ""
+            description: "Only a server can unset this mode"
             classes: center
         -
             name: Parameter
