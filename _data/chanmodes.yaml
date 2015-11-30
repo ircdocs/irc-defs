@@ -64,6 +64,7 @@ table:
             content: parameter
             classes: code
             description: Parameter for the mode
+            xml_escape: true
         -
             name: Comments
             content: comment
