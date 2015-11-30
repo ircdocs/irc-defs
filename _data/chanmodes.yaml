@@ -136,7 +136,8 @@ values:
         origin: Hybrid?
         comment: >
             Stops control codes from being broadcast from the channel.
-            Some implementations drop lines, some implementations strip it.
+
+        conflict: true
 
     -
         char: c
@@ -145,6 +146,8 @@ values:
         comment: >
             Stops colour from being broadcast from the channel. Some
             implementations drop lines, some implementations strip it.
+
+        conflict: true
 
     -
         char: C
@@ -184,16 +187,6 @@ values:
 
     -
         char: e
-        name: EVENT
-        origin: AustHex
-        obsolete: true
-        comment: >
-            Stops users from changing their nicknames when set. AustNet
-            considers this obsolete, due to the conflict between the more
-            widely accepted use of the 'e' mode.
-
-    -
-        char: e
         name: BAN_EXCEPTION
         origin: RFC2811
         parameter: n!u@h mask
@@ -202,6 +195,18 @@ values:
             someone's identity fits a channel ban mask, they are banned. If
             their identity also matches the ban exception mask, they are
             allowed not banned (exempt from the ban)
+
+    -
+        char: e
+        name: EVENT
+        origin: AustHex
+        comment: >
+            Stops users from changing their nicknames when set. AustNet
+            considers this obsolete, due to the conflict between the more
+            widely accepted use of the 'e' mode.
+
+        obsolete: true
+        conflict: true
 
     -
         char: f
@@ -477,7 +482,6 @@ values:
         origin: Hybrid?
         comment: Channel only allows registered nicknames to join
         conflict: true
-
         seealso: MODREG
 
     -
@@ -508,6 +512,7 @@ values:
         name: STRIP
         origin: Unreal
         comment: Strip mIRC colours from text broadcast via the channel
+        conflict: true
 
     -
         char: S
@@ -516,6 +521,8 @@ values:
         comment: >
             Only allows clients connected via secure connections to join
             (eg. SSL)
+
+        conflict: true
 
     -
         char: t
