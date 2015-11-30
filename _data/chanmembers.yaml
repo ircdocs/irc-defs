@@ -138,20 +138,6 @@ values:
             according to the RFC.
 
     -
-        name: SERVICE
-        prefixchar: "!"
-        mode: "!"
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        comment: >
-            This is given only by servers or services. It should always be
-            the highest ranking membership type in the channel, and denotes
-            that the user with the membership status is a service. The
-            intended use for this was to mark out which channel member is an
-            official channel service, however other applications are also
-            available.
-
-    -
         name: FOUNDER
         prefixchar: "."
         mode: u

@@ -177,19 +177,6 @@ values:
 
     -
         char: d
-        name: DEAF
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        parameter: Prefix character
-        comment: >
-            User does not receive channel messages unless they are prefixed
-            with the given prefix character. If no parameter is given, all
-            channel messages are ignored, with no prefix checking.
-
-        conflict: true
-
-    -
-        char: d
         name: DEBUG
         origin: "Hybrid, Bahamut"
         comment: User receives debugging messages
@@ -222,7 +209,7 @@ values:
     -
         char: g
         name: CALLERID
-        origin: "Hybrid, KineIRCd"
+        origin: "Hybrid"
         comment: >
             User is ignoring everyone, unless they are ACCEPTed with the
             ACCEPT command
@@ -247,18 +234,6 @@ values:
         name: HELPER
         origin: "Bahamut, AustHex"
         comment: "User is a HELPER, associated with network services"
-        server_on: Y
-
-    -
-        char: h
-        name: HELPER
-        origin: KineIRCd
-        contact: kineircd@alien.net.au
-        parameter: level
-        comment: >
-            User is a HELPER, the level is an unsigned 16-bit integer
-            denotes 'rank', as determined by network services
-
         server_on: Y
 
     -
@@ -394,7 +369,7 @@ values:
     -
         char: R
         name: NO_NON_REGISTERED
-        origin: "Bahamut, KineIRCd, Unreal"
+        origin: "Bahamut, Unreal"
         server_on: Y
         server_off: Y
         comment: User wants to block messages from non-registered nicknames
@@ -419,7 +394,7 @@ values:
     -
         char: s
         name: SERVER_NOTICES
-        origin: "KineIRCd, Unreal"
+        origin: "Unreal"
         parameter: Notice mask list
         comment: >
             User receives server notices. The notice masks are normally a
