@@ -185,6 +185,18 @@ values:
         conflict: true
 
     -
+        char: D
+        name: DEAF
+        origin: Hybrid?
+
+    -
+        char: e
+        name: EXTERNAL
+        origin: Hybrid?
+        comment: >
+            User receives information about servers connecting/disconnecting
+
+    -
         char: f
         name: FULL
         origin: Hybrid
@@ -200,6 +212,14 @@ values:
         origin: Bahamut
         comment: User receives flood notices
         conflict: true
+
+    -
+        char: F
+        name: REMOTE_CLIENT_CONNS
+        origin: Hybrid?
+        comment: >
+            User receives information about remote clients
+            connecting/disconnecting
 
     -
         char: g
@@ -230,6 +250,17 @@ values:
         name: STRIP_BAD_WORDS
         origin: Unreal
         comment: Messages user receives are stripped of profanity
+        conflict: true
+
+    -
+        char: G
+        name: SOFTCALLERID
+        origin: Hybrid
+        comment: >
+            User is ignoring everyone they are not on common channels
+            with, unless they are ACCEPTed with the ACCEPT command
+
+        conflict: true
 
     -
         char: h
@@ -259,6 +290,12 @@ values:
             supposedly obsolete as of UnrealIRCd 3.2 beta 16
 
         obsolete: true
+
+    -
+        char: j
+        name: REJECTED
+        origin: Hybrid?
+        comment: Client gets 'rejected' client notices
 
     -
         char: k
@@ -344,6 +381,12 @@ values:
         comment: "Only U:liners/arbiters can kick this user"
 
     -
+        char: q
+        name: QUIET
+        origin: Hybrid?
+        comment: "Hides idle and signon time from user's WHOIS reply"
+
+    -
         char: r
         name: RESTRICTED
         origin: RFC2812
@@ -354,19 +397,20 @@ values:
 
     -
         char: r
-        name: REJ
-        origin: Hybrid
-        comment: User receives notices about rejected clients
-        conflict: true
-
-    -
-        char: r
         name: REGISTERED
         origin: "Bahamut, ircu"
         comment: Nickname is registered with a network nickname service
         server_on: Y
         server_off: Y
         conflict: true
+
+    -
+        char: r
+        name: REJ
+        origin: Hybrid
+        comment: User receives notices about rejected clients
+        conflict: true
+        obsolete: true
 
     -
         char: R
@@ -408,6 +452,15 @@ values:
         name: SERVICE
         origin: Unreal
         comment: "User is a service, and is protected."
+        conflict: true
+
+    -
+        char: S
+        name: SSL
+        origin: Hybrid?
+        comment: "User is connected via SSL/TLS"
+        server_on: Y
+        server_off: Y
 
     -
         char: t
@@ -447,7 +500,7 @@ values:
         char: u
         name: UNAUTH
         origin: Hybrid
-        comment: User receives unauthorised client notices
+        comment: User receives unauthorised client connection notices
 
     -
         char: v
@@ -485,14 +538,13 @@ values:
         name: WHOIS_PARANOIA
         origin: Unreal
         comment: User is receives a notice when WHOIS'd
+        conflict: true
 
     -
-        char: x
-        name: EXTERNAL
-        origin: Hybrid
-        comment: >
-            User receives notices about servers connecting/disconnecting
-
+        char: W
+        name: WEBIRC
+        origin: Hybrid?
+        comment: Designates this user is connected using a webirc gateway
         conflict: true
 
     -
@@ -505,7 +557,16 @@ values:
             the 'x' letter for this mode appears to be the most standard
             method for toggling masking user hosts.
 
+    -
+        char: x
+        name: EXTERNAL
+        origin: Hybrid
+        comment: >
+            User receives notices about servers connecting/disconnecting.
+            Hybrid now uses the 'e' character for this mode
+
         conflict: true
+        deprecated: true
 
     -
         char: y
