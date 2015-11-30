@@ -379,12 +379,14 @@ values:
         name: KIX
         origin: Unreal
         comment: "Only U:liners/arbiters can kick this user"
+        conflict: true
 
     -
         char: q
         name: QUIET
         origin: Hybrid?
         comment: "Hides idle and signon time from user's WHOIS reply"
+        conflict: true
 
     -
         char: r
@@ -461,6 +463,7 @@ values:
         comment: "User is connected via SSL/TLS"
         server_on: Y
         server_off: Y
+        conflict: true
 
     -
         char: t
