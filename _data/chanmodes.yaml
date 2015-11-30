@@ -218,6 +218,7 @@ values:
 
         parameter: "<lines>:<seconds>"
         comment: Flood limiter
+        conflict: true
 
     -
         char: f
@@ -227,6 +228,8 @@ values:
         comment: >
             Forwards users who cannot join because of +i, +j, +l or +r to
             the given channel.
+
+        conflict: true
 
     -
         char: F
@@ -437,6 +440,7 @@ values:
             of the secret mode (+s).
 
         obsolete: true
+        conflict: true
 
     -
         char: p
@@ -444,12 +448,14 @@ values:
         origin: Hybrid
         comment: "This restricts KNOCK, and prevents half-ops from using +h"
         obsolete: true
+        conflict: true
 
     -
         char: p
         name: PRIVATE
         origin: Charybdis?
         comment: "This restricts KNOCK"
+        conflict: true
 
     -
         char: p
@@ -458,6 +464,8 @@ values:
         comment: >
             Controls whether half-ops may invite users into the channel or
             whether they can kick other members of the channel
+
+        conflict: true
 
     -
         char: P
@@ -505,6 +513,7 @@ values:
         name: NO_KICK
         origin: Unreal
         comment: Disallow people being kicked from the channel
+        conflict: true
 
     -
         char: Q
@@ -512,6 +521,7 @@ values:
         origin: Charybdis?
         comment: "Users cannot be forwarded to this channel"
         seealso: FORWARD
+        conflict: true
 
     -
         char: r
@@ -661,9 +671,13 @@ values:
             Only allows clients connected via secure connections to join
             (eg. SSL)
 
+        conflict: true
+
     -
         char: z
         name: OP_MODERATED
         origin: Charybdis?
         comment: >
             Messages blocked by +m, +b, and +q are instead sent to ops
+
+        conflict: true
