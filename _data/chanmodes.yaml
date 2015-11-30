@@ -220,6 +220,30 @@ values:
         comment: Flood limiter
 
     -
+        char: f
+        name: FORWARD
+        origin: Charybdis?
+        parameter: "<channel>"
+        comment: >
+            Forwards users who cannot join because of +i, +j, +l or +r to
+            the given channel.
+
+    -
+        char: F
+        name: FREE_TARGET
+        origin: Charybdis?
+        comment: >
+            Anyone may set FORWARDs to this channel (otherwise ops are necessary)
+
+        seealso: FORWARD
+
+    -
+        char: g
+        name: FREE_INVITE
+        origin: Charybdis?
+        comment: "Everyone may invite users"
+
+    -
         char: G
         name: STRIP_BAD_WORDS
         origin: Unreal
@@ -259,6 +283,15 @@ values:
             If the channel is marked as invite only, users matching the
             mask(s) set using this mode are allowed to enter without
             invitation. Also called "invite exempt"
+
+    -
+        char: j
+        name: JOIN_THROTTLE
+        origin: Charybdis?
+        parameter: "<count>:<time>"
+        comment: >
+            When set, 'count' number of users may join this channel per
+            'time'
 
     -
         char: J
@@ -317,6 +350,16 @@ values:
         comment: >
             If the channel is +l, and the channel is full, users will be
             redirected to the given channel
+
+        conflict: true
+
+    -
+        char: L
+        name: LARGE_BANLIST
+        origin: Charybdis?
+        comment: >
+            Increase the number of +beIq entries allowed for this channel.
+            Only settable by IRC opers
 
         conflict: true
 
@@ -404,11 +447,36 @@ values:
 
     -
         char: p
+        name: PRIVATE
+        origin: Charybdis?
+        comment: "This restricts KNOCK"
+
+    -
+        char: p
         name: PARANOIA
         origin: Hybrid
         comment: >
             Controls whether half-ops may invite users into the channel or
             whether they can kick other members of the channel
+
+    -
+        char: P
+        name: PERMANENT
+        origin: Charybdis?
+        comment: >
+            Channel does not disappear when empty. Only settable by IRC
+            opers
+
+    -
+        char: q
+        name: QUIET
+        origin: Charybdis?
+        parameter: "<nickmask>"
+        comment: >
+            Prevents a user from sending to the channel or changing nick,
+            based on a nickmask match
+
+        conflict: true
 
     -
         char: q
@@ -437,6 +505,13 @@ values:
         name: NO_KICK
         origin: Unreal
         comment: Disallow people being kicked from the channel
+
+    -
+        char: Q
+        name: NO_FORWARD
+        origin: Charybdis?
+        comment: "Users cannot be forwarded to this channel"
+        seealso: FORWARD
 
     -
         char: r
@@ -533,6 +608,12 @@ values:
             Topic is locked, and can only be changed by channel operators
 
     -
+        char: T
+        name: NO_NOTICE
+        origin: Charybdis?
+        comment: "No NOTICEs can be sent to this channel"
+
+    -
         char: u
         name: AUDITORIUM
         origin: Unreal
@@ -579,3 +660,10 @@ values:
         comment: >
             Only allows clients connected via secure connections to join
             (eg. SSL)
+
+    -
+        char: z
+        name: OP_MODERATED
+        origin: Charybdis?
+        comment: >
+            Messages blocked by +m, +b, and +q are instead sent to ops
