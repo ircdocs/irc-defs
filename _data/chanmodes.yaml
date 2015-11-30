@@ -132,6 +132,14 @@ values:
 
     -
         char: c
+        name: NOCONTROL
+        origin: Hybrid?
+        comment: >
+            Stops control codes from being broadcast from the channel.
+            Some implementations drop lines, some implementations strip it.
+
+    -
+        char: c
         name: NOCOLOUR
         origin: Bahamut
         comment: >
@@ -244,7 +252,7 @@ values:
         comment: >
             If the channel is marked as invite only, users matching the
             mask(s) set using this mode are allowed to enter without
-            invitation.
+            invitation. Also called "invite exempt"
 
     -
         char: J
@@ -318,6 +326,10 @@ values:
         char: M
         name: MODREG
         origin: Bahamut
+        comment: >
+            Unregistered/unidentified clients cannot send text to the
+            channel
+
         conflict: true
 
     -
@@ -326,6 +338,14 @@ values:
         origin: Unreal
         comment: Channel only allows registered nicknames to talk.
         conflict: true
+
+    -
+        char: n
+        name: NO_EXTERNAL
+        origin: Hybrid?
+        comment: >
+            Only allow users who are joined to this channel to send messages
+            to the channel
 
     -
         char: N
@@ -374,6 +394,15 @@ values:
         name: PRIVATE
         origin: Hybrid
         comment: "This restricts KNOCK, and prevents half-ops from using +h"
+        obsolete: true
+
+    -
+        char: p
+        name: PARANOIA
+        origin: Hybrid
+        comment: >
+            Controls whether half-ops may invite users into the channel or
+            whether they can kick other members of the channel
 
     -
         char: q
@@ -405,6 +434,15 @@ values:
 
     -
         char: r
+        name: REGISTERED
+        origin: Bahamut
+        comment: Channel is registered with a network channel service
+        server_on: Y
+        server_off: Y
+        conflict: true
+
+    -
+        char: r
         name: REOP
         origin: RFC2811
         comment: >
@@ -421,15 +459,6 @@ values:
 
     -
         char: r
-        name: REGISTERED
-        origin: Bahamut
-        comment: Channel is registered with a network channel service
-        server_on: Y
-        server_off: Y
-        conflict: true
-
-    -
-        char: r
         name: REGONLY
         origin: ircu
         comment: Channel only allows registered nicknames to join/talk.
@@ -441,6 +470,15 @@ values:
         origin: "Bahamut, tr-ircd"
         comment: Channel only allows registered nicknames to join/talk
         conflict: true
+
+    -
+        char: R
+        name: REGONLY
+        origin: Hybrid?
+        comment: Channel only allows registered nicknames to join
+        conflict: true
+
+        seealso: MODREG
 
     -
         char: R
@@ -470,6 +508,14 @@ values:
         name: STRIP
         origin: Unreal
         comment: Strip mIRC colours from text broadcast via the channel
+
+    -
+        char: S
+        name: SECURED_ONLY
+        origin: Hybrid?
+        comment: >
+            Only allows clients connected via secure connections to join
+            (eg. SSL)
 
     -
         char: t
