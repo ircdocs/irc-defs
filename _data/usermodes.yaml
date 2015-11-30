@@ -293,9 +293,9 @@ values:
 
     -
         char: j
-        name: REJECTED
+        name: REJ
         origin: Hybrid?
-        comment: Client gets 'rejected' client notices
+        comment: User receives notices about rejected clients
 
     -
         char: k
