@@ -99,6 +99,8 @@ values:
             'anonymous!anonymous@anonymous'. Users quitting are seen as
             users parting the channel with no reason.
 
+        conflict: true
+
     -
         char: a
         name: HIDEOPS
