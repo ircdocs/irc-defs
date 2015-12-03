@@ -1113,6 +1113,14 @@ values:
     -
         name: RPL_TEXT
         numeric: "304"
+        origin: "irc2?"
+        format: ":<text>"
+        comment: >
+            Displays text to the user. This seems to have been defined
+            in irc2.7h but never used. Servers generally use specific
+            numerics or server notices instead of this. Unreal uses
+            this numeric, but most others don't use it
+
         obsolete: true
 
     -
@@ -1248,6 +1256,10 @@ values:
         name: RPL_WHOISCHANOP
         numeric: "316"
         origin: RFC1459
+        comment: >
+            This numeric was reserved, but never actually used. The
+            source code notes "redundant and not needed but reserved"
+
         obsolete: true
 
     -
