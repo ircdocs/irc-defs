@@ -2568,6 +2568,9 @@ values:
         numeric: "479"
         origin: Hybrid
         conflict: true
+        format: "<channel> :<reason>"
+        comment: >
+            Returned to indicate that a given channel name is not valid.
 
     -
         name: ERR_LINKFAIL
