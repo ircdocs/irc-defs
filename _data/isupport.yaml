@@ -209,6 +209,10 @@ values:
             "Forced Nick Change". Indicates that the server may change a user's
             nickname without the user sending the server a "NICK" message. Note
             that servers may do this even if they don't send this token.
+            Clients MUST be able to handle this correctly regardless of whether
+            this token is presented or not.
+
+        obsolete: true
 
     -
         name: INVEX
