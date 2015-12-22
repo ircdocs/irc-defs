@@ -2571,6 +2571,10 @@ values:
         format: "<channel> :<reason>"
         comment: >
             Returned to indicate that a given channel name is not valid.
+            Servers that implement this use it instead of `ERR_NOSUCHCHANNEL`
+            where appropriate.
+
+        seealso: "403"
 
     -
         name: ERR_LINKFAIL
