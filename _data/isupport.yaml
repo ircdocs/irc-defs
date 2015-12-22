@@ -188,6 +188,19 @@ values:
             - "INVEX=I"
 
     -
+        name: LINELEN
+        format: "LINELEN=[number]"
+        comment: >
+            Indicates the maximum length of lines that can be sent to the IRC
+            server in octets. Lines longer than this will be truncated by the
+            server. If number is not specified, there is no limit.
+
+        examples:
+            - "LINELEN=512"
+            - "LINELEN=2048"
+            - "LINELEN="
+
+    -
         name: MAXLIST
         format: "MAXLIST=mode:number[,mode:number[,...]]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
