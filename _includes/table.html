@@ -42,6 +42,9 @@
     tr p:last-child {
         margin-bottom: 0;
     }
+    p:first-child {
+        margin-top: 0;
+    }
     .col-format {
         min-width: 15rem;
     }
@@ -56,6 +59,18 @@
     }
     .center {
         text-align: center;
+    }
+    .examples-header:first-child {
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+    .examples {
+        list-style: none inside;
+        padding-left: 1rem;
+        margin: 0.25rem 0;
+    }
+    .examples li + li {
+        margin-top: 0.25rem;
     }
 
     tbody tr {
@@ -87,6 +102,8 @@
                 {% if col.link %}{% if row[col.link] %}<a href="{{ row[col.link] }}">{% endif %}{% endif %}
                 {% if col.xml_escape %}
                     {{ row[col['content']] | xml_escape }}
+                {% elsif col.markdown %}
+                    {{ row[col['content']] | markdownify }}
                 {% else %}
                     {{ row[col['content']] }}
                 {% endif %}
@@ -94,6 +111,14 @@
                 {% if col['inline-link'] %}{% if row[col['inline-link']] %}</a>{% endif %}{% endif %}
                 {% if col.seealso %}{% if row.seealso %}
                 <p>Also see <a href="#{{ row.seealso }}">{{ row.seealso }}</a>.</p>
+                {% endif %}{% endif %}
+                {% if col.examples %}{% if row.examples %}
+                <p class="examples-header"><strong>Examples:</strong></p>
+                <ul class="examples">
+                    {% for example in row.examples %}
+                    <li>{{ example }}</li>
+                    {% endfor %}
+                </ul>
                 {% endif %}{% endif %}
             </td>
             {% endfor %}

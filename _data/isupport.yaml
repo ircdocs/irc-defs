@@ -1,0 +1,386 @@
+# isupport.yaml
+#
+# This file is Copyright (c) 2015 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "isupport"
+    revision: "0.10"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: RPL_ISUPPORT tokens
+    extra: >
+        <p>
+            Red denotes a conflicting token definition, gray for deprecated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+        - repeated
+
+    columns:
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Format
+            content: format
+            classes: code
+            description: Format of the token
+            examples: true
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+            markdown: true
+
+# The following format is used through-out this file. The first field
+# ('name') is manditory, the others may or may not exist.
+
+format:
+    name: token name
+    origin: where the numeric was found
+    contact: point of contact associated with the numeric
+    information: url where to find more information
+    format: the token format
+    comment: "comments, history etc"
+    seealso: name
+    conflict: true
+    obsolete: true
+    repeated: true
+
+values:
+    -
+        name: CALLERID
+        format: "CALLERID"
+        information: "https://github.com/ircd-hybrid/ircd-hybrid/blob/master/doc/modeg.txt"
+        comment: >
+            Indicates that the CALLERID extension is supported with the "+g"
+            user mode, as defined by Hybrid in the 'modeg.txt' document.
+
+    -
+        name: CASEMAPPING
+        format: "CASEMAPPING=<string>"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the method that's used to compare equality of
+            case-insensitive strings (such as nick/channel names).
+            Typical values include "ascii" and "rfc1459".
+
+        examples:
+            - "CASEMAPPING=rfc1459"
+
+    -
+        name: CHANLIMIT
+        format: "CHANLIMIT=prefix:number[,prefix:number[,...]]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum number of channels a client may join. Though
+            a client shouldn't assume that other clients are limited to what
+            they receive here. If "number" is empty, there is no limit.
+
+        examples:
+            - "CHANLIMIT=#+:25,&:"
+
+    -
+        name: CHANMODES
+        format: "CHANMODES=A,B,C,D"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the channel modes available and which types of arguments
+            they do or do not take. See the linked Hardy draft for specifics.
+
+        examples:
+            - "CHANMODES=b,k,l,imnpst"
+            - "CHANMODES=beI,k,l,BCMNORScimnpstz"
+
+    -
+        name: CHANNELLEN
+        format: "CHANNELLEN=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Specifies the maximum length of a channel name that clients may
+            join. If "number" is not specified, there is no limit.
+
+        examples:
+            - "CHANNELLEN=50"
+
+    -
+        name: CHANTYPES
+        format: "CHANTYPES=[string]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the types of channels supported on this server. These are
+            channel type prefixes as listed in the RFCs and by the "Channel
+            Type Prefixes" list on this site.
+
+        examples:
+            - "CHANTYPES=&#"
+
+    -
+        name: CNOTICE
+        format: "CNOTICE"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the server supports the "CNOTICE" command. This is
+            an extension to the NOTICE command.
+
+    -
+        name: CPRIVMSG
+        format: "CPRIVMSG"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the server supports the "CPRIVMSG" command. This is
+            an extension to the PRIVMSG command.
+
+    -
+        name: ELIST
+        format: "ELIST=string"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the server supports search extensions to the LIST
+            command. For specific extension characters, read the linked Hardy
+            draft and various IRC software.
+
+        examples:
+            - "ELIST=CMNTU"
+
+    -
+        name: EXCEPTS
+        format: "EXCEPTS[=letter]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the server supports "ban exemptions". The letter is
+            OPTIONAL and defines the mode character which is used for this.
+            When no letter is provided, it defaults to 'e'.
+
+        examples:
+            - "EXCEPTS"
+            - "EXCEPTS=e"
+
+    -
+        name: INVEX
+        format: "INVEX[=letter]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the server supports "invite exemptions". The letter
+            is OPTIONAL and defines the mode character which is used for this.
+            When no letter is provided, it defaults to 'I'.
+
+        examples:
+            - "INVEX"
+            - "INVEX=I"
+
+    -
+        name: MAXLIST
+        format: "MAXLIST=mode:number[,mode:number[,...]]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates how many "variable" modes of type A that have been
+            defined in the "CHANMODES" token a client may set in total on a
+            channel. The value MUST be specified and is a set of "mode:number"
+            pairs, where "mode" is a type A mode that has been defined in
+            "CHANMODES" and "number" is how many of this mode may be set.
+            For more details, read the linked Hardy draft.
+
+        examples:
+            - "MAXLIST=beI:25"
+            - "MAXLIST=b:25,eI:50"
+
+        seealso: "CHANMODES"
+
+    -
+        name: METADATA
+        format: "METADATA[=number]"
+        information: "http://ircv3.net/specs/core/monitor-3.2.html"
+        comment: >
+            Indicates the maximum number of targets a user may have in their
+            monitor list. If "number" is not specified, there is no limit.
+
+        examples:
+            - "METADATA=30"
+            - "METADATA"
+
+        seealso: "WATCH"
+
+    -
+        name: MODES
+        format: "MODEX=[number]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates how many "variable" modes may be set on a channel by a
+            single "MODE" command from a client. A "variable" mode is defined
+            as being a type A/B/C mode as defined in the "CHANMODES" token.
+            The value is optional and when not specified indicates that there
+            is NO limit places on "variable" modes.
+
+        examples:
+            - "MODES=3"
+
+    -
+        name: MONITOR
+        format: "MONITOR=[number]"
+        information: "http://ircv3.net/specs/core/monitor-3.2.html"
+        comment: >
+            Indicates the maximum number of targets a user may have in their
+            monitor list. If "number" is not specified, there is no limit.
+
+        examples:
+            - "MONITOR=6"
+            - "MONITOR="
+
+        seealso: "WATCH"
+
+    -
+        name: NETWORK
+        format: "NETWORK=string"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            For INFORMATIONAL PURPOSES ONLY and indicates the name of the IRC
+            network that the client is connected to. A client SHOULD NOT use
+            this value to make assumptions about supported features on the
+            server.
+
+        examples:
+            - "NETWORK=EFNet"
+            - "NETWORK=Rizon"
+
+    -
+        name: NICKLEN
+        format: "NICKLEN=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum length of a nickname that a client may use.
+            Other clients on the network may have nicknames longer than this.
+
+        examples:
+            - "NICKLEN=9"
+            - "NICKLEN=32"
+
+    -
+        name: PREFIX
+        format: "PREFIX=[(modes)prefixes]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the channel membership prefixes available on this server
+            and their 'order' in terms of channel privlidges they represent,
+            from highest to lowest. If the value is not specified, then NO
+            channel membership prefixes are supported by this server. These are
+            prefixes as listed by the "Channel Membership Prefixes" list on
+            this site.
+
+        examples:
+            - "PREFIX=(ov)@+"
+            - "PREFIX=(qaohv)~&@%+"
+
+    -
+        name: SAFELIST
+        format: "SAFELIST"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the client may request a "LIST" command from the
+            server without being disconnected due to the large amount of data.
+            This token MUST NOT have a value.
+
+    -
+        name: SILENCE
+        format: "SILENCE=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum number of entries a user may have in their
+            'silence' list. The value is OPTIONAL and if not specified
+            indicates that there is no limit. The "SILENCE" command seems to
+            vary quite a lot between implementations. Most clients include
+            client-side filter/ignore commands, and servers have the "CALLERID"
+            client mode as alternatives to this command.
+
+        examples:
+            - "SILENCE=15"
+
+    -
+        name: STATUSMSG
+        format: "STATUSMSG=string"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates that the client supports a method for the client to send
+            a message via the "NOTICE" command to those people on a channel
+            with the specified channel membership prefixes. The value MUST be
+            specified and MUST be a list of prefixes as specified in the
+            "PREFIX" token.
+
+        examples:
+            - "STATUSMSG=@+"
+
+        seealso: "PREFIX"
+
+    -
+        name: TARGMAX
+        format: "TARGMAX=[cmd:number,cmd:number,...]"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Certain commands from a client MAY contain multiple targets. This
+            token defines the maximum number of targets may be specified on
+            each of these commands. The value is OPTIONAL and is a set of
+            "cmd:number" pairs, where "cmd" refers to the specific command, and
+            "number" refers to the limit for this command.
+            
+            If the number is not specified for a particular command, then that
+            command does not have a limit on the maximum number of targets.
+
+        examples:
+            - "TARGMAX=PRIVMSG:3,WHOIS:1,JOIN:"
+
+    -
+        name: TOPICLEN
+        format: "TOPICLEN=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum length of a topic that a client may set on a
+            channel. Channels on the network MAY have topics with longer
+            lengths than this.
+
+        examples:
+            - "TOPICLEN=120"
+
+    -
+        name: UHNAMES
+        format: "UHNAMES"
+        comment: >
+            Indicates that the "NAMES" reply message is extended to contain the
+            full hostmask of every user listed. Must NOT have a value.
+            
+            IRCv3 recommends that the "userhost-in-names" client capability is
+            used instead of this token.
+
+    -
+        name: WATCH
+        format: "WATCH=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum number of nicknames a user may have in their
+            watch list.
+            
+            The "MONITOR" command is aimed at being a more consistent
+            alternative to this command, and documentation for it may be found
+            on the IRCv3 website.
+
+        seealso: "MONITOR"
+
+        examples:
+            - "WATCH=100"
