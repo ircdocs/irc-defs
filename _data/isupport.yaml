@@ -81,11 +81,13 @@ values:
 
     -
         name: CALLERID
-        format: "CALLERID"
+        format: "CALLERID[=letter]"
         information: "https://github.com/ircd-hybrid/ircd-hybrid/blob/master/doc/modeg.txt"
         comment: >
-            Indicates that the CALLERID extension is supported with the "+g"
-            user mode, as defined by Hybrid in the 'modeg.txt' document.
+            Indicates that the "caller-id" user mode is supported, which
+            rejects messages from unauthorized users. "letter" defines the mode
+            character which is used for this feature. If the value is not
+            given, it defaults to the mode "+g".
 
     -
         name: CASEMAPPING
@@ -94,7 +96,10 @@ values:
         comment: >
             Indicates the method that's used to compare equality of
             case-insensitive strings (such as nick/channel names).
-            Typical values include "ascii" and "rfc1459".
+            Typical values include "ascii" and "rfc1459". "rfc3454" is a
+            proposed value that refers to the stringprep method described in
+            <a href="http://tools.ietf.org/html/rfc3454">RFC3454</a> (typically
+            used for UTF-8 casefolding).
 
         examples:
             - "CASEMAPPING=rfc1459"
@@ -459,6 +464,20 @@ values:
             
             IRCv3 recommends that the "userhost-in-names" client capability is
             used instead of this token.
+
+    -
+        name: USERLEN
+        format: "USERLEN=[number]"
+        information: "http://rabbit.dereferenced.org/~nenolod/ircv3-harmony/id-wpitcock-ircv3-core.html#rfc.section.3.8.2.1.16"
+        comment: >
+            Indicates the maximum length of an username in octets. If "number"
+            is not specified, there is no limit.
+
+        examples:
+            - "USERLEN=12"
+            - "USERLEN="
+
+        proposed: true
 
     -
         name: WATCH
