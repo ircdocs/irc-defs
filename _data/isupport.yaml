@@ -20,7 +20,8 @@ page:
     extra: >
         <p>
             Red denotes a conflicting token definition, gray for deprecated
-            (however quite possibly still in use), and blue for OK.
+            (however quite possibly still in use), yellow for proposed, and
+            blue for OK.
         </p>
 
 table:
@@ -29,6 +30,7 @@ table:
     row-classes:
         - conflict
         - obsolete
+        - proposed
         - repeated
 
     columns:
@@ -236,16 +238,18 @@ values:
 
     -
         name: LINELEN
-        format: "LINELEN=[number]"
+        format: "LINELEN=number"
+        information: "http://rabbit.dereferenced.org/~nenolod/ircv3-harmony/id-wpitcock-ircv3-core.html#rfc.section.3.8.2.1.17"
         comment: >
-            Indicates the maximum length of lines that can be sent to the IRC
-            server in octets. Lines longer than this will be truncated by the
-            server. If number is not specified, there is no limit.
+            Indicates the maximum allowed length of a single IRC message (line)
+            in octets. The LINELEN token defaults to 512. There is no upper
+            limit for LINELEN.
 
         examples:
             - "LINELEN=512"
             - "LINELEN=2048"
-            - "LINELEN="
+
+        proposed: true
 
     -
         name: MAXLIST
