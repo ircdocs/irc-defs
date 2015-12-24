@@ -6,17 +6,17 @@ Base data was taken from `alien.net.au <https://www.alien.net.au/irc/>`_, conver
 
 Pull requests to correct or update these lists are welcomed.
 
-`Online Site <http://danieloaks.net/irc-defs/>`_
+`Online Site <http://defs.ircdocs.horse/>`_
 
 
 Available Pages
 ---------------
-* `IRC Numerics <http://danieloaks.net/irc-defs/defs/ircnumerics.html>`_
-* `User Modes <http://danieloaks.net/irc-defs/defs/usermodes.html>`_
-* `Channel Modes <http://danieloaks.net/irc-defs/defs/chanmodes.html>`_
-* `Channel Member Prefixes <http://danieloaks.net/irc-defs/defs/chanmembers.html>`_
-* `Channel Type Prefixes <http://danieloaks.net/irc-defs/defs/chantypes.html>`_
-* `Server Modes <http://danieloaks.net/irc-defs/defs/servermodes.html>`_
+* `IRC Numerics <http://defs.ircdocs.horse/defs/ircnumerics.html>`_
+* `User Modes <http://defs.ircdocs.horse/defs/usermodes.html>`_
+* `Channel Modes <http://defs.ircdocs.horse/defs/chanmodes.html>`_
+* `Channel Member Prefixes <http://defs.ircdocs.horse/defs/chanmembers.html>`_
+* `Channel Type Prefixes <http://defs.ircdocs.horse/defs/chantypes.html>`_
+* `Server Modes <http://defs.ircdocs.horse/defs/servermodes.html>`_
 
 
 License
