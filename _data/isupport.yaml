@@ -84,10 +84,10 @@ values:
         format: "CALLERID[=letter]"
         information: "https://github.com/ircd-hybrid/ircd-hybrid/blob/master/doc/modeg.txt"
         comment: >
-            Indicates that the "caller-id" user mode is supported, which
-            rejects messages from unauthorized users. "letter" defines the mode
-            character which is used for this feature. If the value is not
-            given, it defaults to the mode "+g".
+            Indicates that the `"caller-id"` user mode is supported, which
+            rejects messages from unauthorized users. `"letter"` defines the
+            mode character which is used for this feature. If the value is not
+            given, it defaults to the mode `"+g"`.
 
     -
         name: CASEMAPPING
@@ -96,10 +96,10 @@ values:
         comment: >
             Indicates the method that's used to compare equality of
             case-insensitive strings (such as nick/channel names).
-            Typical values include "ascii" and "rfc1459". "rfc3454" is a
+            Typical values include `"ascii"` and `"rfc1459"`. `"rfc3454"` is a
             proposed value that refers to the stringprep method described in
-            <a href="http://tools.ietf.org/html/rfc3454">RFC3454</a> (typically
-            used for UTF-8 casefolding).
+            [RFC3454](http://tools.ietf.org/html/rfc3454) (typically used for
+            UTF-8 casefolding).
 
         examples:
             - "CASEMAPPING=rfc1459"
@@ -111,7 +111,7 @@ values:
         comment: >
             Indicates the maximum number of channels a client may join. Though
             a client shouldn't assume that other clients are limited to what
-            they receive here. If "number" is empty, there is no limit.
+            they receive here. If `"number"` is empty, there is no limit.
 
         examples:
             - "CHANLIMIT=#+:25,&:"
@@ -134,7 +134,7 @@ values:
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Specifies the maximum length of a channel name that clients may
-            join. If "number" is not specified, there is no limit.
+            join. If `"number"` is not specified, there is no limit.
 
         examples:
             - "CHANNELLEN=50"
@@ -145,8 +145,8 @@ values:
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Indicates the types of channels supported on this server. These are
-            channel type prefixes as listed in the RFCs and by the "Channel
-            Type Prefixes" list on this site.
+            channel type prefixes as specified in the RFCs and as described by
+            the ["Channel Type Prefixes"](chantypes.html) list on this site.
 
         examples:
             - "CHANTYPES=&#"
@@ -156,7 +156,7 @@ values:
         format: "CNOTICE"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
-            Indicates that the server supports the "CNOTICE" command. This is
+            Indicates that the server supports the `"CNOTICE"` command. This is
             an extension to the NOTICE command.
 
     -
@@ -164,15 +164,15 @@ values:
         format: "CPRIVMSG"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
-            Indicates that the server supports the "CPRIVMSG" command. This is
-            an extension to the PRIVMSG command.
+            Indicates that the server supports the `"CPRIVMSG"` command. This
+            is an extension to the PRIVMSG command.
 
     -
         name: DEAF
         format: "DEAF=character"
         comment: >
-            Indicates that the server supports the "DEAF" user mode, and the
-            given character is used to represent that mode.
+            Indicates that the server supports the [`"DEAF"`](usermodes.html#DEAF)
+            user mode, and the given character is used to represent that mode.
 
         examples:
             - "DEAF=D"
@@ -196,7 +196,7 @@ values:
         comment: >
             Indicates that the server supports "ban exemptions". The letter is
             OPTIONAL and defines the mode character which is used for this.
-            When no letter is provided, it defaults to 'e'.
+            When no letter is provided, it defaults to `"e"`.
 
         examples:
             - "EXCEPTS"
@@ -207,8 +207,8 @@ values:
         format: "FNC"
         comment: >
             "Forced Nick Change". Indicates that the server may change a user's
-            nickname without the user sending the server a "NICK" message. Note
-            that servers may do this even if they don't send this token.
+            nickname without the user sending the server a `"NICK"` message.
+            Note that servers may do this even if they don't send this token.
             Clients MUST be able to handle this correctly regardless of whether
             this token is presented or not.
 
@@ -221,7 +221,7 @@ values:
         comment: >
             Indicates that the server supports "invite exemptions". The letter
             is OPTIONAL and defines the mode character which is used for this.
-            When no letter is provided, it defaults to 'I'.
+            When no letter is provided, it defaults to `"I"`.
 
         examples:
             - "INVEX"
@@ -231,8 +231,8 @@ values:
         name: KICKLEN
         format: "KICKLEN=[number]"
         comment: >
-            Indicates the maximum length of a kick message. If "number" is not
-            defined, there is no limit.
+            Indicates the maximum length of a kick message. If `"number"` is
+            not defined, there is no limit.
 
         examples:
             - "KICKLEN=180"
@@ -242,8 +242,8 @@ values:
         name: KNOCK
         format: "KNOCK"
         comment: >
-            Indicates support for the "KNOCK" command, used to request an
-            invite to a channel.
+            Indicates support for the `"KNOCK"` command, which is used to
+            request an invite to a channel.
 
     -
         name: LINELEN
@@ -251,8 +251,8 @@ values:
         information: "http://rabbit.dereferenced.org/~nenolod/ircv3-harmony/id-wpitcock-ircv3-core.html#rfc.section.3.8.2.1.17"
         comment: >
             Indicates the maximum allowed length of a single IRC message (line)
-            in octets. The LINELEN token defaults to 512. There is no upper
-            limit for LINELEN.
+            in octets. The `LINELEN` token defaults to 512. There is no upper
+            limit for `LINELEN`.
 
         examples:
             - "LINELEN=512"
@@ -266,10 +266,10 @@ values:
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Indicates how many "variable" modes of type A that have been
-            defined in the "CHANMODES" token a client may set in total on a
+            defined in the `"CHANMODES"` token a client may set in total on a
             channel. The value MUST be specified and is a set of "mode:number"
             pairs, where "mode" is a type A mode that has been defined in
-            "CHANMODES" and "number" is how many of this mode may be set.
+            `"CHANMODES"` and "number" is how many of this mode may be set.
             For more details, read the linked Hardy draft.
 
         examples:
@@ -282,7 +282,8 @@ values:
         name: MAXTARGETS
         format: "MAXTARGETS=number"
         comment: >
-            Indicates the maximum number of PRIVMSG/NOTICE targets.
+            Indicates the maximum number of targets for the `PRIVMSG` /
+            `NOTICE` commands.
 
         examples:
             - "MAXTARGETS=8"
@@ -295,13 +296,11 @@ values:
         information: "http://ircv3.net/specs/core/monitor-3.2.html"
         comment: >
             Indicates the maximum number of targets a user may have in their
-            monitor list. If "number" is not specified, there is no limit.
+            monitor list. If `"number"` is not specified, there is no limit.
 
         examples:
             - "METADATA=30"
             - "METADATA"
-
-        seealso: "WATCH"
 
     -
         name: MODES
@@ -309,13 +308,15 @@ values:
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Indicates how many "variable" modes may be set on a channel by a
-            single "MODE" command from a client. A "variable" mode is defined
-            as being a type A/B/C mode as defined in the "CHANMODES" token.
+            single `"MODE"` command from a client. A "variable" mode is defined
+            as being a type A/B/C mode as defined in the `"CHANMODES"` token.
             The value is optional and when not specified indicates that there
             is NO limit places on "variable" modes.
 
         examples:
             - "MODES=3"
+
+        seealso: "CHANMODES"
 
     -
         name: MONITOR
@@ -323,7 +324,7 @@ values:
         information: "http://ircv3.net/specs/core/monitor-3.2.html"
         comment: >
             Indicates the maximum number of targets a user may have in their
-            monitor list. If "number" is not specified, there is no limit.
+            monitor list. If `"number"` is not specified, there is no limit.
 
         examples:
             - "MONITOR=6"
@@ -365,9 +366,9 @@ values:
             Indicates the channel membership prefixes available on this server
             and their 'order' in terms of channel privlidges they represent,
             from highest to lowest. If the value is not specified, then NO
-            channel membership prefixes are supported by this server. These are
-            prefixes as listed by the "Channel Membership Prefixes" list on
-            this site.
+            channel membership prefixes are supported by this server. Various
+            prefixes used in production are contained in the ["Channel
+            Membership Prefixes"](chanmembers.html) list.
 
         examples:
             - "PREFIX=(ov)@+"
@@ -378,7 +379,7 @@ values:
         format: "SAFELIST"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
-            Indicates that the client may request a "LIST" command from the
+            Indicates that the client may request a `"LIST"` command from the
             server without being disconnected due to the large amount of data.
             This token MUST NOT have a value.
 
@@ -389,10 +390,10 @@ values:
         comment: >
             Indicates the maximum number of entries a user may have in their
             'silence' list. The value is OPTIONAL and if not specified
-            indicates that there is no limit. The "SILENCE" command seems to
+            indicates that there is no limit. The `"SILENCE"` command seems to
             vary quite a lot between implementations. Most clients include
-            client-side filter/ignore commands, and servers have the "CALLERID"
-            client mode as alternatives to this command.
+            client-side filter/ignore commands, and servers have the
+            `"CALLERID"` client mode as alternatives to this command.
 
         examples:
             - "SILENCE=15"
@@ -403,10 +404,10 @@ values:
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Indicates that the client supports a method for the client to send
-            a message via the "NOTICE" command to those people on a channel
+            a message via the `"NOTICE"` command to those people on a channel
             with the specified channel membership prefixes. The value MUST be
             specified and MUST be a list of prefixes as specified in the
-            "PREFIX" token.
+            `"PREFIX"` token.
 
         examples:
             - "STATUSMSG=@+"
@@ -417,7 +418,7 @@ values:
         name: STD
         format: "STD=string"
         comment: >
-            Attempts to indicate the 'standard' to which the ISUPPORT
+            Attempts to indicate the 'standard' to which the `ISUPPORT`
             implementation is written. Whether this means tokens, or simply
             syntax is not specified. This doesn't seem to be that useful, given
             the age of all these specifications and how it is not officially
@@ -463,19 +464,21 @@ values:
         name: UHNAMES
         format: "UHNAMES"
         comment: >
-            Indicates that the "NAMES" reply message is extended to contain the
-            full hostmask of every user listed. Must NOT have a value.
+            Indicates that the `"NAMES"` reply message may be extended to contain
+            the full hostmask of every user listed. Must NOT have a value.
             
-            IRCv3 recommends that the "userhost-in-names" client capability is
-            used instead of this token.
+            The IRCv3 Working Group recommends that the [`"userhost-in-names"`](http://ircv3.net/specs/extensions/userhost-in-names-3.2.html)
+            client capability is used instead of this token.
+
+        obsolete: true
 
     -
         name: USERLEN
         format: "USERLEN=[number]"
         information: "http://rabbit.dereferenced.org/~nenolod/ircv3-harmony/id-wpitcock-ircv3-core.html#rfc.section.3.8.2.1.16"
         comment: >
-            Indicates the maximum length of an username in octets. If "number"
-            is not specified, there is no limit.
+            Indicates the maximum length of an username in octets. If
+            `"number"` is not specified, there is no limit.
 
         examples:
             - "USERLEN=12"
@@ -491,9 +494,9 @@ values:
             Indicates the maximum number of nicknames a user may have in their
             watch list.
             
-            The "MONITOR" command is aimed at being a more consistent
+            The `"MONITOR"` command is aimed at being a more consistent
             alternative to this command, and documentation for it may be found
-            on the IRCv3 website.
+            on the [IRCv3 website](http://ircv3.net/specs/core/monitor-3.2.html).
 
         seealso: "MONITOR"
 
