@@ -59,6 +59,7 @@ table:
             content: comment
             seealso: seealso
             description: "Additional comments, history and other details"
+            markdown: true
 
 
 # The following format is used through-out this file. The fields 'name' and
@@ -107,8 +108,8 @@ values:
         prefixchar: "!"
         origin: RFC2811
         comment: >
-            These channels work similar to the '#' channels, except the name
-            is prefixed not only with the '!' but also a set of alpha-
+            These channels work similar to the `'#'` channels, except the name
+            is prefixed not only with the `'!'` but also a set of alpha-
             numeric digits. This is an alternative to the time-stamp method
             of avoiding channel-takeovers during network splits.
 
@@ -119,10 +120,10 @@ values:
         prefixchar: "+"
         origin: RFC2811
         comment: >
-            These unmoderated channels work almost exactly the same as '#'
+            These unmoderated channels work almost exactly the same as `'#'`
             channels, except nobody can obtain channel operator status on
-            them. Some implementations seem to set the channel mode to '+nt'
-            upon creation, however most implementations act as if modes +nt
+            them. Some implementations seem to set the channel mode to `'+nt'`
+            upon creation, however most implementations act as if modes `+nt`
             are set but don't announce them as being set.
 
         clientcreate: Y
