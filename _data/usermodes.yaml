@@ -569,7 +569,7 @@ values:
             Hybrid now uses the 'e' character for this mode
 
         conflict: true
-        deprecated: true
+        obsolete: true
 
     -
         char: y
