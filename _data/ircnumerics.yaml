@@ -1420,18 +1420,35 @@ values:
         numeric: "335"
         origin: Hybrid
         conflict: true
+        comment: Since hybrid 8.2.0
 
     -
         name: RPL_INVITELIST
         numeric: "336"
         origin: Hybrid
         format: ":<channel>"
+        comment: >
+            Since hybrid 8.2.0. Not to be confused with the more widely used 346.
+
+            A "list of channels a client is invited to" sent with /INVITE
 
     -
         name: RPL_ENDOFINVITELIST
         numeric: "337"
         origin: Hybrid
         format: ":End of /INVITE list."
+        conflict: true
+        comment: >
+            Since hybrid 8.2.0. Not to be confused with the more widely used 347.
+
+    -
+        name: RPL_WHOISTEXT
+        numeric: "337"
+        origin: Hybrid?
+        conflict: true
+        comment: >
+            Before hybrid 8.2.0, for "User connected using a webirc gateway".
+            Since charybdis 3.4.0 for "Underlying IPv4 is %s".
 
     -
         name: RPL_CHANPASSOK
@@ -1492,14 +1509,18 @@ values:
         numeric: "346"
         origin: RFC2812
         format: "<channel> <invitemask>"
-        comment: An invite mask for the invite mask list
+        comment: >
+            An invite mask for the invite mask list.
+            Also known as RPL_INVEXLIST in hybrid 8.2.0
 
     -
         name: RPL_ENDOFINVITELIST
         numeric: "347"
         origin: RFC2812
         format: "<channel> :<info>"
-        comment: Termination of an RPL_INVITELIST list
+        comment: >
+            Termination of an RPL_INVITELIST list.
+            Also known as RPL_ENDOFINVEXLIST in hybrid 8.2.0
 
     -
         name: RPL_EXCEPTLIST
