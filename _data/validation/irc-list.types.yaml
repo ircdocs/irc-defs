@@ -44,7 +44,13 @@ datatable:
               required: false
             description:
               type: string
+            examples:
+              type: boolean
+              required: false
             xml_escape:
+              type: boolean
+              required: false
+            markdown:
               type: boolean
               required: false
     format:
@@ -101,6 +107,9 @@ datatable:
         parameter:
           type: string
           required: false
+        examples:
+          type: listofstrings
+          required: false
         server_on:
           type: string
           required: false
@@ -117,6 +126,9 @@ datatable:
           type: string
           required: false
         registration:
+          type: boolean
+          required: false
+        proposed:
           type: boolean
           required: false
         conflict:
