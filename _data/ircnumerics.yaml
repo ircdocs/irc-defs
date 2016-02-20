@@ -862,14 +862,23 @@ values:
     -
         name: RPL_VCHANEXIST
         numeric: "276"
+        origin: Hybrid
+        obsolete: true
+        comment: Gone from hybrid 7.1 (2003)
 
     -
         name: RPL_VCHANLIST
         numeric: "277"
+        origin: Hybrid
+        obsolete: true
+        comment: Gone from hybrid 7.1 (2003)
 
     -
         name: RPL_VCHANHELP
         numeric: "278"
+        origin: Hybrid 7.0?
+        obsolete: true
+        comment: Gone from hybrid 7.1 (2003)
 
     -
         name: RPL_GLIST
