@@ -125,6 +125,9 @@ datatable:
         registration:
           type: boolean
           required: false
+        proposed:
+          type: boolean
+          required: false
         conflict:
           type: boolean
           required: false
