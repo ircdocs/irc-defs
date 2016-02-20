@@ -3498,7 +3498,7 @@ values:
             have the relevant operator privileges.
 
     -
-        name: RPL_TESTMARK
+        name: RPL_TESTMASK
         numeric: "724"
         origin: RatBox
         format: "<nick>!<user>@<host> <?> <?> :<text>"
