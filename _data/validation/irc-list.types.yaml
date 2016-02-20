@@ -44,6 +44,9 @@ datatable:
               required: false
             description:
               type: string
+            examples:
+              type: boolean
+              required: false
             xml_escape:
               type: boolean
               required: false
@@ -100,6 +103,9 @@ datatable:
           required: false
         parameter:
           type: string
+          required: false
+        examples:
+          type: listofstrings
           required: false
         server_on:
           type: string
