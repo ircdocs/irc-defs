@@ -50,6 +50,9 @@ datatable:
             xml_escape:
               type: boolean
               required: false
+            markdown:
+              type: boolean
+              required: false
     format:
       type: mapofmultis
       types:
