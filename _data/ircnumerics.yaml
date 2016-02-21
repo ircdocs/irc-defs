@@ -3663,6 +3663,50 @@ values:
             so the MONITOR command failed
 
     -
+        name: RPL_RSACHALLENGE2
+        numeric: "740"
+        origin: RatBox
+        format: "<nick> :<chal_line>"
+        comment: >
+            From the ratbox m_challenge module, to auth opers.
+
+    -
+        name: RPL_ENDOFRSACHALLENGE2
+        numeric: "741"
+        origin: RatBox
+        format: "<nick> :End of CHALLENGE"
+        comment: >
+            From the ratbox m_challenge module, to auth opers.
+
+    -
+        name: ERR_MLOCKRESTRICTED
+        numeric: "742"
+        origin: Charybdis
+        format: "<channel> <modechar> <mlock> :MODE cannot be set due to channel having an active MLOCK restriction policy"
+
+    -
+        name: ERR_INVALIDBAN
+        numeric: "743"
+        origin: Charybdis
+        format: "<channel> <modechar> <mask> :Invalid ban mask"
+
+    -
+        name: RPL_SCANMATCHED
+        numeric: "750"
+        origin: RatBox
+        format: "<count> :matches"
+        comment: >
+            From the ratbox m_scan module.
+
+    -
+        name: RPL_SCANUMODES
+        numeric: "751"
+        origin: RatBox
+        format: "<nick> <username> <host> <sockhost> <servname> <umodes> :<info>"
+        comment: >
+            From the ratbox m_scan module.
+
+    -
         name: RPL_WHOISKEYVALUE
         numeric: "760"
         origin: "IRCv3"
