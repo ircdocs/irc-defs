@@ -860,6 +860,13 @@ values:
         conflict: true
 
     -
+        name: RPL_WHOISCERTFP
+        numeric: "276"
+        origin: oftc-hybrid
+        format: "<nick> :has client certificate fingerprint <fingerprint>"
+        comment: Also adopted by hybrid 8.1 and charybdis 3.2
+
+    -
         name: RPL_VCHANEXIST
         numeric: "276"
         origin: Hybrid
@@ -2626,6 +2633,13 @@ values:
         conflict: true
 
     -
+        name: ERR_THROTTLE
+        numeric: "480"
+        origin: Ratbox
+        format: "<nick> <channel> :Cannot join channel"
+        conflict: true
+
+    -
         name: ERR_NOPRIVILEGES
         numeric: "481"
         origin: RFC1459
@@ -2819,6 +2833,16 @@ values:
         name: ERR_BADFEATURE
         numeric: "494"
         origin: ircu
+        conflict: true
+
+    -
+        name: ERR_OWNMODE
+        numeric: "494"
+        origin: "Bahamut, charybdis?"
+        conflict: true
+        format: "<nick> :cannot answer you while you are <mode>, your message was not sent"
+        comment: >
+            Used for mode +g (CALLERID) in charybdis.
 
     -
         name: ERR_BADLOGTYPE
@@ -3310,6 +3334,12 @@ values:
         comment: Indicates that the client may begin the TLS handshake
 
     -
+        name: RPL_WHOISSECURE
+        numeric: "671"
+        origin: Unreal
+        format: "<nick> :is using a secure connection"
+
+    -
         name: RPL_UNKNOWNMODES
         numeric: "672"
         origin: Ithildin
@@ -3387,6 +3417,13 @@ values:
         origin: RatBox
         format: "<command> :<text>"
         comment: End of HELP command output
+
+    -
+        name: ERR_TARGCHANGE
+        numeric: "707"
+        origin: RatBox
+        format: "<nick> <target> :Targets changing too fast, message dropped"
+        comment: See doc/tgchange.txt in the charybdis source.
 
     -
         name: RPL_ETRACEFULL
@@ -3548,6 +3585,31 @@ values:
         comment: >
             Reply from oper command reporting no I/K lines match the given
             user@host
+
+    -
+        name: RPL_TESTMASKGECOS
+        numeric: "727"
+        origin: RatBox
+        format: "<nick> <lcount> <gcount> <nick>!<user>@<host> <gecos> :Local/remote clients match"
+        comment: >
+            From the m_testmask module, "Shows the number of matching local and
+            global clients for a user@host mask"
+
+    -
+        name: RPL_QUIETLIST
+        numeric: "728"
+        origin: Charybdis
+        format: "<nick> <channel> <banid> q [<time_left> :<reason>]"
+        comment: >
+            Same thing as RPL_BANLIST, but for mode +q (quiet)
+
+    -
+        name: RPL_ENDOFQUIETLIST
+        numeric: "729"
+        origin: Charybdis
+        format: "<nick> <channel> q :<info>"
+        comment: >
+            Same thing as RPL_ENDOFBANLIST, but for mode +q (quiet)
 
     -
         name: RPL_MONONLINE
