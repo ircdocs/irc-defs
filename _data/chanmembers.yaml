@@ -22,7 +22,9 @@ page:
     extra: >
         <p>
             Red denotes a conflicting numeric definition, gray for deprecated
-            (however quite possibly still in use), and blue for OK.
+            (however quite possibly still in use), and blue for OK. Where
+            multiple prefix or mode characters may be commonly seen in the wild
+            for this membership prefix, they are listed together.
         </p>
 
 table:
@@ -109,7 +111,7 @@ values:
 
     -
         name: PROTECTED
-        prefixchar: "&"
+        prefixchar: "& !"
         mode: a
         origin:
         comment: >
@@ -121,7 +123,7 @@ values:
     -
         name: FOUNDER
         prefixchar: "~"
-        mode: q / y
+        mode: q y
         origin:
         comment: >
             User created the channel. This user usually cannot be kicked
