@@ -3302,6 +3302,14 @@ values:
         obsolete: true
 
     -
+        name: RPL_STARTTLS
+        numeric: "670"
+        origin: IRCv3
+        format: "<nick> :STARTTLS successful, proceed with TLS handshake"
+        contact: "http://ircv3.net/specs/extensions/tls-3.1.html"
+        comment: Indicates that the client may begin the TLS handshake
+
+    -
         name: RPL_UNKNOWNMODES
         numeric: "672"
         origin: Ithildin
@@ -3320,6 +3328,14 @@ values:
         comment: >
             Returns a full list of modes that cannot be set when a client
             issues a MODE command
+
+    -
+        name: ERR_STARTTLS
+        numeric: "691"
+        origin: IRCv3
+        format: "<nick> :STARTTLS failed (Wrong moon phase)"
+        contact: "http://ircv3.net/specs/extensions/tls-3.1.html"
+        comment: Indicates that a server-side error has occured
 
     -
         name: RPL_MODLIST
