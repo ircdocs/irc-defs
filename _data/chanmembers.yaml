@@ -115,6 +115,15 @@ values:
         comment: >
             User is "protected". This means they cannot be kicked or have
             this mode taken away by operators (or other protected users).
+    -
+        name: PROTECTED
+        prefixchar: "!"
+        mode: a
+        origin: ShadowIRCd / UltimateIRCd
+        comment: >
+          User is a channel administrator. They are treated like channel
+          operators with the exception that they rank any channel operator
+          when sorted or the kick logic applies.
 
     -
         name: FOUNDER
@@ -127,6 +136,15 @@ values:
             They may perform actions that operators can, but are at a
             higher privilege level than either operators or protected
             users.
+
+    -
+        name: FOUNDER
+        prefixchar: "~"
+        mode: y
+        origin: Elemental-IRCd
+        comment: >
+          Exactly similar to the above FOUNDER definition, but chosen as
+          +y to avoid the existing conflict with +q being used for quiets.
 
     -
         name: CREATOR
