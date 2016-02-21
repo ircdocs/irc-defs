@@ -115,16 +115,18 @@ values:
         comment: >
             User is "protected". This means they cannot be kicked or have
             this mode taken away by operators (or other protected users).
+            In some software, they may perform actions that operators can,
+            but at a higher privilege level than operators.
 
     -
         name: FOUNDER
         prefixchar: "~"
-        mode: q
+        mode: q / y
         origin:
         comment: >
             User created the channel. This user usually cannot be kicked
             or have this mode taken away by other users. In some software,
-            They may perform actions that operators can, but are at a
+            they may perform actions that operators can, but are at a
             higher privilege level than either operators or protected
             users.
 
