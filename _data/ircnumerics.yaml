@@ -1358,6 +1358,14 @@ values:
         numeric: "325"
         conflict: true
 
+#    -
+#        name: RPL_CHANNELMLOCKIS
+#        numeric: "325"
+#        format: "<nick> <channel> <modeletters> :is the current channel mode-lock"
+#        comment: >
+#            Defined in header file in charybdis, but never used. Also known as
+#            RPL_CHANNELMLOCK.
+
     -
         name: RPL_NOCHANPASS
         numeric: "326"
@@ -1622,6 +1630,15 @@ values:
         numeric: "359"
         origin: AustHex
         conflict: true
+
+#    -
+#        name: RPL_WHOWASREAL
+#        numeric: "360"
+#        origin: Charybdis
+#        comment: >
+#            Defined in header file, but never used. Initially introduced in
+#            charybdis 2.1 behind #if 0, with the other side using
+#            RPL_WHOISACTUALLY
 
     -
         name: RPL_KILLDONE
@@ -2722,6 +2739,12 @@ values:
         numeric: "485"
         origin: QuakeNet
         conflict: true
+
+#    -
+#        name: ERR_BANNEDNICK
+#        numeric: "485"
+#        origin: Ratbox
+#        comment: Defined in header file, but never used.
 
     -
         name: ERR_NONONREG
