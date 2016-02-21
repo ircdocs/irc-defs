@@ -3956,9 +3956,20 @@ values:
         format: "<channel> <message> :Your message contained a censored word, and was blocked"
 
     -
+        name: ERR_CANNOTDOCOMMAND
+        numeric: "972"
+        origin: Unreal
+        format: "<client> <command> :<info>"
+        conflict: true
+        comment: >
+            Indicates that a command could not be performed for an arbitrary
+            reason. For example, a halfop trying to kick an op.
+
+    -
         name: ERR_CANTUNLOADMODULE
         numeric: "972"
         origin: "InspIRCd"
+        conflict: true
         format: "<modulename> :Failed to unload module: <error>"
 
     -
@@ -3968,9 +3979,21 @@ values:
         format: "<modulename> :Module successfully unloaded."
 
     -
+        name: ERR_CANNOTCHANGECHANMODE
+        numeric: "974"
+        origin: Unreal
+        format: "<channel> <mode> :<info>"
+        conflict: true
+        comment: >
+            Indicates that a channel mode could not be changeded for an
+            arbitrary reason. For instance, trying to set OPER_ONLY when you
+            are not an IRC operator.
+
+    -
         name: ERR_CANTLOADMODULE
         numeric: "974"
         origin: "InspIRCd"
+        conflict: true
         format: "<modulename> :Failed to load module: <error>"
 
     -
@@ -3978,14 +4001,6 @@ values:
         numeric: "975"
         origin: "InspIRCd"
         format: "<modulename> :Module successfully loaded."
-
-    -
-        name: ERR_CANNOTDOCOMMAND
-        numeric: "972"
-        origin: Unreal
-        comment: >
-            Indicates that a command could not be performed for an arbitrary
-            reason. For example, a halfop trying to kick an op.
 
     -
         name: ERR_NUMERIC_ERR
