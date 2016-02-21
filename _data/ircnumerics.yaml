@@ -1378,6 +1378,7 @@ values:
         name: RPL_CHANNEL_URL
         numeric: "328"
         origin: "Bahamut, AustHex"
+        comment: Also known as RPL_CHANNELURL in charybdis
 
     -
         name: RPL_CREATIONTIME
@@ -1395,6 +1396,7 @@ values:
         origin: ircu
         format: "<nick> <authname> :<info>"
         conflict: true
+        comment: Also known as RPL_WHOISLOGGEDIN (ratbox?, charybdis)
 
     -
         name: RPL_NOTOPIC
@@ -2272,6 +2274,7 @@ values:
         numeric: "435"
         origin: Bahamut
         conflict: true
+        comment: Also known as ERR_BANNICKCHANGE (ratbox, charybdis)
 
     -
         name: ERR_NICKCOLLISION
@@ -2461,6 +2464,8 @@ values:
         comment: >
             Returned by the server to any link which attempts to register
             again
+
+            Also known as ERR_ALREADYREGISTRED (sic) in ratbox/charybdis.
 
         registration: true
 
@@ -2979,6 +2984,8 @@ values:
             Also known as ERR_NEEDPONG (Unreal/Ultimate) for use during
             registration, however it's not used in Unreal (and might not be
             used in Ultimate either).
+
+            Also known as ERR_WRONGPONG (Ratbox/charybdis)
 
         registration: true
 
@@ -3531,6 +3538,9 @@ values:
         format: "<nick> :<info>"
         comment: >
             Sent to indicate the given target is set +g (server-side ignore)
+
+            Mentioned as RPL_ in the CALLERID spec, ERR_ in the
+            ratbox/charybdis implementations.
 
     -
         name: RPL_TARGNOTIFY
