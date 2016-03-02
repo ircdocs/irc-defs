@@ -100,10 +100,10 @@
     </thead>
     <tbody>
         {% for row in info.values %}
-        <tr{% if info.table['row-id'] %} id="{{ row[info.table['row-id']] }}"{% endif %} class="{% for class in info.table.row-classes %}{% if row[class] %}{{ class }} {% endif %}{% endfor %}">
+        <tr{% if info.table['row-id'] %} id="{{ row[info.table['row-id']] | slugify }}"{% endif %} class="{% for class in info.table.row-classes %}{% if row[class] %}{{ class }} {% endif %}{% endfor %}">
             {% for col in info.table.columns %}
             <td class="col-{{ col.content | slugize }}{% if col.classes %} {{ col.classes }}{% endif %}">
-                {% if col['inline-link'] %}{% if row[col['inline-link']] %}<a href="#{{ row[col['inline-link']] }}">{% endif %}{% endif %}
+                {% if col['inline-link'] %}{% if row[col['inline-link']] %}<a href="#{{ row[col['inline-link']] | slugify }}">{% endif %}{% endif %}
                 {% if col.link %}{% if row[col.link] %}<a href="{{ row[col.link] }}">{% endif %}{% endif %}
                 {% if col.xml_escape %}
                     {{ row[col['content']] | xml_escape }}
@@ -115,7 +115,7 @@
                 {% if col.link %}{% if row[col.link] %}</a>{% endif %}{% endif %}
                 {% if col['inline-link'] %}{% if row[col['inline-link']] %}</a>{% endif %}{% endif %}
                 {% if col.seealso %}{% if row.seealso %}
-                <p>Also see <a href="#{{ row.seealso }}">{{ row.seealso }}</a>.</p>
+                <p>Also see <a href="#{{ row.seealso | slugify }}">{{ row.seealso }}</a>.</p>
                 {% endif %}{% endif %}
                 {% if col.examples %}{% if row.examples %}
                 <p class="examples-header"><strong>Examples:</strong></p>
