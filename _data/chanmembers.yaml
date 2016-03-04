@@ -79,35 +79,16 @@ format:
 
 values:
     -
-        name: VOICED
-        prefixchar: "+"
-        mode: v
-        origin: RFC1459
+        name: FOUNDER
+        prefixchar: "~"
+        mode: q
+        origin:
         comment: >
-            Channel member is voiced. They can speak while the channel is
-            being moderated. Some implementations also allow them to speak
-            when barred from access to the channel for some reason (such as
-            being banned)
-
-    -
-        name: HALF_OPERATOR
-        prefixchar: "%"
-        mode: h
-        origin: Hybrid
-        comment: >
-            User is a channel half-operator, that is they have 'half' the
-            access of a full operator. Half-ops can kick unopped users,
-            voiced users, set channel modes including +v, but not kick ops
-            or deop ops. This leads to greater security on channels.
-
-    -
-        name: OPERATOR
-        prefixchar: "@"
-        mode: o
-        origin: RFC1459
-        comment: >
-            User is a channel operator. They can kick users, change modes,
-            set other users to operator (or lower) status, etc.
+            User created the channel. This user usually cannot be kicked
+            or have this mode taken away by other users. In some software,
+            they may perform actions that operators can, but are at a
+            higher privilege level than either operators or protected
+            users.
 
     -
         name: PROTECTED
@@ -121,16 +102,35 @@ values:
             but at a higher privilege level than operators.
 
     -
-        name: FOUNDER
-        prefixchar: "~"
-        mode: q y
-        origin:
+        name: OPERATOR
+        prefixchar: "@"
+        mode: o
+        origin: RFC1459
         comment: >
-            User created the channel. This user usually cannot be kicked
-            or have this mode taken away by other users. In some software,
-            they may perform actions that operators can, but are at a
-            higher privilege level than either operators or protected
-            users.
+            User is a channel operator. They can kick users, change modes,
+            set other users to operator (or lower) status, etc.
+
+    -
+        name: HALF_OPERATOR
+        prefixchar: "%"
+        mode: h
+        origin: Hybrid
+        comment: >
+            User is a channel half-operator, that is they have 'half' the
+            access of a full operator. Half-ops can kick unopped users,
+            voiced users, set channel modes including +v, but not kick ops
+            or deop ops. This leads to greater security on channels.
+
+    -
+        name: VOICED
+        prefixchar: "+"
+        mode: v
+        origin: RFC1459
+        comment: >
+            Channel member is voiced. They can speak while the channel is
+            being moderated. Some implementations also allow them to speak
+            when barred from access to the channel for some reason (such as
+            being banned)
 
     -
         name: CREATOR
@@ -141,11 +141,4 @@ values:
             The user created the channel, but only used for '!' channels
             according to the RFC.
 
-    -
-        name: FOUNDER
-        prefixchar: "."
-        mode: u
-        origin: tr-ircd
-        comment: >
-            This is given to users when they are given 'founder' status on a
-            channel, and should have a rank higher than a normal operator.
+        obsolete: true
