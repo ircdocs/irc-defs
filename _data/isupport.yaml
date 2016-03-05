@@ -11,7 +11,7 @@
 
 file_info:
     type: "isupport"
-    revision: "0.10"
+    revision: "0.11"
 
 # The following information is used to create pretty HTML page and tables
 
@@ -203,6 +203,22 @@ values:
             - "EXCEPTS=e"
 
     -
+        name: EXTBAN
+        format: "EXTBAN=value"
+        information:
+        comment: >
+            Indicates the types of "extended bans" that the server supports.
+            Extended bans may allow clients to issue bans based on account
+            name, SSL certificate fingerprints and other attributes, based on
+            what the server software supports. They may also be used in ban
+            exemption and invite exemption masks, depending on server software.
+
+        examples:
+            - "EXTBAN=~,cqnr"
+            - "EXTBAN=~,qjncrRa"
+            - "EXTBAN=,ABCNOQRSTUcjmprsz"
+
+    -
         name: FNC
         format: "FNC"
         comment: >
@@ -261,6 +277,39 @@ values:
         proposed: true
 
     -
+        name: MAXBANS
+        format: "MAXBANS=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum number of bans that may be set on a channel.
+
+            `MAXBANS` was obsoleted by `MAXLIST`, as that token allows servers
+            to specify which limits apply to which channel modes explicitly.
+
+        seealso: "MAXLIST"
+        obsolete: true
+
+    -
+        name: MAXCHANNELS
+        format: "MAXCHANNELS=number"
+        information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
+        comment: >
+            Indicates the maximum number of channels a client may join. Which
+            types of channels this limit does or doesn't apply to is not made
+            clear by the token. This limit may only apply to standard (`#`)
+            channels.
+
+            The CHANLIMIT token was created to explicitly specify the limits
+            that apply to each channel type. CHANLIMIT should be used instead
+            of this token, but this token is still widely-defined by servers.
+
+        examples:
+            - "MAXCHANNELS=25"
+
+        obsolete: true
+        seealso: "CHANLIMIT"
+
+    -
         name: MAXLIST
         format: "MAXLIST=mode:number[,mode:number[,...]]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -268,9 +317,9 @@ values:
             Indicates how many "variable" modes of type A that have been
             defined in the `"CHANMODES"` token a client may set in total on a
             channel. The value MUST be specified and is a set of "mode:number"
-            pairs, where "mode" is a type A mode that has been defined in
-            `"CHANMODES"` and "number" is how many of this mode may be set.
-            For more details, read the linked Hardy draft.
+            pairs, where "mode" is a number of type A modes that have been
+            defined in `"CHANMODES"` and "number" is how many of this mode may
+            be set. For more details, read the linked Hardy draft.
 
         examples:
             - "MAXLIST=beI:25"
@@ -485,6 +534,18 @@ values:
             - "USERLEN="
 
         proposed: true
+
+    -
+        name: WALLCHOPS
+        format: "WALLCHOPS"
+        information:
+        comment: >
+            Indicates that the server supports messaging channel operators.
+            This command has been obsoleted by the `"STATUSMSG"` token, and the
+            `"STATUSMSG"` token seems to by more widely used.
+
+        seealso: "STATUSMSG"
+        obsolete: true
 
     -
         name: WATCH
