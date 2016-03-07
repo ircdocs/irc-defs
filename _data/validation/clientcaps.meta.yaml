@@ -1,0 +1,4 @@
+imports:
+  - irc-list.types.yaml
+root:
+  type: datatable

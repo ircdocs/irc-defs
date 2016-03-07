@@ -1,0 +1,234 @@
+# clientcaps.yaml
+#
+# This file is Copyright (c) 2016 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "clientcaps"
+    revision: "0.10"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Client Capabilities
+    extra: >
+        <p>
+            Red denotes a conflicting token definition, gray for deprecated
+            (however quite possibly still in use), yellow for proposed, and
+            blue for OK.
+        </p>
+
+table:
+    row-id: name
+
+    row-classes:
+        - conflict
+        - obsolete
+        - proposed
+        - repeated
+
+    columns:
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Format
+            content: format
+            classes: code
+            description: Format of the token
+            examples: true
+        -
+            name: Comments
+            content: comment
+            seealso: seealso
+            description: "Additional comments, history and other details"
+            markdown: true
+
+# The following format is used through-out this file. The first field
+# ('name') is manditory, the others may or may not exist.
+
+format:
+    name: token name
+    origin: where the token was found
+    contact: point of contact associated with the token
+    information: url where to find more information
+    format: the token format
+    comment: "comments, history etc"
+    seealso: name
+    conflict: true
+    obsolete: true
+    repeated: true
+
+values:
+    -
+        name: account-notify
+        format: "account-notify"
+        information: "http://ircv3.net/specs/extensions/account-notify-3.1.html"
+        comment: >
+            Notifies clients when other clients in common channels authenticate
+            with or deauthenticate from their account (e.g. NickServ, SASL).
+
+    -
+        name: account-tag
+        format: "account-tag"
+        information: "http://ircv3.net/specs/extensions/account-tag-3.2.html"
+        comment: >
+            Attaches a tag containing the user's account to every message they
+            send.
+
+    -
+        name: away-notify
+        format: "away-notify"
+        information: "http://ircv3.net/specs/extensions/away-notify-3.1.html"
+        comment: >
+            Notifies clients when other clients in common channels go away or
+            come back (replacing the traditional method of clients polling the
+            server for changes).
+
+    -
+        name: batch
+        format: "batch"
+        information: "http://ircv3.net/specs/extensions/batch-3.2.html"
+        comment: >
+            Lets the server bundle common messages together, which lets clients
+            be more intelligent about displaying and processing them. i.e.,
+            netsplits and netjoins, chat history, etc.
+
+    -
+        name: cap-notify
+        format: "cap-notify"
+        information: "http://ircv3.net/specs/extensions/cap-notify-3.2.html"
+        comment: >
+            Notifies clients when client capabilities become availiable or are
+            no longer available.
+
+            Implicitly enabled with `CAP LS 302` or higher.
+
+    -
+        name: chghost
+        format: "chghost"
+        information: "http://ircv3.net/specs/extensions/chghost-3.2.html"
+        comment: >
+            Enables the `CHGHOST` message, which lets servers notify clients
+            when another client's username and/or hostname changes.
+
+    -
+        name: echo-message
+        format: "echo-message"
+        information: "http://ircv3.net/specs/extensions/echo-message-3.2.html"
+        comment: >
+            Notifies clients when their `PRIVMSG` and `NOTICE`s are correctly
+            received by the server. Will be more useful for general clients
+            when the IRCv3 WG standardises their `id` tag to let clients track
+            these messages properly.
+
+    -
+        name: extended-join
+        format: "extended-join"
+        information: "http://ircv3.net/specs/extensions/extended-join-3.1.html"
+        comment: >
+            Extends the `JOIN` message to include the account name of the
+            joining client. Used in conjunction with the `account-*` caps to
+            let clients track account information better.
+
+        seealso: "account-notify"
+
+    -
+        name: inspircd.org/replay-message
+        format: "inspircd.org/replay-message"
+        comment: >
+            Functionally equivalent to `echo-message`. Use `echo-message`
+            rather than this capability.
+
+        obsolete: true
+        seealso: "echo-message"
+
+    -
+        name: invite-notify
+        format: "invite-notify"
+        information: "http://ircv3.net/specs/extensions/invite-notify-3.2.html"
+        comment: >
+            Notifies clients when other clients are invited to common channels.
+            The notify messages are generally only sent to privilidged channel
+            members.
+
+    -
+        name: metadata
+        format: "metadata"
+        information: "http://ircv3.net/specs/core/metadata-3.2.html"
+        comment: >
+            Lets clients store metadata about themselves with the server, for
+            other clients to request and retrieve later.
+
+    -
+        name: monitor
+        format: "monitor"
+        information: "http://ircv3.net/specs/core/monitor-3.2.html"
+        comment: >
+            Indicates support for the `MONITOR` command, which lets users
+            request notifications for when clients become online / offline.
+
+    -
+        name: multi-prefix
+        format: "multi-prefix"
+        information: "http://ircv3.net/specs/extensions/multi-prefix-3.1.html"
+        comment: >
+            Makes the server send *all* prefixes in `NAMES` and `WHO` output,
+            in order of rank from highest to lowest. Replaces the `UHNAMES`
+            token for `RPL_ISUPPORT`.
+
+    -
+        name: sasl
+        format: "sasl[=mechanism{,mechanism}]"
+        information: "http://ircv3.net/specs/extensions/sasl-3.2.html"
+        comment: >
+            Indicates support for SASL authentication, a standardised way for
+            clients to identify for an account. Replaces the
+            `NICKSERV IDENTIFY` command / private message and lets IRC clients
+            build better interfaces for account auth.
+
+        examples:
+            - "sasl"
+            - "sasl=PLAIN"
+            - "sasl=EXTERNAL,FOO,DH-AES,BAR,DH-BLOWFISH,FOOBAR,PLAIN"
+
+    -
+        name: server-time
+        format: "server-time"
+        information: "http://ircv3.net/specs/extensions/server-time-3.2.html"
+        comment: >
+            Lets clients show the actual time messages were received by the
+            server. Facilitates things like IRC history playback by bouncers.
+
+    -
+        name: tls
+        format: "tls"
+        information: "http://ircv3.net/specs/extensions/tls-3.1.html"
+        comment: >
+            Indicates support for the `STARTTLS` command, which lets clients
+            upgrade their connection to use SSL/TLS rather than plaintext.
+
+    -
+        name: userhost-in-names
+        format: "userhost-in-names"
+        information: "http://ircv3.net/specs/extensions/userhost-in-names-3.2.html"
+        comment: >
+            Extends the `RPL_NAMREPLY` message to contain the full nickmask
+            `(nick!user@host)` of every user, rather than just the nickname.
+
+    -
+        name: znc.in/self-message
+        format: "znc.in/self-message"
+        comment: >
+            Used by ZNC to make sure all connected sessions receive copies of
+            private messages sent by other sessions.
+
+        seealso: "echo-message"
