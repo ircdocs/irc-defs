@@ -80,7 +80,7 @@ values:
             The `account` tag contains the account name of the user that
             sent the attached message to the client. For instance, on a
             `PRIVMSG`, the `account` tag would contain the account name of the
-            user that sent the `PRIVMSG`. It is activated by the IRCv3
+            user that sent the `PRIVMSG`. Enabled by the IRCv3
             [`account-tag` capability](http://ircv3.net/specs/extensions/account-tag-3.2.html).
 
         examples:
@@ -95,7 +95,7 @@ values:
             The `batch` tag contains the ID of the batch the attached message
             is a part of. Messages that are a part of the same batch are
             related and are processed according to the IRCv3 `batch`
-            specifications. It is activated by the IRCv3
+            specifications. Enabled by the IRCv3
             [`batch` capability](http://ircv3.net/specs/extensions/batch-3.2.html).
 
     -
@@ -246,5 +246,5 @@ values:
         comment: >
             The `time` tag contains the time that the given message should be
             treated as happening at. This is useful for things such as chat
-            history replay. It is activated by the IRCv3
+            history replay. Enabled by the IRCv3
             [`server-time` capability](http://ircv3.net/specs/extensions/server-time-3.2.html).
