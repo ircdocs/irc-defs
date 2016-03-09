@@ -217,6 +217,31 @@ values:
             upgrade their connection to use SSL/TLS rather than plaintext.
 
     -
+        name: twitch.tv/commands
+        format: "twitch.tv/commands"
+        information: "https://github.com/justintv/Twitch-API/blob/master/IRC.md#commands"
+        comment: >
+            Used by Twitch.tv to enable the `USERSTATE`, `GLOBALSTATE`,
+            `ROOMSTATE`, `HOSTTARGET`, `NOTICE`, and `CLEARCHAT` messages, as
+            well as the `msg-id` tag.
+
+    -
+        name: twitch.tv/membership
+        format: "twitch.tv/membership"
+        information: "https://github.com/justintv/Twitch-API/blob/master/IRC.md#membership"
+        comment: >
+            Used by Twitch.tv to enable the `NAMES`, `JOIN`, `PART`, and `MODE`
+            channel membership and state messages.
+
+    -
+        name: twitch.tv/tags
+        format: "twitch.tv/tags"
+        information: "https://github.com/justintv/Twitch-API/blob/master/IRC.md#tags"
+        comment: >
+            Used by Twitch.tv to enable custom tags on the `PRIVMSG`,
+            `USERSTATE`, `NOTICE`, and `GLOBALUSERSTATE` messages.
+
+    -
         name: userhost-in-names
         format: "userhost-in-names"
         information: "http://ircv3.net/specs/extensions/userhost-in-names-3.2.html"

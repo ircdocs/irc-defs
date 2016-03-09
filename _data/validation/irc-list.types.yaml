@@ -140,3 +140,6 @@ datatable:
         obsolete:
           type: boolean
           required: false
+        nonstandard:
+          type: boolean
+          required: false
