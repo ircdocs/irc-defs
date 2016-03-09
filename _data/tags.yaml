@@ -98,6 +98,11 @@ values:
             specifications. Enabled by the IRCv3
             [`batch` capability](http://ircv3.net/specs/extensions/batch-3.2.html).
 
+        examples:
+            - "batch=1"
+            - "batch=outer"
+            - "batch=yXNAbvnRHTRBv"
+
     -
         name: broadcaster-lang
         format: "broadcaster-lang=<language>"
@@ -246,5 +251,10 @@ values:
         comment: >
             The `time` tag contains the time that the given message should be
             treated as happening at. This is useful for things such as chat
-            history replay. Enabled by the IRCv3
+            history replay. The value format is defined in the `server-time`
+            specification. Enabled by the IRCv3
             [`server-time` capability](http://ircv3.net/specs/extensions/server-time-3.2.html).
+
+        examples:
+            - "time=2011-10-19T16:40:51.620Z"
+            - "time=2012-06-30T23:59:60.419Z"
