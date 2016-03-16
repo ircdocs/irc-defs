@@ -204,10 +204,14 @@ values:
 
     -
         name: EXTBAN
-        format: "EXTBAN=value"
+        format: "EXTBAN=<prefix>,<types>"
         information:
         comment: >
             Indicates the types of "extended bans" that the server supports.
+            `<prefix>` defines the character that indicates an extban to the
+            server and `<types>` is a list of characters indicating which
+            types of extended bans the server supports.
+
             Extended bans may allow clients to issue bans based on account
             name, SSL certificate fingerprints and other attributes, based on
             what the server software supports. They may also be used in ban
