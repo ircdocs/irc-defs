@@ -544,9 +544,32 @@ values:
         format: "WALLCHOPS"
         information:
         comment: >
-            Indicates that the server supports messaging channel operators.
+            Indicates that the server supports messaging channel operators,
+            either through a command like `"WALLCHOPS #channel"` or a
+            `"STATUSMSG"`-like notice like `"NOTICE @#channel"`, with most
+            implementations only handling the latter.
+
             This command has been obsoleted by the `"STATUSMSG"` token, and the
-            `"STATUSMSG"` token seems to by more widely used.
+            `"STATUSMSG"` token seems to be more widely used.
+
+        seealso: "STATUSMSG"
+        obsolete: true
+
+    -
+        name: WALLVOICES
+        format: "WALLVOICES"
+        information:
+        comment: >
+            Indicates that the server supports messaging channel voiced users,
+            either through a command like `"WALLVOICES #channel"` or a
+            `"STATUSMSG"`-like notice like `"NOTICE +#channel"`, with most
+            implementations only handling the latter.
+
+            This command has been obsoleted by the `"STATUSMSG"` token, and the
+            `"STATUSMSG"` token seems to be more widely used.
+
+            Unlike `"WALLCHOPS"`, this wasn't included in any of the original
+            drafts, and it's much less common.
 
         seealso: "STATUSMSG"
         obsolete: true
