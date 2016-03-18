@@ -422,6 +422,18 @@ values:
         seealso: "WATCH"
 
     -
+        name: NAMESX
+        format: "NAMESX"
+        comment: >
+            Indicates that the `"NAMES"` reply message may be extended to contain
+            all possible prefixes which apply to a user.
+
+            The IRCv3 Working Group recommends that the [`"multi-prefix"`](http://ircv3.net/specs/extensions/multi-prefix-3.1.html)
+            client capability is used instead of this token.
+
+        obsolete: true
+
+    -
         name: NETWORK
         format: "NETWORK=string"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
