@@ -406,7 +406,7 @@ values:
 
     -
         name: MODES
-        format: "MODEX=[number]"
+        format: "MODES=[number]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Indicates how many "variable" modes may be set on a channel by a
