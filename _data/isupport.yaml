@@ -368,6 +368,19 @@ values:
         seealso: "CHANMODES"
 
     -
+        name: MAXPARA
+        format: "MAXPARA=number"
+        comment: >
+            Indicates the maximum number of parameters to any command.
+
+            Used by inspircd only, where the default is 32, above the RFC
+            specified limit of 12. Other servers may have different limits
+            without advertising this token.
+
+        examples:
+            - "MAXPARA=32"
+
+    -
         name: MAXTARGETS
         format: "MAXTARGETS=number"
         comment: >
@@ -460,6 +473,13 @@ values:
             - "NICKLEN=32"
 
     -
+        name: OVERRIDE
+        format: "OVERRIDE"
+        comment: >
+            Indicates that IRC operators may override modes and channel
+            security. Used by inspircd only.
+
+    -
         name: PREFIX
         format: "PREFIX=[(modes)prefixes]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -483,6 +503,14 @@ values:
             Indicates that the client may request a `"LIST"` command from the
             server without being disconnected due to the large amount of data.
             This token MUST NOT have a value.
+
+    -
+        name: SECURELIST
+        format: "SECURELIST"
+        comment: >
+            Indicates that "secure listing" is enabled, and that your initial
+            request for a channel list on connect may be denied until you have
+            been connected for a certain amount of time. Used by inspircd only.
 
     -
         name: SILENCE
@@ -597,6 +625,13 @@ values:
             - "USERLEN="
 
         proposed: true
+
+    -
+        name: VBANLIST
+        format: "VBANLIST"
+        comment: >
+            Indicates that banlist sizes may vary from channel to channel.
+            Used by inspircd only, always present.
 
     -
         name: WALLCHOPS
