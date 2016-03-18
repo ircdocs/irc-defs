@@ -152,6 +152,29 @@ values:
             - "CHANTYPES=&#"
 
     -
+        name: CHARSET
+        format: "CHARSET=[string]"
+        information: "https://tools.ietf.org/html/draft-brocklesby-irc-isupport-03"
+        comment:
+            Originally meant to specify the character encoding of messages sent
+            by the server, but removed in a later version of the draft. It is
+            meaningless nowadays and should be ignored.
+
+            [`draft-brocklesby-irc-isupport-03`](https://tools.ietf.org/html/draft-brocklesby-irc-isupport-03)
+            (2004) says "The traditional CHARSET parameter has been entirely
+            removed.  It was found to be unworkable;  a correct specification
+            could not be devised to represent its meaning across
+            implementations".
+
+            [`draft-hardy-irc-isupport-00`](https://tools.ietf.org/html/draft-hardy-irc-isupport-00)
+            (2005) removed it completely.
+
+        examples:
+            - "CHARSET=ascii"
+
+        obsolete: true
+
+    -
         name: CNOTICE
         format: "CNOTICE"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
