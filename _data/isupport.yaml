@@ -281,6 +281,19 @@ values:
         proposed: true
 
     -
+        name: MAP
+        format: "MAP"
+        comment: >
+            Indicates support for the `"MAP"` command, which is used to
+            show a representation of how the servers are linked to each other.
+
+            In practice this is command is supported by most networks, even if
+            they don't advertise this token. Used by inspircd up to 2.0,
+            removed in 2.2.
+
+        obsolete: true
+
+    -
         name: MAXBANS
         format: "MAXBANS=number"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -524,6 +537,17 @@ values:
             client capability is used instead of this token.
 
         obsolete: true
+
+    -
+        name: USERIP
+        format: "USERIP"
+        comment: >
+            Indicates support for the `"USERIP"` command, which is used to
+            request the direct IP address of the user with the specified
+            nickname.
+
+            This might be supported by networks that don't advertise this
+            token.
 
     -
         name: USERLEN
