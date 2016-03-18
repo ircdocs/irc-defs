@@ -528,6 +528,33 @@ values:
             - "SILENCE=15"
 
     -
+        name: SSL
+        format: "SSL=ip:port[;ip:port[;...]]"
+        comment: >
+            Indicates the ports and IP addresses SSL may be found on. Each ip
+            and port pair are separated by a colon (:) character and multiple
+            port/ip pairs are separated by semicolons (;). Used by inspircd
+            only.
+
+        examples:
+            - "SSL=1.2.3.4:6668;4.3.2.1:6669;*:6660;"
+
+        obsolete: true
+
+    -
+        name: STARTTLS
+        format: "STARTTLS"
+        comment: >
+            Indicates that the server supports upgrading plaintext connections
+            to encrypted ones through STARTTLS. This token must **not** be used
+            to detect STARTTLS support, since that means leaking the initial
+            connection registration process. The ircv3.1
+            [`"tls"`](http://ircv3.net/specs/extensions/tls-3.1.html)
+            extension should be used instead.
+
+        obsolete: true
+
+    -
         name: STATUSMSG
         format: "STATUSMSG=string"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
