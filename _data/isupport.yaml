@@ -152,6 +152,29 @@ values:
             - "CHANTYPES=&#"
 
     -
+        name: CHARSET
+        format: "CHARSET=[string]"
+        information: "https://tools.ietf.org/html/draft-brocklesby-irc-isupport-03"
+        comment:
+            Originally meant to specify the character encoding of messages sent
+            by the server, but removed in a later version of the draft. It is
+            meaningless nowadays and should be ignored.
+
+            [`draft-brocklesby-irc-isupport-03`](https://tools.ietf.org/html/draft-brocklesby-irc-isupport-03)
+            (2004) says "The traditional CHARSET parameter has been entirely
+            removed.  It was found to be unworkable;  a correct specification
+            could not be devised to represent its meaning across
+            implementations".
+
+            [`draft-hardy-irc-isupport-00`](https://tools.ietf.org/html/draft-hardy-irc-isupport-00)
+            (2005) removed it completely.
+
+        examples:
+            - "CHARSET=ascii"
+
+        obsolete: true
+
+    -
         name: CNOTICE
         format: "CNOTICE"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -281,6 +304,19 @@ values:
         proposed: true
 
     -
+        name: MAP
+        format: "MAP"
+        comment: >
+            Indicates support for the `"MAP"` command, which is used to
+            show a representation of how the servers are linked to each other.
+
+            In practice this is command is supported by most networks, even if
+            they don't advertise this token. Used by inspircd up to 2.0,
+            removed in 2.2.
+
+        obsolete: true
+
+    -
         name: MAXBANS
         format: "MAXBANS=number"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -332,6 +368,19 @@ values:
         seealso: "CHANMODES"
 
     -
+        name: MAXPARA
+        format: "MAXPARA=number"
+        comment: >
+            Indicates the maximum number of parameters to any command.
+
+            Used by inspircd only, where the default is 32, above the RFC
+            specified limit of 12. Other servers may have different limits
+            without advertising this token.
+
+        examples:
+            - "MAXPARA=32"
+
+    -
         name: MAXTARGETS
         format: "MAXTARGETS=number"
         comment: >
@@ -346,7 +395,7 @@ values:
     -
         name: METADATA
         format: "METADATA[=number]"
-        information: "http://ircv3.net/specs/core/monitor-3.2.html"
+        information: "http://ircv3.net/specs/core/metadata-3.2.html"
         comment: >
             Indicates the maximum number of targets a user may have in their
             monitor list. If `"number"` is not specified, there is no limit.
@@ -357,7 +406,7 @@ values:
 
     -
         name: MODES
-        format: "MODEX=[number]"
+        format: "MODES=[number]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
             Indicates how many "variable" modes may be set on a channel by a
@@ -386,6 +435,18 @@ values:
         seealso: "WATCH"
 
     -
+        name: NAMESX
+        format: "NAMESX"
+        comment: >
+            Indicates that the `"NAMES"` reply message may be extended to contain
+            all possible prefixes which apply to a user.
+
+            The IRCv3 Working Group recommends that the [`"multi-prefix"`](http://ircv3.net/specs/extensions/multi-prefix-3.1.html)
+            client capability is used instead of this token.
+
+        obsolete: true
+
+    -
         name: NETWORK
         format: "NETWORK=string"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -410,6 +471,13 @@ values:
         examples:
             - "NICKLEN=9"
             - "NICKLEN=32"
+
+    -
+        name: OVERRIDE
+        format: "OVERRIDE"
+        comment: >
+            Indicates that IRC operators may override modes and channel
+            security. Used by inspircd only.
 
     -
         name: PREFIX
@@ -437,6 +505,14 @@ values:
             This token MUST NOT have a value.
 
     -
+        name: SECURELIST
+        format: "SECURELIST"
+        comment: >
+            Indicates that "secure listing" is enabled, and that your initial
+            request for a channel list on connect may be denied until you have
+            been connected for a certain amount of time. Used by inspircd only.
+
+    -
         name: SILENCE
         format: "SILENCE=number"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
@@ -450,6 +526,33 @@ values:
 
         examples:
             - "SILENCE=15"
+
+    -
+        name: SSL
+        format: "SSL=ip:port[;ip:port[;...]]"
+        comment: >
+            Indicates the ports and IP addresses SSL may be found on. Each ip
+            and port pair are separated by a colon (:) character and multiple
+            port/ip pairs are separated by semicolons (;). Used by inspircd
+            only.
+
+        examples:
+            - "SSL=1.2.3.4:6668;4.3.2.1:6669;*:6660;"
+
+        obsolete: true
+
+    -
+        name: STARTTLS
+        format: "STARTTLS"
+        comment: >
+            Indicates that the server supports upgrading plaintext connections
+            to encrypted ones through STARTTLS. This token must **not** be used
+            to detect STARTTLS support, since that means leaking the initial
+            connection registration process. The ircv3.1
+            [`"tls"`](http://ircv3.net/specs/extensions/tls-3.1.html)
+            extension should be used instead.
+
+        obsolete: true
 
     -
         name: STATUSMSG
@@ -526,6 +629,17 @@ values:
         obsolete: true
 
     -
+        name: USERIP
+        format: "USERIP"
+        comment: >
+            Indicates support for the `"USERIP"` command, which is used to
+            request the direct IP address of the user with the specified
+            nickname.
+
+            This might be supported by networks that don't advertise this
+            token.
+
+    -
         name: USERLEN
         format: "USERLEN=[number]"
         information: "http://rabbit.dereferenced.org/~nenolod/ircv3-harmony/id-wpitcock-ircv3-core.html#rfc.section.3.8.2.1.16"
@@ -540,13 +654,43 @@ values:
         proposed: true
 
     -
+        name: VBANLIST
+        format: "VBANLIST"
+        comment: >
+            Indicates that banlist sizes may vary from channel to channel.
+            Used by inspircd only, always present.
+
+    -
         name: WALLCHOPS
         format: "WALLCHOPS"
         information:
         comment: >
-            Indicates that the server supports messaging channel operators.
+            Indicates that the server supports messaging channel operators,
+            either through a command like `"WALLCHOPS #channel"` or a
+            `"STATUSMSG"`-like notice like `"NOTICE @#channel"`, with most
+            implementations only handling the latter.
+
             This command has been obsoleted by the `"STATUSMSG"` token, and the
-            `"STATUSMSG"` token seems to by more widely used.
+            `"STATUSMSG"` token seems to be more widely used.
+
+        seealso: "STATUSMSG"
+        obsolete: true
+
+    -
+        name: WALLVOICES
+        format: "WALLVOICES"
+        information:
+        comment: >
+            Indicates that the server supports messaging channel voiced users,
+            either through a command like `"WALLVOICES #channel"` or a
+            `"STATUSMSG"`-like notice like `"NOTICE +#channel"`, with most
+            implementations only handling the latter.
+
+            This command has been obsoleted by the `"STATUSMSG"` token, and the
+            `"STATUSMSG"` token seems to be more widely used.
+
+            Unlike `"WALLCHOPS"`, this wasn't included in any of the original
+            drafts, and it's much less common.
 
         seealso: "STATUSMSG"
         obsolete: true
