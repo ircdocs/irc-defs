@@ -346,7 +346,7 @@ values:
     -
         name: METADATA
         format: "METADATA[=number]"
-        information: "http://ircv3.net/specs/core/monitor-3.2.html"
+        information: "http://ircv3.net/specs/core/metadata-3.2.html"
         comment: >
             Indicates the maximum number of targets a user may have in their
             monitor list. If `"number"` is not specified, there is no limit.
