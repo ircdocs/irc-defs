@@ -559,7 +559,7 @@ values:
         format: "STATUSMSG=string"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
         comment: >
-            Indicates that the client supports a method for the client to send
+            Indicates that the server supports a method for the client to send
             a message via the `"NOTICE"` command to those people on a channel
             with the specified channel membership prefixes. The value MUST be
             specified and MUST be a list of prefixes as specified in the
