@@ -45,6 +45,7 @@ table:
             classes: code
             description: Format of the token
             examples: true
+            xml_escape: true
         -
             name: Comments
             content: comment
