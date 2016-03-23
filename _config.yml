@@ -1,7 +1,7 @@
-name: IRC Numerics
+name: IRC Definitions
 markdown: kramdown
-highlighter: pygments
-# baseurl: http://danieloaks.net/irc-defs/
+highlighter: rouge
+# baseurl: http://defs.ircdocs.horse/
 exclude:
   - README.md
 gems:
