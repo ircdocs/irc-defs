@@ -13,7 +13,7 @@
 
 file_info:
     type: "ircnumerics"
-    revision: "1.60"
+    revision: "1.61"
 
 # The following information is used to create pretty HTML page and tables
 
@@ -27,8 +27,9 @@ page:
         <p>
             <code>&lt;client&gt;</code> indicates the nickname of the client
             who is receiving this message, which is present as the first
-            parameter of most numerics. If the client is not yet logged in,
-            <code>&lt;client&gt;</code> is usually <code>"*"</code>
+            parameter of most numerics. If the client is not registered yet,
+            <code>&lt;client&gt;</code> is usually the character
+            <code>"*"</code>
         </p>
 
 table:
