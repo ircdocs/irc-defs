@@ -3948,10 +3948,6 @@ values:
         comment: >
             Sent when the client attempts to initiate SASL authentication
             after it has already finished successfully for that connection.
-            Obsoleted by IRCv3.2 which allows for SASL authentication at
-            any time.
-
-        obsolete: true
 
     -
         name: RPL_SASLMECHS
