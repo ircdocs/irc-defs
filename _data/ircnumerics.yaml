@@ -490,6 +490,12 @@ values:
         conflict: true
 
     -
+        name: RPL_STATSALINE
+        numeric: "226"
+        origin: Hybrid
+        conflict: true
+
+    -
         name: RPL_STATSNLINE
         numeric: "226"
         origin: Unreal
@@ -631,6 +637,12 @@ values:
         obsolete: true
 
     -
+        name: RPL_STATSSERVICE
+        numeric: "246"
+        origin: Hybrid
+        conflict: true
+
+    -
         name: RPL_STATSTLINE
         numeric: "246"
         origin: ircu
@@ -694,6 +706,7 @@ values:
         name: RPL_STATSCONN
         numeric: "250"
         origin: "ircu, Unreal"
+        conflict: true
 
     -
         name: RPL_LUSERCLIENT
