@@ -2690,6 +2690,16 @@ values:
         conflict: true
 
     -
+        name: ERR_SSLONLYCHAN
+        numeric: "480"
+        origin: Hybrid
+        seealso: 489
+        comment: >
+            Moved to 489 to match other servers.
+
+        obsolete: true
+
+    -
         name: ERR_NOPRIVILEGES
         numeric: "481"
         origin: RFC1459
@@ -2833,6 +2843,8 @@ values:
         numeric: "489"
         origin: Unreal
         conflict: true
+        comment: >
+            Also known as ERR_SSLONLYCHAN.
 
     -
         name: ERR_VOICENEEDED
