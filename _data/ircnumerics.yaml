@@ -2693,7 +2693,7 @@ values:
         name: ERR_SSLONLYCHAN
         numeric: "480"
         origin: Hybrid
-        seealso: 489
+        seealso: "489"
         comment: >
             Moved to 489 to match other servers.
 
