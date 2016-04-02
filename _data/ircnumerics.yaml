@@ -205,6 +205,15 @@ values:
         conflict: true
 
     -
+        name: RPL_HELLO
+        numeric: "020"
+        origin: rusnet-ircd
+        format: "<client> :<info>"
+        comment: >
+            Used by Rusnet to send the initial "Please wait while we process
+            your connection" message, rather than a server-sent NOTICE.
+
+    -
         name: RPL_YOURID
         numeric: "042"
         origin: IRCnet
