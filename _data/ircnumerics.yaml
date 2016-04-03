@@ -817,7 +817,10 @@ values:
         numeric: "262"
         origin: RFC2812
         format: "<client> <server_name> <version>[.<debug_level>] :<info>"
-        comment: Used to terminate a list of RPL_TRACE* replies
+        comment: >
+            Used to terminate a list of RPL_TRACE* replies. Also known as
+            RPL_ENDOFTRACE
+
         conflict: true
 
     -
@@ -1402,13 +1405,16 @@ values:
         numeric: "325"
         conflict: true
 
-#    -
-#        name: RPL_CHANNELMLOCKIS
-#        numeric: "325"
-#        format: "<client> <nick> <channel> <modeletters> :is the current channel mode-lock"
-#        comment: >
-#            Defined in header file in charybdis, but never used. Also known as
-#            RPL_CHANNELMLOCK.
+    -
+        name: RPL_CHANNELMLOCKIS
+        numeric: "325"
+        origin: sorircd
+        format: "<client> <nick> <channel> <modeletters> :is the current channel mode-lock"
+        comment: >
+            Defined in header file in charybdis, but never used. Also known as
+            RPL_CHANNELMLOCK.
+
+        obsolete: true
 
     -
         name: RPL_NOCHANPASS
@@ -1677,14 +1683,16 @@ values:
         origin: AustHex
         conflict: true
 
-#    -
-#        name: RPL_WHOWASREAL
-#        numeric: "360"
-#        origin: Charybdis
-#        comment: >
-#            Defined in header file, but never used. Initially introduced in
-#            charybdis 2.1 behind #if 0, with the other side using
-#            RPL_WHOISACTUALLY
+    -
+        name: RPL_WHOWASREAL
+        numeric: "360"
+        origin: Charybdis
+        comment: >
+            Defined in header file, but never used. Initially introduced in
+            charybdis 2.1 behind <code>#if 0</code>, with the other side using
+            RPL_WHOISACTUALLY
+
+        obsolete: true
 
     -
         name: RPL_KILLDONE
@@ -2814,11 +2822,12 @@ values:
 
         conflict: true
 
-#    -
-#        name: ERR_BANNEDNICK
-#        numeric: "485"
-#        origin: Ratbox
-#        comment: Defined in header file, but never used.
+    -
+        name: ERR_BANNEDNICK
+        numeric: "485"
+        origin: Ratbox
+        comment: Defined in header file, but never used.
+        obsolete: true
 
     -
         name: ERR_NONONREG
@@ -2922,6 +2931,15 @@ values:
             Notifies the user that a message they have sent to a channel has
             been rejected as it contains CTCPs, and they cannot send messages
             containing CTCPs to this channel
+
+        conflict: true
+
+    -
+        name: ERR_CANNOTSENDTOUSER
+        numeric: "492"
+        origin: Charybdis?
+        format: "<client> :Cannot send to user <nick> (<reason>)"
+        conflict: true
 
     -
         name: ERR_NOFEATURE
@@ -3628,8 +3646,8 @@ values:
         comment: >
             Sent to indicate the given target is set +g (server-side ignore)
 
-            Mentioned as RPL_ in the CALLERID spec, ERR_ in the
-            ratbox/charybdis implementations.
+            Mentioned as RPL_TARGUMODEG in the CALLERID spec, ERR_TARGUMODEG
+            in the ratbox/charybdis implementations.
 
     -
         name: RPL_TARGNOTIFY
@@ -3811,6 +3829,14 @@ values:
         numeric: "743"
         origin: Charybdis
         format: "<channel> <modechar> <mask> :Invalid ban mask"
+
+    -
+        name: ERR_TOPICLOCK
+        numeric: "744"
+        origin: InspIRCd?
+        comment: >
+            Defined in the Charybdis source code with the comment
+            <code>/* inspircd */</code>
 
     -
         name: RPL_SCANMATCHED
