@@ -18,7 +18,7 @@ import re
 import yaml
 from docopt import docopt
 
-RE_IRC2_NUMERIC_H = re.compile(r'^\s*(?P<name>[0-9A-Z_]+)\s+=\s+(?P<numeric>[0-9]+)')
+RE_IRC2_INSP_NUMERIC_H = re.compile(r'^\s*(?P<name>[0-9A-Z_]+)\s+=\s+(?P<numeric>[0-9]+)')
 RE_CHARY_NUMERIC_H = re.compile(r'^#define\s+(?P<name>[0-9A-Z_]+)\s+(?P<numeric>[0-9]+)')
 
 if __name__ == '__main__':
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         lines = open(arguments['<numeric.h>'], 'r').read().split('\n')
 
         for line in lines:
-            matches = RE_IRC2_NUMERIC_H.findall(line) + RE_CHARY_NUMERIC_H.findall(line)
+            matches = RE_IRC2_INSP_NUMERIC_H.findall(line) + RE_CHARY_NUMERIC_H.findall(line)
             for match in matches:
                 name, numeric = match
                 numeric = numeric.zfill(3)
