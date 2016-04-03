@@ -3428,6 +3428,21 @@ values:
             Returns a full list of modes that are unknown when a client
             issues a MODE command (rather than one numeric per mode)
 
+        conflict: true
+
+    -
+        name: RPL_WHOISREALIP
+        numeric: "672"
+        origin: Rizon
+        format: "<client> <nick> :is actually from <ip>"
+        comment: >
+            Returns the real IP address of a client connected from a CGIIRC
+            host, this has the real IP address of the client. This message is
+            only sent to themselves or to IRC operators who perform a WHOIS on
+            the user.
+
+        conflict: true
+
     -
         name: RPL_CANNOTSETMODES
         numeric: "673"
