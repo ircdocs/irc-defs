@@ -107,21 +107,27 @@ values:
         numeric: "002"
         origin: RFC2812
         format: "<client> :Your host is <servername>, running version <version>"
-        comment: Part of the post-registration greeting. Text varies widely
+        comment: >
+            Part of the post-registration greeting. Text varies widely. Also
+            known as RPL_YOURHOSTIS (InspIRCd)
 
     -
         name: RPL_CREATED
         numeric: "003"
         origin: RFC2812
         format: "<client> :This server was created <date>"
-        comment: Part of the post-registration greeting. Text varies widely
+        comment: >
+            Part of the post-registration greeting. Text varies widely. Also
+            known as RPL_SERVERCREATED (InspIRCd)
 
     -
         name: RPL_MYINFO
         numeric: "004"
         origin: RFC2812
         format: "<client> <server_name> <version> <user_modes> <chan_modes>"
-        comment: Part of the post-registration greeting
+        comment: >
+            Part of the post-registration greeting. Also known as
+            RPL_SERVERVERSION (InspIRCd)
 
     -
         name: RPL_BOUNCE
@@ -154,13 +160,17 @@ values:
         name: RPL_MAPEND
         numeric: "007"
         origin: Unreal
+        comment: >
+            Also known as RPL_ENDMAP (InspIRCd)
+
         conflict: true
 
     -
         name: RPL_SNOMASK
         numeric: "008"
         origin: ircu
-        comment: Server notice mask (hex)
+        comment: >
+            Server notice mask (hex). Also known as RPL_SNOMASKIS (InspIRCd)
 
     -
         name: RPL_STATMEMTOT
@@ -217,6 +227,8 @@ values:
         name: RPL_YOURID
         numeric: "042"
         origin: IRCnet
+        comment: >
+            Also known as RPL_YOURUUID (InspIRCd)
 
     -
         name: RPL_SAVENICK
@@ -1184,7 +1196,14 @@ values:
             numerics or server notices instead of this. Unreal uses
             this numeric, but most others don't use it
 
-        obsolete: true
+        conflict: true
+
+    -
+        name: RPL_SYNTAX
+        numeric: "304"
+        origin: InspIRCd
+        comment: Defined with the comment <code>// insp-specific</code>
+        conflict: true
 
     -
         name: RPL_UNAWAY
@@ -1234,6 +1253,8 @@ values:
         name: RPL_RULESSTART
         numeric: "308"
         origin: Unreal
+        comment: Also known as RPL_RULESTART (InspIRCd)
+
         conflict: true
 
     -
@@ -1252,6 +1273,8 @@ values:
         name: RPL_ENDOFRULES
         numeric: "309"
         origin: Unreal
+        comment: Also known as RPL_RULESEND (InspIRCd)
+
         conflict: true
 
     -
@@ -1434,6 +1457,8 @@ values:
         name: RPL_CREATIONTIME
         numeric: "329"
         origin: Bahamut
+        comment: >
+            Also known as RPL_CHANNELCREATED (InspIRCd)
 
     -
         name: RPL_WHOWAS_TIME
@@ -1453,19 +1478,25 @@ values:
         numeric: "331"
         origin: RFC1459
         format: "<client> <channel> :<info>"
-        comment: Response to TOPIC when no topic is set
+        comment: >
+            Response to TOPIC when no topic is set. Also known as
+            RPL_NOTOPICSET (InspIRCd)
 
     -
         name: RPL_TOPIC
         numeric: "332"
         origin: RFC1459
         format: "<client> <channel> :<topic>"
-        comment: Response to TOPIC with the set topic
+        comment: >
+            Response to TOPIC with the set topic. Also known as
+            RPL_TOPICSET (InspIRCd)
 
     -
         name: RPL_TOPICWHOTIME
         numeric: "333"
         origin: ircu
+        format: >
+            Also known as RPL_TOPICTIME (InspIRCd)
 
     -
         name: RPL_LISTUSAGE
@@ -1876,7 +1907,8 @@ values:
         numeric: "381"
         origin: RFC1459
         format: "<client> :<info>"
-        comment: Successful reply from OPER
+        comment: >
+            Successful reply from OPER. Also known asRPL_YOUAREOPER (InspIRCd)
 
     -
         name: RPL_REHASHING
@@ -2041,6 +2073,9 @@ values:
         numeric: "396"
         origin: Hybrid
         format: "<client> <hostname> :is now your visible host"
+        comment: >
+            Also known as RPL_YOURDISPLAYEDHOST (InspIRCd)
+
         conflict: true
 
     -
@@ -2152,7 +2187,8 @@ values:
         format: "<client> <badcmd> :Invalid CAP subcommand"
         comment: >
             Returned when a client sends a CAP subcommand which is invalid
-            or otherwise issues an invalid CAP command
+            or otherwise issues an invalid CAP command. Also known as
+            ERR_INVALIDCAPSUBCOMMAND (InspIRCd)
 
     -
         name: ERR_NORECIPIENT
@@ -2968,7 +3004,7 @@ values:
         conflict: true
 
     -
-        name: ERR_DELAYEDREJOIN
+        name: ERR_DELAYREJOIN
         numeric: "495"
         origin: InspIRCd
         format: "<channel> :You cannot rejoin this channel yet after being kicked (+J)"
@@ -3136,7 +3172,8 @@ values:
         origin: Unreal
         format: ":Cannot join channel (+O)"
         comment: >
-            Also known as ERR_OPERONLYCHAN (Hybrid).
+            Also known as ERR_OPERONLYCHAN (Hybrid) and
+            ERR_CANTJOINOPERSONLY (InspIRCd).
 
         conflict: true
 
