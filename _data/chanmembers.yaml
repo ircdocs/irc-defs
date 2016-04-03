@@ -82,7 +82,7 @@ values:
         name: FOUNDER
         prefixchar: "~"
         mode: q
-        origin:
+        origin: EliteIRCd
         comment: >
             User created the channel. This user usually cannot be kicked
             or have this mode taken away by other users. In some software,
@@ -94,7 +94,7 @@ values:
         name: PROTECTED
         prefixchar: "& !"
         mode: a
-        origin:
+        origin: EliteIRCd
         comment: >
             User is "protected". This means they cannot be kicked or have
             this mode taken away by operators (or other protected users).
