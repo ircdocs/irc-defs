@@ -638,6 +638,13 @@ values:
         name: RPL_STATSSLINE
         numeric: "245"
         origin: "Bahamut, IRCnet, Hybrid"
+        conflict: true
+
+    -
+        name: RPL_STATSTLINE
+        numeric: "245"
+        origin: "Hybrid?"
+        conflict: true
 
     -
         name: RPL_STATSPING
@@ -2114,6 +2121,13 @@ values:
         conflict: true
 
     -
+        name: ERR_NOCTRLSONCHAN
+        numeric: "408"
+        origin: Hybrid
+        format: "<client> <channel> :You cannot use control codes on this channel. Not sent: <text>"
+        conflict: true
+
+    -
         name: ERR_NOORIGIN
         numeric: "409"
         origin: RFC1459
@@ -2792,6 +2806,14 @@ values:
         origin: QuakeNet
         conflict: true
 
+    -
+        name: ERR_CHANBANREASON
+        numeric: "485"
+        origin: Hybrid
+        format: "<client> <channel> :Cannot join channel (<reason>)"
+
+        conflict: true
+
 #    -
 #        name: ERR_BANNEDNICK
 #        numeric: "485"
@@ -3095,6 +3117,9 @@ values:
         numeric: "520"
         origin: Unreal
         format: ":Cannot join channel (+O)"
+        comment: >
+            Also known as ERR_OPERONLYCHAN (Hybrid).
+
         conflict: true
 
     -
@@ -4066,4 +4091,4 @@ values:
         name: ERR_NUMERIC_ERR
         numeric: "999"
         origin: Bahamut
-        comment: Also known as ERR_NUMERICERR (Unreal)
+        comment: Also known as ERR_NUMERICERR (Unreal) or ERR_LAST_ERR_MSG
