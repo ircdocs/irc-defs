@@ -463,6 +463,12 @@ values:
         conflict: true
 
     -
+        name: RPL_CODEPAGE
+        numeric: "222"
+        origin: rusnet-ircd
+        conflict: true
+
+    -
         name: RPL_STATSELINE
         numeric: "223"
         origin: Bahamut
@@ -472,6 +478,12 @@ values:
         name: RPL_STATSGLINE
         numeric: "223"
         origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_CHARSET
+        numeric: "223"
+        origin: rusnet-ircd
         conflict: true
 
     -
@@ -844,6 +856,11 @@ values:
             When a server drops a command without processing it, it MUST use
             this reply. Also known as RPL_LOAD_THROTTLED and RPL_LOAD2HI,
             I'm presuming they do the same thing.
+
+    -
+        name: RPL_USINGSSL
+        numeric: "264"
+        origin: rusnet-ircd
 
     -
         name: RPL_LOCALUSERS
@@ -1446,6 +1463,13 @@ values:
     -
         name: RPL_CHPASSUNKNOWN
         numeric: "327"
+        conflict: true
+
+    -
+        name: RPL_WHOISHOST
+        numeric: "327"
+        origin: rusnet-ircd
+        conflict: true
 
     -
         name: RPL_CHANNEL_URL
@@ -2625,6 +2649,12 @@ values:
         conflict: true
 
     -
+        name: ERR_NOCODEPAGE
+        numeric: "468"
+        origin: rusnet-ircd
+        conflict: true
+
+    -
         name: ERR_LINKSET
         numeric: "469"
         origin: Unreal
@@ -2639,6 +2669,12 @@ values:
         name: ERR_KICKEDFROMCHAN
         numeric: "470"
         origin: aircd
+        conflict: true
+
+    -
+        name: ERR_7BIT
+        numeric: "470"
+        origin: rusnet-ircd
         conflict: true
 
     -
@@ -2737,6 +2773,12 @@ values:
         conflict: true
 
     -
+        name: ERR_NOCOLOR
+        numeric: "479"
+        origin: rusnet-ircd
+        conflict: true
+
+    -
         name: ERR_NOULINE
         numeric: "480"
         origin: AustHex
@@ -2765,6 +2807,12 @@ values:
             Moved to 489 to match other servers.
 
         obsolete: true
+
+    -
+        name: ERR_NOWALLOP
+        numeric: "480"
+        origin: rusnet-ircd
+        conflict: true
 
     -
         name: ERR_NOPRIVILEGES
@@ -2882,6 +2930,12 @@ values:
         name: ERR_ACCOUNTONLY
         numeric: "486"
         origin: QuakeNet
+        conflict: true
+
+    -
+        name: ERR_RLINED
+        numeric: "486"
+        origin: rusnet-ircd
         conflict: true
 
     -
@@ -3044,6 +3098,13 @@ values:
         numeric: "500"
         origin: Unreal?
         format: "<client> <string> :Too many join requests. Please wait a while and try again."
+        conflict: true
+
+    -
+        name: ERR_NOREHASHPARAM
+        numeric: "500"
+        origin: rusnet-ircd
+        conflict: true
 
     -
         name: ERR_UMODEUNKNOWNFLAG
