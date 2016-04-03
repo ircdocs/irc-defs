@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+# numerics discovery for irc-defs files
+# Written by Daniel Oaks <daniel@danieloaks.net>, under CC0 license
+"""discover_numerics - Feed this a numerics.h file or something similar, and
+this will discover which numerics exist in that file but do not exist in our
+numerics list.
+
+Usage:
+    discover_numerics search <numeric.h> [--yaml <datafile>]
+    discover_numerics (-h | --help)
+
+Options:
+    --yaml <datafile>  Path to the ircnumerics.yaml file [default: _data/ircnumerics.yaml].
+"""
+__version__ = '0.0.1'
+
+import re
+import yaml
+from docopt import docopt
+
+RE_IRC2_NUMERIC_H = re.compile(r'^\s*(?P<name>[0-9A-Z_]+)\s+=\s+(?P<numeric>[0-9]+)')
+RE_CHARY_NUMERIC_H = re.compile(r'^#define\s+(?P<name>[0-9A-Z_]+)\s+(?P<numeric>[0-9]+)')
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version=__version__)
+
+    if arguments['search']:
+        data = yaml.load(open(arguments['--yaml'], 'r').read())
+
+        lines = open(arguments['<numeric.h>'], 'r').read().split('\n')
+
+        for line in lines:
+            matches = RE_IRC2_NUMERIC_H.findall(line) + RE_CHARY_NUMERIC_H.findall(line)
+            for match in matches:
+                name, numeric = match
+                numeric = numeric.zfill(3)
+
+                found = False
+
+                for val in data['values']:
+                    if val['name'] == name and val['numeric'] == numeric:
+                        found = True
+                    elif val['numeric'] == numeric and name in val.get('comment', ''):
+                        found = True
+
+                if not found:
+                    print('Could not find numeric: {name} ({numeric})'.format(name=name, numeric=numeric))
