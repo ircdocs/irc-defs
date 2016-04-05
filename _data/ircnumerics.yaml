@@ -561,6 +561,22 @@ values:
         conflict: true
 
     -
+        name: RPL_STATSBANVER
+        numeric: "228"
+        origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_STATSSPAMF
+        numeric: "229"
+        origin: Unreal
+
+    -
+        name: RPL_STATSEXCEPTTKL
+        numeric: "230"
+        origin: Unreal
+
+    -
         name: RPL_SERVICEINFO
         numeric: "231"
         origin: RFC1459
@@ -2512,6 +2528,15 @@ values:
         numeric: "447"
         origin: Unreal
         comment: This numeric is called ERR_CANTCHANGENICK in InspIRCd
+
+    -
+        name: ERR_FORBIDDENCHANNEL
+        numeric: "448"
+        origin: Unreal
+        format: "<channel> :Channel is forbidden: <reason>"
+        comment: >
+            Returned when this channel name has been explicitly blocked and is
+            not allowed to be used.
 
     -
         name: ERR_NOTIMPLEMENTED
