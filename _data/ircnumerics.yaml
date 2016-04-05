@@ -547,6 +547,14 @@ values:
         conflict: true
 
     -
+        name: RPL_STATSBLINE
+        numeric: "227"
+        origin: Rizon
+        comment: Returns details about active DNS blacklists and hits.
+
+        conflict: true
+
+    -
         name: RPL_STATSQLINE
         numeric: "228"
         origin: ircu
@@ -3733,6 +3741,16 @@ values:
             the literal string "channel" if this is because the channel has
             had too many INVITEs in a given time, and "user" if this is
             because the user has sent too many INVITEs in a given time
+
+        conflict: true
+
+    -
+        name: RPL_INVITETHROTTLE
+        numeric: "715"
+        origin: Rizon
+        format: "<client> <nick> <channel> :You are inviting too fast, invite to <nick> for <channel> not sent."
+        comment: >
+            Sent to indicate an INVITE has been blocked.
 
         conflict: true
 
