@@ -3350,6 +3350,25 @@ values:
         conflict: true
 
     -
+        name: RPL_REAWAY
+        numeric: "597"
+        origin: Unreal
+
+    -
+        name: RPL_GONEAWAY
+        numeric: "598"
+        origin: Unreal
+        comment: >
+            Used when adding users to their <code>WATCH</code> list.
+
+    -
+        name: RPL_NOTAWAY
+        numeric: "599"
+        origin: Unreal
+        comment: >
+            Used when adding users to their <code>WATCH</code> list.
+
+    -
         name: RPL_LOGON
         numeric: "600"
         origin: "Bahamut, Unreal"
@@ -3393,6 +3412,14 @@ values:
         name: RPL_WATCHCLEAR
         numeric: "608"
         origin: Ultimate
+        comment: Also known as RPL_CLEARWATCH in Unreal
+
+    -
+        name: RPL_NOWISAWAY
+        numeric: "609"
+        origin: Unreal
+        comment: >
+            Returned when adding users to their <code>WATCH</code> list.
 
     -
         name: RPL_MAPMORE
@@ -3552,6 +3579,15 @@ values:
             that would have used this numeric was never created.
 
         obsolete: true
+
+    -
+        name: RPL_SPAMCMDFWD
+        numeric: "659"
+        origin: Unreal
+        format: "<client> <command> :Command processed, but a copy has been sent to ircops for evaluation (anti-spam) purposes. [<reason>]"
+        comment: >
+            Used to let a client know that a copy of their command has been
+            passed to operators and the reason for it.
 
     -
         name: RPL_STARTTLS
