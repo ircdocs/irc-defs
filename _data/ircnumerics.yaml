@@ -33,7 +33,9 @@ page:
         </p>
 
 table:
-    row-id: numeric
+    row-ids:
+        - name
+        - numeric
 
     row-classes:
         - registration
@@ -46,7 +48,9 @@ table:
             name: "#"
             content: numeric
             classes: code center
-            inline-link: numeric
+            inline-links:
+                - name
+                - numeric
             description: Numeric
         -
             name: Name

@@ -21,6 +21,9 @@ datatable:
         row-id:
           type: string
           required: false
+        row-ids:
+          type: listofstrings
+          required: false
         row-classes:
           type: listofstrings
         columns:
@@ -91,6 +94,9 @@ datatable:
           required: false
         inline-link:
           type: string
+          required: false
+        inline-links:
+          type: listofstrings
           required: false
         link:
           type: string
