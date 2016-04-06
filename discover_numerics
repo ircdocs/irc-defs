@@ -10,7 +10,7 @@ Usage:
     discover_numerics (-h | --help)
 
 Options:
-    --yaml <datafile>  Path to the ircnumerics.yaml file [default: _data/ircnumerics.yaml].
+    --yaml <datafile>  Path to the numerics.yaml file [default: _data/numerics.yaml].
 """
 __version__ = '0.0.1'
 

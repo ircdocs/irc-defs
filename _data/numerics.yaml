@@ -1,4 +1,4 @@
-# ircnumerics.yaml
+# numerics.yaml
 #
 # This file is Copyright (c) 2015 Daniel Oaks
 #  <daniel@danieloaks.net>
@@ -12,8 +12,8 @@
 # For more information or corrections, please contact the author.
 
 file_info:
-    type: "ircnumerics"
-    revision: "1.61"
+    type: "numerics"
+    revision: "1.62"
 
 # The following information is used to create pretty HTML page and tables
 

@@ -11,11 +11,14 @@ Pull requests to correct or update these lists are welcomed.
 
 Available Pages
 ---------------
-* `IRC Numerics <http://defs.ircdocs.horse/defs/ircnumerics.html>`_
+* `IRC Numerics <http://defs.ircdocs.horse/defs/numerics.html>`_
 * `User Modes <http://defs.ircdocs.horse/defs/usermodes.html>`_
 * `Channel Modes <http://defs.ircdocs.horse/defs/chanmodes.html>`_
 * `Channel Member Prefixes <http://defs.ircdocs.horse/defs/chanmembers.html>`_
 * `Channel Type Prefixes <http://defs.ircdocs.horse/defs/chantypes.html>`_
+* `RPL_ISUPPORT Tokens <http://defs.ircdocs.horse/defs/isupport.html>`_
+* `Client Capabilities <http://defs.ircdocs.horse/defs/clientcaps.html>`_
+* `Tags <http://defs.ircdocs.horse/defs/tags.html>`_
 * `Server Modes <http://defs.ircdocs.horse/defs/servermodes.html>`_
 
 
