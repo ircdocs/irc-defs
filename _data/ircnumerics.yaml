@@ -224,6 +224,21 @@ values:
             your connection" message, rather than a server-sent NOTICE.
 
     -
+        name: RPL_APASSWARN_SET
+        numeric: "030"
+        origin: ircu
+
+    -
+        name: RPL_APASSWARN_SECRET
+        numeric: "031"
+        origin: ircu
+
+    -
+        name: RPL_APASSWARN_CLEAR
+        numeric: "032"
+        origin: ircu
+
+    -
         name: RPL_YOURID
         numeric: "042"
         origin: IRCnet
@@ -460,6 +475,12 @@ values:
         name: RPL_STATSBLINE
         numeric: "222"
         origin: Bahamut
+        conflict: true
+
+    -
+        name: RPL_STATSJLINE
+        numeric: "222"
+        origin: ircu
         conflict: true
 
     -
@@ -965,6 +986,13 @@ values:
         origin: oftc-hybrid
         format: "<nick> :has client certificate fingerprint <fingerprint>"
         comment: Also adopted by hybrid 8.1 and charybdis 3.2
+        conflict: true
+
+    -
+        name: RPL_STATSRLINE
+        numeric: "276"
+        origin: ircu
+        conflict: true
 
     -
         name: RPL_VCHANEXIST
@@ -1657,7 +1685,7 @@ values:
         format: "<client> <channel> <user being invited> <user issuing invite> :<user being invited> has been invited by <user issuing invite>"
         comment: >
             Sent to users on a channel when an INVITE command has been
-            issued
+            issued. Also known as RPL_ISSUEDINVITE (ircu)
 
     -
         name: RPL_INVITELIST
@@ -1740,7 +1768,7 @@ values:
         comment: >
             Reply to the \users (when the channel is set +D, QuakeNet
             relative). The proper define name for this numeric is unknown at
-            this time
+            this time. Also known as RPL_DELNAMREPLY (ircu)
 
         seealso: "353"
 
@@ -2236,7 +2264,7 @@ values:
         comment: >
             Returned when a client sends a CAP subcommand which is invalid
             or otherwise issues an invalid CAP command. Also known as
-            ERR_INVALIDCAPSUBCOMMAND (InspIRCd)
+            ERR_INVALIDCAPSUBCOMMAND (InspIRCd) or ERR_UNKNOWNCAPCMD (ircu)
 
     -
         name: ERR_NORECIPIENT
@@ -2296,6 +2324,15 @@ values:
         origin: ircu
         comment: Same as ERR_TOOMANYMATCHES
         repeated: true
+
+    -
+        name: ERR_INPUTTOOLONG
+        numeric: "417"
+        origin: ircu
+        comment: >
+            Returned when an input line is longer than the server can process
+            (512 bytes), to let the client know this line was dropped (rather
+            than being truncated)
 
     -
         name: ERR_LENGTHTRUNCATED
@@ -3070,7 +3107,7 @@ values:
         origin: ircu
 
     -
-        name: ERR_BADFEATURE
+        name: ERR_BADFEATVALUE
         numeric: "494"
         origin: ircu
         conflict: true
@@ -3195,6 +3232,14 @@ values:
             Also known as ERR_NOTIFYFULL (aircd), I presume they are the
             same
 
+        conflict: true
+
+    -
+        name: ERR_NOSUCHGLINE
+        numeric: "512"
+        origin: ircu
+        conflict: true
+
     -
         name: ERR_BADPING
         numeric: "513"
@@ -3209,16 +3254,23 @@ values:
         registration: true
 
     -
-        name: ERR_INVALID_ERROR
-        numeric: "514"
-        origin: ircu
-        conflict: true
-
-    -
         name: ERR_TOOMANYDCC
         numeric: "514"
         origin: Bahamut
         conflict: true
+
+    -
+        name: ERR_NOSUCHJUPE
+        numeric: "514"
+        origin: irch
+        conflict: true
+
+    -
+        name: ERR_INVALID_ERROR
+        numeric: "514"
+        origin: ircu
+        conflict: true
+        obsolete: true
 
     -
         name: ERR_BADEXPIRE
@@ -3326,6 +3378,11 @@ values:
         conflict: true
 
     -
+        name: ERR_INVALIDKEY
+        numeric: "525"
+        origin: ircu
+
+    -
         name: ERR_REMOTEPFX
         numeric: "525"
         origin: CAPAB USERCMDPFX
@@ -3335,6 +3392,7 @@ values:
 
         format: "<nickname> :<reason>"
         comment: Proposed.
+        obsolete: true
 
     -
         name: ERR_PFXUNROUTABLE
@@ -3346,6 +3404,7 @@ values:
 
         format: "<nickname> :<reason>"
         comment: Proposed.
+        obsolete: true
 
     -
         name: ERR_CANTSENDTOUSER
@@ -3373,6 +3432,46 @@ values:
         numeric: "553"
         origin: QuakeNet
         conflict: true
+
+    -
+        name: ERR_NOTLOWEROPLEVEL
+        numeric: "560"
+        origin: ircu
+
+    -
+        name: ERR_NOTMANAGER
+        numeric: "561"
+        origin: ircu
+
+    -
+        name: ERR_CHANSECURED
+        numeric: "562"
+        origin: ircu
+
+    -
+        name: ERR_UPASSSET
+        numeric: "563"
+        origin: ircu
+
+    -
+        name: ERR_UPASSNOTSET
+        numeric: "564"
+        origin: ircu
+
+    -
+        name: ERR_NOMANAGER
+        numeric: "566"
+        origin: ircu
+
+    -
+        name: ERR_UPASS_SAME_APASS
+        numeric: "567"
+        origin: ircu
+
+    -
+        name: ERR_LASTERROR
+        numeric: "568"
+        origin: ircu
 
     -
         name: RPL_REAWAY
