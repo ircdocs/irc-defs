@@ -117,14 +117,15 @@ values:
         origin: RFC2812
         format: "<client> :This server was created <date>"
         comment: >
-            Part of the post-registration greeting. Text varies widely. Also
-            known as RPL_SERVERCREATED (InspIRCd)
+            Part of the post-registration greeting. Text varies widely and
+            &lt;date&gt; is returned in a human-readable format. Also known as
+            RPL_SERVERCREATED (InspIRCd)
 
     -
         name: RPL_MYINFO
         numeric: "004"
         origin: RFC2812
-        format: "<client> <server_name> <version> <user_modes> <chan_modes>"
+        format: "<client> <server_name> <version> <usermodes> <chanmodes> [chanmodes_with_a_parameter]"
         comment: >
             Part of the post-registration greeting. Also known as
             RPL_SERVERVERSION (InspIRCd)
@@ -146,8 +147,13 @@ values:
     -
         name: RPL_ISUPPORT
         numeric: "005"
-        information: "http://www.irc.org/tech_docs/005.html"
-        comment: "Also known as RPL_PROTOCTL (Bahamut, Unreal, Ultimate)"
+        information: "http://modern.ircdocs.horse/#rplisupport-005"
+        format: "<client> <1-13 tokens> :are supported by this server"
+        comment: >
+            Advertises features, limits, and protocol options that clients
+            should be aware of. Also known as RPL_PROTOCTL (Bahamut, Unreal,
+            Ultimate)
+
         seealso: "105"
 
     -
@@ -806,23 +812,23 @@ values:
         name: RPL_LUSEROP
         numeric: "252"
         origin: RFC1459
-        format: "<client> <int> :<info>"
+        format: "<client> <int> :operator(s) online"
         comment: Reply to LUSERS command - Number of IRC operators online
 
     -
         name: RPL_LUSERUNKNOWN
         numeric: "253"
         origin: RFC1459
-        format: "<client> <int> :<info>"
+        format: "<client> <int> :unknown connection(s)"
         comment: >
-            Reply to LUSERS command - Number of unknown/unregistered
-            connections
+            Reply to LUSERS command - Number of connections in an
+            unknown/unregistered state
 
     -
         name: RPL_LUSERCHANNELS
         numeric: "254"
         origin: RFC1459
-        format: "<client> <int> :<info>"
+        format: "<client> <int> :channels formed"
         comment: Reply to LUSERS command - Number of channels formed
 
     -
@@ -838,12 +844,12 @@ values:
         name: RPL_ADMINME
         numeric: "256"
         origin: RFC1459
-        format: "<client> <server> :<info>"
+        format: "<client> <server> :Administrative info"
         comment: >
             Start of an RPL_ADMIN* reply. In practise, the server parameter
-            is often never given, and instead the info field contains the
+            is often never given, and instead the last param contains the
             text 'Administrative info about <server>'. Newer daemons seem to
-            follow the RFC and output the server's hostname in the 'server'
+            follow the RFC and output the server's hostname in the last
             parameter, but also output the server name in the text as per
             traditional daemons.
 
@@ -896,11 +902,13 @@ values:
         name: RPL_TRYAGAIN
         numeric: "263"
         origin: RFC2812
-        format: "<client> <command> :<info>"
+        format: "<client> <command> :Please wait a while and try again."
         comment: >
             When a server drops a command without processing it, it MUST use
-            this reply. Also known as RPL_LOAD_THROTTLED and RPL_LOAD2HI,
-            I'm presuming they do the same thing.
+            this reply. The last param text changes, and commonly provides the
+            client with more information about why the command could not be
+            processed (such as rate-limiting). Also known as RPL_LOAD_THROTTLED
+            and RPL_LOAD2HI, I'm presuming they do the same thing.
 
     -
         name: RPL_USINGSSL
@@ -911,13 +919,22 @@ values:
         name: RPL_LOCALUSERS
         numeric: "265"
         origin: "aircd, Hybrid, Bahamut"
-        comment: Also known as RPL_CURRENT_LOCAL
+        format: "<client> [<u> <m>] :Current local users <u>, max <m>"
+        comment: >
+            Returns the number of clients currently and the maximum number of
+            clients that have been connected directly to this server at one
+            time, respectively. The two optional parameters are not always
+            provided. Also known as RPL_CURRENT_LOCAL
 
     -
         name: RPL_GLOBALUSERS
         numeric: "266"
         origin: "aircd, Hybrid, Bahamut"
-        comment: Also known as RPL_CURRENT_GLOBAL
+        format: "<client> [<u> <m>] :Current global users <u>, max <m>"
+        comment: >
+            Returns the number of clients currently connected to the network,
+            and the maximum number of clients ever connected to the network at
+            one time, respectively. Also known as RPL_CURRENT_GLOBAL
 
     -
         name: RPL_START_NETSTAT
@@ -985,7 +1002,12 @@ values:
         numeric: "276"
         origin: oftc-hybrid
         format: "<nick> :has client certificate fingerprint <fingerprint>"
-        comment: Also adopted by hybrid 8.1 and charybdis 3.2
+        comment: >
+            Shows the SSL/TLS certificate fingerprint used by the client with
+            the given nickname. Only sent when users <code>WHOIS</code>
+            themselves or when an operator sends the <code>WHOIS</code>. Also
+            adopted by hybrid 8.1 and charybdis 3.2
+
         conflict: true
 
     -
