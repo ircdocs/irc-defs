@@ -145,7 +145,7 @@ values:
             is already full. Also known as RPL_SLINE (AustHex), and
             RPL_REDIR
 
-        seealso: "010"
+        seealso: "RPL_BOUNCE (010)"
         obsolete: true
 
     -
@@ -158,7 +158,7 @@ values:
             should be aware of. Also known as RPL_PROTOCTL (Bahamut, Unreal,
             Ultimate)
 
-        seealso: "105"
+        seealso: "RPL_REMOTEISUPPORT (105)"
 
     -
         name: RPL_MAP
@@ -284,7 +284,7 @@ values:
             requesting information from a remote server instead of the
             server it is currently connected to
 
-        seealso: "005"
+        seealso: "RPL_ISUPPORT (005)"
 
     -
         name: RPL_TRACELINK
@@ -458,6 +458,12 @@ values:
         name: RPL_STATSBLINE
         numeric: "220"
         origin: "Bahamut, Unreal"
+        conflict: true
+
+    -
+        name: RPL_STATSWLINE
+        numeric: "220"
+        origin: Nefarious
         conflict: true
 
     -
@@ -1204,6 +1210,12 @@ values:
         conflict: true
 
     -
+        name: ERR_SEARCHNOMATCH
+        numeric: "292"
+        origin: Nefarious
+        conflict: true
+
+    -
         name: RPL_CHANINFO_INVITE
         numeric: "293"
         origin: aircd
@@ -1434,6 +1446,11 @@ values:
         comment: Used to terminate a list of RPL_WHOREPLY replies
 
     -
+        name: RPL_WHOISPRIVDEAF
+        numeric: "316"
+        origin: Nefarious
+
+    -
         name: RPL_WHOISCHANOP
         numeric: "316"
         origin: RFC1459
@@ -1521,6 +1538,12 @@ values:
     -
         name: RPL_CHANNELPASSIS
         numeric: "325"
+        conflict: true
+
+    -
+        name: RPL_WHOISWEBIRC
+        numeric: "325"
+        origin: Nefarious
         conflict: true
 
     -
@@ -1632,6 +1655,12 @@ values:
         comment: Since hybrid 8.2.0
 
     -
+        name: RPL_WHOISACCOUNTONLY
+        numeric: "335"
+        origin: Nefarious
+        conflict: true
+
+    -
         name: RPL_INVITELIST
         numeric: "336"
         origin: Hybrid
@@ -1640,6 +1669,14 @@ values:
             Since hybrid 8.2.0. Not to be confused with the more widely used 346.
 
             A "list of channels a client is invited to" sent with /INVITE
+
+        conflict: true
+
+    -
+        name: RPL_WHOISBOT
+        numeric: "336"
+        origin: Nefarious
+        conflict: true
 
     -
         name: RPL_ENDOFINVITELIST
@@ -1673,6 +1710,13 @@ values:
     -
         name: RPL_BADCHANPASS
         numeric: "339"
+        conflict: true
+
+    -
+        name: RPL_WHOISMARKS
+        numeric: "339"
+        origin: Nefarious
+        conflict: true
 
     -
         name: RPL_USERIP
@@ -1702,6 +1746,11 @@ values:
             it is summoning that user
 
         obsolete: true
+
+    -
+        name: RPL_WHOISKILL
+        numeric: "343"
+        origin: Nefarious
 
     -
         name: RPL_INVITED
@@ -1796,7 +1845,7 @@ values:
             relative). The proper define name for this numeric is unknown at
             this time. Also known as RPL_DELNAMREPLY (ircu)
 
-        seealso: "353"
+        seealso: "RPL_NAMREPLY (353)"
 
     -
         name: RPL_MAP
@@ -1968,8 +2017,9 @@ values:
         comment: >
             Used by AustHex to 'force' the display of the MOTD, however is
             considered obsolete due to client/script awareness & ability to
+            display the MOTD regardless.
 
-        seealso: "372"
+        seealso: "RPL_MOTD (372)"
         obsolete: true
         conflict: true
 
@@ -2050,6 +2100,12 @@ values:
         conflict: true
 
     -
+        name: RPL_IRCOPSHEADER
+        numeric: "386"
+        origin: Nefarious
+        conflict: true
+
+    -
         name: RPL_RSACHALLENGE
         numeric: "386"
         origin: Hybrid
@@ -2074,9 +2130,22 @@ values:
         conflict: true
 
     -
+        name: RPL_IRCOPS
+        numeric: "387"
+        origin: Nefarious
+        conflict: true
+
+    -
         name: RPL_ALIST
         numeric: "388"
         origin: Unreal
+        conflict: true
+
+    -
+        name: RPL_ENDOFIRCOPS
+        numeric: "388"
+        origin: Nefarious
+        conflict: true
 
     -
         name: RPL_ENDOFALIST
@@ -2091,8 +2160,6 @@ values:
         comment: >
             Response to the TIME command. The string format may vary
             greatly.
-
-        seealso: "679"
 
     -
         name: RPL_TIME
@@ -2860,7 +2927,7 @@ values:
             Servers that implement this use it instead of `ERR_NOSUCHCHANNEL`
             where appropriate.
 
-        seealso: "403"
+        seealso: "ERR_NOSUCHCHANNEL (403)"
 
     -
         name: ERR_LINKFAIL
@@ -2898,7 +2965,7 @@ values:
         name: ERR_SSLONLYCHAN
         numeric: "480"
         origin: Hybrid
-        seealso: "489"
+        seealso: "ERR_SECUREONLYCHAN (489)"
         comment: >
             Moved to 489 to match other servers.
 
@@ -3187,7 +3254,7 @@ values:
             Works just like ERR_CHANOPRIVSNEEDED except it indicates that
             owner status (+q) is needed.
 
-        seealso: "482"
+        seealso: "ERR_CHANOPRIVSNEEDED (482)"
 
     -
         name: ERR_TOOMANYJOINS
@@ -3238,7 +3305,7 @@ values:
             Warning about Virtual-World being turned off. Obsoleted in
             favour for RPL_MODECHANGEWARN
 
-        seealso: "662"
+        seealso: "RPL_MODECHANGEWARN (662)"
         obsolete: true
 
     -
@@ -3364,13 +3431,19 @@ values:
             This is considered obsolete in favour of ERR_TOOMANYMATCHES, and
             should no longer be used.
 
-        seealso: "416"
+        seealso: "ERR_TOOMANYMATCHES (416)"
         obsolete: true
 
     -
         name: ERR_LISTSYNTAX
         numeric: "521"
         origin: Bahamut
+        conflict: true
+
+    -
+        name: ERR_NOSUCHGLINE
+        numeric: "521"
+        origin: Nefarious
         conflict: true
 
     -
@@ -3498,6 +3571,13 @@ values:
         name: ERR_LASTERROR
         numeric: "568"
         origin: ircu
+        conflict: true
+
+    -
+        name: RPL_NOOMOTD
+        numeric: "568"
+        origin: Nefarious
+        conflict: true
 
     -
         name: RPL_REAWAY
@@ -3615,6 +3695,14 @@ values:
         numeric: "616"
         origin: Ultimate
         conflict: true
+
+    -
+        name: RPL_WHOISSSLFP
+        numeric: "617"
+        origin: Nefarious
+        format: "<client> <nick> :has client certificate fingerprint <fingerprint>"
+        conflict: true
+        seealso: "RPL_WHOISCERTFP (276)"
 
     -
         name: RPL_DCCSTATUS
@@ -3752,6 +3840,9 @@ values:
         numeric: "671"
         origin: Unreal
         format: "<client> <nick> :is using a secure connection"
+        comment: >
+            The text in the last parameter may change. Also known as
+            RPL_WHOISSSL (Nefarious).
 
     -
         name: RPL_UNKNOWNMODES
@@ -4305,7 +4396,7 @@ values:
         origin: "Charybdis/Atheme, IRCv3"
         contact: "http://ircv3.net/"
         format: "<client> :SASL authentication successful"
-        seealso: "900"
+        seealso: "RPL_LOGGEDIN (900)"
         comment: >
             Sent when the SASL authentication finishes successfully
 
@@ -4381,14 +4472,14 @@ values:
     -
         name: ERR_CANTUNLOADMODULE
         numeric: "972"
-        origin: "InspIRCd"
+        origin: InspIRCd
         conflict: true
         format: "<modulename> :Failed to unload module: <error>"
 
     -
         name: RPL_UNLOADEDMODULE
         numeric: "973"
-        origin: "InspIRCd"
+        origin: InspIRCd
         format: "<modulename> :Module successfully unloaded."
 
     -
@@ -4405,15 +4496,22 @@ values:
     -
         name: ERR_CANTLOADMODULE
         numeric: "974"
-        origin: "InspIRCd"
+        origin: InspIRCd
         conflict: true
         format: "<modulename> :Failed to load module: <error>"
 
     -
         name: RPL_LOADEDMODULE
         numeric: "975"
-        origin: "InspIRCd"
+        origin: InspIRCd
         format: "<modulename> :Module successfully loaded."
+        conflict: true
+
+    -
+        name: ERR_LASTERROR
+        numeric: "975"
+        origin: Nefarious
+        conflict: true
 
     -
         name: ERR_NUMERIC_ERR
