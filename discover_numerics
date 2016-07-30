@@ -28,7 +28,12 @@ if __name__ == '__main__':
         data = yaml.load(open(arguments['--yaml'], 'r').read())
 
         for numerics_filename in arguments['<numeric.h>']:
-            lines = open(numerics_filename, 'r').read().split('\n')
+            lines = None
+            try:
+                lines = open(numerics_filename, 'r').read().split('\n')
+            except UnicodeDecodeError:
+                # skip binary files
+                continue
 
             for line in lines:
                 matches = RE_IRC2_INSP_NUMERIC_H.findall(line) + RE_CHARY_NUMERIC_H.findall(line)

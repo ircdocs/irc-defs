@@ -56,9 +56,9 @@ Searching InspIRCd
 
 Because Insp scatters its numeric definitions all over its source directory, you can't just search a single file. Because of this, you need to search multiple files in the directory like this::
 
-    find /path/to/inspircd/ | grep cpp | xargs ./discover_numerics search
+    find /path/to/inspircd/ -type f | xargs ./discover_numerics search
 
-    find /path/to/inspircd/ | grep \\\.h | xargs ./discover_numerics search
+This also does not find every numeric, thanks to how InspIRCd likes to use numerics directly rather than ``#define``-ing them.
 
 ----
 
