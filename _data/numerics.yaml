@@ -3384,7 +3384,7 @@ values:
         origin: ircu
         comment: >
             Also known as ERR_NEEDPONG (Unreal/Ultimate) for use during
-            registration, however it's not used in Unreal (and might not be
+            registration, however it is not used in Unreal (and might not be
             used in Ultimate either).
 
             Also known as ERR_WRONGPONG (Ratbox/charybdis)
@@ -4403,6 +4403,13 @@ values:
         origin: Ithildin
         contact: "mailto:wd@telekinesis.org"
         comment: Termination of an RPL_XINFO list
+
+    -
+        name: RPL_CHECK
+        numeric: "802"
+        origin: InspIRCd
+        contact: "https://github.com/inspircd/inspircd/blob/master/src/modules/m_check.cpp"
+        comment: Used by the m_check module of InspIRCd.
 
     -
         name: RPL_LOGGEDIN
