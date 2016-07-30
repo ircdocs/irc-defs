@@ -30,3 +30,46 @@ The following license information is from the `alien.net.au <https://www.alien.n
     There are no license restrictions, other than to retain the copyright information.
 
 Copyright information is listed in the specific converted spec files in the ``_data`` folder (as in the original .def files downloaded from `alien.net.au <https://www.alien.net.au/irc/>`_).
+
+
+Discovering Numerics
+--------------------
+I've written a script called ``discover_numerics`` that helps me search for numerics that aren't currently listed in our list. It's helpful to use this to search new releases of Hybrid, Insp, Chary, Unreal, etc.
+
+It requires the ``pyyaml`` and ``docopt`` modules and uses Python3. To install the required modules, install Python3, then run::
+
+    pip3 install pyyaml docopt
+
+
+Usage Examples
+%%%%%%%%%%%%%%
+
+Searching a typical numeric.h file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Searching a single ``numeric.h`` file, such as in IRCD-Hybrid, Charybdis, Unreal, etc::
+
+    ./discover_numerics search /path/to/ircd/include/numerics.h
+
+Searching InspIRCd
+^^^^^^^^^^^^^^^^^^
+
+Because Insp scatters its numeric definitions all over its source directory, you can't just search a single file. Because of this, you need to search multiple files in the directory like this::
+
+    find /path/to/inspircd/ | grep cpp | xargs ./discover_numerics search
+
+    find /path/to/inspircd/ | grep \\\.h | xargs ./discover_numerics search
+
+----
+
+Numerics will output as lines like this, which makes it simple to grep through the source directory to discover the format and usage of these numerics::
+
+    Could not find numeric: RPL_STATSCLONE (225)
+    Could not find numeric: RPL_USINGSSL (275)
+    Could not find numeric: RPL_EXEMPTLIST (348)
+    Could not find numeric: RPL_ENDOFEXEMPTLIST (349)
+    Could not find numeric: RPL_RWHOREPLY (354)
+    Could not find numeric: ERR_TARGETTOFAST (439)
+    Could not find numeric: ERR_NOSSL (488)
+    Could not find numeric: ERR_NOSHAREDCHAN (493)
+    Could not find numeric: ERR_LAST_ERR_MSG (504)
