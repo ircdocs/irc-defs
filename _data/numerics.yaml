@@ -73,6 +73,7 @@ table:
             content: comment
             seealso: seealso
             description: "Additional comments, history and other details"
+            xml_escape: true
 
 # The following format is used through-out this file. The first two fields
 # ('name' and 'numeric') are manditory, the others may or may not exist.
@@ -542,10 +543,17 @@ values:
         conflict: true
 
     -
+        name: RPL_STATSCLONE
+        numeric: "225"
+        origin: Bahamut
+        conflict: true
+
+    -
         name: RPL_STATSZLINE
         numeric: "225"
         origin: Bahamut
         conflict: true
+        obsolete: true
 
     -
         name: RPL_STATSELINE
@@ -1005,6 +1013,13 @@ values:
         name: RPL_STATSDLINE
         numeric: "275"
         origin: "ircu, Ultimate"
+        conflict: true
+
+    -
+        name: RPL_USINGSSL
+        numeric: "275"
+        origin: Bahamut
+        format: "<client> <nick> :is using a secure connection (SSL)"
         conflict: true
 
     -
@@ -1784,10 +1799,13 @@ values:
         name: RPL_EXCEPTLIST
         numeric: "348"
         origin: RFC2812
-        format: "<client> <channel> <exceptionmask>"
+        format: "<client> <channel> <exceptionmask> [<who> <set-ts>]"
         comment: >
             An exception mask for the exception mask list. Also known as
-            RPL_EXLIST (Unreal, Ultimate)
+            RPL_EXLIST (Unreal, Ultimate). Bahamut calls this RPL_EXEMPTLIST
+            and adds the last two optional params, <who> being either the
+            nickmask of the client that set the exception or the server name,
+            and <set-ts> being a unix timestamp representing when it was set.
 
     -
         name: RPL_ENDOFEXCEPTLIST
@@ -1796,7 +1814,8 @@ values:
         format: "<client> <channel> :<info>"
         comment: >
             Termination of an RPL_EXCEPTLIST list. Also known as
-            RPL_ENDOFEXLIST (Unreal, Ultimate)
+            RPL_ENDOFEXLIST (Unreal, Ultimate) or RPL_ENDOFEXEMPTLIST
+            (Bahamut).
 
     -
         name: RPL_VERSION
@@ -1833,7 +1852,8 @@ values:
             returned using a non-standard (non-RFC1459) format. The format
             is dictated by the command given by the user, and can vary
             widely. When this is used, the WHO command was invoked in its
-            'extended' form, as announced by the 'WHOX' ISUPPORT tag.
+            'extended' form, as announced by the 'WHOX' ISUPPORT tag. Also
+            known as RPL_RWHOREPLY (Bahamut).
 
     -
         name: RPL_NAMREPLY_
@@ -2593,8 +2613,8 @@ values:
         numeric: "439"
         origin: ircu
         comment: >
-            Also known as many other things, RPL_INVTOOFAST, RPL_MSGTOOFAST
-            etc
+            Also known as many other things, RPL_INVTOOFAST, RPL_MSGTOOFAST,
+            ERR_TARGETTOFAST (Bahamut), etc
 
     -
         name: ERR_SERVICESDOWN
@@ -3132,6 +3152,13 @@ values:
         conflict: true
 
     -
+        name: ERR_NOSSL
+        numeric: "488"
+        origin: Bahamut
+        format: "<client> <channel> :SSL Only channel (+S), You must connect using SSL to join this channel."
+        conflict: true
+
+    -
         name: ERR_SECUREONLYCHAN
         numeric: "489"
         origin: Unreal
@@ -3195,9 +3222,17 @@ values:
         conflict: true
 
     -
+        name: ERR_NOSHAREDCHAN
+        numeric: "493"
+        origin: Bahamut
+        format: "<client> :You cannot message that person because you do not share a common channel with them."
+        conflict: true
+
+    -
         name: ERR_NOFEATURE
         numeric: "493"
         origin: ircu
+        conflict: true
 
     -
         name: ERR_BADFEATVALUE
