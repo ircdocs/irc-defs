@@ -4508,8 +4508,22 @@ values:
     -
         name: ERR_WORDFILTERED
         numeric: "936"
-        origin: "InspIRCd"
+        origin: InspIRCd
         format: "<channel> <message> :Your message contained a censored word, and was blocked"
+
+    -
+        name: No Name Supplied
+        numeric: "945"
+        origin: InspIRCd
+        format: "<client> <nick> :Nickname now unlocked."
+        comment: "Used by InspIRCd's m_nicklock module."
+
+    -
+        name: No Name Supplied
+        numeric: "946"
+        origin: InspIRCd
+        format: "<client> <nick> :This user's nickname is not locked."
+        comment: "Used by InspIRCd's m_nicklock module."
 
     -
         name: ERR_CANNOTDOCOMMAND

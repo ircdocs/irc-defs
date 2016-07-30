@@ -20,6 +20,7 @@ from docopt import docopt
 
 RE_IRC2_INSP_NUMERIC_H = re.compile(r'^\s*(?P<name>(?:ERR_|RPL_)[0-9A-Z_]+)\s+=\s+(?P<numeric>[0-9]+)')
 RE_CHARY_NUMERIC_H = re.compile(r'^#define\s+(?P<name>(?:ERR_|RPL_)[0-9A-Z_]+)\s+(?P<numeric>[0-9]+)')
+RE_INSP_NUMERIC_ALONE = re.compile(r'(?P<name>)WriteRemoteNumeric\((?P<numeric>[0-9]+)[^0-9]')
 
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=__version__)
@@ -36,7 +37,7 @@ if __name__ == '__main__':
                 continue
 
             for line in lines:
-                matches = RE_IRC2_INSP_NUMERIC_H.findall(line) + RE_CHARY_NUMERIC_H.findall(line)
+                matches = RE_IRC2_INSP_NUMERIC_H.findall(line) + RE_CHARY_NUMERIC_H.findall(line) + RE_INSP_NUMERIC_ALONE.findall(line)
                 for match in matches:
                     name, numeric = match
                     numeric = numeric.zfill(3)
@@ -44,10 +45,16 @@ if __name__ == '__main__':
                     found = False
 
                     for val in data['values']:
-                        if val['name'] == name and val['numeric'] == numeric:
-                            found = True
-                        elif val['numeric'] == numeric and name in val.get('comment', ''):
-                            found = True
+                        if name:
+                            if val['name'] == name and val['numeric'] == numeric:
+                                found = True
+                            elif val['numeric'] == numeric and name in val.get('comment', ''):
+                                found = True
+                        else:
+                            # if there's no name we can only check by numeric, dodgy but it's all we can do.
+                            if val['numeric'] == numeric:
+                                found = True
+                                name = "None supplied"
 
                     if not found:
                         print('Could not find numeric: {name} ({numeric})'.format(name=name, numeric=numeric))
