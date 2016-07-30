@@ -1636,7 +1636,7 @@ values:
         numeric: "333"
         origin: ircu
         format: >
-            Also known as RPL_TOPICTIME (InspIRCd)
+            Also known as RPL_TOPICTIME (InspIRCd).
 
     -
         name: RPL_LISTUSAGE
@@ -3210,7 +3210,8 @@ values:
         comment: >
             Notifies the user that a message they have sent to a channel has
             been rejected as it contains CTCPs, and they cannot send messages
-            containing CTCPs to this channel
+            containing CTCPs to this channel. Also known as ERR_NOCTCPALLOWED
+            (InspIRCd).
 
         conflict: true
 
@@ -3312,7 +3313,16 @@ values:
         comment: >
             Returned by the server to indicate that a MODE message was sent
             with a nickname parameter and that the mode flag sent was not
-            recognised
+            recognised.
+
+        conflict: true
+
+    -
+        name: ERR_UNKNOWNSNOMASK
+        numeric: "501"
+        origin: InspIRCd
+        format: "<client> <snomask> :is unknown mode char to me"
+        conflict: true
 
     -
         name: ERR_USERSDONTMATCH
