@@ -398,8 +398,8 @@ values:
         format: "METADATA[=number]"
         information: "http://ircv3.net/specs/core/metadata-3.2.html"
         comment: >
-            Indicates the maximum number of targets a user may have in their
-            monitor list. If `"number"` is not specified, there is no limit.
+            Indicates the maximum number of keys a user may have in their
+            metadata. If `"number"` is not specified, there is no limit.
 
         examples:
             - "METADATA=30"
