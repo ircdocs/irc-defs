@@ -1635,7 +1635,7 @@ values:
         name: RPL_TOPICWHOTIME
         numeric: "333"
         origin: ircu
-        format: >
+        comment: >
             Also known as RPL_TOPICTIME (InspIRCd).
 
     -
