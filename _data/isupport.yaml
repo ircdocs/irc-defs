@@ -312,8 +312,8 @@ values:
             show a representation of how the servers are linked to each other.
 
             In practice this is command is supported by most networks, even if
-            they don't advertise this token. Used by inspircd up to 2.0,
-            removed in 2.2.
+            they don't advertise this token. Used by InspIRCd up to 2.0,
+            removed in 3.0.
 
         obsolete: true
 
@@ -374,7 +374,7 @@ values:
         comment: >
             Indicates the maximum number of parameters to any command.
 
-            Used by inspircd only, where the default is 32, above the RFC
+            Used by InspIRCd only, where the default is 32, above the RFC
             specified limit of 12. Other servers may have different limits
             without advertising this token.
 
@@ -478,7 +478,7 @@ values:
         format: "OVERRIDE"
         comment: >
             Indicates that IRC operators may override modes and channel
-            security. Used by inspircd only.
+            security. Used by InspIRCd only.
 
     -
         name: PREFIX
@@ -511,7 +511,7 @@ values:
         comment: >
             Indicates that "secure listing" is enabled, and that your initial
             request for a channel list on connect may be denied until you have
-            been connected for a certain amount of time. Used by inspircd only.
+            been connected for a certain amount of time. Used by InspIRCd only.
 
     -
         name: SILENCE
@@ -534,8 +534,8 @@ values:
         comment: >
             Indicates the ports and IP addresses SSL may be found on. Each ip
             and port pair are separated by a colon (:) character and multiple
-            port/ip pairs are separated by semicolons (;). Used by inspircd
-            only.
+            port/ip pairs are separated by semicolons (;). Used by InspIRCd up
+            to 2.0, removed in 3.0.
 
         examples:
             - "SSL=1.2.3.4:6668;4.3.2.1:6669;*:6660;"
@@ -551,7 +551,7 @@ values:
             to detect STARTTLS support, since that means leaking the initial
             connection registration process. The ircv3.1
             [`"tls"`](http://ircv3.net/specs/extensions/tls-3.1.html)
-            extension should be used instead.
+            extension should be used instead. Removed in InspIRCd 3.0.
 
         obsolete: true
 
@@ -659,7 +659,7 @@ values:
         format: "VBANLIST"
         comment: >
             Indicates that banlist sizes may vary from channel to channel.
-            Used by inspircd only, always present.
+            Used by InspIRCd only, always present.
 
     -
         name: WALLCHOPS
