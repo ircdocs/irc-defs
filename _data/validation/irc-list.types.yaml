@@ -66,6 +66,9 @@ datatable:
     values:
       type: listofdicts
       kids:
+        char:
+          type: string
+          required: false
         name:
           type: string
         numeric:
@@ -87,6 +90,9 @@ datatable:
           type: string
           required: false
         format:
+          type: string
+          required: false
+        ban-type:
           type: string
           required: false
         comment:
