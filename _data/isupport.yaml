@@ -11,7 +11,7 @@
 
 file_info:
     type: "isupport"
-    revision: "0.11"
+    revision: "0.12"
 
 # The following information is used to create pretty HTML page and tables
 
@@ -380,6 +380,8 @@ values:
 
         examples:
             - "MAXPARA=32"
+
+        obsolete: true
 
     -
         name: MAXTARGETS
