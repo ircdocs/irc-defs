@@ -1,0 +1,190 @@
+# ctcp.yaml
+#
+# This file is Copyright (c) 2016 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "ctcp"
+    revision: "0.10"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Client-to-Client Protocol (CTCP) messages
+    extra: >
+        <p>
+            Red denotes a conflicting CTCP definition, gray for deprecated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+        <p>
+            For further information, feel free to see the Modern
+            <a href="http://modern.ircdocs.horse/ctcp.html">Client-to-Client Protocol (CTCP) docs</a>.
+        </p>
+
+table:
+    row-ids:
+        - name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Name
+            content: name
+            link: information
+        -
+            name: Type
+            content: ctcp-type
+            description: >
+                Extended formatting CTCPs change how messages are displayed.
+                Metadata query CTCPs provide static information about the target client, user or connection.
+                Extended query CTCPs provide dynamic information or invoke actions from the client.
+        -
+            name: Format
+            content: format
+            classes: code
+            description: Format of the CTCP message
+            xml_escape: true
+            examples: true
+        -
+            name: Spread
+            content: spread
+            description: How widely-spread this CTCP message is
+            xml_escape: true
+        -
+            name: Description
+            content: desc
+            seealso: seealso
+            description: Description of how the CTCP works
+            markdown: true
+
+values:
+    -
+        name: ACTION
+        format: "ACTION <text>"
+        ctcp-type: Extended Formatting
+        spread: Universal
+        information: "http://modern.ircdocs.horse/ctcp.html#action"
+        desc: >
+            Displays `<text>` as an _action_ or _emote_. In clients, it's
+            generally activated with the command `/me`
+        examples:
+            - "ACTION writes a specification"
+    -
+        name: AVATAR
+        ctcp-type: Metadata Query
+        spread: Specific to KVIrc
+        information: "https://gist.github.com/grawity/a74722bfbfc3957684e0#avatar"
+        desc: >
+            Returns an URL to an "avatar" image chosen by the user.
+    -
+        name: CLIENTINFO
+        format: "CLIENTINFO <token>{ <token>}"
+        ctcp-type: Metadata Query
+        spread: Widely implemented
+        information: "http://modern.ircdocs.horse/ctcp.html#clientinfo"
+        desc: >
+            Returns a list of the CTCP messages that this client supports and implements.
+        examples:
+            - "CLIENTINFO ACTION CLIENTINFO PING VERSION"
+    -
+        name: DCC
+        format: "DCC <type> [varies]"
+        ctcp-type: Extended Query
+        spread: Widely implemented
+        information: "http://modern.ircdocs.horse/ctcp.html#dcc"
+        desc: >
+            Sets up and controls connections that go directly between clients,
+            bypassing the IRC server. This is typically used for features that
+            require a large amount of traffic between clients or simply wish to
+            bypass the server itself such as file transfer, direct chat, and
+            voice messages.
+    -
+        name: FINGER
+        format: "FINGER <info>"
+        ctcp-type: Metadata Query
+        spread: Widely implemented
+        information: "http://modern.ircdocs.horse/ctcp.html#finger"
+        obsolete: true
+        desc: >
+            Returns miscellaneous info about the user, typically the same
+            information that’s in their `realname`
+
+            However, some implementations return the client name and
+            version instead.
+    -
+        name: PAGE
+        ctcp-type: Extended Query
+        spread: Rarely implemented
+        information: "https://gist.github.com/grawity/a74722bfbfc3957684e0#page"
+        desc: >
+            Does something to notify the recipient off-band (e.g. playing a
+            sound; playing the given message via text-to-speech; etc.).
+    -
+        name: PING
+        format: "PING <info>"
+        ctcp-type: Extended Query
+        spread: Universal
+        information: "http://modern.ircdocs.horse/ctcp.html#ping"
+        desc: >
+            Confirms reachability with other clients and checks latency.
+        examples:
+            - "PING 1473523721 662865"
+            - "PING foo bar baz"
+    -
+        name: SOURCE
+        format: "SOURCE <info>"
+        ctcp-type: Metadata Query
+        spread: Rarely implemented
+        information: "http://modern.ircdocs.horse/ctcp.html#source"
+        desc: >
+            Returns the location of the source code for the client.
+        examples:
+            - "SOURCE https://weechat.org/download"
+    -
+        name: TIME
+        format: "TIME <timestring>"
+        ctcp-type: Extended Query
+        spread: Almost Universal
+        information: "http://modern.ircdocs.horse/ctcp.html#time"
+        desc: >
+            Return the client’s local time in an unspecified human-readable
+            format. I recommend using ISO 8601 format, but raw `ctime()` output
+            appears to be the most common in practice.
+
+            New implementations should consider using UTC time for privacy
+            reasons.
+        examples:
+            - "TIME 2016-09-26T00:45:36Z"
+    -
+        name: VERSION
+        format: "VERSION <verstring>"
+        ctcp-type: Metadata Query
+        spread: Universal
+        information: "http://modern.ircdocs.horse/ctcp.html#version"
+        desc: >
+            Return the name and version of the client software in use. There's
+            no specified format for the version string.
+        examples:
+            - "VERSION WeeChat 1.5-rc2 (git: v1.5-rc2-1-gc1441b1) (Apr 25 2016)"
+    -
+        name: USERINFO
+        format: "USERINFO <info>"
+        ctcp-type: Metadata Query
+        spread: Widely implemented
+        information: "http://modern.ircdocs.horse/ctcp.html#userinfo"
+        obsolete: true
+        desc: >
+            Returns miscellaneous info about the user, typically the same
+            information that’s in their `realname`
+
+            However, some implementations return `<nickname> (<realname>)`
+            instead.

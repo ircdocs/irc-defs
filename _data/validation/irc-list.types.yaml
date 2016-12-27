@@ -98,6 +98,9 @@ datatable:
         comment:
           type: string
           required: false
+        ctcp-type:
+          type: string
+          required: false
         inline-link:
           type: string
           required: false
@@ -135,6 +138,9 @@ datatable:
           type: string
           required: false
         server_only:
+          type: string
+          required: false
+        spread:
           type: string
           required: false
         registration:
