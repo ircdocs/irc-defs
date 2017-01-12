@@ -98,6 +98,9 @@ datatable:
         ctcp-type:
           type: string
           required: false
+        desc:
+          type: string
+          required: false
         inline-link:
           type: string
           required: false
