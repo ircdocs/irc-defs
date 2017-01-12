@@ -39,6 +39,9 @@ datatable:
             inline-link:
               type: string
               required: false
+            inline-links:
+              type: listofstrings
+              required: false
             link:
               type: string
               required: false
