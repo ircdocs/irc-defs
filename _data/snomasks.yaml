@@ -1,0 +1,336 @@
+# snomasks.yaml
+#
+# This file is Copyright (c) 2016 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "snomasks"
+    revision: "0.10"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Server Notice Masks
+    extra: >
+        <p>
+            Red denotes a conflicting snomask definition, gray for deprecated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-ids:
+        - char
+        - name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Char
+            content: char
+            classes: code center
+            inline-links:
+                - char
+                - name
+            description: snomask character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the prefix came from
+        -
+            name: Description
+            content: desc
+            seealso: seealso
+            description: "Description of what the extban type matches or does"
+            markdown: true
+
+values:
+    -
+        char: a
+        name: LOCAL_ANNOUNCEMENTS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of local announcement messages.
+    -
+        char: A
+        name: GLOBAL_ANNOUNCEMENTS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of global announcement messages.
+    -
+        char: b
+        name: BOTS
+        origin: Charybdis
+        desc: >
+            Allows receipt of messages when potential flooders and spambots are detected.
+    -
+        char: c
+        name: LOCAL_CONNECT
+        origin:
+        desc: >
+            Allows receipt of local client connection messages.
+    -
+        char: C
+        name: REMOTE_CONNECT
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote client connection messages.
+        conflict: true
+    -
+        char: C
+        name: EXTENDED_LOCAL_CONNECTS
+        origin: Charybdis
+        desc: >
+            Allows receipt of local client connection messages, in an extended format
+            that's intended for script parsing.
+        conflict: true
+    -
+        char: d
+        name: DEBUG
+        origin:
+        desc: >
+            Allows receipt of general (and sometimes random) debug messages.
+    -
+        char: D
+        name: REJECTED_DCC
+        origin: UnrealIRCd
+        desc: >
+            Allows receipt of rejected DCC's due to Deny DCC blocks.
+    -
+        char: e
+        name: EYES
+        origin: UnrealIRCd
+        desc: >
+            Allows receipt of 'Eyes' notices including /MKPASSWD use, some operoverrides,
+            CHGNAME/CHGIDENT/CHGHOST, etc.
+    -
+        char: f
+        name: FLOOD
+        origin:
+        desc: >
+            Allows receipt of flooding messages.
+        conflict: true
+    -
+        char: f
+        name: FULL
+        origin: Charybdis
+        desc: >
+            Allows receipt of notices when a client connection is denied because a
+            connection limit is exceeded.
+        conflict: true
+    -
+        char: F
+        name: FAR_SERVER_CONNECTS
+        origin: UnrealIRCd
+        desc: >
+            Allows receipt of remote server connection notices (except from u-lined servers
+            like services).
+        conflict: true
+    -
+        char: F
+        name: FAR_CLIENT_CONNECTS
+        origin: Charybdis
+        desc: >
+            Allows receipt of remote client connection notices.
+        conflict: true
+    -
+        char: g
+        name: GLOBOPS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of globops.
+    -
+        char: G
+        name: REMOTE_GLOBOPS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote globops.
+        conflict: true
+    -
+        char: G
+        name: GLINE_AND_SHUN
+        origin: UnrealIRCd
+        desc: >
+            Allows recept of G-LINE and SHUN notices.
+        conflict: true
+    -
+        char: j
+        name: LOCAL_CHAN_CREATE
+        origin: InspIRCd
+        desc: >
+            Allows receipt of local channel creation notices.
+        conflict: true
+    -
+        char: j
+        name: JUNK
+        origin: UnrealIRCd
+        desc: >
+            Allows receipt of 'junk' notices. Noisy, includes mostly harmless notices.
+        conflict: true
+    -
+        char: J
+        name: REMOTE_CHAN_CREATE
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote channel creation notices.
+    -
+        char: k
+        name: LOCAL_KILLS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of local kill messages.
+        conflict: true
+    -
+        char: k
+        name: KILLS
+        origin:
+        desc: >
+            Allows receipt of (local and remote) kill messages.
+        conflict: true
+    -
+        char: K
+        name: REMOTE_KILLS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote kill messages.
+    -
+        char: l
+        name: LINKING
+        origin: InspIRCd
+        desc: >
+            Allows receipt of linking related messages.
+    -
+        char: L
+        name: REMOTE_LINKING
+        origin: InspIRCd
+        desc: >
+            Allows receipt of linking related messages from other servers.
+    -
+        char: n
+        name: LOCAL_NICKS
+        origin:
+        desc: >
+            Allows receipt of local nickname changes.
+    -
+        char: N
+        name: REMOTE_NICKS
+        origin:
+        desc: >
+            Allows receipt of remote nickname changes.
+    -
+        char: o
+        name: LOCAL_OPER
+        origin:
+        desc: >
+            Allows receipt of local oper-up, oper-down, and oper-failure messages.
+    -
+        char: O
+        name: REMOTE_OPER
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote oper-up, oper-down, and oper-failure messages.
+    -
+        char: q
+        name: LOCAL_QUITS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of local quit messages.
+        conflict: true
+    -
+        char: q
+        name: QLINE_REJECTIONS
+        origin: UnrealIRCd
+        desc: >
+            Allows receipt of deny-line (Q-LINE) rejection notices.
+        conflict: true
+    -
+        char: Q
+        name: REMOTE_QUITS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote quit messages.
+    -
+        char: r
+        name: REJECTED_NAMES
+        origin: Charybdis
+        desc: >
+            Allows receipt of notices when someone tries to use an invalid username, or when
+            HTTP proxies try to connect.
+    -
+        char: s
+        name: SERVER_NOTICES
+        origin:
+        desc: >
+            Allows receipt of generic server notices (includes the most important messages).
+    -
+        char: t
+        name: STATS
+        origin: InspIRCd
+        desc: >
+            Allows receipt of attempts to use /STATS (local and remote).
+    -
+        char: u
+        name: UNAUTHORIZED_CONNECTIONS
+        origin: Charybdis
+        desc: >
+            Allows receipt of attempts to oper-up, when the given client doesn't have a
+            valid `AUTH{}` block.
+    -
+        char: v
+        name: OPER_OVERRIDE
+        origin: InspIRCd
+        desc: >
+            Allows receipt of use of oper-override.
+    -
+        char: W
+        name: WHOIS
+        origin: Charybdis
+        desc: >
+            Allows receipt of notices when clients execute a WHOIS on them.
+    -
+        char: x
+        name: LOCAL_XLINE
+        origin: InspIRCd
+        desc: >
+            Allows receipt of local Xline notices (g/z/q/k/e/etc).
+        conflict: true
+    -
+        char: x
+        name: EXTRA_ROUTING
+        origin: Charybdis
+        desc: >
+            Allows receipt of extra routing notices, including servers connecting and
+            disconnecting remotely.
+        conflict: true
+    -
+        char: X
+        name: REMOTE_XLINE
+        origin: InspIRCd
+        desc: >
+            Allows receipt of remote Xline notices (g/z/q/k/e/etc).
+    -
+        char: y
+        name: SPY
+        origin: Charybdis
+        desc: >
+            Allows receipt of notices when users try to join "juped" channels.
+    -
+        char: Z
+        name: OPERSPY
+        origin: Charybdis
+        desc: >
+            Allows receipt of notices when opers anywhere on the network use "operspy".
