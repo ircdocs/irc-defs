@@ -77,9 +77,6 @@ datatable:
         mode:
           type: string
           required: false
-        char:
-          type: string
-          required: false
         prefixchar:
           type: string
           required: false
