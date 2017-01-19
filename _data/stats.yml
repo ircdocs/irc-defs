@@ -1,0 +1,442 @@
+# stats.yaml
+#
+# This file is Copyright (c) 2016 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "stats"
+    revision: "0.10"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Stats Characters
+    extra: >
+        <p>
+            Red denotes a conflicting extban definition, gray for deprecated
+            (however quite possibly still in use), and blue for OK.
+        </p>
+
+table:
+    row-ids:
+        - char
+        - name
+
+    row-classes:
+        - conflict
+        - obsolete
+
+    columns:
+        -
+            name: Char
+            content: char
+            classes: code center
+            inline-links:
+                - char
+                - name
+            description: stats character
+        -
+            name: Name
+            content: name
+            classes: code
+            link: information
+        -
+            name: Origin
+            content: origin
+            link: contact
+            description: Where the character came from
+        -
+            name: Description
+            content: desc
+            seealso: seealso
+            description: "Description of what the stats character does"
+            markdown: true
+
+values:
+    -
+        char: A
+        name: dns
+        origin: Hybrid
+        desc: >
+            Shows the DNS servers in use.
+    -
+        char: b
+        name: nick delays
+        origin: Charybdis
+        desc: >
+            Shows active nick delays.
+    -
+        char: B
+        name: hash stats
+        origin: Charybdis
+        desc: >
+            Shows active hash statistics.
+    -
+        char: c
+        name: server connections
+        origin: RFC1459
+        desc: >
+            Shows servers which this server is configured to connect to or allow
+            connections from. Also known as 'connect blocks'.
+    -
+        char: C
+        name: channel-bans
+        origin: InspIRCd
+        desc: >
+            Shows channel bans.
+    -
+        char: d
+        name: temp-dlines
+        origin: Hybrid
+        desc: >
+            Shows temporary DLINEs.
+    -
+        char: d
+        name: dnsbl
+        origin: InspIRCd
+        desc: >
+            Shows configured DNSBLs and related stats.
+    -
+        char: D
+        name: dlines
+        origin: Hybrid
+        desc: >
+            Shows permanent DLINEs.
+    -
+        char: e
+        name: exceptions
+        origin: Hybrid
+        desc: >
+            Shows ban exceptions.
+    -
+        char: E
+        name: events
+        origin: Hybrid
+        desc: >
+            Shows active timers and events (internal IRCd details).
+    -
+        char: f
+        name: file descriptors
+        origin: Hybrid
+        desc: >
+            Shows open file descriptors.
+    -
+        char: g
+        name: global klines
+        origin: Charybdis
+        desc: >
+            Shows global KLINEs.
+    -
+        char: G
+        name: geoip
+        origin: InspIRCd
+        desc: >
+            Shows how many local users are connected from each country, according to GeoIP.
+    -
+        char: h
+        name: hubs-leafs
+        origin: RFC1459
+        desc: >
+            Shows servers that are either forced to be treated as leaves or may
+            act as hubs.
+    -
+        char: H
+        name: shuns
+        origin: InspIRCd
+        desc: >
+            Shows shuns.
+    -
+        char: i
+        name: auth blocks
+        origin: RFC1459
+        desc: >
+            Shows hosts that clients may connect from (also known as auth blocks or ILINEs).
+    -
+        char: k
+        name: banned-userhosts
+        origin: RFC1459
+        desc: >
+            Shows banned usernames/hostnames from that server.
+        conflict: true
+    -
+        char: k
+        name: temp-klines
+        origin: Hybrid
+        desc: >
+            Shows temporary KLINEs.
+        conflict: true
+    -
+        char: k
+        name: klines
+        origin: InspIRCd
+        desc: >
+            Shows KLINEs.
+        conflict: true
+    -
+        char: K
+        name: klines
+        origin: Hybrid
+        desc: >
+            Shows permanent KLINEs.
+    -
+        char: l
+        name: connections
+        origin: RFC1459
+        desc: >
+            Shows connections that server has open (including duration and
+            traffic).
+        conflict: true
+    -
+        char: l
+        name: hostname-info
+        origin: Hybrid
+        desc: >
+            Shows the hostname and generic info of a given nickname.
+        conflict: true
+    -
+        char: l
+        name: client-connections
+        origin: InspIRCd
+        desc: >
+            Shows all client connections with information (sendq, commands, bytes, time
+            connected).
+    -
+        char: L
+        name: ip-info
+        origin: Hybrid
+        desc: >
+            Shows the IP address and generic info of a given nickname.
+        conflict: true
+    -
+        char: L
+        name: client-info
+        origin: InspIRCd
+        desc: >
+            Shows all client connections with info and IP address.
+        conflict: true
+    -
+        char: m
+        name: commands
+        origin: RFC1459
+        desc: >
+            Shows the commands supported by the server, along with usage counts.
+    -
+        char: n
+        name: dns blacklists
+        origin: Charybdis
+        desc: >
+            Shows DNS blacklists.
+    -
+        char: o
+        name: operator hosts
+        origin: RFC1459
+        desc: >
+            Shows hosts from which clients can become operators. Some servers show operator
+            blocks.
+    -
+        char: O
+        name: privsets
+        origin: Charybdis
+        desc: >
+            Shows privsets.
+        conflict: true
+    -
+        char: O
+        name: opertypes
+        origin: InspIRCd
+        desc: >
+            Shows opertypes and the allowed user/channel modes they can set. Seems similar
+            to the above?
+        conflict: true
+    -
+        char: p
+        name: connected opers
+        origin: Hybrid
+        desc: >
+            Shows connected opers and their idle times.
+        conflict: true
+    -
+        char: p
+        name: client-ports
+        origin: InspIRCd
+        desc: >
+            Shows open client ports, and the port type (plaintext/TLS).
+    -
+        char: P
+        name: ports
+        origin: Hybrid
+        desc: >
+            Shows configured listen blocks (ports the server listens on).
+        conflict: true
+    -
+        char: P
+        name: connected opers
+        origin: InspIRCd
+        desc: >
+            Shows connected opers and their idle times.
+        conflict: true
+    -
+        char: q
+        name: resv
+        origin: Hybrid
+        desc: >
+            Shows RESV'd nicks and channels.
+        conflict: true
+    -
+        char: q
+        name: temp-global-resv
+        origin: Charybdis
+        desc: >
+            Shows temporary/global RESV'd nicks and channels.
+        conflict: true
+    -
+        char: q
+        name: qlines
+        origin: InspIRCd
+        desc: >
+            Shows nickmask bans.
+    -
+        char: Q
+        name: resv
+        origin: Charybdis
+        desc: >
+            Shows RESV'd nicks and channels.
+    -
+        char: r
+        name: resource-usage
+        origin: Charybdis
+        desc: >
+            Shows resource usage.
+    -
+        char: R
+        name: regex-bans
+        origin: InspIRCd
+        desc: >
+            Shows regular expression bans.
+    -
+        char: s
+        name: services
+        origin: Hybrid
+        desc: >
+            Shows configured service blocks.
+        conflict: true
+    -
+        char: s
+        name: filters
+        origin: InspIRCd
+        desc: >
+            Shows filters.
+        conflict: true
+    -
+        char: S
+        name: ssld
+        origin: Charybdis
+        desc: >
+            Shows SSLd processes.
+        conflict: true
+    -
+        char: S
+        name: held-nicknames
+        origin: InspIRCd
+        desc: >
+            Shows currently-held, registered nicknames.
+    -
+        char: t
+        name: stats
+        origin: Hybrid
+        desc: >
+            Shows generic server stats.
+    -
+        char: T
+        name: motd-blocks
+        origin: Hybrid
+        desc: >
+            Shows configured MOTD blocks.
+        conflict: true
+    -
+        char: T
+        name: bandwidth-sockets
+        origin: InspIRCd
+        desc: >
+            Shows bandwidth/socket statistics.
+    -
+        char: u
+        name: uptime
+        origin: RFC1459
+        desc: >
+            Shows how long the server's been up.
+    -
+        char: U
+        name: shared-blocks
+        origin: Hybrid
+        desc: >
+            Shows configured shared and cluster blocks.
+    -
+        char: v
+        name: connected-servers
+        origin: Hybrid
+        desc: >
+            Shows connected servers and information about them (including idle time).
+    -
+        char: x
+        name: realname bans
+        origin: Hybrid
+        desc: >
+            Shows realname bans.
+        conflict: true
+    -
+        char: x
+        name: temp-global realname bans
+        origin: Charybdis
+        desc: >
+            Shows temporary and global realname bans.
+        conflict: true
+    -
+        char: X
+        name: realname bans
+        origin: Charybdis
+        desc: >
+            Shows realname bans.
+    -
+        char: y
+        name: class-lines
+        origin: RFC1459
+        desc: >
+            Shows Y (class) lines from the server's config?
+    -
+        char: Y
+        name: class-lines
+        origin: InspIRCd
+        desc: >
+            Shows connection classes.
+    -
+        char: z
+        name: memory
+        origin: Hybrid
+        desc: >
+            Shows memory stats.
+    -
+        char: Z
+        name: ziplinks
+        origin: Charybdis
+        desc: >
+            Shows ziplink stats.
+        conflict: true
+    -
+        char: Z
+        name: zlines
+        origin: InspIRCd
+        desc: >
+            Shows IP mask bans.
+    -
+        char: "?"
+        name: servers-sendqs
+        origin: Hybrid
+        desc: >
+            Shows connected servers and SENDQ info about them.
