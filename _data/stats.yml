@@ -71,12 +71,27 @@ values:
         origin: Charybdis
         desc: >
             Shows active nick delays.
+        conflict: true
+    -
+        char: b
+        name: badword
+        origin: Unreal
+        desc: >
+            Shows the badwords version list.
     -
         char: B
         name: hash stats
         origin: Charybdis
         desc: >
             Shows active hash statistics.
+        conflict: true
+    -
+        char: B
+        name: banversion
+        origin: Unreal
+        desc: >
+            Shows the ban version list.
+        conflict: true
     -
         char: c
         name: server connections
@@ -90,42 +105,95 @@ values:
         origin: InspIRCd
         desc: >
             Shows channel bans.
+        conflict: true
+    -
+        char: C
+        name: link
+        origin: Unreal
+        desc: >
+            Shows the link-block list.
     -
         char: d
         name: temp-dlines
         origin: Hybrid
         desc: >
             Shows temporary DLINEs.
+        conflict: true
     -
         char: d
         name: dnsbl
         origin: InspIRCd
         desc: >
             Shows configured DNSBLs and related stats.
+        conflict: true
+    -
+        char: d
+        name: denylinkauto
+        origin: Unreal
+        desc: >
+            Shows the deny link (auto) block list.
+        conflict: true
     -
         char: D
         name: dlines
         origin: Hybrid
         desc: >
             Shows permanent DLINEs.
+        conflict: true
+    -
+        char: D
+        name: denylinkall
+        origin: Unreal
+        desc: >
+            Shows the deny link (all) list.
+        conflict: true
     -
         char: e
         name: exceptions
         origin: Hybrid
         desc: >
-            Shows ban exceptions.
+            Shows DLINE ban exceptions.
+        conflict: true
+    -
+        char: e
+        name: exceptthrottle
+        origin: Unreal
+        desc: >
+            Shows the except throttle block list.
+        conflict: true
     -
         char: E
         name: events
         origin: Hybrid
         desc: >
             Shows active timers and events (internal IRCd details).
+        conflict: true
+    -
+        char: E
+        name: exceptban
+        origin: Unreal
+        desc: >
+            Shows the except ban and except tkl block list.
+        conflict: true
     -
         char: f
         name: file descriptors
         origin: Hybrid
         desc: >
             Shows open file descriptors.
+        conflict: true
+    -
+        char: f
+        name: spamfilter
+        origin: Unreal
+        desc: >
+            Shows the spamfilter list.
+    -
+        char: F
+        name: denydcc
+        origin: Unreal
+        desc: >
+            Shows the deny dcc and allow dcc block lists.
     -
         char: g
         name: global klines
@@ -138,6 +206,13 @@ values:
         origin: InspIRCd
         desc: >
             Shows how many local users are connected from each country, according to GeoIP.
+        conflict: true
+    -
+        char: G
+        name: gline
+        origin: Unreal
+        desc: >
+            Shows the gline and gzline list.
     -
         char: h
         name: hubs-leafs
@@ -157,6 +232,18 @@ values:
         origin: RFC1459
         desc: >
             Shows hosts that clients may connect from (also known as auth blocks or ILINEs).
+    -
+        char: I
+        name: allow
+        origin: Unreal
+        desc: >
+            Shows the allow block list.
+    -
+        char: j
+        name: officialchans
+        origin: Unreal
+        desc: >
+            Shows the official channels list.
     -
         char: k
         name: banned-userhosts
@@ -184,6 +271,14 @@ values:
         origin: Hybrid
         desc: >
             Shows permanent KLINEs.
+        conflict: true
+    -
+        char: K
+        name: kline
+        origin: Unreal
+        desc: >
+            Shows KLINEs.
+        conflict: true
     -
         char: l
         name: connections
@@ -206,6 +301,14 @@ values:
         desc: >
             Shows all client connections with information (sendq, commands, bytes, time
             connected).
+        conflict: true
+    -
+        char: l
+        name: linkinfo
+        origin: Unreal
+        desc: >
+            Shows 'link information'.
+        conflict: true
     -
         char: L
         name: ip-info
@@ -221,9 +324,22 @@ values:
             Shows all client connections with info and IP address.
         conflict: true
     -
+        char: L
+        name: linkinfoall
+        origin: Unreal
+        desc: >
+            Shows 'all link information'.
+        conflict: true
+    -
         char: m
         name: commands
         origin: RFC1459
+        desc: >
+            Shows the commands supported by the server, along with usage counts.
+    -
+        char: M
+        name: commands
+        origin: Unreal
         desc: >
             Shows the commands supported by the server, along with usage counts.
     -
@@ -232,6 +348,14 @@ values:
         origin: Charybdis
         desc: >
             Shows DNS blacklists.
+        conflict: true
+    -
+        char: n
+        name: banrealname
+        origin: Unreal
+        desc: >
+            Shows the ban realname block list.
+        conflict: true
     -
         char: o
         name: operator hosts
@@ -253,6 +377,13 @@ values:
         desc: >
             Shows opertypes and the allowed user/channel modes they can set. Seems similar
             to the above?
+        conflict: true
+    -
+        char: O
+        name: oper
+        origin: Unreal
+        desc: >
+            Shows the oper block list.
         conflict: true
     -
         char: p
@@ -301,24 +432,56 @@ values:
         origin: InspIRCd
         desc: >
             Shows nickmask bans.
+        conflict: true
+    -
+        char: q
+        name: bannick
+        origin: Unreal
+        desc: >
+            Shows the ban nick block list.
+        conflict: true
     -
         char: Q
         name: resv
         origin: Charybdis
         desc: >
             Shows RESV'd nicks and channels.
+        conflict: true
+    -
+        char: Q
+        name: sqline
+        origin: Unreal
+        desc: >
+            Shows the global QLINE list.
+        conflict: true
     -
         char: r
         name: resource-usage
         origin: Charybdis
         desc: >
             Shows resource usage.
+        conflict: true
+    -
+        char: r
+        name: chanrestrict
+        origin: Unreal
+        desc: >
+            Shows the channel deny/allow block list.
+        conflict: true
     -
         char: R
         name: regex-bans
         origin: InspIRCd
         desc: >
             Shows regular expression bans.
+        conflict: true
+    -
+        char: R
+        name: usage
+        origin: Unreal
+        desc: >
+            Shows usage information (debug).
+        conflict: true
     -
         char: s
         name: services
@@ -334,6 +497,13 @@ values:
             Shows filters.
         conflict: true
     -
+        char: s
+        name: shun
+        origin: Unreal
+        desc: >
+            Shows the shun list.
+        conflict: true
+    -
         char: S
         name: ssld
         origin: Charybdis
@@ -346,12 +516,28 @@ values:
         origin: InspIRCd
         desc: >
             Shows currently-held, registered nicknames.
+        conflict: true
+    -
+        char: S
+        name: set
+        origin: Unreal
+        desc: >
+            Shows the set block list.
+        conflict: true
     -
         char: t
         name: stats
         origin: Hybrid
         desc: >
             Shows generic server stats.
+        conflict: true
+    -
+        char: t
+        name: tld
+        origin: Unreal
+        desc: >
+            Shows the tld block list.
+        conflict: true
     -
         char: T
         name: motd-blocks
@@ -361,10 +547,10 @@ values:
         conflict: true
     -
         char: T
-        name: bandwidth-sockets
+        name: traffic
         origin: InspIRCd
         desc: >
-            Shows bandwidth/socket statistics.
+            Shows traffic statistics.
     -
         char: u
         name: uptime
@@ -373,7 +559,7 @@ values:
             Shows how long the server's been up.
     -
         char: U
-        name: shared-blocks
+        name: ulines
         origin: Hybrid
         desc: >
             Shows configured shared and cluster blocks.
@@ -383,6 +569,26 @@ values:
         origin: Hybrid
         desc: >
             Shows connected servers and information about them (including idle time).
+        conflict: true
+    -
+        char: v
+        name: denyver
+        origin: Unreal
+        desc: >
+            Shows the denied client versions list.
+        conflict: true
+    -
+        char: V
+        name: vhost
+        origin: Unreal
+        desc: >
+            Shows the vhost block list.
+    -
+        char: W
+        name: fdtable
+        origin: Unreal
+        desc: >
+            Shows the file descriptor table.
     -
         char: x
         name: realname bans
@@ -403,6 +609,13 @@ values:
         origin: Charybdis
         desc: >
             Shows realname bans.
+        conflict: true
+    -
+        char: X
+        name: notlink
+        origin: Unreal
+        desc: >
+            Shows the servers that are not currently linked.
     -
         char: y
         name: class-lines
@@ -434,6 +647,14 @@ values:
         origin: InspIRCd
         desc: >
             Shows IP mask bans.
+        conflict: true
+    -
+        char: Z
+        name: mem
+        origin: Unreal
+        desc: >
+            Shows memory usage info.
+        conflict: true
     -
         char: "?"
         name: servers-sendqs
