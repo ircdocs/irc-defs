@@ -78,6 +78,7 @@ values:
         origin: Unreal
         desc: >
             Shows the badwords version list.
+        conflict: true
     -
         char: B
         name: hash stats
@@ -112,6 +113,7 @@ values:
         origin: Unreal
         desc: >
             Shows the link-block list.
+        conflict: true
     -
         char: d
         name: temp-dlines
@@ -188,6 +190,7 @@ values:
         origin: Unreal
         desc: >
             Shows the spamfilter list.
+        conflict: true
     -
         char: F
         name: denydcc
@@ -213,6 +216,7 @@ values:
         origin: Unreal
         desc: >
             Shows the gline and gzline list.
+        conflict: true
     -
         char: h
         name: hubs-leafs
@@ -398,6 +402,7 @@ values:
         origin: InspIRCd
         desc: >
             Shows open client ports, and the port type (plaintext/TLS).
+        conflict: true
     -
         char: P
         name: ports
@@ -551,6 +556,7 @@ values:
         origin: InspIRCd
         desc: >
             Shows traffic statistics.
+        conflict: true
     -
         char: u
         name: uptime
@@ -616,6 +622,7 @@ values:
         origin: Unreal
         desc: >
             Shows the servers that are not currently linked.
+        conflict: true
     -
         char: y
         name: class-lines
