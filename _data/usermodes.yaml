@@ -604,3 +604,11 @@ values:
         origin: Unreal
         comment: User is securely connected
         conflict: true
+
+    -
+        char: Z
+        name: SECURED_ONLY
+        origin: Unreal
+        comment: >
+            Only allows clients connected via secure connections to talk with
+            you (eg. TLS)

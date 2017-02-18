@@ -612,7 +612,7 @@ values:
         origin: Hybrid?
         comment: >
             Only allows clients connected via secure connections to join
-            (eg. SSL)
+            (eg. TLS)
 
         conflict: true
 
@@ -675,7 +675,7 @@ values:
         origin: Unreal
         comment: >
             Only allows clients connected via secure connections to join
-            (eg. SSL)
+            (eg. TLS)
 
         conflict: true
 
