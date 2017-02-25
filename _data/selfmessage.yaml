@@ -141,6 +141,7 @@ values:
       works: true
 
     - name: Limechat
+      last-tested-version: 2.42
       comment: Shows messages in server window
 
     - name: mIRC
