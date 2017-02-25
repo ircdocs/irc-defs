@@ -1,0 +1,234 @@
+# selfmessage.yaml
+#
+# This file is Copyright (c) 2017 dx
+#  <dx@dxzone.com.ar>
+# This file is Copyright (c) 2017 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "selfmessage"
+    revision: "0.01"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Self-message client support status
+    extra: >
+        <p>
+            Self-messages are messages sent by yourself from a different
+            location, with your own nick in the source of an incoming <tt>PRIVMSG</tt>.
+            This used by bouncers and gateways to services that support multiple clients.
+            At the protocol level, they look like this:
+        </p>
+        <pre>:yournick!~foo@example.com PRIVMSG someone_else :Hello world!</pre>
+        <p>
+            Clients are expected to display that message with the same
+            formatting as an outgoing message, in the same window as other
+            messages to <tt>someone_else</tt>.
+        </p>
+        <p>
+            The <tt>echo-message</tt> CAP is a superset of this behavior,
+            requiring the server to echo messages like this for every outgoing
+            message, instead of just the ones from a remote client.
+        </p>
+        <p>
+            Clients marked with * in the status column additionally request the
+            <tt>znc.in/self-message</tt> capability from the server, if
+            available, which is ZNC's way to avoid sending messages like this
+            to clients that don't support it.
+        </p>
+
+table:
+    row-ids:
+        - char
+        - name
+
+    row-classes:
+        - works
+        - not-works
+
+    columns:
+        -
+            name: Name
+            content: name
+
+        -
+            name: Status
+            content: status
+            link: script
+
+        -
+            name: Bad version
+            content: badver
+
+        -
+            name: Good version
+            content: goodver
+
+        -
+            name: Issue details
+            content: details
+
+values:
+    - name: AdiIRC
+      badver: "?"
+      goodver: "-"
+      status: Requires script
+      not-works: true
+      script: http://wiki.znc.in/Privmsg/AdiIRC
+      details: "?"
+
+    - name: AndChat
+      badver: 1.4.3.2
+      goodver: "-"
+      status: Broken
+      not-works: true
+      details: Shows messages in window with own nick
+
+    - name: Android IRC
+      badver: "< 2.1.15"
+      goodver: ">= 2.1.15"
+      status: Works
+      works: true
+
+    - name: AndroIRC
+      badver: "?"
+      goodver: "?"
+      status: Works
+      works: true
+
+    - name: Atomic
+      badver: "?"
+      goodver: "?"
+      status: Works*
+      works: true
+
+    - name: BitchX
+      badver: 1.2.1
+      goodver: "-"
+      status: Broken
+      not-works: true
+      details: Drops messages
+
+    - name: ChatZilla
+      badver: 0.9.93
+      goodver: "-"
+      status: Broken
+      not-works: true
+      details: Shows messages in window with own nick
+
+    - name: Colloquy
+      badver: "?"
+      goodver: "?"
+      status: Works*
+      works: true
+
+    - name: Communi
+      badver: "?"
+      goodver: "?"
+      status: Works
+      works: true
+
+    - name: Hermes
+      badver: "?"
+      goodver: "?"
+      status: Works
+      works: true
+
+    - name: HexChat
+      badver: 2.12.4
+      goodver: "-"
+      status: Requires script*
+      not-works: true
+      script: https://github.com/TingPing/plugins/blob/master/HexChat/mymsg.lua
+      details: Shows messages in window with own nick
+
+    - name: IRCCloud
+      badver: "-"
+      goodver: "-"
+      status: Works
+      works: true
+
+    - name: Irssi
+      badver: "<= 0.8.17"
+      goodver: ">= 0.8.18"
+      status: Works
+      works: true
+
+    - name: KiwiIRC
+      badver: 0.9.4
+      goodver: "-"
+      status: Broken
+      not-works: true
+      details: Drops messages
+
+    - name: KVirc
+      badver: "<= 4.9.1"
+      goodver: ">= 4.9.2"
+      status: Works*
+      works: true
+
+    - name: Limechat
+      badver: "?"
+      goodver: "-"
+      status: Broken
+      not-works: true
+      details: Shows messages in server window
+
+    - name: mIRC
+      badver: "?"
+      goodver: "-"
+      status: Requires script
+      not-works: true
+      script: http://wiki.znc.in/Privmsg/mIRC
+      details: "?"
+
+    - name: Mutter
+      badver: "?"
+      goodver: "?"
+      status: Works
+      works: true
+
+    - name: Palaver
+      badver: "?"
+      goodver: "?"
+      status: Works
+      works: true
+
+    - name: Quassel
+      badver: "<= 0.12.4"
+      goodver: "> 0.12.4 (git)"
+      status: Works*
+      works: true
+
+    - name: Textual
+      badver: "-"
+      goodver: ">= 2.1"
+      status: Works*
+      works: true
+
+    - name: The Lounge
+      badver: "?"
+      goodver: "?"
+      status: Works*
+      works: true
+
+    - name: Weechat
+      badver: "-"
+      goodver: "(any)"
+      status: Works
+      works: true
+
+    - name: XChat
+      badver: 2.8.6
+      goodver: "-"
+      status: Requires script
+      not-works: true
+      script: http://wiki.znc.in/Privmsg/XChat
+      details: Shows messages in window with own nick
