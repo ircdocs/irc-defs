@@ -78,8 +78,10 @@ table:
 
 values:
     - name: AdiIRC
+      last-tested-version: "2.7"
       script-required: "Yes"
       script: http://wiki.znc.in/Privmsg/AdiIRC
+      comment: Shows messages in window with client's own nick
 
     - name: AndChat
       last-tested-version: 1.4.3.2
@@ -142,8 +144,10 @@ values:
       comment: Shows messages in server window
 
     - name: mIRC
+      last-tested-version: "7.47"
       script-required: "Yes"
       script: http://wiki.znc.in/Privmsg/mIRC
+      comment: Shows messages in window with client's own nick
 
     - name: Mutter
       works: true
