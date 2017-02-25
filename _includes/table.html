@@ -71,6 +71,9 @@
     .not-works {
         background-color: #fdd;
     }
+    .script {
+        background-color: #ffc !important;
+    }
     .center {
         text-align: center;
     }
@@ -109,7 +112,7 @@
     </thead>
     <tbody>
         {% for row in info.values %}
-        <tr{% if info.table['row-ids'] %} id="{% for rowname in info.table['row-ids'] %}{{ row[rowname] | slugify }}{% if forloop.last == false %}-{% endif %}{% endfor %}"{% elsif info.table['row-id'] %} id="{{ row[info.table['row-id']] | slugify }}"{% endif %} class="{% for class in info.table.row-classes %}{% if row[class] %}{{ class }} {% endif %}{% endfor %}">
+        <tr{% if info.table['row-ids'] %} id="{% for rowname in info.table['row-ids'] %}{{ row[rowname] | slugify }}{% if forloop.last == false %}-{% endif %}{% endfor %}"{% elsif info.table['row-id'] %} id="{{ row[info.table['row-id']] | slugify }}"{% endif %} class="{% for class in info.table.row-classes %}{% if row[class] %}{{ class }} {% endif %}{% endfor %}{% for class in info.table.neg-row-classes %}{% if row[class] %}{% else %} not-{{ class }}{% endif %}{% endfor %}">
             {% for col in info.table.columns %}
             <td class="col-{{ col.content | slugize }}{% if col.classes %} {{ col.classes }}{% endif %}">
                 {% if col['inline-link'] %}{% if row[col['inline-link']] %}<a href="#{{ row[col['inline-link']] | slugify }}">{% endif %}{% endif %}

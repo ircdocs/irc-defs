@@ -18,30 +18,20 @@ file_info:
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: Self-message client support status
+    name: Self-Messages Client Support
     extra: >
         <p>
-            Self-messages are messages sent by yourself from a different
-            location, with your own nick in the source of an incoming <tt>PRIVMSG</tt>.
-            This used by bouncers and gateways to services that support multiple clients.
-            At the protocol level, they look like this:
+            When a server sends a PRIVMSG/NOTICE to someone else on behalf of a client
+            connected to it – common when multiple clients are connected to a bouncer – it
+            is called a self-message. With the <a href="http://ircv3.net/specs/extensions/echo-message-3.2.html"><tt>echo-message</tt></a>
+            capability, they are also sent in reply to every PRIVMSG/NOTICE a client sends.
+            These are represented by a protocol message looking like this:
         </p>
         <pre>:yournick!~foo@example.com PRIVMSG someone_else :Hello world!</pre>
         <p>
-            Clients are expected to display that message with the same
-            formatting as an outgoing message, in the same window as other
-            messages to <tt>someone_else</tt>.
-        </p>
-        <p>
-            The <tt>echo-message</tt> CAP is a superset of this behavior,
-            requiring the server to echo messages like this for every outgoing
-            message, instead of just the ones from a remote client.
-        </p>
-        <p>
-            Clients marked with * in the status column additionally request the
-            <tt>znc.in/self-message</tt> capability from the server, if
-            available, which is ZNC's way to avoid sending messages like this
-            to clients that don't support it.
+            They should be put in <tt>someone_else</tt>'s query and displayed as though they
+            were sent by the connected client themselves. This page displays which clients
+            properly parse and display this type of echo'd PRIVMSG/NOTICE.
         </p>
 
 table:
@@ -51,7 +41,10 @@ table:
 
     row-classes:
         - works
-        - not-works
+        - script
+
+    neg-row-classes:
+        - works
 
     columns:
         -
@@ -59,176 +52,123 @@ table:
             content: name
 
         -
-            name: Status
-            content: status
+            name: Script Required
+            content: script-required
             link: script
+            classes: center
 
         -
-            name: Bad version
-            content: badver
+            name: Requested Caps
+            content: requested-caps
+            classes: code center
 
         -
-            name: Good version
-            content: goodver
+            name: Last Tested Version
+            content: last-tested-version
+            classes: center
 
         -
-            name: Issue details
-            content: details
+            name: Working Since
+            content: working-since
+            classes: center
+
+        -
+            name: Comments
+            content: comment
 
 values:
     - name: AdiIRC
-      badver: "?"
-      goodver: "-"
-      status: Requires script
-      not-works: true
+      script-required: "Yes"
       script: http://wiki.znc.in/Privmsg/AdiIRC
-      details: "?"
 
     - name: AndChat
-      badver: 1.4.3.2
-      goodver: "-"
-      status: Broken
-      not-works: true
-      details: Shows messages in window with own nick
+      last-tested-version: 1.4.3.2
+      comment: Shows messages in window with client's own nick
 
     - name: Android IRC
-      badver: "< 2.1.15"
-      goodver: ">= 2.1.15"
-      status: Works
+      working-since: "2.1.15"
       works: true
 
     - name: AndroIRC
-      badver: "?"
-      goodver: "?"
-      status: Works
       works: true
 
     - name: Atomic
-      badver: "?"
-      goodver: "?"
-      status: Works*
+      requested-caps: znc/self-message
       works: true
 
     - name: BitchX
-      badver: 1.2.1
-      goodver: "-"
-      status: Broken
-      not-works: true
-      details: Drops messages
+      last-tested-version: 1.2.1
+      comment: Drops messages
 
     - name: ChatZilla
-      badver: 0.9.93
-      goodver: "-"
-      status: Broken
-      not-works: true
-      details: Shows messages in window with own nick
+      last-tested-version: 0.9.93
+      comment: Shows messages in window with client's own nick
 
     - name: Colloquy
-      badver: "?"
-      goodver: "?"
-      status: Works*
+      requested-caps: znc/self-message
       works: true
 
     - name: Communi
-      badver: "?"
-      goodver: "?"
-      status: Works
       works: true
 
     - name: Hermes
-      badver: "?"
-      goodver: "?"
-      status: Works
       works: true
 
     - name: HexChat
-      badver: 2.12.4
-      goodver: "-"
-      status: Requires script*
-      not-works: true
+      last-tested-version: 2.12.4
+      script-required: "Yes"
       script: https://github.com/TingPing/plugins/blob/master/HexChat/mymsg.lua
-      details: Shows messages in window with own nick
+      requested-caps: znc/self-message
+      comment: Shows messages in window with client's own nick by default
 
     - name: IRCCloud
-      badver: "-"
-      goodver: "-"
-      status: Works
       works: true
+      requested-caps: znc/self-message
 
     - name: Irssi
-      badver: "<= 0.8.17"
-      goodver: ">= 0.8.18"
-      status: Works
-      works: true
+      working-since: "0.8.18"
 
     - name: KiwiIRC
-      badver: 0.9.4
-      goodver: "-"
-      status: Broken
-      not-works: true
-      details: Drops messages
+      last-tested-version: "0.9.4"
+      comment: Drops messages
 
     - name: KVirc
-      badver: "<= 4.9.1"
-      goodver: ">= 4.9.2"
-      status: Works*
+      working-since: "4.9.2"
+      requested-caps: znc/self-message
       works: true
 
     - name: Limechat
-      badver: "?"
-      goodver: "-"
-      status: Broken
-      not-works: true
-      details: Shows messages in server window
+      comment: Shows messages in server window
 
     - name: mIRC
-      badver: "?"
-      goodver: "-"
-      status: Requires script
-      not-works: true
+      script-required: "Yes"
       script: http://wiki.znc.in/Privmsg/mIRC
-      details: "?"
 
     - name: Mutter
-      badver: "?"
-      goodver: "?"
-      status: Works
       works: true
 
     - name: Palaver
-      badver: "?"
-      goodver: "?"
-      status: Works
       works: true
 
     - name: Quassel
-      badver: "<= 0.12.4"
-      goodver: "> 0.12.4 (git)"
-      status: Works*
+      working-since: "0.12.4 (+git)"
+      requested-caps: znc/self-message
       works: true
 
     - name: Textual
-      badver: "-"
-      goodver: ">= 2.1"
-      status: Works*
+      working-since: "2.1"
+      requested-caps: znc/self-message
       works: true
 
     - name: The Lounge
-      badver: "?"
-      goodver: "?"
-      status: Works*
+      requested-caps: znc/self-message
       works: true
 
     - name: Weechat
-      badver: "-"
-      goodver: "(any)"
-      status: Works
       works: true
 
     - name: XChat
-      badver: 2.8.6
-      goodver: "-"
-      status: Requires script
-      not-works: true
+      last-tested-version: 2.8.6
+      script-required: "Yes"
       script: http://wiki.znc.in/Privmsg/XChat
-      details: Shows messages in window with own nick
+      comment: Shows messages in window with client's own nick
