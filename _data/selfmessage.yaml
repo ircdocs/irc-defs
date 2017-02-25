@@ -93,7 +93,7 @@ values:
       works: true
 
     - name: Atomic
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
       works: true
 
     - name: BitchX
@@ -105,7 +105,7 @@ values:
       comment: Shows messages in window with client's own nick
 
     - name: Colloquy
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
       works: true
 
     - name: Communi
@@ -118,15 +118,16 @@ values:
       last-tested-version: 2.12.4
       script-required: "Yes"
       script: https://github.com/TingPing/plugins/blob/master/HexChat/mymsg.lua
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
       comment: Shows messages in window with client's own nick by default
 
     - name: IRCCloud
       works: true
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
 
     - name: Irssi
       working-since: "0.8.18"
+      works: true
 
     - name: KiwiIRC
       last-tested-version: "0.9.4"
@@ -134,7 +135,7 @@ values:
 
     - name: KVirc
       working-since: "4.9.2"
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
       works: true
 
     - name: Limechat
@@ -151,17 +152,17 @@ values:
       works: true
 
     - name: Quassel
-      working-since: "0.12.4 (+git)"
-      requested-caps: znc/self-message
+      working-since: "git >0.12.4"
+      requested-caps: znc.in/self-message
       works: true
 
     - name: Textual
       working-since: "2.1"
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
       works: true
 
     - name: The Lounge
-      requested-caps: znc/self-message
+      requested-caps: znc.in/self-message
       works: true
 
     - name: Weechat
