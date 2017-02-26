@@ -41,6 +41,7 @@ table:
 
     row-classes:
         - works
+        - unreleased
         - script
 
     neg-row-classes:
@@ -161,6 +162,7 @@ values:
       working-since: git
       requested-caps: znc.in/self-message
       works: false
+      unreleased: true
       comment: Not included in a released version as of feb 2017.
 
     - name: Textual
