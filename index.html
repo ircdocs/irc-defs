@@ -56,6 +56,50 @@ layout: default
         font-size: 90%;
     }
 
+    .list-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .list {
+        flex-grow: 1;
+        margin-top; 1rem;
+        margin-bottom: 1rem;
+        margin: 1rem;
+    }
+    .defs {
+        padding: 1rem;
+        background: #e1e6ff;
+        border: 1px solid #d2daff;
+        border-radius: 0.75rem;
+    }
+    .defs + .defs {
+        margin-top: 2rem;
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0.93rem;
+        color: #322;
+    }
+    .defs hr {
+        border: none;
+        border-top: 2px solid rgba(255, 255, 255, 0.5);
+        margin: 0 -1rem;
+    }
+    h3 {
+        margin-bottom: 0.4rem;
+        color: #372727;
+    }
+    .defs ul {
+        margin-top: 0.2rem;
+    }
+    .defs li a {
+        text-decoration: none;
+    }
+    .defs li + li {
+        margin-top: 0.25rem;
+    }
+
 </style>
 
 <h1>IRC Definition Files</h1>
@@ -66,86 +110,111 @@ layout: default
 
 <p>These files are based on the original lists from <a href="https://www.alien.net.au/irc/">alien.net.au</a>, and are being updated and corrected to account for new software and versions.</p>
 
-<h2>IRC Numerics</h2>
-<ul>
-    <li><a href="defs/numerics.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/numerics.yaml">YAML Source File</a></li>
-</ul>
+<div class="list-container">
+    <div class="list">
+        <div class="defs">
+            <h2>Numerics and Modes</h2>
+            <hr/>
 
-<h2>User Modes</h2>
-<ul>
-    <li><a href="defs/usermodes.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/usermodes.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Numerics</h3>
+            <ul>
+                <li><a href="defs/numerics.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/numerics.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Channel Modes</h2>
-<ul>
-    <li><a href="defs/chanmodes.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chanmodes.yaml">YAML Source File</a></li>
-</ul>
+            <h3>User Modes</h3>
+            <ul>
+                <li><a href="defs/usermodes.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/usermodes.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Channel Member Prefixes</h2>
-<ul>
-    <li><a href="defs/chanmembers.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chanmembers.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Channel Modes</h3>
+            <ul>
+                <li><a href="defs/chanmodes.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chanmodes.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Channel Type Prefixes</h2>
-<ul>
-    <li><a href="defs/chantypes.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chantypes.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Server Modes</h3>
+            <ul>
+                <li><a href="defs/servermodes.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/servermodes.yaml">YAML Source File</a></li>
+            </ul>
+        </div>
+        <div class="defs">
+            <h2>Channels</h2>
+            <hr/>
 
-<h2>Extended Bans (EXTBANS)</h2>
-<ul>
-    <li><a href="defs/extbans.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/extbans.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Channel Member Prefixes</h3>
+            <ul>
+                <li><a href="defs/chanmembers.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chanmembers.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>RPL_ISUPPORT tokens</h2>
-<ul>
-    <li><a href="defs/isupport.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/isupport.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Channel Type Prefixes</h3>
+            <ul>
+                <li><a href="defs/chantypes.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chantypes.yaml">YAML Source File</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="list">
+        <div class="defs">
+            <h2>ISUPPORT, Caps, and Tags</h2>
+            <hr/>
 
-<h2>Client Capabilities</h2>
-<ul>
-    <li><a href="defs/clientcaps.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/clientcaps.yaml">YAML Source File</a></li>
-</ul>
+            <h3>RPL_ISUPPORT tokens</h3>
+            <ul>
+                <li><a href="defs/isupport.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/isupport.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Tags</h2>
-<ul>
-    <li><a href="defs/tags.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/tags.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Client Capabilities</h3>
+            <ul>
+                <li><a href="defs/clientcaps.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/clientcaps.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Client-to-Client Protocol (CTCP) messages</h2>
-<ul>
-    <li><a href="defs/ctcp.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/ctcp.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Tags</h3>
+            <ul>
+                <li><a href="defs/tags.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/tags.yaml">YAML Source File</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="list">
+        <div class="defs">
+            <h2>Misc</h2>
+            <hr/>
 
-<h2>Server Notice Masks (SNOMASKs)</h2>
-<ul>
-    <li><a href="defs/snomasks.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/snomasks.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Extended Bans (EXTBANS)</h3>
+            <ul>
+                <li><a href="defs/extbans.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/extbans.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Stats Characters</h2>
-<ul>
-    <li><a href="defs/stats.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/stats.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Server Notice Masks (SNOMASKs)</h3>
+            <ul>
+                <li><a href="defs/snomasks.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/snomasks.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Server Modes</h2>
-<ul>
-    <li><a href="defs/servermodes.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/servermodes.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Client-to-Client Protocol (CTCP) messages</h3>
+            <ul>
+                <li><a href="defs/ctcp.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/ctcp.yaml">YAML Source File</a></li>
+            </ul>
 
-<h2>Self-Messages Client Support</h2>
-<ul>
-    <li><a href="info/selfmessages.html">HTML Table</a></li>
-    <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/selfmessage.yaml">YAML Source File</a></li>
-</ul>
+            <h3>Stats Characters</h3>
+            <ul>
+                <li><a href="defs/stats.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/stats.yaml">YAML Source File</a></li>
+            </ul>
+
+            <h3>Self-Messages Client Support</h3>
+            <ul>
+                <li><a href="info/selfmessages.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/selfmessage.yaml">YAML Source File</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
