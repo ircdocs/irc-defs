@@ -1,0 +1,137 @@
+# formatting.yaml
+#
+# This file is Copyright (c) 2017 Daniel Oaks
+#  <daniel@danieloaks.net>
+#
+# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# modify this file, please state your name and modifications here in order
+# for people to be able to distinguish between your version and this version.
+#
+# For more information or corrections, please contact the author.
+
+file_info:
+    type: "formatting"
+    revision: "0.01"
+
+# The following information is used to create pretty HTML page and tables
+
+page:
+    name: Formatting Characters Client Support
+    extra: >
+      <p>
+          Special characters are used to denote formatting on IRC. These are
+          described <a href="https://modern.ircdocs.horse/formatting.html">on this page</a>.
+      </p>
+      <p>
+          This table displays how clients handle each character, and (hopefully)
+          give a sense of how widespread each one is.
+      </p>
+    extra_bottom: >
+      <p>
+          <strong>Tested Clients:</strong><br/>
+          AdiIRC 2.7, BitchX 1.2.1, Hexchat 2.12.4, IceChat 9.15, Instantbird 1.5, IRCCloud (2017-07-09), irssi 0.8.20, KiwiIRC (2017-07-09), Konversation 1.6 (#4910), KVIrc 4.9.2, mIRC 7.48, Quassel 0.12.4 (90183ee), WeeChat 1.7
+
+          <!--The Lounge-->
+      </p>
+
+table:
+    row-ids:
+        - char
+        - name
+
+    row-classes:
+        - unique
+
+    columns:
+        -
+            name: Char
+            content: char
+            classes: code
+    
+        -
+            name: Feature
+            content: name
+            link: information
+
+        -
+            name: Support from tested clients
+            content: client-support
+
+        -
+            name: Supported Clients
+            content: client-names
+
+        -
+            name: Comments
+            seealso: seealso
+            content: comment
+
+values:
+  - char: "0x02"
+    name: Bold
+    information: https://modern.ircdocs.horse/formatting.html#bold
+    client-support: 100%
+    client-names: AdiIRC, BitchX, Hexchat, IceChat, Instantbird, IRCCloud, irssi, KiwiIRC, Konversation, KVIrc, mIRC, Quassel, WeeChat
+    unique: true
+
+  - char: "0x03"
+    name: mIRC Color
+    information: https://modern.ircdocs.horse/formatting.html#color
+    client-support: 100%
+    client-names: AdiIRC, BitchX, Hexchat, IceChat, Instantbird, IRCCloud, irssi, KiwiIRC, Konversation, KVIrc, mIRC, Quassel, WeeChat
+    unique: true
+  
+  - char: "0x04"
+    name: Hex Color
+    information: https://modern.ircdocs.horse/formatting.html#hex-color
+    client-support: ~20%
+    client-names: AdiIRC, IRCCloud, The Lounge
+    unique: true
+
+  - char: "0x12"
+    name: Reverse Color
+    information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
+    client-support: 0%
+    seealso: 0x16 (Reverse Color)
+    unique: false
+    obsolete: true
+  
+  - char: "0x16"
+    name: Reverse Color
+    information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
+    client-support: 46%
+    client-names: BitchX, Hexchat, Irssi, Konversation, KVIrc, WeeChat
+    comment: mIRC doesn't do reverse color but forces the whole rest of the line to be dark-on-light, even if other color codes are given after this character.
+    seealso: 0x12 (Reverse Color)
+    unique: false
+  
+  - char: "0x16"
+    name: Italics
+    information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
+    client-support: 7%
+    client-names: IRCCloud
+    seealso: 0x1D (Italics)
+    unique: false
+    obsolete: true
+
+  - char: "0x0F"
+    name: Reset
+    information: https://modern.ircdocs.horse/formatting.html#reset
+    client-support: 100%
+    client-names: 
+    unique: true
+  
+  - char: "0x1D"
+    name: Italics
+    information: https://modern.ircdocs.horse/formatting.html#italics
+    client-support: 92%
+    client-names: AdiIRC, Hexchat, IceChat, Instantbird, IRCCloud, Irssi, KiwiIRC, Konversation, KVIrc, mIRC, Quassel, WeeChat
+    seealso: 0x16 (Italics)
+    unique: false
+
+  - char: "0x1F"
+    name: Underline
+    information: https://modern.ircdocs.horse/formatting.html#underline
+    client-support: 100%
+    client-names: AdiIRC, BitchX, HexChat, IceChat, Instantbird, IRCCloudm Irssi, KiwiIRC, Konversation, KVIrc, mIRC, Quassel, WeeChat
+    unique: true

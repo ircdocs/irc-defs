@@ -15,6 +15,9 @@ datatable:
           type: string
         extra:
           type: string
+        extra_bottom:
+          type: string
+          required: false
     table:
       type: dict
       kids:
