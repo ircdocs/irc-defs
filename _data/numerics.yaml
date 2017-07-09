@@ -3923,6 +3923,10 @@ values:
         comment: >
             Returns a full list of modes that cannot be set when a client
             issues a MODE command
+    
+    -   name: RPL_LANGUAGES
+        numeric: "690"
+        origin: Unreal?
 
     -
         name: ERR_STARTTLS
