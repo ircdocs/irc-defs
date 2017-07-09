@@ -31,7 +31,7 @@ page:
           <strong>Tested Clients:</strong><br/>
           AdiIRC 2.7, BitchX 1.2.1, Hexchat 2.12.4, IceChat 9.15, Instantbird 1.5, IRCCloud (2017-07-09), irssi 0.8.20, KiwiIRC (2017-07-09), Konversation 1.6 (#4910), KVIrc 4.9.2, mIRC 7.48, Quassel 0.12.4 (90183ee), WeeChat 1.7
 
-          <!--The Lounge-->
+          <!--The Lounge, VisualIRC?-->
       </p>
 
 table:
@@ -41,6 +41,7 @@ table:
 
     row-classes:
         - unique
+        - obsolete
 
     columns:
         -
@@ -88,6 +89,13 @@ values:
     client-names: AdiIRC, IRCCloud, The Lounge
     unique: true
 
+  - char: "0x11"
+    name: Monospace
+    information: https://modern.ircdocs.horse/formatting.html#monospace
+    client-support:
+    client-names: IRCCloud
+    unique: true
+
   - char: "0x12"
     name: Reverse Color
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
@@ -99,17 +107,17 @@ values:
   - char: "0x16"
     name: Reverse Color
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
-    client-support: 46%
-    client-names: BitchX, Hexchat, Irssi, Konversation, KVIrc, WeeChat
-    comment: mIRC doesn't do reverse color but forces the whole rest of the line to be dark-on-light, even if other color codes are given after this character.
+    client-support: 54%
+    client-names: BitchX, Hexchat, IRCCloud, Irssi, Konversation, KVIrc, WeeChat
+    comment: mIRC doesn't do reverse color but forces the whole rest of the line to be dark-on-light, even if other color codes are given after this character. IRCCloud parses this character, but doesn't implement reverse colors.
     seealso: 0x12 (Reverse Color)
     unique: false
   
   - char: "0x16"
     name: Italics
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
-    client-support: 7%
-    client-names: IRCCloud
+    client-support: 0%
+    client-names: 
     seealso: 0x1D (Italics)
     unique: false
     obsolete: true
@@ -117,7 +125,7 @@ values:
   - char: "0x0F"
     name: Reset
     information: https://modern.ircdocs.horse/formatting.html#reset
-    client-support: 100%
+    client-support:
     client-names: 
     unique: true
   
