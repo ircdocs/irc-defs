@@ -31,7 +31,7 @@ page:
           <strong>Tested Clients:</strong><br/>
           AdiIRC 2.7, BitchX 1.2.1, Hexchat 2.12.4, IceChat 9.15, Instantbird 1.5, IRCCloud (2017-07-09), irssi 0.8.20, KiwiIRC (2017-07-09), Konversation 1.6 (#4910), KVIrc 4.9.2, mIRC 7.48, Quassel 0.12.4 (90183ee), WeeChat 1.7
 
-          <!--The Lounge, VisualIRC?-->
+          <!--The Lounge, VisualIRC?, Textual, Colloquy-->
       </p>
 
 table:
@@ -121,6 +121,13 @@ values:
     seealso: 0x1D (Italics)
     unique: false
     obsolete: true
+
+  - char: "0x1E"
+    name: Strikethrough
+    information: https://modern.ircdocs.horse/formatting.html#strikethrough
+    client-support:
+    client-names: Textual
+    unique: true
 
   - char: "0x0F"
     name: Reset
