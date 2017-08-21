@@ -4314,6 +4314,11 @@ values:
             From the ratbox m_scan module.
 
     -
+        name: RPL_ETRACEEND
+        numeric: "759"
+        origin: irc2.11
+
+    -
         name: RPL_WHOISKEYVALUE
         numeric: "760"
         origin: "IRCv3"
