@@ -77,7 +77,7 @@ table:
 
 # The following format is used through-out this file. The first two fields
 # ('name' and 'numeric') are manditory, the others may or may not exist.
-# 
+#
 # The registration field is only used to determine if the numeric is
 # POSSIBLY* used during registration of a connection (before the main part
 # of the protocol kicks in).
@@ -3140,6 +3140,15 @@ values:
         conflict: true
 
     -
+        name: ERR_NONONSSL
+        numeric: "487"
+        origin: ChatIRCd
+        format: "<target user> :You must be connected using SSL/TLS to message this user"
+        conflict: true
+        comment: >
+            Used for user mode +t (caller ID for all users not using SSL/TLS).
+
+    -
         name: ERR_TSLESSCHAN
         numeric: "488"
         origin: IRCnet
@@ -3923,7 +3932,15 @@ values:
         comment: >
             Returns a full list of modes that cannot be set when a client
             issues a MODE command
-    
+
+    -
+        name: RPL_WHOISYOURID
+        numeric: "674"
+        origin: ChatIRCd
+        format: "<client> :EUID is <euid>"
+        comment: >
+            Used to display the user's TS6 UID in WHOIS.
+
     -   name: RPL_LANGUAGES
         numeric: "690"
         origin: Unreal?
