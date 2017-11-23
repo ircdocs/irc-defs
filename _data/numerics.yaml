@@ -1821,7 +1821,7 @@ values:
         name: RPL_VERSION
         numeric: "351"
         origin: RFC1459
-        format: "<client> <version>[.<debuglevel>] <server> :<comments>"
+        format: "<client> <version> <server> :<comments>"
         comment: >
             Reply by the server showing its version details, however this
             format is not often adhered to
