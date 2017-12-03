@@ -171,7 +171,6 @@ values:
       works: true
 
     - name: The Lounge
-      requested-caps: znc.in/self-message
       works: true
 
     - name: Weechat
