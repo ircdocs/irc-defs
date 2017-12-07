@@ -3828,7 +3828,7 @@ values:
         origin: Ultimate
 
     -
-        name: RPL_ENDOFO<MOTD
+        name: RPL_ENDOFOMOTD
         numeric: "626"
         origin: Ultimate
 
