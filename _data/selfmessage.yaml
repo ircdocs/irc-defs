@@ -133,8 +133,8 @@ values:
       works: true
 
     - name: KiwiIRC
-      last-tested-version: "0.9.4"
-      comment: Drops messages
+      working-since: "1.0.0"
+      works: true
 
     - name: KVirc
       working-since: "4.9.2"
