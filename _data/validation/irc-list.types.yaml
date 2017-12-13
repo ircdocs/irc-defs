@@ -122,6 +122,9 @@ datatable:
         script-required:
           type: string
           required: false
+        unique:
+          type: boolean
+          required: false
         unreleased:
           type: boolean
           required: false
