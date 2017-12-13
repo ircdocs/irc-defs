@@ -50,6 +50,11 @@ table:
             classes: code
     
         -
+            name: Caret
+            content: caret
+            classes: code
+
+        -
             name: Feature
             content: name
             link: information
@@ -69,6 +74,7 @@ table:
 
 values:
   - char: "0x02"
+    caret: "^B"
     name: Bold
     information: https://modern.ircdocs.horse/formatting.html#bold
     client-support: 100%
@@ -76,6 +82,7 @@ values:
     unique: true
 
   - char: "0x03"
+    caret: "^C"
     name: mIRC Color
     information: https://modern.ircdocs.horse/formatting.html#color
     client-support: 100%
@@ -83,6 +90,7 @@ values:
     unique: true
   
   - char: "0x04"
+    caret: "^D"
     name: Hex Color
     information: https://modern.ircdocs.horse/formatting.html#hex-color
     client-support: ~20%
@@ -90,6 +98,7 @@ values:
     unique: true
 
   - char: "0x11"
+    caret: "^Q"
     name: Monospace
     information: https://modern.ircdocs.horse/formatting.html#monospace
     client-support:
@@ -97,6 +106,7 @@ values:
     unique: true
 
   - char: "0x12"
+    caret: "^R"
     name: Reverse Color
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
     client-support: 0%
@@ -105,6 +115,7 @@ values:
     obsolete: true
   
   - char: "0x16"
+    caret: "^V"
     name: Reverse Color
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
     client-support: 54%
@@ -114,6 +125,7 @@ values:
     unique: false
   
   - char: "0x16"
+    caret: "^V"
     name: Italics
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
     client-support: 0%
@@ -123,6 +135,7 @@ values:
     obsolete: true
 
   - char: "0x1E"
+    caret: "^^"
     name: Strikethrough
     information: https://modern.ircdocs.horse/formatting.html#strikethrough
     client-support:
@@ -130,6 +143,7 @@ values:
     unique: true
 
   - char: "0x0F"
+    caret: "^O"
     name: Reset
     information: https://modern.ircdocs.horse/formatting.html#reset
     client-support:
@@ -137,6 +151,7 @@ values:
     unique: true
   
   - char: "0x1D"
+    caret: "^]"
     name: Italics
     information: https://modern.ircdocs.horse/formatting.html#italics
     client-support: 92%
@@ -145,6 +160,7 @@ values:
     unique: false
 
   - char: "0x1F"
+    caret: "^_"
     name: Underline
     information: https://modern.ircdocs.horse/formatting.html#underline
     client-support: 100%
