@@ -98,6 +98,33 @@ datatable:
         ban-type:
           type: string
           required: false
+        caret:
+          type: string
+          required: false
+        client-names:
+          type: string
+          required: false
+        client-support:
+          type: string
+          required: false
+        last-tested-version:
+          type: string
+          required: false
+        working-since:
+          type: string
+          required: false
+        requested-caps:
+          type: string
+          required: false
+        script:
+          type: string
+          required: false
+        script-required:
+          type: string
+          required: false
+        unreleased:
+          type: boolean
+          required: false
         comment:
           type: string
           required: false
