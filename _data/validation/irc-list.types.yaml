@@ -113,6 +113,9 @@ datatable:
         working-since:
           type: string
           required: false
+        works:
+          type: boolean
+          required: false
         requested-caps:
           type: string
           required: false
