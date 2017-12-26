@@ -29,6 +29,9 @@ datatable:
           required: false
         row-classes:
           type: listofstrings
+        neg-row-classes:
+          type: listofstrings
+          required: false
         columns:
           type: listofdicts
           kids:
