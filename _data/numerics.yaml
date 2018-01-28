@@ -3315,6 +3315,16 @@ values:
         conflict: true
 
     -
+        name: ERR_CANNOTSETMODER
+        numeric: "500"
+        origin: InspIRCd
+        format: "<client> :Only a server may modify the +r user/channel mode"
+        comment: >
+            Returned by the server when a client tries to set MODE +r on a user
+            or channel. This mode is set by services for registered users/channels.
+        conflict: true
+
+    -
         name: ERR_UMODEUNKNOWNFLAG
         numeric: "501"
         origin: RFC1459
