@@ -4548,18 +4548,39 @@ values:
         format: "<channel> <message> :Your message contained a censored word, and was blocked"
 
     -
-        name: No Name Supplied
+        name: RPL_IDLETIMESET
+        numeric: "944"
+        origin: InspIRCd
+        format: "<client> :Idle time set."
+        comment: "Used by InspIRCd's m_setidle module."
+
+    -
+        name: RPL_NICKLOCKOFF
         numeric: "945"
         origin: InspIRCd
         format: "<client> <nick> :Nickname now unlocked."
         comment: "Used by InspIRCd's m_nicklock module."
 
     -
-        name: No Name Supplied
+        name: ERR_NICKNOTLOCKED
         numeric: "946"
         origin: InspIRCd
         format: "<client> <nick> :This user's nickname is not locked."
         comment: "Used by InspIRCd's m_nicklock module."
+
+    -
+        name: RPL_NICKLOCKON
+        numeric: "947"
+        origin: InspIRCd
+        format: "<client> <nick> :Nickname now locked."
+        comment: "Used by InspIRCd's m_nicklock module."
+
+    -
+        name: ERR_INVALIDIDLETIME
+        numeric: "948"
+        origin: InspIRCd
+        format: "<client> :Invalid idle time."
+        comment: "Used by InspIRCd's m_setidle module."
 
     -
         name: ERR_CANNOTDOCOMMAND
@@ -4614,6 +4635,20 @@ values:
         numeric: "975"
         origin: Nefarious
         conflict: true
+
+    -
+        name: RPL_SERVLOCKON
+        numeric: "988"
+        origin: InspIRCd
+        format: "<client> <server> :Closed for new connections"
+        comment: "Used by InspIRCd's m_lockserv module."
+
+    -
+        name: RPL_SERVLOCKOFF
+        numeric: "989"
+        origin: InspIRCd
+        format: "<client> <server> :Open for new connections"
+        comment: "Used by InspIRCd's m_lockserv module."
 
     -
         name: ERR_NUMERIC_ERR
