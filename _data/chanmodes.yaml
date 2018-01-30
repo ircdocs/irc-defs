@@ -136,7 +136,7 @@ values:
         char: A
         name: ALLOW_INVITE
         origin: InspIRCd
-        comment: Allow everyone to use INVITE, even non-privilidged users
+        comment: Allow everyone to use INVITE, even non-privileged users
         conflict: true
 
     -
@@ -179,6 +179,7 @@ values:
     
     -
         char: d
+        name: DELAYMSG
         origin: InspIRCd
         parameter: <secs>
         comment: >
