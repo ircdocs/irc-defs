@@ -157,6 +157,18 @@ values:
         origin: Hybrid
         comment: >
             User receives information about clients connecting/disconnecting
+        
+        conflict: true
+    
+    -
+        char: c
+        name: COMMON_CHANS
+        origin: InspIRCd
+        comment: >
+            Other users must be in a common channel before being able to
+            PRIVMSG this user.
+        
+        conflict: true
 
     -
         char: C
@@ -235,7 +247,7 @@ values:
     -
         char: g
         name: CALLERID
-        origin: "Hybrid"
+        origin: Hybrid
         comment: >
             User is ignoring everyone, unless they are ACCEPTed with the
             ACCEPT command
@@ -247,6 +259,13 @@ values:
         name: GLOBOPS
         origin: Bahamut
         comment: User receives GLOBOPS messages
+        conflict: true
+
+    -
+        char: G
+        name: CENSOR
+        origin: InspIRCd
+        comment: Censors messages based on the network config file.
         conflict: true
 
     -
@@ -287,6 +306,12 @@ values:
 
     -
         char: I
+        name: HIDECHANS
+        origin: InspIRCd
+        comment: Hides all channels the user's in from WHOIS.
+
+    -
+        char: I
         name: INVISIBLE_JOINPART
         origin: Unreal
         comment: >
@@ -294,6 +319,7 @@ values:
             supposedly obsolete as of UnrealIRCd 3.2 beta 16
 
         obsolete: true
+        conflict: true
 
     -
         char: j
@@ -467,6 +493,13 @@ values:
         comment: "User is connected via SSL/TLS"
         server_on: Y
         server_off: Y
+        conflict: true
+    
+    -
+        char: S
+        name: STRIPCOLOR
+        origin: InspIRCd
+        comment: Strips control codes from messages to the user
         conflict: true
 
     -

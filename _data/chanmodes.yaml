@@ -130,12 +130,27 @@ values:
             Only server/service/network (co-)administrators can join the
             channel
 
+        conflict: true
+    
+    -
+        char: A
+        name: ALLOW_INVITE
+        origin: InspIRCd
+        comment: Allow everyone to use INVITE, even non-privilidged users
+        conflict: true
+
     -
         char: b
         name: BAN
         origin: RFC1459
         parameter: n!u@h mask
         comment: Bans the specified mask from the channel
+    
+    -
+        chan: B
+        name: BLOCKCAPS
+        origin: InspIRCd
+        comment: Block messages with too many CAPITAL LETTERS.
 
     -
         char: c
@@ -161,6 +176,16 @@ values:
         name: NO_CTCP
         origin: Unreal
         comment: Stops people from sending CTCP commands to the channel
+    
+    -
+        char: d
+        origin: InspIRCd
+        parameter: <secs>
+        comment: >
+            Disallows a user from talking in the channel until they've
+            been in there for the specified number of seconds.
+
+        conflict: true
 
     -
         char: d
@@ -186,7 +211,7 @@ values:
 
     -
         char: D
-        name: DELJOINS
+        name: DELAYJOINS
         origin: QuakeNet
         comment: >
             When set, all joins are hidden until the user is given a voice,
@@ -244,13 +269,30 @@ values:
         comment: >
             Anyone may set FORWARDs to this channel (otherwise ops are necessary)
 
+        conflict: true
         seealso: FORWARD
+    
+    -
+        char: F
+        name: NICKFLOOD
+        origin: InspIRCd
+        parameter: "<num>:<sec>"
+        comment: Only allow <num> nick changes per <sec> seconds, to stop spam.
+        conflict: true
+
+    -
+        char: g
+        name: CHANFILTER
+        origin: InspIRCd
+        parameter: "<keyword>"
+        comment: Blocks messages matching <keyword> (including wildcards).
 
     -
         char: g
         name: FREE_INVITE
         origin: Charybdis?
         comment: "Everyone may invite users"
+        conflict: true
 
     -
         char: G
@@ -268,11 +310,22 @@ values:
 
     -
         char: H
+        name: HISTORY
+        origin: InspIRCd
+        parameter: "<num>:<sec>"
+        comment: >
+            When users join, show them <num> lines or <sec> seconds of channel
+            history, whichever is shorter.
+
+    -
+        char: H
         name: NO_HIDING
         origin: Unreal
         comment: >
             When set, this stops users set umode +I (INVISIBLE_JOINPART)
             from being able to join or part a channel secretly
+
+        conflict: true
 
     -
         char: i
@@ -310,6 +363,15 @@ values:
         comment: >
             When set, users may join this channel once every 'frequency'
             seconds with an initial burst and limit value of 'limit' users
+
+        conflict: true
+    
+    -
+        char: J
+        name: KICK_NOREJOIN
+        origin: InspIRCd
+        parameter: <sec>
+        comment: After being KICKed, user can't rejoin for <sec> seconds.
 
     -
         char: k
@@ -355,7 +417,7 @@ values:
         char: L
         name: LINK
         origin: Unreal
-        parameter: Channel name
+        parameter: <channel>
         comment: >
             If the channel is +l, and the channel is full, users will be
             redirected to the given channel
@@ -603,7 +665,7 @@ values:
         char: S
         name: STRIP
         origin: Unreal
-        comment: Strip mIRC colours from text broadcast via the channel
+        comment: Strip formatting codes from messages sent to the channel
         conflict: true
 
     -
@@ -668,6 +730,40 @@ values:
         name: NO_INVITE
         origin: Unreal
         comment: Stop channel members inviting people
+    
+    -
+        char: w
+        name: AUTO_OP
+        origin: InspIRCd
+        parameter: "<flag>:<mask>"
+        comment: >
+            Users that match the given mask will have the given modes when they
+            join the channel.
+    
+    -
+        char: X
+        name: EXEMPT_CHANOPS
+        origin: InspIRCd
+        parameter: "<flag>:<restriction>"
+        comment: >
+            Lets users who have the given permission flag (or above) bypass
+            certain restrictions
+    
+    -
+        char: "y"
+        name: OPER_PREFIX
+        origin: InspIRCd
+        comment: >
+            Marks a user as an oper in the channel with a defined prefix in
+            front of their nick.
+    
+    -
+        char: "Y"
+        name: OJOIN
+        origin: InspIRCd
+        comment: >
+            Marks a user as an oper in the channel with a defined prefix in
+            front of their nick, when an IRC oper issues the OJOIN command.
 
     -
         char: z
@@ -687,3 +783,11 @@ values:
             Messages blocked by +m, +b, and +q are instead sent to ops
 
         conflict: true
+    
+    -
+        char: Z
+        name: NAMED_MODES
+        origin: InspIRCd
+        comment: >
+            Allows the display and modification of channel modes with long-form
+            names.
