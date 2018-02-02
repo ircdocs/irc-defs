@@ -70,6 +70,17 @@ format:
 
 values:
     -
+        name: ACCEPT
+        format: "ACCEPT=<number>"
+        origin: RatBox
+        comment: >
+            Indicates the maximum number of online nicknames a user may have
+            in their accept list. First introduced in ircd-ratbox-3.0.9 r28737.
+
+        examples:
+            - "ACCEPT=20"
+
+    -
         name: AWAYLEN
         format: "AWAYLEN=[number]"
         comment: >
@@ -270,6 +281,17 @@ values:
         examples:
             - "INVEX"
             - "INVEX=I"
+
+    -
+        name: KEYLEN
+        format: "KEYLEN=<number>"
+        origin: RatBox
+        comment: >
+            Indicates the maximum length of a channel key. First introduced in
+            ircd-ratbox-3.1beta r28741.
+
+        examples:
+            - "KEYLEN=23"
 
     -
         name: KICKLEN
