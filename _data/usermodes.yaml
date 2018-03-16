@@ -291,6 +291,16 @@ values:
         origin: "Bahamut, AustHex"
         comment: "User is a HELPER, associated with network services"
         server_on: Y
+        conflict: true
+
+    -
+        char: h
+        name: HELPOP
+        origin: ircd-seven
+        comment: >
+            User has marked themselves available for help, listed in the output
+            of /stats p
+        conflict: true
 
     -
         char: H
@@ -397,12 +407,28 @@ values:
         comment: User is a server-wise or 'local' operator
 
     -
+        char: O
+        name: HELPER
+        origin: ircd-seven
+        comment: >
+            User is an operator with limited powers, can only set umode +h and
+            receive operwalls
+
+    -
         char: p
         name: HIDE_CHANNELS
         origin: Unreal
         comment: >
             Hide channels from user's WHOIS reply (will suppress
             RPL_WHOISCHANNELS)
+
+    -
+        char: p
+        name: OVERRIDE
+        origin: Charybdis
+        comment: >
+            User can send to, join, and execute commands on channels regardless
+            of any modes that would normally prevent them from doing so.
 
     -
         char: q

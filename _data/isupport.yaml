@@ -225,6 +225,15 @@ values:
             - "ELIST=CMNTU"
 
     -
+        name: ETRACE
+        format: "ETRACE"
+        comment: >
+            Indicates the server supports the `"ETRACE"` command, which is
+            similar to `"TRACE"` but only works on nicknames and has a few
+            different options. Implemented in Ratbox, mentioned in a footnote of
+            draft-hardy-irc-isupport-00 without defining anything about it.
+
+    -
         name: EXCEPTS
         format: "EXCEPTS[=letter]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"

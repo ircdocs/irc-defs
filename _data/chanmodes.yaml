@@ -455,6 +455,15 @@ values:
 
     -
         char: M
+        name: NOOPERKICK
+        origin: ircd-seven
+        comment: >
+            Disallows kicking an oper from the channel. Only settable by IRC
+            opers.
+        conflict: true
+
+    -
+        char: M
         name: REGONLY
         origin: Unreal
         comment: Channel only allows registered nicknames to talk.

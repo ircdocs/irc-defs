@@ -398,6 +398,14 @@ values:
         conflict: true
     -
         char: p
+        name: helpops
+        origin: ircd-seven
+        desc: >
+          Shows all opers who have marked themselves available for help (set
+          themselves umode +h).
+        conflict: true
+    -
+        char: p
         name: client-ports
         origin: InspIRCd
         desc: >
