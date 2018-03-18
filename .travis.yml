@@ -15,7 +15,7 @@ script:
   # - ~/.local/bin/html5validator --root _site/
   - python3 -m pip install git+https://github.com/DanielOaks/yamltypes.git@irc-defs-fixes#egg=yamltypes --user --upgrade
   - ~/.local/bin/yamlvalidate $(find _data | grep \.yaml | grep -v "validation/" | xargs) --path _data/validation
-rvm: 2.1
+rvm: 2.5
 notifications:
     email: false
 matrix:
