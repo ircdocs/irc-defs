@@ -214,6 +214,12 @@ values:
         desc: >
             Allows receipt of linking related messages.
     -
+        char: l
+        name: CHANNELCREATE
+        origin: ircd-seven
+        desc: >
+            Allows receipt of channel creation notices
+    -
         char: L
         name: REMOTE_LINKING
         origin: InspIRCd
