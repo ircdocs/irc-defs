@@ -4,6 +4,7 @@ highlighter: rouge
 # baseurl: http://defs.ircdocs.horse/
 exclude:
   - README.md
+  - vendor
 gems:
   - jekyll-sitemap
 sitemap:

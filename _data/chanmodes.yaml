@@ -147,7 +147,7 @@ values:
         comment: Bans the specified mask from the channel
     
     -
-        chan: B
+        char: B
         name: BLOCKCAPS
         origin: InspIRCd
         comment: Block messages with too many CAPITAL LETTERS.
