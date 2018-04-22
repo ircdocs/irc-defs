@@ -226,6 +226,12 @@ values:
         conflict: true
 
     -
+        name: RPL_MAPUSERS
+        numeric: "018"
+        origin: InspIRCd
+        format: "<client> :<count> servers and <count> users, average <average count> users per server"
+
+    -
         name: RPL_HELLO
         numeric: "020"
         origin: rusnet-ircd
@@ -978,9 +984,10 @@ values:
     -
         name: RPL_MAPUSERS
         numeric: "270"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> :<count> servers and <count> users, average <average count> users per server"
         conflict: true
+        comment: "Moved to 018 in InspIRCd 3.0"
 
     -
         name: RPL_SILELIST
@@ -1317,15 +1324,6 @@ values:
             in irc2.7h but never used. Servers generally use specific
             numerics or server notices instead of this. Unreal uses
             this numeric, but most others don't use it
-
-        conflict: true
-
-    -
-        name: RPL_SYNTAX
-        numeric: "304"
-        origin: InspIRCd
-        comment: Defined with the comment <code>// insp-specific</code>
-        conflict: true
 
     -
         name: RPL_UNAWAY
@@ -1768,6 +1766,13 @@ values:
         origin: Nefarious
 
     -
+        name: RPL_WHOISCOUNTRY
+        numeric: "344"
+        origin: InspIRCd 3.0
+        format: "<client> <country code> :is located in this country"
+        comment: "Used by InspIRCd's m_geoip module."
+
+    -
         name: RPL_INVITED
         numeric: "345"
         origin: GameSurge
@@ -1816,6 +1821,13 @@ values:
             Termination of an RPL_EXCEPTLIST list. Also known as
             RPL_ENDOFEXLIST (Unreal, Ultimate) or RPL_ENDOFEXEMPTLIST
             (Bahamut).
+
+    -
+        name: RPL_WHOISGATEWAY
+        numeric: "350"
+        origin: InspIRCd 3.0
+        format: "<client> <real host> <real ip> :is connecting via {the <name> WebIRC, an ident} gateway"
+        comment: "Used by InspIRCd's m_cgiirc module."
 
     -
         name: RPL_VERSION
@@ -2058,9 +2070,10 @@ values:
     -
         name: RPL_WHOWASIP
         numeric: "379"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> <nick> :was connecting from <host>"
         conflict: true
+        comment: "Moved to 652 in InspIRCd 3.0"
 
     -
         name: RPL_BANLINKED
@@ -3890,6 +3903,19 @@ values:
         obsolete: true
 
     -
+        name: RPL_SYNTAX
+        numeric: "650"
+        origin: InspIRCd 3.0
+        format: "<client> <command> :<syntax>"
+        comment: Sent when the user does not provide enough parameters for a command.
+
+    -
+        name: RPL_WHOWASIP
+        numeric: "652"
+        origin: InspIRCd 3.0
+        format: "<client> <nick> :was connecting from <host>"
+
+    -
         name: RPL_SPAMCMDFWD
         numeric: "659"
         origin: Unreal
@@ -3971,6 +3997,27 @@ values:
         comment: Indicates that a server-side error has occured
 
     -
+        name: ERR_INVALIDMODEPARAM
+        numeric: "696"
+        origin: InspIRCd 3.0
+        format: "<client> <target chan/user> <mode char> <parameter> :<description>"
+        comment: >
+            Indicates that there was a problem with a mode parameter. Replaces various
+            non-standard mode specific numerics.
+
+    -
+        name: RPL_COMMANDS
+        numeric: "700"
+        origin: InspIRCd 3.0
+        format: "<client> :<command> <module name> <minimum parameters> <penalty>"
+
+    -
+        name: RPL_COMMANDSEND
+        numeric: "701"
+        origin: InspIRCd 3.0
+        format: "<client> :End of COMMANDS list"
+
+    -
         name: RPL_MODLIST
         numeric: "702"
         origin: RatBox
@@ -3981,9 +4028,10 @@ values:
     -
         name: RPL_COMMANDS
         numeric: "702"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> :<command> <module name> <minimum parameters>"
         conflict: true
+        comment: "Moved to 700 in InspIRCd 3.0"
 
     -
         name: RPL_ENDOFMODLIST
@@ -3996,9 +4044,10 @@ values:
     -
         name: RPL_COMMANDSEND
         numeric: "703"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> :End of COMMANDS list"
         conflict: true
+        comment: "Moved to 701 in InspIRCd 3.0"
 
     -
         name: RPL_HELPSTART
@@ -4450,9 +4499,25 @@ values:
     -
         name: RPL_CHECK
         numeric: "802"
-        origin: InspIRCd
+        origin: InspIRCd 3.0
         contact: "https://github.com/inspircd/inspircd/blob/master/src/modules/m_check.cpp"
         comment: Used by the m_check module of InspIRCd.
+
+    -
+        name: RPL_OTHERUMODEIS
+        numeric: "803"
+        origin: InspIRCd 3.0
+        format: "<client> <nick> <user modes> <user mode parameters>"
+        comment: >
+            Similar to RPL_UMODEIS but used when an oper views the mode of another user.
+
+    -
+        name: RPL_OTHERSNOMASKIS
+        numeric: "804"
+        origin: InspIRCd 3.0
+        format: "<client> <nick> <server notice mask> :Server notice mask"
+        comment: >
+            Similar to RPL_SNOMASK but used when an oper views the snomasks of another user.
 
     -
         name: RPL_LOGGEDIN
@@ -4549,10 +4614,18 @@ values:
             contains a comma-separated list of mechanisms
 
     -
+        name: ERR_BADCHANNEL
+        numeric: "926"
+        origin: InspIRCd
+        format: "<client> <channel> :Channel <channel> is forbidden: <reason>"
+        comment: "Used by InspIRCd's m_denychans module."
+
+    -
         name: ERR_WORDFILTERED
         numeric: "936"
         origin: InspIRCd
         format: "<client> <channel> <message> :Your message contained a censored word, and was blocked"
+        comment: "Replaced with ERR_CANNOTSENDTOCHAN in InspIRCd 3.0."
 
     -
         name: ERR_ALREADYCHANFILTERED
