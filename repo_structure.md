@@ -18,6 +18,7 @@ Given that this is a Jekyll site, there's a very particular way this repo's laid
     - `tags.yaml`: Data for Message Tags (`time=`, `+react`, etc).
     - `usermodes.yaml`: Data for User Modes (`+i`, etc),
 - `_includes/`: Contains Jekyll HTML includes.
+    - `table.html`: This is the main data-table printer, outputs based on the content of the YAML data files.
 - `_layouts/`: Contains Jekyll HTML layouts.
 - `_legacy_data/`: Contains the original data files from [Alient.net.au](https://www.alien.net.au/irc/) which we used, along with our original conversion script.
 - `defs/`: Contains the front-end HTML for each definitions page.
