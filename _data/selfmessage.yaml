@@ -108,7 +108,6 @@ values:
       comment: Shows messages in window with client's own nick
 
     - name: Colloquy
-      requested-caps: znc.in/self-message
       works: true
 
     - name: Communi
