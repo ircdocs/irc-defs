@@ -2951,7 +2951,7 @@ values:
         name: ERR_BANLISTFULL
         numeric: "478"
         origin: RFC2812
-        format: "<client> <channel> <char> :<reason>"
+        format: "<client> <channel> [<char>] :<reason>"
         comment: >
             Returned when a channel access list (i.e. ban list etc) is full
             and cannot be added to
