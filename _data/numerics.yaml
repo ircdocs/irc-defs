@@ -4752,7 +4752,7 @@ values:
         name: ERR_CANNOTCHANGECHANMODE
         numeric: "974"
         origin: Unreal
-        format: "<channel> <mode> :<info>"
+        format: "<client> <mode> :<info>"
         conflict: true
         comment: >
             Indicates that a channel mode could not be changeded for an
