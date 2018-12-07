@@ -2276,7 +2276,9 @@ values:
         origin: Hybrid
         format: "<client> <hostname> :is now your visible host"
         comment: >
-            Also known as RPL_YOURDISPLAYEDHOST (InspIRCd)
+            Also known as RPL_YOURDISPLAYEDHOST (InspIRCd) or RPL_HOSTHIDDEN
+            (ircu, charybdis, Quakenet, Unreal). <hostname> can also be in the
+            form <user@hostname> (Quakenet)
 
         conflict: true
 
