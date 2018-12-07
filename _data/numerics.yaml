@@ -2261,16 +2261,6 @@ values:
         comment: Reply to USERS when nobody is logged in
 
     -
-        name: RPL_HOSTHIDDEN
-        numeric: "396"
-        origin: Undernet
-        comment: >
-            Reply to a user when user mode +x (host masking) was set
-            successfully
-
-        conflict: true
-
-    -
         name: RPL_VISIBLEHOST
         numeric: "396"
         origin: Hybrid
@@ -2279,8 +2269,6 @@ values:
             Also known as RPL_YOURDISPLAYEDHOST (InspIRCd) or RPL_HOSTHIDDEN
             (ircu, charybdis, Quakenet, Unreal). <hostname> can also be in the
             form <user@hostname> (Quakenet)
-
-        conflict: true
 
     -
         name: ERR_UNKNOWNERROR
