@@ -981,14 +981,13 @@ values:
         name: RPL_PRIVS
         numeric: "270"
         origin: ircu
-        conflict: true
 
     -
         name: RPL_MAPUSERS
         numeric: "270"
         origin: InspIRCd 2.0
         format: "<client> :<count> servers and <count> users, average <average count> users per server"
-        conflict: true
+        obsolete: true
         comment: "Moved to 018 in InspIRCd 3.0"
 
     -
@@ -2074,7 +2073,7 @@ values:
         numeric: "379"
         origin: InspIRCd 2.0
         format: "<client> <nick> :was connecting from <host>"
-        conflict: true
+        obsolete: true
         comment: "Moved to 652 in InspIRCd 3.0"
 
     -
@@ -4658,23 +4657,26 @@ values:
     -
         name: ERR_ALREADYCHANFILTERED
         numeric: "937"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> <chan> :The word <word> is already on the spamfilter list"
-        comment: "Used by InspIRCd's m_chanfilter module."
+        comment: "Used by InspIRCd's m_chanfilter module. Replaced with ERR_LISTMODEALREADYSET in 3.0."
+        obsolete: true
 
     -
         name: ERR_NOSUCHCHANFILTER
         numeric: "938"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> <chan> :No such spamfilter word is set"
-        comment: "Used by InspIRCd's m_chanfilter module."
+        comment: "Used by InspIRCd's m_chanfilter module. Replaced with ERR_LISTMODENOTSET in 3.0."
+        obsolete: true
 
     -
         name: ERR_CHANFILTERFULL
         numeric: "939"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> <chan> :Channel spamfilter list is full"
-        comment: "Used by InspIRCd's m_chanfilter module."
+        comment: "Used by InspIRCd's m_chanfilter module. Replaced with ERR_BANLISTFULL in 3.0."
+        obsolete: true
 
     -
         name: ERR_INVALIDWATCHNICK
@@ -4896,14 +4898,13 @@ values:
     -
         name: RPL_ENDOFDCCALLOWHELP
         numeric: "999"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<client> :End of DCCALLOW HELP"
         comment: "Used by InspIRCd's m_dccallow module."
-        conflict: true
+        obsolete: true
 
     -
         name: ERR_NUMERIC_ERR
         numeric: "999"
         origin: Bahamut
         comment: Also known as ERR_NUMERICERR (Unreal) or ERR_LAST_ERR_MSG
-        conflict: true
