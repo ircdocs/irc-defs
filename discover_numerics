@@ -7,6 +7,7 @@ numerics list.
 
 Usage:
     discover_numerics search <numeric.h>... [--yaml <datafile>]
+    discover_numerics search-dir <directory> [--yaml <datafile>]
     discover_numerics (-h | --help)
 
 Options:
@@ -14,6 +15,7 @@ Options:
 """
 __version__ = '0.0.1'
 
+import glob
 import re
 import yaml
 from docopt import docopt
@@ -25,10 +27,17 @@ RE_INSP_NUMERIC_ALONE = re.compile(r'(?P<name>)Write(?:Remote)?Numeric\((?P<nume
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=__version__)
 
+    files = []
     if arguments['search']:
+        files = arguments['<numeric.h>']
+    elif arguments['search-dir']:
+        for ext in [ 'c', 'cpp', 'h', 'hpp' ]:
+            files += glob.glob("{base}/**/*.{ext}".format(base=arguments['<directory>'], ext=ext), recursive=True)
+
+    if files:
         data = yaml.load(open(arguments['--yaml'], 'r').read())
 
-        for numerics_filename in arguments['<numeric.h>']:
+        for numerics_filename in files:
             lines = None
             try:
                 lines = open(numerics_filename, 'r').read().split('\n')
