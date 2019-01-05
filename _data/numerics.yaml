@@ -224,6 +224,8 @@ values:
         numeric: "017"
         origin: ircu
         conflict: true
+        comment: >
+            Also known as RPL_ENDMAP (InspIRCd)
 
     -
         name: RPL_MAPUSERS
@@ -2271,6 +2273,12 @@ values:
             form <user@hostname> (Quakenet)
 
     -
+        name: RPL_CLONES
+        numeric: "399"
+        origin: InspIRCd 3.0
+        format: "<client> <local-count> <global-count> <cidr-range>"
+
+    -
         name: ERR_UNKNOWNERROR
         numeric: "400"
         format: "<client> <command> [<?>] :<info>"
@@ -3900,10 +3908,22 @@ values:
         comment: Sent when the user does not provide enough parameters for a command.
 
     -
+        name: RPL_CHANNELSMSG
+        numeric: "651"
+        origin: InspIRCd 3.0
+        format: "<client> <nick> :is on private/secret channels:"
+
+    -
         name: RPL_WHOWASIP
         numeric: "652"
         origin: InspIRCd 3.0
         format: "<client> <nick> :was connecting from <host>"
+
+    -
+        name: RPL_UNINVITED
+        numeric: "653"
+        origin: InspIRCd 3.0
+        format: "<client> :You were uninvited from <chan> by <nick>"
 
     -
         name: RPL_SPAMCMDFWD
@@ -3994,6 +4014,24 @@ values:
         comment: >
             Indicates that there was a problem with a mode parameter. Replaces various
             non-standard mode specific numerics.
+
+    -
+        name: ERR_LISTMODEALREADYSET
+        numeric: "697"
+        origin: InspIRCd 3.0
+        format: "<client> <target chan> <parameter> <mode char> :<description>"
+        comment: >
+            Indicates that the user tried to set a list mode which is already set. Replaces
+            various non-standard mode specific numerics.
+
+    -
+        name: ERR_LISTMODENOTSET
+        numeric: "698"
+        origin: InspIRCd 3.0
+        format: "<client> <target chan> <parameter> <mode char> :<description>"
+        comment: >
+            Indicates that the user tried to unset a list mode which is not set. Replaces
+            various non-standard mode specific numerics.
 
     -
         name: RPL_COMMANDS
