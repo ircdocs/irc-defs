@@ -3277,18 +3277,17 @@ values:
         name: ERR_BADLOGTYPE
         numeric: "495"
         origin: ircu
-        conflict: true
 
     -
         name: ERR_DELAYREJOIN
         numeric: "495"
-        origin: InspIRCd
+        origin: InspIRCd 2.0
         format: "<channel> :You cannot rejoin this channel yet after being kicked (+J)"
         comment: >
             This numeric is marked as "we should use 'resource temporarily unavailable'
-            from ircnet/ratbox or whatever"
+            from ircnet/ratbox or whatever". Removed in InspIRCd 3.0.
 
-        conflict: true
+        obsolete: true
 
     -
         name: ERR_BADLOGSYS
@@ -4047,14 +4046,13 @@ values:
         origin: RatBox
         format: "<?> 0x<?> <?> <?>"
         comment: Output from the MODLIST command
-        conflict: true
 
     -
         name: RPL_COMMANDS
         numeric: "702"
         origin: InspIRCd 2.0
         format: "<client> :<command> <module name> <minimum parameters>"
-        conflict: true
+        obsolete: true
         comment: "Moved to 700 in InspIRCd 3.0"
 
     -
@@ -4063,14 +4061,13 @@ values:
         origin: RatBox
         format: "<client> :<text>"
         comment: Terminates MODLIST output
-        conflict: true
 
     -
         name: RPL_COMMANDSEND
         numeric: "703"
         origin: InspIRCd 2.0
         format: "<client> :End of COMMANDS list"
-        conflict: true
+        obsolete: true
         comment: "Moved to 701 in InspIRCd 3.0"
 
     -
@@ -4650,6 +4647,7 @@ values:
         origin: InspIRCd
         format: "<client> <channel> <message> :Your message contained a censored word, and was blocked"
         comment: "Replaced with ERR_CANNOTSENDTOCHAN in InspIRCd 3.0."
+        obsolete: true
 
     -
         name: ERR_ALREADYCHANFILTERED
@@ -4882,7 +4880,6 @@ values:
         origin: InspIRCd
         format: "<client> :DCCALLOW command not understood"
         comment: "Used by InspIRCd's m_dccallow module."
-        conflict: true
 
     -
         name: RPL_DCCALLOWHELP
@@ -4890,7 +4887,7 @@ values:
         origin: InspIRCd
         format: "<client> :<help>"
         comment: "Used by InspIRCd's m_dccallow module."
-        conflict: true
+        obsolete: true
 
     -
         name: RPL_ENDOFDCCALLOWHELP
