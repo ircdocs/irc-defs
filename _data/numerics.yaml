@@ -211,19 +211,16 @@ values:
         name: RPL_MAP
         numeric: "015"
         origin: ircu
-        conflict: true
 
     -
         name: RPL_MAPMORE
         numeric: "016"
         origin: ircu
-        conflict: true
 
     -
         name: RPL_MAPEND
         numeric: "017"
         origin: ircu
-        conflict: true
         comment: >
             Also known as RPL_ENDMAP (InspIRCd)
 
