@@ -1,15 +1,15 @@
 # clientcaps.yaml
 #
-# This file is Copyright (c) 2016 Daniel Oaks
+# This file is Copyright (c) 2016-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "clientcaps"
     revision: "0.10"
 
@@ -53,7 +53,7 @@ table:
             markdown: true
 
 # The following format is used through-out this file. The first field
-# ('name') is manditory, the others may or may not exist.
+# ('name') is mandatory, the others may or may not exist.
 
 format:
     name: token name
@@ -107,7 +107,7 @@ values:
         format: "cap-notify"
         information: "http://ircv3.net/specs/extensions/cap-notify-3.2.html"
         comment: >
-            Notifies clients when client capabilities become availiable or are
+            Notifies clients when client capabilities become available or are
             no longer available.
 
             Implicitly enabled with `CAP LS 302` or higher.
@@ -127,7 +127,7 @@ values:
         comment: >
             Notifies clients when their `PRIVMSG` and `NOTICE`s are correctly
             received by the server. Will be more useful for general clients
-            when the IRCv3 WG standardises their `id` tag to let clients track
+            when the IRCv3 WG standardizes their `id` tag to let clients track
             these messages properly.
 
     -
@@ -157,7 +157,7 @@ values:
         information: "http://ircv3.net/specs/extensions/invite-notify-3.2.html"
         comment: >
             Notifies clients when other clients are invited to common channels.
-            The notify messages are generally only sent to privilidged channel
+            The notify messages are generally only sent to privileged channel
             members.
 
     -
@@ -190,7 +190,7 @@ values:
         format: "sasl[=mechanism{,mechanism}]"
         information: "http://ircv3.net/specs/extensions/sasl-3.2.html"
         comment: >
-            Indicates support for SASL authentication, a standardised way for
+            Indicates support for SASL authentication, a standardized way for
             clients to identify for an account. Replaces the
             `NICKSERV IDENTIFY` command / private message and lets IRC clients
             build better interfaces for account auth.

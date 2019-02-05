@@ -8,19 +8,6 @@ layout: default
     html, body {
         font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
     }
-    footer {
-        margin: 0.5rem 0;
-        font-size: 90%;
-    }
-
-    header h1 {
-        margin-bottom: 0;
-    }
-    header h1 + p {
-        margin-top: 0.25rem;
-        color: #494949;
-    }
-
     table {
         width: 100%;
         background-color: #888;
@@ -47,7 +34,6 @@ layout: default
     .center {
         text-align: center;
     }
-
     tbody tr {
         font-size: 97.5%;
     }
@@ -55,7 +41,6 @@ layout: default
         font-family: Courier, monospace;
         font-size: 90%;
     }
-
     .list-container {
         display: flex;
         flex-wrap: wrap;
@@ -75,7 +60,6 @@ layout: default
     .defs + .defs {
         margin-top: 2rem;
     }
-
     h2 {
         margin-top: 0;
         margin-bottom: 0.93rem;
@@ -102,55 +86,46 @@ layout: default
 
 </style>
 
-<h1>IRC Definition Files</h1>
-
+<h1>{{ page.title }}</h1>
 <p>These files note interesting and useful information about IRC software. They are designed for IRC software developers, <strong>not</strong> regular IRC users.</p>
-
-<p>The source code for this site is available on Github under <a href="https://github.com/ircdocs/irc-defs">ircdocs/irc-defs</a>. Pull requests to correct or update these lists are welcomed.<br>You can also talk to us at <a href="ircs://irc.freenode.net:6697/#ircdocs">#ircdocs on Freenode</a>.</p>
-
-<p>These files are based on the original lists from <a href="https://www.alien.net.au/irc/">alien.net.au</a>, and are being updated and corrected to account for new software and versions.</p>
-
+<p>A number of these files are based on the original lists from <a href="https://www.alien.net.au/irc/">alien.net.au</a> and are being updated and corrected to account for new software and versions.</p>
+<p>The source code for this site is available on GitHub, under <a href="https://github.com/ircdocs/irc-defs">ircdocs/irc-defs</a>. Pull requests to correct or update these lists are welcomed.
+<br />You can also talk to us at <a href="ircs://chat.freenode.net:6697/#ircdocs">#ircdocs on freenode</a>.</p>
 <div class="list-container">
     <div class="list">
         <div class="defs">
             <h2>Numerics and Modes</h2>
-            <hr/>
-
-            <h3>Numerics</h3>
+            <hr />
+            <h3>{{ site.data.numerics.page.name }}</h3>
             <ul>
                 <li><a href="defs/numerics.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/numerics.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>User Modes</h3>
-            <ul>
-                <li><a href="defs/usermodes.html">HTML Table</a></li>
-                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/usermodes.yaml">YAML Source File</a></li>
-            </ul>
-
-            <h3>Channel Modes</h3>
+            <h3>{{ site.data.chanmodes.page.name }}</h3>
             <ul>
                 <li><a href="defs/chanmodes.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chanmodes.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Server Modes</h3>
+            <h3>{{ site.data.servermodes.page.name }}</h3>
             <ul>
                 <li><a href="defs/servermodes.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/servermodes.yaml">YAML Source File</a></li>
             </ul>
+            <h3>{{ site.data.usermodes.page.name }}</h3>
+            <ul>
+                <li><a href="defs/usermodes.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/usermodes.yaml">YAML Source File</a></li>
+            </ul>
         </div>
         <div class="defs">
             <h2>Channels</h2>
-            <hr/>
-
-            <h3>Channel Member Prefixes</h3>
+            <hr />
+            <h3>{{ site.data.chanmembers.page.name }}</h3>
             <ul>
                 <li><a href="defs/chanmembers.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chanmembers.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Channel Type Prefixes</h3>
+            <h3>{{ site.data.chantypes.page.name }}</h3>
             <ul>
                 <li><a href="defs/chantypes.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/chantypes.yaml">YAML Source File</a></li>
@@ -159,22 +134,19 @@ layout: default
     </div>
     <div class="list">
         <div class="defs">
-            <h2>ISUPPORT, Caps, and Tags</h2>
-            <hr/>
-
-            <h3>RPL_ISUPPORT tokens</h3>
+            <h2>ISUPPORT, Caps and Tags</h2>
+            <hr />
+            <h3>{{ site.data.isupport.page.name }}</h3>
             <ul>
                 <li><a href="defs/isupport.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/isupport.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Client Capabilities</h3>
+            <h3>{{ site.data.clientcaps.page.name }}</h3>
             <ul>
                 <li><a href="defs/clientcaps.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/clientcaps.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Tags</h3>
+            <h3>{{ site.data.tags.page.name }}</h3>
             <ul>
                 <li><a href="defs/tags.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/tags.yaml">YAML Source File</a></li>
@@ -184,39 +156,33 @@ layout: default
     <div class="list">
         <div class="defs">
             <h2>Misc</h2>
-            <hr/>
-
-            <h3>Extended Bans (EXTBANS)</h3>
-            <ul>
-                <li><a href="defs/extbans.html">HTML Table</a></li>
-                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/extbans.yaml">YAML Source File</a></li>
-            </ul>
-
-            <h3>Server Notice Masks (SNOMASKs)</h3>
-            <ul>
-                <li><a href="defs/snomasks.html">HTML Table</a></li>
-                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/snomasks.yaml">YAML Source File</a></li>
-            </ul>
-
-            <h3>Client-to-Client Protocol (CTCP) messages</h3>
+            <hr />
+            <h3>{{ site.data.ctcp.page.name }}</h3>
             <ul>
                 <li><a href="defs/ctcp.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/ctcp.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Stats Characters</h3>
+            <h3>{{ site.data.extbans.page.name }}</h3>
+            <ul>
+                <li><a href="defs/extbans.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/extbans.yaml">YAML Source File</a></li>
+            </ul>
+            <h3>{{ site.data.snomasks.page.name }}</h3>
+            <ul>
+                <li><a href="defs/snomasks.html">HTML Table</a></li>
+                <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/snomasks.yaml">YAML Source File</a></li>
+            </ul>
+            <h3>{{ site.data.stats.page.name }}</h3>
             <ul>
                 <li><a href="defs/stats.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/stats.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Self-Messages Client Support</h3>
+            <h3>{{ site.data.selfmessage.page.name }}</h3>
             <ul>
-                <li><a href="info/selfmessages.html">HTML Table</a></li>
+                <li><a href="info/selfmessage.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/selfmessage.yaml">YAML Source File</a></li>
             </ul>
-
-            <h3>Formatting Characters Client Support</h3>
+            <h3>{{ site.data.formatting.page.name }}</h3>
             <ul>
                 <li><a href="info/formatting.html">HTML Table</a></li>
                 <li><a href="https://github.com/ircdocs/irc-defs/blob/gh-pages/_data/formatting.yaml">YAML Source File</a></li>

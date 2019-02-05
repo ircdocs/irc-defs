@@ -1,22 +1,22 @@
 # ctcp.yaml
 #
-# This file is Copyright (c) 2016 Daniel Oaks
+# This file is Copyright (c) 2016-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "ctcp"
     revision: "0.10"
 
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: Client-to-Client Protocol (CTCP) messages
+    name: Client-to-Client Protocol (CTCP) Messages
     extra: >
         <p>
             Red denotes a conflicting CTCP definition, gray for deprecated
@@ -116,7 +116,7 @@ values:
         obsolete: true
         desc: >
             Returns miscellaneous info about the user, typically the same
-            information that’s in their `realname`
+            information that's in their `realname`
 
             However, some implementations return the client name and
             version instead.
@@ -156,7 +156,7 @@ values:
         spread: Almost Universal
         information: "http://modern.ircdocs.horse/ctcp.html#time"
         desc: >
-            Return the client’s local time in an unspecified human-readable
+            Return the client's local time in an unspecified human-readable
             format. I recommend using ISO 8601 format, but raw `ctime()` output
             appears to be the most common in practice.
 
@@ -184,7 +184,7 @@ values:
         obsolete: true
         desc: >
             Returns miscellaneous info about the user, typically the same
-            information that’s in their `realname`
+            information that's in their `realname`
 
             However, some implementations return `<nickname> (<realname>)`
             instead.

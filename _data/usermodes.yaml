@@ -1,17 +1,17 @@
 # usermodes.yaml
 #
-# This file is Copyright (c) 2015-2016 Daniel Oaks
+# This file is Copyright (c) 2015-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
-# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+# This file is Copyright (c) 2001-2004 Simon Butcher
 #  <pickle@alien.net.au>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "usermodes"
     revision: "1.20"
 
@@ -75,7 +75,7 @@ table:
             description: "Additional comments, history and other details"
 
 # The following format is used through-out this file. The first two fields
-# ('irc2char' and 'name') are manditory, the others may or may not exist.
+# ('irc2char' and 'name') are mandatory, the others may or may not exist.
 
 format:
     char: mode char for irc protocol(s)
@@ -566,7 +566,7 @@ values:
         char: u
         name: UNAUTH
         origin: Hybrid
-        comment: User receives unauthorised client connection notices
+        comment: User receives unauthorized client connection notices
 
     -
         char: v

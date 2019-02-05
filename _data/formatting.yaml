@@ -1,22 +1,22 @@
 # formatting.yaml
 #
-# This file is Copyright (c) 2017 Daniel Oaks
+# This file is Copyright (c) 2017-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "formatting"
     revision: "0.01"
 
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: Formatting Characters Client Support
+    name: Formatting Characters
     extra: >
       <p>
           Special characters are used to denote formatting on IRC. These are
@@ -26,7 +26,6 @@ page:
           This table displays how clients handle each character, and (hopefully)
           give a sense of how widespread each one is.
       </p>
-    extra_bottom: >
       <p>
           <strong>Tested Clients:</strong><br/>
           AdiIRC 2.7, BitchX 1.2.1, Hexchat 2.12.4, IceChat 9.15, Instantbird 1.5, IRCCloud (2017-08-05), irssi 0.8.20, KiwiIRC (2017-07-09), Konversation 1.6 (#4910), KVIrc 4.9.2, The Lounge v2.7.0, mIRC 7.48, Quassel 0.12.4 (90183ee), WeeChat 1.7

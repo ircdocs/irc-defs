@@ -1,24 +1,24 @@
 # numerics.yaml
 #
-# This file is Copyright (c) 2015-2016 Daniel Oaks
+# This file is Copyright (c) 2015-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
-# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+# This file is Copyright (c) 2001-2004 Simon Butcher
 #  <pickle@alien.net.au>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "numerics"
     revision: "1.62"
 
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: IRC Numerics
+    name: Numerics
     extra: >
         <p>
             Red denotes a conflicting numeric definition, gray for deprecated
@@ -76,7 +76,7 @@ table:
             xml_escape: true
 
 # The following format is used through-out this file. The first two fields
-# ('name' and 'numeric') are manditory, the others may or may not exist.
+# ('name' and 'numeric') are mandatory, the others may or may not exist.
 #
 # The registration field is only used to determine if the numeric is
 # POSSIBLY* used during registration of a connection (before the main part
@@ -869,8 +869,8 @@ values:
         origin: RFC1459
         format: "<client> <server> :Administrative info"
         comment: >
-            Start of an RPL_ADMIN* reply. In practise, the server parameter
-            is often never given, and instead the last param contains the
+            Start of an RPL_ADMIN* reply. In practice, the server parameter
+            is often never given, and instead the last parameter contains the
             text 'Administrative info about <server>'. Newer daemons seem to
             follow the RFC and output the server's hostname in the last
             parameter, but also output the server name in the text as per
@@ -928,7 +928,7 @@ values:
         format: "<client> <command> :Please wait a while and try again."
         comment: >
             When a server drops a command without processing it, it MUST use
-            this reply. The last param text changes, and commonly provides the
+            this reply. The last parameter text changes, and commonly provides the
             client with more information about why the command could not be
             processed (such as rate-limiting). Also known as RPL_LOAD_THROTTLED
             and RPL_LOAD2HI, I'm presuming they do the same thing.
@@ -2023,7 +2023,7 @@ values:
         format: "<client> :<text>"
         comment: >
             Used during the connection (after MOTD) to announce the network
-            policy on spam and privacy. Supposedly now obsoleted in favour
+            policy on spam and privacy. Supposedly now obsoleted in favor
             of using NOTICE.
 
         obsolete: true
@@ -2091,7 +2091,7 @@ values:
         origin: RFC1459
         format: "<client> :<info>"
         comment: >
-            Successful reply from OPER. Also known asRPL_YOUAREOPER (InspIRCd)
+            Successful reply from OPER. Also known as RPL_YOUAREOPER (InspIRCd)
 
     -
         name: RPL_REHASHING
@@ -2143,7 +2143,7 @@ values:
         format: ":*"
         comment: >
             Used by Hybrid's old OpenSSL OPER CHALLENGE response. This
-            has been obsoleted in favour of SSL cert fingerprinting in
+            has been obsoleted in favor of SSL cert fingerprinting in
             oper blocks
         conflict: true
         obsolete: true
@@ -2198,7 +2198,7 @@ values:
         origin: ircu
         format: "<client> <server> <timestamp> <offset> :<time string>"
         comment: >
-            This extention adds the timestamp and timestamp-offet
+            This extension adds the timestamp and timestamp-offset
             information for clients.
 
         conflict: true
@@ -2266,7 +2266,7 @@ values:
         comment: >
             Also known as RPL_YOURDISPLAYEDHOST (InspIRCd) or RPL_HOSTHIDDEN
             (ircu, charybdis, Quakenet, Unreal). <hostname> can also be in the
-            form <user@hostname> (Quakenet)
+            form <user@hostname> (Quakenet).
 
     -
         name: RPL_CLONES
@@ -2279,7 +2279,7 @@ values:
         numeric: "400"
         format: "<client> <command> [<?>] :<info>"
         comment: >
-            Sent when an error occured executing a command, but it is not
+            Sent when an error occurred executing a command, but it is not
             specifically known why the command could not be executed.
 
     -
@@ -2791,7 +2791,7 @@ values:
         origin: RFC1459
         format: "<client> :<reason>"
         comment: >
-            Returned to a client which attempts to register with a server
+            Returned to a client, which attempts to register with a server
             which has been configured to refuse connections from the
             client's host
 
@@ -2896,7 +2896,7 @@ values:
         origin: RFC1459
         format: "<client> <channel> :<reason>"
         comment: >
-            Returned when attempting to join a channel which is invite only
+            Returned when attempting to join a channel, which is invite only
             without an invitation
 
     -
@@ -2929,7 +2929,7 @@ values:
         origin: RFC2812
         format: "<client> <channel> :<reason>"
         comment: >
-            Returned when attempting to set a mode on a channel which does
+            Returned when attempting to set a mode on a channel, which does
             not support channel modes, or channel mode changes. Also known
             as ERR_MODELESS
 
@@ -2945,7 +2945,7 @@ values:
         name: ERR_BANLISTFULL
         numeric: "478"
         origin: RFC2812
-        format: "<client> <channel> [<char>] :<reason>"
+        format: "<client> <channel> [char] :<reason>"
         comment: >
             Returned when a channel access list (i.e. ban list etc) is full
             and cannot be added to
@@ -3380,7 +3380,7 @@ values:
         format: "<client> :<warning_text>"
         comment: >
             Warning about Virtual-World being turned off. Obsoleted in
-            favour for RPL_MODECHANGEWARN
+            favor for RPL_MODECHANGEWARN
 
         seealso: "RPL_MODECHANGEWARN (662)"
         obsolete: true
@@ -3505,7 +3505,7 @@ values:
         origin: AustHex
         contact: "mailto:dev@austnet.org"
         comment: >
-            This is considered obsolete in favour of ERR_TOOMANYMATCHES, and
+            This is considered obsolete in favor of ERR_TOOMANYMATCHES, and
             should no longer be used.
 
         seealso: "ERR_TOOMANYMATCHES (416)"
@@ -3999,7 +3999,7 @@ values:
         origin: IRCv3
         format: "<client> :STARTTLS failed (Wrong moon phase)"
         contact: "http://ircv3.net/specs/extensions/tls-3.1.html"
-        comment: Indicates that a server-side error has occured
+        comment: Indicates that a server-side error has occurred
 
     -
         name: ERR_INVALIDMODEPARAM
@@ -4167,7 +4167,7 @@ values:
         origin: Hybrid
         format: "<client> <channel> :Too many INVITEs (<channel/user>)."
         comment: >
-            Sent to indicate an INVITE has been blocked. The last param is
+            Sent to indicate an INVITE has been blocked. The last parameter is
             the literal string "channel" if this is because the channel has
             had too many INVITEs in a given time, and "user" if this is
             because the user has sent too many INVITEs in a given time
@@ -4500,7 +4500,7 @@ values:
         contact: "mailto:wd@telekinesis.org"
         comment: >
             Used to send 'eXtended info' to the client, a replacement for
-            the STATS command to send a large variety of data and minimise
+            the STATS command to send a large variety of data and minimize
             numeric pollution.
 
     -
@@ -4547,7 +4547,7 @@ values:
         contact: "http://ircv3.net/"
         format: "<client> <nick>!<ident>@<host> <account> :You are now logged in as <user>"
         comment: >
-            Sent when the user’s account name is set (whether by SASL or
+            Sent when the user's account name is set (whether by SASL or
             otherwise)
 
     -
@@ -4557,7 +4557,7 @@ values:
         contact: "http://ircv3.net/"
         format: "<client> <nick>!<ident>@<host> :You are now logged out"
         comment: >
-            Sent when the user’s account name is unset (whether by SASL or
+            Sent when the user's account name is unset (whether by SASL or
             otherwise)
 
     -
@@ -4780,7 +4780,7 @@ values:
         format: "<client> <mode> :<info>"
         conflict: true
         comment: >
-            Indicates that a channel mode could not be changeded for an
+            Indicates that a channel mode could not be changed for an
             arbitrary reason. For instance, trying to set OPER_ONLY when you
             are not an IRC operator.
 

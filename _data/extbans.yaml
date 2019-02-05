@@ -1,15 +1,15 @@
 # extbans.yaml
 #
-# This file is Copyright (c) 2016 Daniel Oaks
+# This file is Copyright (c) 2016-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "extbans"
     revision: "0.10"
 
@@ -115,7 +115,7 @@ values:
         origin: InspIRCd
         ban-type: Acting
         desc: >
-            Blocks any messages that contain colour codes from matching users.
+            Blocks any messages that contain color codes from matching users.
 
         conflict: true
     -

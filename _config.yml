@@ -1,11 +1,11 @@
-name: IRC Definitions
+name: IRC Definition Lists
 markdown: kramdown
 highlighter: rouge
-# baseurl: http://defs.ircdocs.horse/
+# baseurl: https://defs.ircdocs.horse/
 exclude:
   - README.md
   - vendor
-gems:
+plugins:
   - jekyll-sitemap
 sitemap:
   file: "/sitemap.xml"

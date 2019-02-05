@@ -1,22 +1,22 @@
 # stats.yaml
 #
-# This file is Copyright (c) 2016 Daniel Oaks
+# This file is Copyright (c) 2016-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "stats"
     revision: "0.10"
 
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: Stats Characters
+    name: STATS Characters
     extra: >
         <p>
             Red denotes a conflicting extban definition, gray for deprecated
@@ -222,7 +222,7 @@ values:
         name: hubs-leafs
         origin: RFC1459
         desc: >
-            Shows servers that are either forced to be treated as leaves or may
+            Shows servers that either are forced to be treated as leaves or may
             act as hubs.
     -
         char: H

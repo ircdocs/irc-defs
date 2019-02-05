@@ -1,6 +1,6 @@
 # isupport.yaml
 #
-# This file is Copyright (c) 2015-2018 Daniel Oaks
+# This file is Copyright (c) 2015-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
 # This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
@@ -9,14 +9,14 @@
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "isupport"
     revision: "0.12"
 
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: RPL_ISUPPORT tokens
+    name: RPL_ISUPPORT Tokens
     extra: >
         <p>
             Red denotes a conflicting token definition, gray for deprecated
@@ -283,7 +283,9 @@ values:
             Indicates the types of "extended bans" that the server supports.
             `"prefix"` defines the character that indicates an extban to the
             server and `"types"` is a list of characters indicating which
-            types of extended bans the server supports.
+            types of extended bans the server supports. If `"prefix"` does not
+            exist, then the server does not require a prefix for extended bans
+            and they should be sent with no prefix.
 
             Extended bans may allow clients to issue bans based on account
             name, SSL certificate fingerprints and other attributes, based on

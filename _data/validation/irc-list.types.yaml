@@ -1,7 +1,7 @@
 datatable:
   type: dict
   kids:
-    file_info:
+    file:
       type: dict
       kids:
         type:
@@ -15,9 +15,6 @@ datatable:
           type: string
         extra:
           type: string
-        extra_bottom:
-          type: string
-          required: false
     table:
       type: dict
       kids:

@@ -1,17 +1,17 @@
 # chanmodes.yaml
 #
-# This file is Copyright (c) 2015-2016 Daniel Oaks
+# This file is Copyright (c) 2015-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
-# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+# This file is Copyright (c) 2001-2004 Simon Butcher
 #  <pickle@alien.net.au>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "chanmodes"
     revision: "1.20"
 
@@ -76,7 +76,7 @@ table:
             description: "Additional comments, history and other details"
 
 # The following format is used through-out this file. The first two fields
-# ('irc2char' and 'name') are manditory, the others may or may not exist.
+# ('irc2char' and 'name') are mandatory, the others may or may not exist.
 
 format:
     char: mode char for irc2 based protocol(s)
@@ -166,7 +166,7 @@ values:
         name: NOCOLOUR
         origin: Bahamut
         comment: >
-            Stops colour from being broadcast from the channel. Some
+            Stops color from being broadcast from the channel. Some
             implementations drop lines, some implementations strip it.
 
         conflict: true
@@ -268,7 +268,7 @@ values:
         name: FREE_TARGET
         origin: Charybdis?
         comment: >
-            Anyone may set FORWARDs to this channel (otherwise ops are necessary)
+            Anyone may set FORWARDs to this channel (otherwise, ops are necessary)
 
         conflict: true
         seealso: FORWARD
@@ -514,7 +514,7 @@ values:
         comment: >
             Marks the channel as private. Using this form, +p cannot be set
             with +s at the same time. Setting +p while +s is set turns off
-            +s, and vice-versa. This is widely considered obsolete in favour
+            +s, and vice-versa. This is widely considered obsolete in favor
             of the secret mode (+s).
 
         obsolete: true

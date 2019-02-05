@@ -1,15 +1,7 @@
-<header>
-    <h1>{{ info.page.name }}</h1>
-    <p>Revision {{ info.file_info.revision }}</p>
-</header>
+<h1>{{ info.page.name }}</h1>
+<p>Revision {{ info.file.revision }}</p>
 
 {{ info.page.extra }}
-
-<p>This file is intended to be a useful resource for people implementing IRC software and is <em>not</em> an authoritative source.<br/>It is kept up-to-date and correct on a best-effort basis. Feel free to check out the other files maintained <a title="IRC Definition files" href="../..">here</a>.</p>
-
-<p>Updates? Corrections? Please submit an issue or a pull request on the <a href="https://github.com/ircdocs/irc-defs">Github repo</a> or talk to us at <a href="ircs://irc.freenode.net:6697/#ircdocs">#ircdocs on Freenode</a>. Thank you!</p>
-
-{% if info.page.extra_bottom %}{{ info.page.extra_bottom }}{% endif %}
 
 <style>
 
@@ -20,15 +12,6 @@
         margin: 0.5rem 0;
         font-size: 90%;
     }
-
-    header h1 {
-        margin-bottom: 0;
-    }
-    header h1 + p {
-        margin-top: 0.25rem;
-        color: #494949;
-    }
-
     table {
         width: 100%;
         background-color: #888;
@@ -149,11 +132,5 @@
 </table>
 
 <footer>
-    {{ info.page.name }}
-    &middot;
-    Revision {{ info.file_info.revision }}
-    &middot;
-    The canonical copies of these lists are located at <a href="http://defs.ircdocs.horse/">defs.ircdocs.horse</a>
-    &middot;
-    Based on the lists at <a href="https://www.alien.net.au/irc/">alien.net.au</a>
+    The canonical copy of this list is located on <a href="http://defs.ircdocs.horse/">defs.ircdocs.horse</a>
 </footer>

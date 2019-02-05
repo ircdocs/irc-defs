@@ -1,24 +1,24 @@
 # selfmessage.yaml
 #
-# This file is Copyright (c) 2017 dx
+# This file is Copyright (c) 2017-2019 dx
 #  <dx@dxzone.com.ar>
-# This file is Copyright (c) 2017 Daniel Oaks
+# This file is Copyright (c) 2017-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "selfmessage"
     revision: "1.0"
 
 # The following information is used to create pretty HTML page and tables
 
 page:
-    name: Self-Messages Client Support
+    name: self-message support
     extra: >
         <p>
             When a server sends a PRIVMSG/NOTICE to someone else on behalf of a client
@@ -145,7 +145,7 @@ values:
       comment: Shows messages in server window
 
     - name: mIRC
-      last-tested-version: "7.47"
+      last-tested-version: "7.52"
       script-required: "Yes"
       script: http://wiki.znc.in/Privmsg/mIRC
       comment: Shows messages in window with client's own nick

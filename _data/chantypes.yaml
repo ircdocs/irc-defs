@@ -1,17 +1,17 @@
 # chantypes.yaml
 #
-# This file is Copyright (c) 2015-2016 Daniel Oaks
+# This file is Copyright (c) 2015-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
-# This file is Copyright (c) 2001,2002,2003,2004 Simon Butcher
+# This file is Copyright (c) 2001-2004 Simon Butcher
 #  <pickle@alien.net.au>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "chantypes"
     revision: "1.60"
 
@@ -63,9 +63,9 @@ table:
 
 
 # The following format is used through-out this file. The fields 'name' and
-# 'prefixchar' are manditory, the others may or may not exist.
+# 'prefixchar' are mandatory, the others may or may not exist.
 # 
-# The 'clientcreate' field determins whether or not a normal client may
+# The 'clientcreate' field determines whether or not a normal client may
 # create a channel of that type. If it's set to no, then the channel must
 # be created some other way (such as a service, server, or even an operator).
 

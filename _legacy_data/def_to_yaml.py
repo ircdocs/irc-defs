@@ -50,14 +50,14 @@ def parse_def_file(name, text):
                 args[data.group('name')] = data.group('description')
 
     # parse out file info
-    file_info = OrderedDict()
+    file = OrderedDict()
     info_lines, text = text.lstrip().split('\n\n', 1)
     info_lines = info_lines.split('\n')
 
     for line in info_lines:
         data = RE_INFO_LINE.search(line)
         if data and data.group('key') != 'lastupdated':
-            file_info[data.group('key')] = data.group('value').strip()
+            file[data.group('key')] = data.group('value').strip()
 
     # parse out values string
     values_str = []
@@ -110,9 +110,9 @@ def parse_def_file(name, text):
 #
 {initial_comment}
 
-file_info:
+file:
     type: "{name}"
-{file_info}
+{file}
 
 {form_comment}
 
@@ -123,7 +123,7 @@ values:
 {values}
 """.format(name=name,
            initial_comment=initial_comment,
-           file_info='\n'.join(['    {k}: "{v}"'.format(k=k, v=v) for k, v in file_info.items()]),
+           file='\n'.join(['    {k}: "{v}"'.format(k=k, v=v) for k, v in file.items()]),
            form_comment=form_comment,
            form_args='\n'.join(['    {k}: "{v}"'.format(k=k, v=v) if ',' in v else '    {k}: {v}'.format(k=k, v=v) for k, v in args.items()]),
            values=textwrap.indent(values_str, '    ')))

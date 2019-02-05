@@ -1,15 +1,15 @@
 # snomasks.yaml
 #
-# This file is Copyright (c) 2017 Daniel Oaks
+# This file is Copyright (c) 2017-2019 Daniel Oaks
 #  <daniel@danieloaks.net>
 #
-# This file is PUBLIC DOMAIN, to benifit the IRC developer community. If you
+# This file is PUBLIC DOMAIN, to benefit the IRC developer community. If you
 # modify this file, please state your name and modifications here in order
 # for people to be able to distinguish between your version and this version.
 #
 # For more information or corrections, please contact the author.
 
-file_info:
+file:
     type: "snomasks"
     revision: "0.10"
 
@@ -165,7 +165,7 @@ values:
         name: GLINE_AND_SHUN
         origin: UnrealIRCd
         desc: >
-            Allows recept of G-LINE and SHUN notices.
+            Allows receipt of G-LINE and SHUN notices.
         conflict: true
     -
         char: j
