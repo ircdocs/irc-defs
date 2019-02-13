@@ -3198,7 +3198,7 @@ values:
     -
         name: ERR_ALLMUSTSSL
         numeric: "490"
-        origin: "Unreal, apparently"
+        origin: "InspIRCd"
         format: "<client> <channel> :all members of the channel must be connected via SSL"
         conflict: true
 
