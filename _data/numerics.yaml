@@ -1769,6 +1769,15 @@ values:
         origin: InspIRCd 3.0
         format: "<client> <country code> :is located in this country"
         comment: "Used by InspIRCd's m_geoip module."
+        conflict: true
+
+    -
+        name: RPL_REOPLIST
+        numeric: "344"
+        origin: IRCnet
+        format: "<client> <channel> <mask>"
+        comment: "MODE +R query"
+        conflict: true
 
     -
         name: RPL_INVITED
@@ -1779,6 +1788,15 @@ values:
         comment: >
             Sent to users on a channel when an INVITE command has been
             issued. Also known as RPL_ISSUEDINVITE (ircu)
+        conflict: true
+
+    -
+        name: RPL_ENDOFREOPLIST
+        numeric: "345"
+        origin: IRCnet
+        format: "<client> <channel>: :End of Channel Reop List"
+        comment: "MODE +R query"
+        conflict: true
 
     -
         name: RPL_INVITELIST
