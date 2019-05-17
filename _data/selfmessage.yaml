@@ -84,6 +84,10 @@ values:
       script: http://wiki.znc.in/Privmsg/AdiIRC
       comment: Shows messages in window with client's own nick
 
+    - name: Adium
+      last-tested-version: 1.5.10.4
+      comment: Drops messages
+
     - name: AndChat
       last-tested-version: 1.4.3.2
       comment: Shows messages in window with client's own nick
