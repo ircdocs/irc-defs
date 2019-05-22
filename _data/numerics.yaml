@@ -4013,6 +4013,7 @@ values:
         format: "<client> <nick> <language codes> :can speak these languages"
         comment: >
              Reply to WHOIS command - A list of languages someone can speak. The language codes are comma delimited
+        conflict: true
 
     -   namme: ERR_REDIRECT
         numeric: "690"
@@ -4021,6 +4022,7 @@ values:
         comment: >
             Indicates an error when setting a channel redirect (MODE +L)
             or using the banredirect module
+        conflict: true
             
 
     -
