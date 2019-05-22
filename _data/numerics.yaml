@@ -4010,7 +4010,7 @@ values:
     -   name: RPL_WHOISLANGUAGE
         numeric: "690"
         origin: KineIRCd
-        format: <client> <nick> <language codes> :can speak these languages
+        format: "<client> <nick> <language codes> :can speak these languages"
         comment: >
              Reply to WHOIS command - A list of languages someone can speak. The language codes are comma delimited
 
