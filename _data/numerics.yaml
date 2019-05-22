@@ -4017,7 +4017,7 @@ values:
         conflict: true
 
     -   
-        namme: ERR_REDIRECT
+        name: ERR_REDIRECT
         numeric: "690"
         origin: InspIRCd
         format: "<client> :Target channel #chan must exist to be set as a redirect"
