@@ -4008,15 +4008,6 @@ values:
             Used to display the user's TS6 UID in WHOIS.
 
     -   
-        name: RPL_WHOISLANGUAGE
-        numeric: "690"
-        origin: KineIRCd
-        format: "<client> <nick> <language codes> :can speak these languages"
-        comment: >
-             Reply to WHOIS command - A list of languages someone can speak. The language codes are comma delimited
-        conflict: true
-
-    -   
         name: ERR_REDIRECT
         numeric: "690"
         origin: InspIRCd
@@ -4024,7 +4015,6 @@ values:
         comment: >
             Indicates an error when setting a channel redirect (MODE +L)
             or using the banredirect module
-        conflict: true
             
 
     -
