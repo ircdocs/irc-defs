@@ -4007,9 +4007,21 @@ values:
         comment: >
             Used to display the user's TS6 UID in WHOIS.
 
-    -   name: RPL_LANGUAGES
+    -   name: RPL_WHOISLANGUAGE
         numeric: "690"
-        origin: Unreal?
+        origin: KineIRCd
+        format: <client> <nick> <language codes> :can speak these languages
+        comment: >
+             Reply to WHOIS command - A list of languages someone can speak. The language codes are comma delimited
+
+    -   namme: ERR_REDIRECT
+        numeric: "690"
+        origin: InspIRCd
+        format: "<client> :Target channel #chan must exist to be set as a redirect"
+        comment: >
+            Indicates an error when setting a channel redirect (MODE +L)
+            or using the banredirect module
+            
 
     -
         name: ERR_STARTTLS
