@@ -4007,7 +4007,8 @@ values:
         comment: >
             Used to display the user's TS6 UID in WHOIS.
 
-    -   name: RPL_WHOISLANGUAGE
+    -   
+        name: RPL_WHOISLANGUAGE
         numeric: "690"
         origin: KineIRCd
         format: "<client> <nick> <language codes> :can speak these languages"
@@ -4015,7 +4016,8 @@ values:
              Reply to WHOIS command - A list of languages someone can speak. The language codes are comma delimited
         conflict: true
 
-    -   namme: ERR_REDIRECT
+    -   
+        namme: ERR_REDIRECT
         numeric: "690"
         origin: InspIRCd
         format: "<client> :Target channel #chan must exist to be set as a redirect"
