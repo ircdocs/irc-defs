@@ -1766,9 +1766,17 @@ values:
     -
         name: RPL_WHOISCOUNTRY
         numeric: "344"
-        origin: InspIRCd 3.0
-        format: "<client> <country code> :is located in this country"
+        origin: InspIRCd 2.0
+        format: "<client> <nick> :is connected from <country> <country code>"
         comment: "Used by InspIRCd's m_geoip module."
+        conflict: true
+
+    -
+        name: RPL_WHOISCOUNTRY
+        numeric: "344"
+        origin: InspIRCd 3.0
+        format: "<client> <nick> <country code> :is connecting from <country>"
+        comment: "Used by InspIRCd's m_geoban module."
         conflict: true
 
     -
