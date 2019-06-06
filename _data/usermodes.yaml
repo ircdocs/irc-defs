@@ -659,9 +659,10 @@ values:
 
     -
         char: z
-        name: SECURE_CONN
+        name: SECURE
         origin: Unreal
-        comment: "User is connected via SSL/TLS"
+        comment: >
+            User is connected via SSL/TLS. See also +Z SSLCLIENT.
         conflict: true
 
     -
@@ -670,7 +671,8 @@ values:
         origin: InspIRCd
         comment: >
             Prevents messages from being sent to or received from a
-            user that is not connected using SSL/TLS.
+            user that is not connected using SSL/TLS. See also
+            +Z SECURED_ONLY.
         conflict: true
 
     -
@@ -679,12 +681,14 @@ values:
         origin: Unreal
         comment: >
             Prevents messages from being sent to or received from a
-            user that is not connected using SSL/TLS.
+            user that is not connected using SSL/TLS. See also
+            +z SSLQUERIES.
         conflict: true
 
     -
         char: Z
         name: SSLCLIENT
         origin: ircd-seven?
-        comment: "User is connected via SSL/TLS"
+        comment: >
+            User is connected via SSL/TLS. See also +z SECURE.
         conflict: true
