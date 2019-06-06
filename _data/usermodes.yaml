@@ -516,7 +516,9 @@ values:
         char: S
         name: SSL
         origin: Hybrid?
-        comment: "User is connected via SSL/TLS"
+        comment: >
+            User is connected via SSL/TLS. See also +Z SSLCLIENT
+            and +z SECURE.
         server_on: Y
         server_off: Y
         conflict: true
@@ -662,7 +664,8 @@ values:
         name: SECURE
         origin: Unreal
         comment: >
-            User is connected via SSL/TLS. See also +Z SSLCLIENT.
+            User is connected via SSL/TLS. See also +Z SSLCLIENT and
+            +S SSL.
         conflict: true
 
     -
@@ -690,5 +693,6 @@ values:
         name: SSLCLIENT
         origin: ircd-seven?
         comment: >
-            User is connected via SSL/TLS. See also +z SECURE.
+            User is connected via SSL/TLS. See also +z SECURE and
+            +S SSL.
         conflict: true
