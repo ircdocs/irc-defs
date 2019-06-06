@@ -801,3 +801,13 @@ values:
         comment: >
             Allows the display and modification of channel modes with long-form
             names.
+        conflict: true
+
+    -
+        char: Z
+        name: ISSECURE
+        origin: Unreal
+        comment: >
+            All users currently in the channel are connected through SSL
+            (set and unset as users part and join)
+        conflict: true
