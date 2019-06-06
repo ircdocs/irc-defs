@@ -661,7 +661,7 @@ values:
         char: z
         name: SECURE_CONN
         origin: Unreal
-        comment: User is securely connected
+        comment: "User is connected via SSL/TLS"
         conflict: true
 
     -
@@ -670,7 +670,7 @@ values:
         origin: InspIRCd
         comment: >
             Prevents messages from being sent to or received from a
-            user that is not connected using SSL.
+            user that is not connected using SSL/TLS.
         conflict: true
 
     -
@@ -678,8 +678,8 @@ values:
         name: SECURED_ONLY
         origin: Unreal
         comment: >
-            Only allows clients connected via secure connections to talk with
-            you (eg. TLS)
+            Prevents messages from being sent to or received from a
+            user that is not connected using SSL/TLS.
         conflict: true
 
     -
