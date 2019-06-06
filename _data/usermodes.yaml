@@ -671,3 +671,11 @@ values:
         comment: >
             Only allows clients connected via secure connections to talk with
             you (eg. TLS)
+        conflict: true
+
+    -
+        char: Z
+        name: SSLCLIENT
+        origin: ircd-seven?
+        comment: "User is connected via SSL/TLS"
+        conflict: true
