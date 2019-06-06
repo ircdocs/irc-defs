@@ -665,6 +665,15 @@ values:
         conflict: true
 
     -
+        char: z
+        name: SSLQUERIES
+        origin: InspIRCd
+        comment: >
+            Prevents messages from being sent to or received from a
+            user that is not connected using SSL.
+        conflict: true
+
+    -
         char: Z
         name: SECURED_ONLY
         origin: Unreal
