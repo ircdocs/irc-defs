@@ -684,7 +684,7 @@ values:
         origin: Hybrid?
         comment: >
             Only allows clients connected via secure connections to join
-            (eg. TLS)
+            (eg. TLS). See also +z SECUREONLY.
 
         conflict: true
 
@@ -777,11 +777,11 @@ values:
 
     -
         char: z
-        name: SECURED_ONLY
+        name: SECUREONLY
         origin: Unreal
         comment: >
             Only allows clients connected via secure connections to join
-            (eg. TLS)
+            (eg. TLS). See also +S SECURED_ONLY.
 
         conflict: true
 
@@ -801,3 +801,13 @@ values:
         comment: >
             Allows the display and modification of channel modes with long-form
             names.
+        conflict: true
+
+    -
+        char: Z
+        name: ISSECURE
+        origin: Unreal
+        comment: >
+            All users currently in the channel are connected through SSL
+            (set and unset as users part and join)
+        conflict: true

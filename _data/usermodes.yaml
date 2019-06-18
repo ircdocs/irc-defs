@@ -516,7 +516,9 @@ values:
         char: S
         name: SSL
         origin: Hybrid?
-        comment: "User is connected via SSL/TLS"
+        comment: >
+            User is connected via SSL/TLS. See also +Z SSLCLIENT
+            and +z SECURE.
         server_on: Y
         server_off: Y
         conflict: true
@@ -659,9 +661,21 @@ values:
 
     -
         char: z
-        name: SECURE_CONN
+        name: SECURE
         origin: Unreal
-        comment: User is securely connected
+        comment: >
+            User is connected via SSL/TLS. See also +Z SSLCLIENT and
+            +S SSL.
+        conflict: true
+
+    -
+        char: z
+        name: SSLQUERIES
+        origin: InspIRCd
+        comment: >
+            Prevents messages from being sent to or received from a
+            user that is not connected using SSL/TLS. See also
+            +Z SECURED_ONLY.
         conflict: true
 
     -
@@ -669,5 +683,16 @@ values:
         name: SECURED_ONLY
         origin: Unreal
         comment: >
-            Only allows clients connected via secure connections to talk with
-            you (eg. TLS)
+            Prevents messages from being sent to or received from a
+            user that is not connected using SSL/TLS. See also
+            +z SSLQUERIES.
+        conflict: true
+
+    -
+        char: Z
+        name: SSLCLIENT
+        origin: ircd-seven?
+        comment: >
+            User is connected via SSL/TLS. See also +z SECURE and
+            +S SSL.
+        conflict: true
