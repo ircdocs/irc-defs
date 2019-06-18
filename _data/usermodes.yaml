@@ -691,7 +691,7 @@ values:
     -
         char: Z
         name: SSLCLIENT
-        origin: ircd-seven?
+        origin: Charybdis
         comment: >
             User is connected via SSL/TLS. See also +z SECURE and
             +S SSL.
