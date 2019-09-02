@@ -123,7 +123,7 @@ values:
         format: "<client> :This server was created <date>"
         comment: >
             Part of the post-registration greeting. Text varies widely and
-            &lt;date&gt; is returned in a human-readable format. Also known as
+            <date> is returned in a human-readable format. Also known as
             RPL_SERVERCREATED (InspIRCd)
 
     -
@@ -4403,7 +4403,7 @@ values:
         format: "<client> <channel> <modechar> <mlock> :MODE cannot be set due to channel having an active MLOCK restriction policy"
         conflict: true
         comment: >
-            Some IRCDs don't send the &lt;client&gt; parameter (InspIRCd 2.0, Charybdis)
+            Some IRCDs don't send the <client> parameter (InspIRCd 2.0, Charybdis)
             while others do (InspIRCd 3.0, Unreal)
 
     -
