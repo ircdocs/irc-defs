@@ -4400,7 +4400,11 @@ values:
         name: ERR_MLOCKRESTRICTED
         numeric: "742"
         origin: Charybdis
-        format: "<channel> <modechar> <mlock> :MODE cannot be set due to channel having an active MLOCK restriction policy"
+        format: "<client> <channel> <modechar> <mlock> :MODE cannot be set due to channel having an active MLOCK restriction policy"
+        conflict: true
+        comment: >
+            Some IRCDs don't send the &lt;client&gt; parameter (InspIRCd 2.0, Charybdis)
+            while others do (InspIRCd 3.0, Unreal)
 
     -
         name: ERR_INVALIDBAN
