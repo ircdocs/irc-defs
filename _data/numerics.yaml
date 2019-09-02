@@ -4401,10 +4401,8 @@ values:
         numeric: "742"
         origin: Charybdis
         format: "<client> <channel> <modechar> <mlock> :MODE cannot be set due to channel having an active MLOCK restriction policy"
-        conflict: true
         comment: >
-            Some IRCDs don't send the <client> parameter (InspIRCd 2.0, Charybdis)
-            while others do (InspIRCd 3.0, Unreal)
+            InspIRCd 2.0 doesn't send the <client> parameter, while 3.0 does
 
     -
         name: ERR_INVALIDBAN
