@@ -161,12 +161,9 @@ values:
       works: true
 
     - name: Quassel
-      last-tested-version: "0.12.4"
-      working-since: git
+      working-since: "0.13.0"
       requested-caps: znc.in/self-message
-      works: false
-      unreleased: true
-      comment: Not included in a released version as of feb 2017.
+      works: true
 
     - name: Textual
       working-since: "2.1"
