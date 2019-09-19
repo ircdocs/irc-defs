@@ -143,6 +143,18 @@ values:
         desc: >
             Blocks messages from matching users (but does not block their
             messages if they have voice or higher).
+        
+        conflict: true
+    -
+        char: m
+        name: match
+        format: "m:<umask>"
+        origin: Charybdis
+        ban-type: Matching
+        desc: >
+            Performs a normal mask match. Allows for stacking with & and | combination operators
+        
+        conflict: true
     -
         char: N
         name: nicks
@@ -273,3 +285,16 @@ values:
         ban-type: Matching
         desc: >
             Matches users with the given certificate fingerprint.
+    -
+        char: & and |
+        name: combination
+        format: "&:<components> or |:<component>"
+        origin: Charybdis
+        ban-type: Matching
+        desc: >
+            Allows for stacking extbans. Optional pair of parens around data.
+            component bans are separated by commas, but commas between
+            matching pairs of parens are skipped.
+            Parens, commas and backslashes can be escaped by backslashes.
+            A backslash before any character other than a paren or backslash
+            is just a backslash (backslash and character are both used).
