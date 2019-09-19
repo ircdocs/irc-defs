@@ -22,6 +22,9 @@ page:
             Red denotes a conflicting extban definition, gray for deprecated
             (however quite possibly still in use), and blue for OK.
         </p>
+        <p>
+            NOTE: Charybdis supports the <code>~</code> (tilde) modifier which can appear before the extban char to negate the match.
+        </p>
 
 table:
     row-ids:
