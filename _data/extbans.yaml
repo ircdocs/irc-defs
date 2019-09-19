@@ -84,12 +84,12 @@ values:
     -
         char: a
         name: user+realname
-        format: "a:<usermask>+<realnamemask>"
+        format: "a:<umask>+<realname>"
         origin: InspIRCd 3.0
         ban-type: Matching
         desc: >
             Matches users with the given usermask and realname (`'?'` and `'*'` wildcards
-            are parsed in `<usermask>` and `<realnamemask>`).
+            are parsed in `<umask>` and `<realname>`).
         
         conflict: true
     -
