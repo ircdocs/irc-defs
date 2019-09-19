@@ -152,7 +152,7 @@ values:
         origin: Charybdis
         ban-type: Matching
         desc: >
-            Performs a normal mask match. Allows for stacking with & and \| combination operators
+            Performs a normal mask match. Allows for stacking with [and](#and) and [or](#or) combination operators
         
         conflict: true
     -
@@ -306,4 +306,4 @@ values:
         origin: Charybdis
         ban-type: Matching
         desc: >
-            Combine component bans as ORs. See (and)[#and]
+            Combine component bans as ORs. See [and](#and)
