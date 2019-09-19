@@ -23,7 +23,7 @@ page:
             (however quite possibly still in use), and blue for OK.
         </p>
         <p>
-            NOTE: Charybdis supports the <code>~</code> modifier which can appear before the extban char to negate the match.
+            NOTE: Charybdis supports the <code>~</code> (tilde) modifier which can appear before the extban char to negate the match.
         </p>
 
 table:
