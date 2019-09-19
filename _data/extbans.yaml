@@ -286,7 +286,7 @@ values:
         desc: >
             Matches users with the given certificate fingerprint.
     -
-        char: & and |
+        char: "& and |"
         name: combination
         format: "&:<components> or |:<component>"
         origin: Charybdis
