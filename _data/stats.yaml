@@ -19,7 +19,7 @@ page:
     name: STATS Characters
     extra: >
         <p>
-            Red denotes a conflicting extban definition, gray for deprecated
+            Red denotes a conflicting stat definition, gray for deprecated
             (however quite possibly still in use), and blue for OK.
         </p>
 
