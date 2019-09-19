@@ -151,8 +151,7 @@ values:
         format: "m:<umask>"
         origin: Charybdis
         ban-type: Matching
-        desc: >
-            Performs a normal mask match. Allows for stacking with & and | combination operators
+        desc: "Performs a normal mask match. Allows for stacking with & and | combination operators"
         
         conflict: true
     -
@@ -286,15 +285,22 @@ values:
         desc: >
             Matches users with the given certificate fingerprint.
     -
-        char: "& and |"
-        name: combination
-        format: "&:<components> or |:<component>"
+        char: "&"
+        name: combination-and
+        format: "&:<components>"
         origin: Charybdis
         ban-type: Matching
-        desc: >
+        desc: "Combine component bans as ANDs.
             Allows for stacking extbans. Optional pair of parens around data.
             component bans are separated by commas, but commas between
             matching pairs of parens are skipped.
             Parens, commas and backslashes can be escaped by backslashes.
             A backslash before any character other than a paren or backslash
-            is just a backslash (backslash and character are both used).
+            is just a backslash (backslash and character are both used)."
+    -
+        char: "|"
+        name: combination-or
+        format: "|:<components>"
+        origin: Charybdis
+        ban-type: Matching
+        desc: "Combine component bans as ORs. See combination-and"
