@@ -82,6 +82,19 @@ values:
             Matches all logged-in users, or if `<mask>` is given then only
             matches users who are logged in with the given account (`'?'` and
             `'*'` wildcards are parsed in `<mask>`).
+        
+        conflict: true
+    -
+        char: a
+        name: user+realname
+        format: "a:<umask>+<realname>"
+        origin: InspIRCd 3.0
+        ban-type: Matching
+        desc: >
+            Matches users with the given usermask and realname (`'?'` and `'*'` wildcards
+            are parsed in `<umask>` and `<realname>`).
+        
+        conflict: true
     -
         char: A
         name: allowinvite
