@@ -13,7 +13,7 @@ Usage:
 Options:
     --yaml <datafile>  Path to the numerics.yaml file [default: _data/numerics.yaml].
 """
-__version__ = '0.0.1'
+__version__ = '0.1.0'
 
 import glob
 import re
