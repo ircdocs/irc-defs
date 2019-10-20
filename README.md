@@ -8,6 +8,7 @@ Pull requests to correct or update these lists are welcomed.
 
 Online Site: https://defs.ircdocs.horse/
 
+
 ## Available Pages
 
 * [Channel Member Prefixes](https://defs.ircdocs.horse/defs/chanmembers.html)
@@ -25,6 +26,7 @@ Online Site: https://defs.ircdocs.horse/
 * [STATS Characters](https://defs.ircdocs.horse/defs/stats.html)
 * [Message Tags](https://defs.ircdocs.horse/defs/tags.html)
 * [User Modes](https://defs.ircdocs.horse/defs/usermodes.html)
+
 
 ## Repo Structure
 
