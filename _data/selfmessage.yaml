@@ -22,7 +22,7 @@ page:
     extra: >
         <p>
             When a server sends a PRIVMSG/NOTICE to someone else on behalf of a client
-            connected to it – common when multiple clients are connected to a bouncer – it
+            connected to it - common when multiple clients are connected to a bouncer - it
             is called a self-message. With the <a href="http://ircv3.net/specs/extensions/echo-message-3.2.html"><tt>echo-message</tt></a>
             capability, they are also sent in reply to every PRIVMSG/NOTICE a client sends.
             These are represented by a protocol message looking like this:

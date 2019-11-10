@@ -157,9 +157,9 @@ values:
         origin: Hybrid
         comment: >
             User receives information about clients connecting/disconnecting
-        
+
         conflict: true
-    
+
     -
         char: c
         name: COMMON_CHANS
@@ -167,7 +167,7 @@ values:
         comment: >
             Other users must be in a common channel before being able to
             PRIVMSG this user.
-        
+
         conflict: true
 
     -
@@ -522,7 +522,7 @@ values:
         server_on: Y
         server_off: Y
         conflict: true
-    
+
     -
         char: S
         name: STRIPCOLOR

@@ -47,7 +47,7 @@ table:
             name: Char
             content: char
             classes: code
-    
+
         -
             name: Caret
             content: caret
@@ -87,7 +87,7 @@ values:
     client-support: 100%
     client-names: AdiIRC, BitchX, Hexchat, IceChat, Instantbird, IRCCloud, irssi, KiwiIRC, Konversation, KVIrc, The Lounge, mIRC, Quassel, WeeChat
     unique: true
-  
+
   - char: "0x04"
     caret: "^D"
     name: Hex Color
@@ -112,7 +112,7 @@ values:
     seealso: 0x16 (Reverse Color)
     unique: false
     obsolete: true
-  
+
   - char: "0x16"
     caret: "^V"
     name: Reverse Color
@@ -122,13 +122,13 @@ values:
     comment: mIRC doesn't do reverse color but forces the whole rest of the line to be dark-on-light, even if other color codes are given after this character.
     seealso: 0x12 (Reverse Color)
     unique: false
-  
+
   - char: "0x16"
     caret: "^V"
     name: Italics
     information: https://modern.ircdocs.horse/formatting.html#reverse-color--or-italics
     client-support: 0%
-    client-names: 
+    client-names:
     seealso: 0x1D (Italics)
     unique: false
     obsolete: true
@@ -146,9 +146,9 @@ values:
     name: Reset
     information: https://modern.ircdocs.horse/formatting.html#reset
     client-support:
-    client-names: 
+    client-names:
     unique: true
-  
+
   - char: "0x1D"
     caret: "^]"
     name: Italics

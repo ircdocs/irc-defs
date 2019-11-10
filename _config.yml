@@ -1,6 +1,13 @@
 title: IRC Definition Lists
+
 exclude:
+  - Gemfile
+  - LICENSE
   - README.md
+  - discover_numeric
   - vendor
+
 plugins:
   - jekyll-sitemap
+
+incremental: true

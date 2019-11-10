@@ -81,11 +81,11 @@ table:
 
 # The following format is used through-out this file. The first two fields
 # ('irc2char' and 'name') are mandatory, the others may or may not exist.
-# 
+#
 # The server_only field denotes whether or not the mode can be modified by
 # a server only. If it is not set, or set to 'no', then operators can
 # possibly modify them.
-# 
+#
 # The broadcast field specifies whether the mode is broadcast to other
 # servers on the network or not.
 

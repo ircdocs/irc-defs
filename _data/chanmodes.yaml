@@ -131,7 +131,7 @@ values:
             channel
 
         conflict: true
-    
+
     -
         char: A
         name: ALLOW_INVITE
@@ -145,7 +145,7 @@ values:
         origin: RFC1459
         parameter: n!u@h mask
         comment: Bans the specified mask from the channel
-    
+
     -
         char: B
         name: BLOCKCAPS
@@ -176,7 +176,7 @@ values:
         name: NO_CTCP
         origin: Unreal
         comment: Stops people from sending CTCP commands to the channel
-    
+
     -
         char: d
         name: DELAYMSG
@@ -272,7 +272,7 @@ values:
 
         conflict: true
         seealso: FORWARD
-    
+
     -
         char: F
         name: NICKFLOOD
@@ -366,7 +366,7 @@ values:
             seconds with an initial burst and limit value of 'limit' users
 
         conflict: true
-    
+
     -
         char: J
         name: KICK_NOREJOIN
@@ -740,7 +740,7 @@ values:
         name: NO_INVITE
         origin: Unreal
         comment: Stop channel members inviting people
-    
+
     -
         char: w
         name: AUTO_OP
@@ -749,7 +749,7 @@ values:
         comment: >
             Users that match the given mask will have the given modes when they
             join the channel.
-    
+
     -
         char: X
         name: EXEMPT_CHANOPS
@@ -758,7 +758,7 @@ values:
         comment: >
             Lets users who have the given permission flag (or above) bypass
             certain restrictions
-    
+
     -
         char: "y"
         name: OPER_PREFIX
@@ -766,7 +766,7 @@ values:
         comment: >
             Marks a user as an oper in the channel with a defined prefix in
             front of their nick.
-    
+
     -
         char: "Y"
         name: OJOIN
@@ -793,7 +793,7 @@ values:
             Messages blocked by +m, +b, and +q are instead sent to ops
 
         conflict: true
-    
+
     -
         char: Z
         name: NAMED_MODES

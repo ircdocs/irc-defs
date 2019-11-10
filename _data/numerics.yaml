@@ -1034,8 +1034,8 @@ values:
         format: "<nick> :has client certificate fingerprint <fingerprint>"
         comment: >
             Shows the SSL/TLS certificate fingerprint used by the client with
-            the given nickname. Only sent when users <code>WHOIS</code>
-            themselves or when an operator sends the <code>WHOIS</code>. Also
+            the given nickname. Only sent when users `"WHOIS"`
+            themselves or when an operator sends the `"WHOIS"`. Also
             adopted by hybrid 8.1 and charybdis 3.2
 
         conflict: true
@@ -1927,7 +1927,7 @@ values:
         origin: Charybdis
         comment: >
             Defined in header file, but never used. Initially introduced in
-            charybdis 2.1 behind <code>#if 0</code>, with the other side using
+            charybdis 2.1 behind `"#if 0"`, with the other side using
             RPL_WHOISACTUALLY
 
         obsolete: true
@@ -3692,14 +3692,14 @@ values:
         numeric: "598"
         origin: Unreal
         comment: >
-            Used when adding users to their <code>WATCH</code> list.
+            Used when adding users to their `"WATCH"` list.
 
     -
         name: RPL_NOTAWAY
         numeric: "599"
         origin: Unreal
         comment: >
-            Used when adding users to their <code>WATCH</code> list.
+            Used when adding users to their `"WATCH"` list.
 
     -
         name: RPL_LOGON
@@ -3752,7 +3752,7 @@ values:
         numeric: "609"
         origin: Unreal
         comment: >
-            Returned when adding users to their <code>WATCH</code> list.
+            Returned when adding users to their `"WATCH"` list.
 
     -
         name: RPL_MAPMORE
@@ -4015,7 +4015,7 @@ values:
         comment: >
             Used to display the user's TS6 UID in WHOIS.
 
-    -   
+    -
         name: ERR_REDIRECT
         numeric: "690"
         origin: InspIRCd
@@ -4023,7 +4023,7 @@ values:
         comment: >
             Indicates an error when setting a channel redirect (MODE +L)
             or using the banredirect module
-            
+
 
     -
         name: ERR_STARTTLS
@@ -4416,7 +4416,7 @@ values:
         origin: InspIRCd?
         comment: >
             Defined in the Charybdis source code with the comment
-            <code>/* inspircd */</code>
+            `"/* inspircd */"`
 
     -
         name: RPL_SCANMATCHED

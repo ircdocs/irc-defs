@@ -64,7 +64,7 @@ table:
 
 # The following format is used through-out this file. The fields 'name' and
 # 'prefixchar' are mandatory, the others may or may not exist.
-# 
+#
 # The 'clientcreate' field determines whether or not a normal client may
 # create a channel of that type. If it's set to no, then the channel must
 # be created some other way (such as a service, server, or even an operator).

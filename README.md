@@ -2,12 +2,11 @@
 
 These are IRC definition lists. Things like lists of IRC numerics, channel modes, user modes and other things that are implemented in various bits of IRC software.
 
-Base data was taken from [alien.net.au](https://www.alien.net.au/irc/), converted to YAML via the tools in the `_legacy_data` folder and adapted for use with the [Jekyll](https://jekyllrb.com/) static site generator (used by Github Pages).
+Base data was taken from [alien.net.au](https://www.alien.net.au/irc/), converted to YAML via the tools in the `_legacy_data/` folder and adapted for use with the [Jekyll](https://jekyllrb.com/) static site generator (used by Github Pages).
 
 Pull requests to correct or update these lists are welcomed.
 
 Online Site: https://defs.ircdocs.horse/
-
 
 ## Available Pages
 
@@ -26,7 +25,6 @@ Online Site: https://defs.ircdocs.horse/
 * [STATS Characters](https://defs.ircdocs.horse/defs/stats.html)
 * [Message Tags](https://defs.ircdocs.horse/defs/tags.html)
 * [User Modes](https://defs.ircdocs.horse/defs/usermodes.html)
-
 
 ## Repo Structure
 
@@ -52,7 +50,7 @@ Given that this is a Jekyll site, there's a very particular way this repo is lai
 * `_includes/` - contains Jekyll HTML includes;
   * `table.html` - this is the main data-table printer, outputs based on the content of the YAML data files;
 * `_layouts/` - contains Jekyll HTML layouts;
-* `_legacy_data` - contains the original data files from [alient.net.au](https://www.alien.net.au/irc/), which we used, along with our original conversion script;
+* `_legacy_data/` - contains the original data files from [alient.net.au](https://www.alien.net.au/irc/), which we used, along with our original conversion script;
 * `defs/` - contains the front-end HTML for each definitions page;
 * `discover_numerics` - script to discover numerics for various IRC servers from their source repo.
 
@@ -69,13 +67,13 @@ The following license information is from the [alien.net.au](https://www.alien.n
 You may be interested in using the definition files in your own project;
 There are no license restrictions, other than to retain the copyright information.
 ```
-Copyright information is listed in the specific converted spec files in the `_data` folder (as in the original `.def` files downloaded from [alien.net.au](https://www.alien.net.au/irc/)).
+Copyright information is listed in the specific converted spec files in the `_data/` folder (as in the original `.def` files downloaded from [alien.net.au](https://www.alien.net.au/irc/)).
 
 ## Discovering Numerics
 
-I've written a script called `discover_numerics` that helps me search for numerics that aren't currently listed in our list. It's helpful to use this to search new releases of ircd-hybrid, inspircd, charybrid, unrealircd, etc.
+I've written a script called `discover_numerics` that helps me search for numerics that aren't currently listed in our list. It's helpful to use this to search new releases of ircd-hybrid, inspircd, charybdis, unrealircd, etc.
 
-It requires the `pyyaml` and `docopt` modules and uses `python3`. To install the required modules, install `python3`, then run:
+It requires the `pyyaml` and `docopt` python modules. To install the required modules, install `python3-pip`, then run:
 ```
 pip3 install pyyaml docopt
 ```
