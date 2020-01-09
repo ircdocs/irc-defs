@@ -249,6 +249,18 @@ values:
             - "ELIST=CMNTU"
 
     -
+        name: ESILENCE
+        format: "ESILENCE=[flags]"
+        information: "https://docs.inspircd.org/3/modules/silence/#commands"
+        comment: >
+            Indicates that the server supports filtering extensions to the `"SILENCE"` command.
+            If a value is specified then it contains the supported filter flags.
+
+        examples:
+            - "ESILENCE"
+            - "ESILENCE=CcdiNnPpTtx"
+
+    -
         name: ETRACE
         format: "ETRACE"
         origin: ircd-ratbox
