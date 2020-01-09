@@ -775,11 +775,23 @@ values:
         name: VBANLIST
         format: "VBANLIST"
         comment: >
-            Indicates that banlist sizes may vary from channel to channel.
-            Used by InspIRCd only, always present.
+            Indicates that list mode sizes may vary from channel to channel.
+            Used by InspIRCd only, always present before v3.4.0, removed in v4.
 
         examples:
             - "VBANLIST"
+
+        obsolete: true
+
+    -
+        name: VLIST
+        format: "VLIST=<modes>"
+        comment: >
+            Indicates that the specified list modes may be larger than the value specified in MAXLIST.
+            Used by InspIRCd v3.4.0+.
+
+        examples:
+            - "VLIST=be"
 
     -
         name: WALLCHOPS
