@@ -249,6 +249,18 @@ values:
             - "ELIST=CMNTU"
 
     -
+        name: ESILENCE
+        format: "ESILENCE=[flags]"
+        information: "https://docs.inspircd.org/3/modules/silence/#commands"
+        comment: >
+            Indicates that the server supports filtering extensions to the `"SILENCE"` command.
+            If a value is specified then it contains the supported filter flags.
+
+        examples:
+            - "ESILENCE"
+            - "ESILENCE=CcdiNnPpTtx"
+
+    -
         name: ETRACE
         format: "ETRACE"
         origin: ircd-ratbox
@@ -775,11 +787,23 @@ values:
         name: VBANLIST
         format: "VBANLIST"
         comment: >
-            Indicates that banlist sizes may vary from channel to channel.
-            Used by InspIRCd only, always present.
+            Indicates that list mode sizes may vary from channel to channel.
+            Used by InspIRCd only, always present before v3.4.0, removed in v4.
 
         examples:
             - "VBANLIST"
+
+        obsolete: true
+
+    -
+        name: VLIST
+        format: "VLIST=<modes>"
+        comment: >
+            Indicates that the specified list modes may be larger than the value specified in MAXLIST.
+            Used by InspIRCd v3.4.0+.
+
+        examples:
+            - "VLIST=be"
 
     -
         name: WALLCHOPS
