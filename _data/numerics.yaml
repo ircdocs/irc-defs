@@ -4317,7 +4317,7 @@ values:
         name: RPL_QUIETLIST
         numeric: "728"
         origin: Charybdis
-        format: "<client> <channel> <banid> q [<time_left> :<reason>]"
+        format: "<client> <channel> q <banid> [<time_left> :<reason>]"
         comment: >
             Same thing as RPL_BANLIST, but for mode +q (quiet)
 
