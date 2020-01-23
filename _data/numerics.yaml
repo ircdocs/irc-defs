@@ -4771,6 +4771,20 @@ values:
         comment: "Used by InspIRCd's m_silence module."
 
     -
+        name: RPL_EXEMPTIONLIST
+        numeric: "954"
+        origin: InspIRCd
+        format: "<client> <channel> <exception> <who> :<set-ts>"
+        comment: "Used by InspIRCd's m_exemptchanop module."
+
+    -
+        name: RPL_ENDOFEXEMPTIONLIST
+        numeric: "953"
+        origin: InspIRCd
+        format: "<client> <channel> :End of channel exemptchanops list"
+        comment: "Used by InspIRCd's m_exemptchanop module."
+
+    -
         name: RPL_ENDOFPROPLIST
         numeric: "960"
         origin: InspIRCd
