@@ -114,7 +114,7 @@ values:
         format: "<client> :Your host is <servername>, running version <version>"
         comment: >
             Part of the post-registration greeting. Text varies widely. Also
-            known as RPL_YOURHOSTIS (InspIRCd)
+            known as RPL_YOURHOSTIS (InspIRCd v2)
 
     -
         name: RPL_CREATED
@@ -124,7 +124,7 @@ values:
         comment: >
             Part of the post-registration greeting. Text varies widely and
             <date> is returned in a human-readable format. Also known as
-            RPL_SERVERCREATED (InspIRCd)
+            RPL_SERVERCREATED (InspIRCd v2)
 
     -
         name: RPL_MYINFO
@@ -133,7 +133,7 @@ values:
         format: "<client> <server_name> <version> <usermodes> <chanmodes> [chanmodes_with_a_parameter]"
         comment: >
             Part of the post-registration greeting. Also known as
-            RPL_SERVERVERSION (InspIRCd)
+            RPL_SERVERVERSION (InspIRCd v2)
 
     -
         name: RPL_BOUNCE
@@ -1768,8 +1768,8 @@ values:
         numeric: "344"
         origin: InspIRCd 2.0
         format: "<client> <nick> :is connected from <country> <country code>"
-        comment: "Used by InspIRCd's m_geoip module."
-        conflict: true
+        comment: "Used by the third-party m_geoipban InspIRCd module."
+        obsolete: true
 
     -
         name: RPL_WHOISCOUNTRY
@@ -4669,6 +4669,20 @@ values:
             contains a comma-separated list of mechanisms
 
     -
+        name: RPL_ACCESSLIST
+        numeric: "910"
+        origin: InspIRCd
+        format: "<client> <channel> <status>:<mask> <who> <set-ts>"
+        comment: "Used by InspIRCd's m_autoop module."
+
+    -
+        name: RPL_ENDOFACCESSLIST
+        numeric: "911"
+        origin: InspIRCd
+        format: "<client> <channel> :End of channel access list"
+        comment: "Used by InspIRCd's m_autoop module."
+
+    -
         name: ERR_BADCHANNEL
         numeric: "926"
         origin: InspIRCd
@@ -4706,6 +4720,20 @@ values:
         format: "<client> <chan> :Channel spamfilter list is full"
         comment: "Used by InspIRCd's m_chanfilter module. Replaced with ERR_BANLISTFULL in 3.0."
         obsolete: true
+
+    -
+        name: RPL_ENDOFSPAMFILTER
+        numeric: "940"
+        origin: InspIRCd
+        format: "<client> <channel> :End of channel spamfilter list"
+        comment: "Used by InspIRCd's m_chanfilter module."
+
+    -
+        name: RPL_SPAMFILTER
+        numeric: "941"
+        origin: InspIRCd
+        format: "<client> <channel> <filter> <who> <set-ts>"
+        comment: "Used by InspIRCd's m_chanfilter module."
 
     -
         name: ERR_INVALIDWATCHNICK
@@ -4764,24 +4792,24 @@ values:
         comment: "Used by InspIRCd's m_silence module."
 
     -
-        name: ERR_NOTSILENCED
+        name: ERR_SILENCE
         numeric: "952"
         origin: InspIRCd
-        format: "<client> <nick> :<reason>"
-        comment: "Used by InspIRCd's m_silence module."
-
-    -
-        name: RPL_EXEMPTIONLIST
-        numeric: "954"
-        origin: InspIRCd
-        format: "<client> <channel> <exception> <who> :<set-ts>"
-        comment: "Used by InspIRCd's m_exemptchanop module."
+        format: "<client> <mask> [<flags>] :<reason>"
+        comment: "Used by InspIRCd's m_silence module. The flags field was added in v3."
 
     -
         name: RPL_ENDOFEXEMPTIONLIST
         numeric: "953"
         origin: InspIRCd
         format: "<client> <channel> :End of channel exemptchanops list"
+        comment: "Used by InspIRCd's m_exemptchanop module."
+
+    -
+        name: RPL_EXEMPTIONLIST
+        numeric: "954"
+        origin: InspIRCd
+        format: "<client> <channel> <exception> <who> :<set-ts>"
         comment: "Used by InspIRCd's m_exemptchanop module."
 
     -
