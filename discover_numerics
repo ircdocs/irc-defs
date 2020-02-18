@@ -6,12 +6,13 @@ this will discover which numerics exist in that file but do not exist in our
 numerics list.
 
 Usage:
-    discover_numerics search <numeric.h>... [--yaml <datafile>]
-    discover_numerics search-dir <directory> [--yaml <datafile>]
+    discover_numerics search <numeric.h>... [--pedantic] [--yaml <datafile>]
+    discover_numerics search-dir <directory> [--pedantic] [--yaml <datafile>]
     discover_numerics (-h | --help)
 
 Options:
-    --yaml <datafile>  Path to the numerics.yaml file [default: _data/numerics.yaml].
+    --pedantic         Complain about more things than usual
+    --yaml <datafile>  Path to the numerics.yaml file [default: _data/numerics.yaml]
 """
 __version__ = '0.1.0'
 
@@ -52,6 +53,7 @@ if __name__ == '__main__':
                     numeric = numeric.zfill(3)
 
                     found = False
+                    stdname = None
 
                     for val in data['values']:
                         if name:
@@ -59,11 +61,20 @@ if __name__ == '__main__':
                                 found = True
                             elif val['numeric'] == numeric and name in val.get('comment', ''):
                                 found = True
+                                stdname = val['name']
                         else:
                             # if there's no name we can only check by numeric, dodgy but it's all we can do.
                             if val['numeric'] == numeric:
                                 found = True
                                 name = "None supplied"
+                                stdname = val['name']
 
                     if not found:
                         print('Could not find numeric: {name} ({numeric}): {file}'.format(name=name, numeric=numeric, file=numerics_filename))
+
+                    elif arguments['--pedantic']:
+                        if not name:
+                            print('{stdname} ({numeric}) is being used without a name: {file}'.format(stdname=stdname, numeric=numeric, file=numerics_filename))
+
+                        elif stdname:
+                            print('{stdname} ({numeric}) is being used with a non-standard name ({name}): {file}'.format(stdname=stdname, numeric=numeric, name=name, file=numerics_filename))
