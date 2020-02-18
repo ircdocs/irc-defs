@@ -66,11 +66,14 @@ if __name__ == '__main__':
                             # if there's no name we can only check by numeric, dodgy but it's all we can do.
                             if val['numeric'] == numeric:
                                 found = True
-                                name = "None supplied"
                                 stdname = val['name']
 
                     if not found:
-                        print('Could not find numeric: {name} ({numeric}): {file}'.format(name=name, numeric=numeric, file=numerics_filename))
+                        if name:
+                            print('Could not find numeric {name} ({numeric}): {file}'.format(name=name, numeric=numeric, file=numerics_filename))
+                        else:
+                            print('Could not find numeric {numeric}: {file}'.format(numeric=numeric, file=numerics_filename))
+
 
                     elif arguments['--pedantic']:
                         if not name:
