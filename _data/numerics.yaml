@@ -1031,7 +1031,7 @@ values:
         name: RPL_WHOISCERTFP
         numeric: "276"
         origin: oftc-hybrid
-        format: "<nick> :has client certificate fingerprint <fingerprint>"
+        format: "<client> <nick> :has client certificate fingerprint <fingerprint>"
         comment: >
             Shows the SSL/TLS certificate fingerprint used by the client with
             the given nickname. Only sent when users `"WHOIS"`
