@@ -719,11 +719,15 @@ values:
         name: RPL_STATSOLINE
         numeric: "243"
         origin: RFC1459
-        format: "<client> O <hostmask> * <nick> [:<info>]"
+        format: "<client> O <hostmask> * <opername> [<privileges>] <class>"
         comment: >
-            Reply to STATS (See RFC); The info field is an extension found
-            in some IRC daemons, which returns info such as an e-mail
-            address or the name/job of an operator
+            Reply to STATS O (See RFC); The privileges field is an extension
+            in some IRC daemons, which returns either the name of a set of privileges,
+            or a set of privileges. The class extension field returns which
+            connection class the o-line applies to (this is also know to be
+            placeholders like "0" and "-1" when inapplicable.)
+            ircu doesn't have the privileges field and irc2 uses it to display
+            which port, if any, the oper is restricted to.
 
     -
         name: RPL_STATSHLINE
