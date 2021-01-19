@@ -4556,6 +4556,14 @@ values:
         comment: Termination of an RPL_XINFO list
 
     -
+        name: RPL_STATSCOUNTRY
+        numeric: "801"
+        origin: InspIRCd 3.0
+        contact: "https://github.com/inspircd/inspircd/blob/master/src/modules/m_geoclass.cpp"
+        format: "<count> <code> :<country>"
+        comment: Used by the m_geoclass module of InspIRCd.
+
+    -
         name: RPL_CHECK
         numeric: "802"
         origin: InspIRCd 3.0
