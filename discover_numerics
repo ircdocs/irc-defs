@@ -36,7 +36,7 @@ if __name__ == '__main__':
             files += glob.glob("{base}/**/*.{ext}".format(base=arguments['<directory>'], ext=ext), recursive=True)
 
     if files:
-        data = yaml.load(open(arguments['--yaml'], 'r').read())
+        data = yaml.safe_load(open(arguments['--yaml'], 'r').read())
 
         for numerics_filename in files:
             lines = None
