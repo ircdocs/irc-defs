@@ -472,7 +472,7 @@ values:
             Indicates the maximum number of parameters to any command.
 
             Used by InspIRCd only, where the default is 32, above the RFC
-            specified limit of 12. Other servers may have different limits
+            specified limit of 15. Other servers may have different limits
             without advertising this token.
 
         examples:
