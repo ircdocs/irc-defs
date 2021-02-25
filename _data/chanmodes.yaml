@@ -420,8 +420,8 @@ values:
         origin: Unreal
         parameter: <channel>
         comment: >
-            If the channel is +l, and the channel is full, users will be
-            redirected to the given channel
+            Forwards users cannot join a channel for some reason (+b, +i, +l,
+            +R, +z, ...), tothe given channel.
 
         conflict: true
 
