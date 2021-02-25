@@ -2890,6 +2890,12 @@ values:
         name: ERR_LINKCHANNEL
         numeric: "470"
         origin: Unreal
+        comment: >
+            Sent by a server to a user who tried to JOIN a channel, when they
+            are forwarded to a different channel because they could not join
+            the original one.
+            The target channel is usually configured with +f (eg. Charybdis)
+            or +L (eg. Unreal)
         conflict: true
 
     -
