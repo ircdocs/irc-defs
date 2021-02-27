@@ -92,6 +92,17 @@ values:
             - "AWAYLEN="
 
     -
+        name: BOT
+        format: "BOT=<letter>"
+        comment: >
+            Indicates the character to be used as a user mode to let clients
+            mark themselves as bots by setting it
+
+        examples:
+            - "BOT=B"
+            - "BOT=b"
+
+    -
         name: CALLERID
         format: "CALLERID[=letter]"
         information: "https://github.com/ircd-hybrid/ircd-hybrid/blob/master/doc/modeg.txt"
