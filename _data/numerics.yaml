@@ -13,7 +13,7 @@
 
 file:
     type: "numerics"
-    revision: "1.62"
+    revision: "1.63"
 
 # The following information is used to create pretty HTML page and tables
 
@@ -3150,19 +3150,7 @@ values:
         name: ERR_NONONREG
         numeric: "486"
         origin: Unreal?
-        conflict: true
-
-    -
-        name: ERR_HTMDISABLED
-        numeric: "486"
-        origin: Unreal
-        conflict: true
-        comment: "Unreal 3.2 uses 488 as the ERR_HTMDISABLED numeric instead"
-
-    -
-        name: ERR_ACCOUNTONLY
-        numeric: "486"
-        origin: QuakeNet
+        comment: Also known as ERR_ACCOUNTONLY.
         conflict: true
 
     -
@@ -3170,6 +3158,13 @@ values:
         numeric: "486"
         origin: rusnet-ircd
         conflict: true
+
+    -
+        name: ERR_HTMDISABLED
+        numeric: "486"
+        origin: Unreal
+        obsolete: true
+        comment: "Unreal 3.2 uses 488 as the ERR_HTMDISABLED numeric instead"
 
     -
         name: ERR_CHANTOORECENT
