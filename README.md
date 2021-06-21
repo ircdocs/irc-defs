@@ -16,7 +16,7 @@ Online Site: https://defs.ircdocs.horse/
 * [Client Capabilities](https://defs.ircdocs.horse/defs/clientcaps.html)
 * [CTCP Messages](https://defs.ircdocs.horse/defs/ctcp.html)
 * [Extended Bans](https://defs.ircdocs.horse/defs/extban.html)
-* [Formatting Characters](https://defs.ircdocs.horse/defs/formatting.html)
+* [Formatting Characters](https://defs.ircdocs.horse/info/formatting.html)
 * [RPL_ISUPPORT Tokens](https://defs.ircdocs.horse/defs/isupport.html)
 * [Numerics](https://defs.ircdocs.horse/defs/numerics.html)
 * [self-message](https://defs.ircdocs.horse/defs/selfmessage.html)
