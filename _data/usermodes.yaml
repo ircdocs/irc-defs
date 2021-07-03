@@ -326,7 +326,7 @@ values:
         origin: Unreal
         comment: >
             User is invisible when joining/parting channels. This is
-            supposedly obsolete as of UnrealIRCd 3.2 beta 16
+            obsolete as of UnrealIRCd 3.2 beta 16
 
         obsolete: true
         conflict: true
