@@ -330,7 +330,7 @@ values:
             +H for HISTORY (see above)
 
         conflict: true
-        obsolute: true
+        obsolete: true
 
     -
         char: i
