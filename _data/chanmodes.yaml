@@ -321,12 +321,16 @@ values:
     -
         char: H
         name: NO_HIDING
-        origin: Unreal
+        origin: 3rd-party Unreal
         comment: >
             When set, this stops users set umode +I (INVISIBLE_JOINPART)
-            from being able to join or part a channel secretly
+            from being able to join or part a channel secretly.
+            This mode was only implemented by an old and unpopular
+            third-party Unreal module. Starting with v3.2, Unreal uses
+            +H for HISTORY (see above)
 
         conflict: true
+        obsolete: true
 
     -
         char: i
