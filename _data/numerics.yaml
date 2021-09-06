@@ -1979,9 +1979,9 @@ values:
         name: RPL_BANLIST
         numeric: "367"
         origin: RFC1459
-        format: "<client> <channel> <banid> [<time_left> :<reason>]"
+        format: "<client> <channel> <banid> [[<setter> <time_left>|<time_left> :<reason>]]"
         comment: >
-            A ban-list item (See RFC); <time left> and <reason> are
+            A ban-list item (See RFC); <setter>, <time left> and <reason> are
             additions used by various servers.
 
     -
