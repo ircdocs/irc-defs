@@ -4139,14 +4139,14 @@ values:
         name: RPL_ETRACEFULL
         numeric: "708"
         origin: RatBox
-        format: "<?> <?> <?> <?> <?> <?> <?> :<?>"
+        format: "<client> <Oper|User> <class> <nick> <username> <host> <ip> :<capabilities>"
         comment: Output from 'extended' trace
 
     -
         name: RPL_ETRACE
         numeric: "709"
         origin: RatBox
-        format: "<?> <?> <?> <?> <?> <?> :<?>"
+        format: "<client> <Oper|User> <?> <nick> <username> <host> :<ip>"
         comment: Output from 'extended' trace
 
     -
