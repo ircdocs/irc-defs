@@ -130,7 +130,7 @@ values:
         name: RPL_MYINFO
         numeric: "004"
         origin: RFC2812
-        format: "<client> <server_name> <version> <usermodes> <chanmodes> [chanmodes_with_a_parameter]"
+        format: "<client> <server_name>-<version> <usermodes> <chanmodes> [chanmodes_with_a_parameter]"
         comment: >
             Part of the post-registration greeting. Also known as
             RPL_SERVERVERSION (InspIRCd v2)
