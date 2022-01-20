@@ -1409,7 +1409,7 @@ values:
     -
         name: RPL_WHOISSERVICE
         numeric: "309"
-        origin: Hybrid
+        origin: oftc-hybrid
         comment: Reply to WHOIS - Client is a Network Service
         conflict: true
 
