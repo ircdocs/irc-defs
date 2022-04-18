@@ -1407,6 +1407,13 @@ values:
         conflict: true
 
     -
+        name: RPL_WHOISSERVICE
+        numeric: "309"
+        origin: oftc-hybrid
+        comment: Reply to WHOIS - Client is a Network Service
+        conflict: true
+
+    -
         name: RPL_WHOISSVCMSG
         numeric: "310"
         origin: Bahamut
