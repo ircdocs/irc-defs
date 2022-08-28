@@ -390,14 +390,13 @@ values:
             limit for `"LINELEN"`.
 
             An alternative to this token is the [oragono.io/maxline-2 capability](https://oragono.io/maxline-2),
-            though that has now also been deprecated.
+            though that has now been deprecated.
 
         examples:
             - "LINELEN=512"
             - "LINELEN=2048"
 
         proposed: true
-        obsolete: true
 
     -
         name: MAP
