@@ -3621,7 +3621,7 @@ values:
         obsolete: true
 
     -
-        name: ERR_CANTSENDTOUSER
+        name: ERR_CANNOTSENDTOUSER
         numeric: "531"
         origin: InspIRCd
         format: "<client> <nick> :You are not permitted to send private messages to this user"
