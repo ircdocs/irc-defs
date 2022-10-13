@@ -113,8 +113,7 @@ values:
         origin: RFC2812
         format: "<client> :Your host is <servername>, running version <version>"
         comment: >
-            Part of the post-registration greeting. Text varies widely. Also
-            known as RPL_YOURHOSTIS (InspIRCd v2)
+            Part of the post-registration greeting. Text varies widely.
 
     -
         name: RPL_CREATED
@@ -123,8 +122,7 @@ values:
         format: "<client> :This server was created <date>"
         comment: >
             Part of the post-registration greeting. Text varies widely and
-            <date> is returned in a human-readable format. Also known as
-            RPL_SERVERCREATED (InspIRCd v2)
+            <date> is returned in a human-readable format.
 
     -
         name: RPL_MYINFO
@@ -132,8 +130,7 @@ values:
         origin: RFC2812
         format: "<client> <server_name> <version> <usermodes> <chanmodes> [chanmodes_with_a_parameter]"
         comment: >
-            Part of the post-registration greeting. Also known as
-            RPL_SERVERVERSION (InspIRCd v2)
+            Part of the post-registration greeting.
 
     -
         name: RPL_BOUNCE
@@ -258,8 +255,6 @@ values:
         name: RPL_YOURID
         numeric: "042"
         origin: IRCnet
-        comment: >
-            Also known as RPL_YOURUUID (InspIRCd)
 
     -
         name: RPL_SAVENICK
@@ -1635,8 +1630,7 @@ values:
         origin: RFC1459
         format: "<client> <channel> :<topic>"
         comment: >
-            Response to TOPIC with the set topic. Also known as
-            RPL_TOPICSET (InspIRCd)
+            Response to TOPIC with the set topic.
 
     -
         name: RPL_TOPICWHOTIME
@@ -2421,7 +2415,7 @@ values:
         comment: >
             Returned when a client sends a CAP subcommand which is invalid
             or otherwise issues an invalid CAP command. Also known as
-            ERR_INVALIDCAPSUBCOMMAND (InspIRCd) or ERR_UNKNOWNCAPCMD (ircu)
+            ERR_UNKNOWNCAPCMD (ircu)
 
     -
         name: ERR_NORECIPIENT
@@ -3271,8 +3265,7 @@ values:
         comment: >
             Notifies the user that a message they have sent to a channel has
             been rejected as it contains CTCPs, and they cannot send messages
-            containing CTCPs to this channel. Also known as ERR_NOCTCPALLOWED
-            (InspIRCd).
+            containing CTCPs to this channel.
 
         conflict: true
 
