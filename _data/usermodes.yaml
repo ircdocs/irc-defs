@@ -404,7 +404,7 @@ values:
         char: O
         name: LOCAL_OPERATOR
         origin: RFC2812
-        comment: User is a server-wise or 'local' operator
+        comment: User is a server-wide or 'local' operator
 
     -
         char: O
