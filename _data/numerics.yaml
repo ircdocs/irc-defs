@@ -1799,6 +1799,24 @@ values:
         conflict: true
 
     -
+        name: RPL_QUIETLIST
+        numeric: "344"
+        origin: oftc-hybrid
+        format: "<client> <channel> <nick>!<user>@<host> <who> <when>"
+        comment: >
+            Same thing as RPL_BANLIST, but for mode +q (quiet).
+            Not to be confused with the more common RPL_QUIETLIST with numeric 728.
+
+    -
+        name: RPL_ENDOFQUIETLIST
+        numeric: "345"
+        origin: oftc-hybrid
+        format: "<client> <channel> :End of Channel Quiet List"
+        comment: >
+            Same thing as RPL_ENDOFBANLIST, but for mode +q (quiet).
+            Not to be confused with the more common RPL_ENDOFQUIETLIST with numeric 729.
+
+    -
         name: RPL_INVITED
         numeric: "345"
         origin: GameSurge
