@@ -1806,6 +1806,7 @@ values:
         comment: >
             Same thing as RPL_BANLIST, but for mode +q (quiet).
             Not to be confused with the more common RPL_QUIETLIST with numeric 728.
+        conflict: true
 
     -
         name: RPL_ENDOFQUIETLIST
@@ -1815,6 +1816,7 @@ values:
         comment: >
             Same thing as RPL_ENDOFBANLIST, but for mode +q (quiet).
             Not to be confused with the more common RPL_ENDOFQUIETLIST with numeric 729.
+        conflict: true
 
     -
         name: RPL_INVITED
@@ -4357,6 +4359,7 @@ values:
         format: "<client> <channel> q <banid> [<time_left> :<reason>]"
         comment: >
             Same thing as RPL_BANLIST, but for mode +q (quiet)
+        conflict: true
 
     -
         name: RPL_ISCAPTURED
@@ -4365,6 +4368,7 @@ values:
         format: "<client> <target> :Is Captured"
         comment: >
             Reply to the oper-only CAPTURE command
+        conflict: true
 
     -
         name: RPL_ENDOFQUIETLIST
@@ -4373,6 +4377,7 @@ values:
         format: "<client> <channel> q :<info>"
         comment: >
             Same thing as RPL_ENDOFBANLIST, but for mode +q (quiet)
+        conflict: true
 
     -
         name: RPL_ISUNCAPTURED
@@ -4381,6 +4386,7 @@ values:
         format: "<client> <target> :Is UnCaptured"
         comment: >
             Reply to the oper-only UNCAPTURE command
+        conflict: true
 
     -
         name: RPL_MONONLINE
