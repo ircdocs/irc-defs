@@ -246,7 +246,7 @@ values:
         name: FLOOD_LIMIT
         origin: Unreal
         information: >
-            http://www.vulnscan.org/UnrealIrcd/unreal32docs.html#feature_antiflood
+            https://www.unrealircd.org/docs/Channel_anti-flood_settings
 
         parameter: "<lines>:<seconds>"
         comment: Flood limiter
@@ -279,6 +279,17 @@ values:
         origin: InspIRCd
         parameter: "<num>:<sec>"
         comment: Only allow <num> nick changes per <sec> seconds, to stop spam.
+        conflict: true
+
+    -
+        char: F
+        name: FLOODPROT
+        origin: Unreal
+        information: >
+            https://www.unrealircd.org/docs/Channel_anti-flood_settings
+
+        parameter: "<name of profile>"
+        comment: Select a predefined anti-flood profile, e.g. '+F normal'
         conflict: true
 
     -
