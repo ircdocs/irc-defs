@@ -4359,12 +4359,28 @@ values:
             Same thing as RPL_BANLIST, but for mode +q (quiet)
 
     -
+        name: RPL_ISCAPTURED
+        numeric: "728"
+        origin: oftc-hybrid
+        format: "<client> <target> :Is Captured"
+        comment: >
+            Reply to the oper-only CAPTURE command
+
+    -
         name: RPL_ENDOFQUIETLIST
         numeric: "729"
         origin: Charybdis
         format: "<client> <channel> q :<info>"
         comment: >
             Same thing as RPL_ENDOFBANLIST, but for mode +q (quiet)
+
+    -
+        name: RPL_ISUNCAPTURED
+        numeric: "729"
+        origin: oftc-hybrid
+        format: "<client> <target> :Is UnCaptured"
+        comment: >
+            Reply to the oper-only UNCAPTURE command
 
     -
         name: RPL_MONONLINE
