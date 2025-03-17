@@ -336,6 +336,16 @@ values:
         obsolete: true
 
     -
+        name: HOSTLEN
+        format: "HOSTLEN=<number>"
+        comment: >
+            Indicates the maximum length of an hostname in octets.
+
+        examples:
+            - "HOSTLEN=63"
+            - "HOSTLEN=100"
+
+    -
         name: INVEX
         format: "INVEX[=letter]"
         information: "https://tools.ietf.org/html/draft-hardy-irc-isupport-00"
