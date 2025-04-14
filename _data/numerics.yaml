@@ -2465,6 +2465,16 @@ values:
             syntax
 
     -
+        name: ERR_MSGNEEDREGGEDNICK
+        numeric: "415"
+        origin: "Solanum, oftc-hybrid"
+        conflict: true
+        comment: >
+            Returned when an unregistered user sends a message to a 
+            channel that only accepts messages coming from users registered to 
+            services.
+
+    -
         name: ERR_TOOMANYMATCHES
         numeric: "416"
         origin: IRCnet
